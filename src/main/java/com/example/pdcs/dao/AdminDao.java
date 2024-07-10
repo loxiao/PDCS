@@ -20,5 +20,4 @@ public class AdminDao {
             return adminList;
         }
     }
-
 }
