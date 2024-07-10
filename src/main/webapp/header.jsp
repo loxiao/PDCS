@@ -8,12 +8,25 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>大学生海报设计竞赛系统</title>
     <link rel="stylesheet" href="css/main.css">
+    <style>
+        .title {
+            font-family: Arial, sans-serif; /* 使用Arial字体 */
+            font-size: 36px; /* 主标题字号 */
+            font-weight: bold; /* 加粗 */
+            color: white;/* 白色 */
+            text-align: left; /* 靠左对齐 */
+            margin-bottom: 20px; /* 底部留白 */
+        }
+    </style>
 </head>
 <body>
 <header>
-    <div class="logo"></div>
+    <div class="logo">
+        <img src="image/logo.jpg" width="100" height="100" class="mb-2">
+    </div>
+    <h1 class="title">大学生海报设计竞赛系统</h1>
     <ul class="nav-list flex">
         <li><a href="">首页</a></li>
         <li><a href="">登录/注册</a></li>
