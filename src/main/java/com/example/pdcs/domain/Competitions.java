@@ -2,14 +2,14 @@ package com.example.pdcs.domain;
 
 import java.util.Date;
 
-public class competitions {
+public class Competitions {
     private int CompetitionID;
     private String CompetitionName;
     private Date CompetitonDate;
     private Date RegistrationDeadline;
     private int CompetitionTypeID;
     private String CompetitionTypeName;
-    public competitions(){}
+    public Competitions(){}
 
     public int getCompetitionID() {
         return CompetitionID;

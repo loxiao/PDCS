@@ -1,6 +1,6 @@
 package com.example.pdcs.dao;
 
-import com.example.pdcs.domain.admin;
+import com.example.pdcs.domain.Admin;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -9,17 +9,17 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class adminDaoTest {
-    private adminDao adminDao;
+    private AdminDao adminDao;
     @BeforeEach
     public void init(){
-        adminDao=new adminDao();
+        adminDao=new AdminDao();
     }
 
     @Test
     void getadminlist() {
-        List<admin> adminDaoList=adminDao.getadminlist();
+        List<Admin> adminDaoList=adminDao.getadminlist();
         assertEquals(false,adminDaoList.isEmpty());
-        for(admin admins:adminDaoList){
+        for(Admin admins:adminDaoList){
             System.out.println(admins.getAdminID()+" "+admins.getAdminName());
         }
     }

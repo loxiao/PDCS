@@ -1,12 +1,12 @@
 package com.example.pdcs.domain;
 
-public class participant {
+public class Participant {
     private int participant_id;
     private String participant_name;
     private String participant_number;
     private String participant_psd;
     private String participant_address;
-    public participant(){}
+    public Participant(){}
 
     public int getParticipant_id() {
         return participant_id;
