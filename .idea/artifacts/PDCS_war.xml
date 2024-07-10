@@ -7,7 +7,7 @@
         <packaging>war</packaging>
       </options>
     </properties>
-    <root id="archive" name="Poster-1.0-SNAPSHOT.war">
+    <root id="archive" name="PDCS-1.0-SNAPSHOT.war">
       <element id="artifact" artifact-name="PDCS:war exploded" />
     </root>
   </artifact>
