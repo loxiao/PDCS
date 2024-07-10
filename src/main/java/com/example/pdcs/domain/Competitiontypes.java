@@ -1,9 +1,9 @@
 package com.example.pdcs.domain;
 
-public class competitiontypes {
+public class Competitiontypes {
     private int competitionTypeID;
     private String TypeName;
-    public competitiontypes(){}
+    public Competitiontypes(){}
 
     public int getCompetitionTypeID() {
         return competitionTypeID;

@@ -1,11 +1,11 @@
 package com.example.pdcs.domain;
 
-public class awards {
+public class Awards {
     private int AwardID;
     private int WorkID;
     private String AwardName;
     private int CompetitonID;
-    public awards(){}
+    public Awards(){}
     public int getAwardID() {
         return AwardID;
     }

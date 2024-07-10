@@ -1,13 +1,13 @@
 package com.example.pdcs.domain;
 
-public class teams {
+public class Teams {
     private int TeamID;
     private String TeamName;
     private int CaptainID;
     private int Member1ID;
     private int Member2ID;
     private int Member3ID;
-    public teams(){}
+    public Teams(){}
 
     public int getTeamID() {
         return TeamID;

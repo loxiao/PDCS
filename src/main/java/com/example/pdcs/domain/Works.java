@@ -1,6 +1,6 @@
 package com.example.pdcs.domain;
 
-public class works {
+public class Works {
     private int WorkID;
     private String WorkName;
     private int CompetitionID;
@@ -8,7 +8,7 @@ public class works {
     private int Likes;
     private String Comments;
     private String ImageURL;
-    public works(){}
+    public Works(){}
 
     public int getWorkID() {
         return WorkID;
