@@ -1,6 +1,6 @@
 package com.example.poster.dao;
 
-import com.example.poster.daomin.admin;
+import com.example.poster.domain.admin;
 import com.example.poster.util.JDBCUtils;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;

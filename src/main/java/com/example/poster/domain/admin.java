@@ -1,11 +1,11 @@
-package com.example.poster.daomin;
+package com.example.poster.domain;
 
 public class admin {
     private int AdminID;
     private String AdminName;
     private String AdminNumber;
     private String AdminPsd;
-public admin(){}
+    public admin(){}
     public String getAdminPsd() {
         return AdminPsd;
     }
