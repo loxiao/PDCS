@@ -1,7 +1,7 @@
-package com.example.poster.dao;
+package com.example.pdcs.dao;
 
-import com.example.poster.domain.admin;
-import com.example.poster.util.JDBCUtils;
+import com.example.pdcs.domain.admin;
+import com.example.pdcs.util.JDBCUtils;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 

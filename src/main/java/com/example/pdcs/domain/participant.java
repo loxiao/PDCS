@@ -1,4 +1,4 @@
-package com.example.poster.domain;
+package com.example.pdcs.domain;
 
 public class participant {
     private int participant_id;

@@ -1,6 +1,6 @@
-package com.example.poster.dao;
+package com.example.pdcs.dao;
 
-import com.example.poster.domain.admin;
+import com.example.pdcs.domain.admin;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

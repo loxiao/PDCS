@@ -1,4 +1,4 @@
-package com.example.poster.domain;
+package com.example.pdcs.domain;
 
 public class works {
     private int WorkID;
