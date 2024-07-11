@@ -1,10 +1,12 @@
 package com.example.pdcs.dao;
 
+import com.example.pdcs.domain.Competitions;
 import org.junit.jupiter.api.Test;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -22,5 +24,13 @@ class CompetitionsDaoTest {
         competitionsDao.add("海报比赛",sqlStartDate,sqlEndDate,1,"公益类","该比赛……",1,"为了……");
 
     }
-
+    @Test
+    void getall(){
+        List<Competitions> competitions=null;
+        competitions=competitionsDao.getCompetitionList();
+        assertEquals(false,competitions.isEmpty());
+        for(Competitions competitions1:competitions){
+            System.out.println(competitions1.getCompetitionName());
+        }
+    }
 }

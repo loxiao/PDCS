@@ -26,10 +26,37 @@ public class CompetitionsDao {
             return affectRows > 0;
         }
     }
-    public List<Competitions> getCompetitionList(){
+    public List<Competitions> getCompetitionList(){//获取所有的竞赛信息
         List<Competitions> competitionsArrayList=null;
-        String sql = "SELECT * FROM Competitions";
-        competitionsArrayList=template.query(sql, new BeanPropertyRowMapper<>(Competitions.class));
-        return competitionsArrayList;
+        try {
+            String sql = "SELECT * FROM Competitions";
+            competitionsArrayList=template.query(sql, new BeanPropertyRowMapper<>(Competitions.class));
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            return competitionsArrayList;
+        }
+
     }
+    public List<Competitions> getoldcompetition(){//获取已经结束的竞赛作为新闻
+        List<Competitions>competitionsList=null;
+        try {
+            String sql="SELECT *FROM competitions WHERE CompetitionDate <= CURDATE() ORDER BY CompetitionDate DESC LIMIT 10;";
+            competitionsList=template.query(sql,new BeanPropertyRowMapper<>(Competitions.class));
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            return competitionsList;
+        }
+    }
+    public List<Competitions> getnewcompetitions(){//获取截至报名前的竞赛作为新闻
+        List<Competitions> competitionsList=null;
+        try {
+            String sql="SELECT *FROM competitions WHERE RegistrationDeadline > CURDATE() ORDER BY RegistrationDeadline DESC LIMIT 10;";
+            competitionsList=template.query(sql,new BeanPropertyRowMapper<>(Competitions.class));
+        }finally {
+            return competitionsList;
+        }
+    }
+
 }
