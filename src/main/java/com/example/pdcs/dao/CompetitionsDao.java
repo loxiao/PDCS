@@ -1,9 +1,14 @@
 package com.example.pdcs.dao;
 
+import com.example.pdcs.domain.Competitions;
+import com.example.pdcs.domain.Participant;
 import com.example.pdcs.util.JDBCUtils;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
 
 public class CompetitionsDao {
 
@@ -20,5 +25,11 @@ public class CompetitionsDao {
         } finally {
             return affectRows > 0;
         }
+    }
+    public List<Competitions> getCompetitionList(){
+        List<Competitions> competitionsArrayList=null;
+        String sql = "SELECT * FROM Competitions";
+        competitionsArrayList=template.query(sql, new BeanPropertyRowMapper<>(Competitions.class));
+        return competitionsArrayList;
     }
 }

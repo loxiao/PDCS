@@ -22,4 +22,5 @@ class CompetitionsDaoTest {
         competitionsDao.add("海报比赛",sqlStartDate,sqlEndDate,1,"公益类","该比赛……",1,"为了……");
 
     }
+
 }
