@@ -5,9 +5,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.example</groupId>
-    <artifactId>Poster</artifactId>
+    <artifactId>PDCS</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>Poster</name>
+    <name>PDCS</name>
     <packaging>war</packaging>
 
     <properties>

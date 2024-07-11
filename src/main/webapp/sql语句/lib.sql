@@ -1,78 +1,142 @@
-CREATE DATABASE PDCS;
-USE PDCS;
+/*
+Navicat MySQL Data Transfer
+
+Source Server         : 1
+Source Server Version : 50717
+Source Host           : localhost:3306
+Source Database       : pdcs
+
+Target Server Type    : MYSQL
+Target Server Version : 50717
+File Encoding         : 65001
+
+Date: 2024-07-10 15:59:24
+*/
+
 SET FOREIGN_KEY_CHECKS=0;
 
+-- ----------------------------
+-- Table structure for admin
+-- ----------------------------
 DROP TABLE IF EXISTS `admin`;
 CREATE TABLE `admin` (
-                         `AdminID` INT(11) NOT NULL AUTO_INCREMENT,
-                         `AdminName` VARCHAR(255) NOT NULL,
-                         `AdminNumber` VARCHAR(255) NOT NULL,
-                         `AdminPsd` VARCHAR(255) NOT NULL,
+                         `AdminID` int(11) NOT NULL AUTO_INCREMENT,
+                         `AdminName` varchar(255) NOT NULL,
+                         `AdminNumber` varchar(255) NOT NULL,
+                         `AdminPsd` varchar(255) NOT NULL,
                          PRIMARY KEY (`AdminID`),
                          UNIQUE KEY `AdminNumber` (`AdminNumber`)
-) ENGINE=INNODB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
+-- ----------------------------
+-- Records of admin
+-- ----------------------------
+INSERT INTO `admin` VALUES ('1', 'Alice', 'admin@1234.com', '1234');
+INSERT INTO `admin` VALUES ('2', 'Bob', 'admin@1213.com', '1211');
+
+-- ----------------------------
+-- Table structure for awards
+-- ----------------------------
 DROP TABLE IF EXISTS `awards`;
 CREATE TABLE `awards` (
-                          `AwardID` INT(11) NOT NULL AUTO_INCREMENT,
-                          `WorkID` INT(11) NOT NULL,
-                          `AwardName` VARCHAR(255) NOT NULL,
-                          `CompetitionID` INT(11) NOT NULL,
-                          PRIMARY KEY (`AwardID`),
-                          KEY `WorkID` (`WorkID`),
-                          KEY `CompetitionID` (`CompetitionID`),
-                          CONSTRAINT `awards_ibfk_1` FOREIGN KEY (`WorkID`) REFERENCES `works` (`WorkID`),
-                          CONSTRAINT `awards_ibfk_2` FOREIGN KEY (`CompetitionID`) REFERENCES `competitions` (`CompetitionID`)
-) ENGINE=INNODB DEFAULT CHARSET=utf8;
+                          `AwardID` int(11) NOT NULL AUTO_INCREMENT,
+                          `WorkID` int(11) NOT NULL,
+                          `AwardName` varchar(255) NOT NULL,
+                          `CompetitionID` int(11) NOT NULL,
+                          `Winner1ID` int(11) NOT NULL,
+                          `Winner2ID` int(11) NOT NULL,
+                          `Winner3ID` int(11) NOT NULL,
+                          `Winner4ID` int(11) NOT NULL,
+                          PRIMARY KEY (`AwardID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+-- ----------------------------
+-- Records of awards
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for competitions
+-- ----------------------------
 DROP TABLE IF EXISTS `competitions`;
 CREATE TABLE `competitions` (
-                                `CompetitionID` INT(11) NOT NULL AUTO_INCREMENT,
-                                `CompetitionName` VARCHAR(255) NOT NULL,
-                                `CompetitionDate` DATE NOT NULL,
-                                `RegistrationDeadline` DATE NOT NULL,
-                                `CompetitionTypeID` INT(11) DEFAULT NULL,
-                                `CompetitionTypeName` VARCHAR(255) DEFAULT NULL,
+                                `CompetitionID` int(11) NOT NULL AUTO_INCREMENT,
+                                `CompetitionName` varchar(255) NOT NULL,
+                                `CompetitionDate` date NOT NULL,
+                                `RegistrationDeadline` date NOT NULL,
+                                `CompetitionTypeID` int(11) DEFAULT NULL,
+                                `CompetitionTypeName` varchar(255) DEFAULT NULL,
+                                `CompetitionDescription` text NOT NULL,
                                 PRIMARY KEY (`CompetitionID`),
                                 KEY `fk_competition_type` (`CompetitionTypeID`),
                                 CONSTRAINT `fk_competition_type` FOREIGN KEY (`CompetitionTypeID`) REFERENCES `competitiontypes` (`CompetitionTypeID`)
-) ENGINE=INNODB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+-- ----------------------------
+-- Records of competitions
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for competitiontypes
+-- ----------------------------
 DROP TABLE IF EXISTS `competitiontypes`;
 CREATE TABLE `competitiontypes` (
-                                    `CompetitionTypeID` INT(11) NOT NULL AUTO_INCREMENT,
-                                    `TypeName` VARCHAR(255) NOT NULL,
+                                    `CompetitionTypeID` int(11) NOT NULL AUTO_INCREMENT,
+                                    `TypeName` varchar(255) NOT NULL,
                                     PRIMARY KEY (`CompetitionTypeID`)
-) ENGINE=INNODB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+-- ----------------------------
+-- Records of competitiontypes
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for judges
+-- ----------------------------
 DROP TABLE IF EXISTS `judges`;
 CREATE TABLE `judges` (
-                          `JudgeID` INT(11) NOT NULL AUTO_INCREMENT,
-                          `JudgesName` VARCHAR(255) NOT NULL,
-                          `JudgesNumber` VARCHAR(255) NOT NULL,
-                          `JudgesPsd` VARCHAR(255) NOT NULL,
+                          `JudgeID` int(11) NOT NULL AUTO_INCREMENT,
+                          `JudgesName` varchar(255) NOT NULL,
+                          `JudgesNumber` varchar(255) NOT NULL,
+                          `JudgesPsd` varchar(255) NOT NULL,
                           PRIMARY KEY (`JudgeID`),
                           UNIQUE KEY `JudgesNumber` (`JudgesNumber`)
-) ENGINE=INNODB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
+-- ----------------------------
+-- Records of judges
+-- ----------------------------
+INSERT INTO `judges` VALUES ('1', 'Jhon', '1224.com', '1234');
+INSERT INTO `judges` VALUES ('2', 'Mike', '1432.com', '9879');
+
+-- ----------------------------
+-- Table structure for participant
+-- ----------------------------
 DROP TABLE IF EXISTS `participant`;
 CREATE TABLE `participant` (
-                               `participant_id` INT(11) NOT NULL AUTO_INCREMENT,
-                               `participant_name` VARCHAR(255) NOT NULL,
-                               `participant_number` VARCHAR(50) NOT NULL,
-                               `participant_psd` VARCHAR(50) NOT NULL,
-                               `participant_address` VARCHAR(255) NOT NULL,
+                               `participant_id` int(11) NOT NULL AUTO_INCREMENT,
+                               `participant_name` varchar(255) NOT NULL,
+                               `participant_number` varchar(50) NOT NULL,
+                               `participant_psd` varchar(50) NOT NULL,
+                               `participant_address` varchar(255) NOT NULL,
+                               `enter` int(11) DEFAULT NULL,
                                PRIMARY KEY (`participant_id`)
-) ENGINE=INNODB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+-- ----------------------------
+-- Records of participant
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for teams
+-- ----------------------------
 DROP TABLE IF EXISTS `teams`;
 CREATE TABLE `teams` (
-                         `TeamID` INT(11) NOT NULL AUTO_INCREMENT,
-                         `TeamName` VARCHAR(255) NOT NULL,
-                         `CaptainID` INT(11) NOT NULL,
-                         `Member1ID` INT(11) DEFAULT NULL,
-                         `Member2ID` INT(11) DEFAULT NULL,
-                         `Member3ID` INT(11) DEFAULT NULL,
+                         `TeamID` int(11) NOT NULL AUTO_INCREMENT,
+                         `TeamName` varchar(255) NOT NULL,
+                         `CaptainID` int(11) NOT NULL,
+                         `Member1ID` int(11) DEFAULT NULL,
+                         `Member2ID` int(11) DEFAULT NULL,
+                         `Member3ID` int(11) DEFAULT NULL,
                          PRIMARY KEY (`TeamID`),
                          KEY `CaptainID` (`CaptainID`),
                          KEY `Member1ID` (`Member1ID`),
@@ -82,22 +146,31 @@ CREATE TABLE `teams` (
                          CONSTRAINT `teams_ibfk_2` FOREIGN KEY (`Member1ID`) REFERENCES `participant` (`participant_id`),
                          CONSTRAINT `teams_ibfk_3` FOREIGN KEY (`Member2ID`) REFERENCES `participant` (`participant_id`),
                          CONSTRAINT `teams_ibfk_4` FOREIGN KEY (`Member3ID`) REFERENCES `participant` (`participant_id`)
-) ENGINE=INNODB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+-- ----------------------------
+-- Records of teams
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for works
+-- ----------------------------
 DROP TABLE IF EXISTS `works`;
 CREATE TABLE `works` (
-                         `WorkID` INT(11) NOT NULL AUTO_INCREMENT,
-                         `WorkName` VARCHAR(255) NOT NULL,
-                         `CompetitionID` INT(11) NOT NULL,
-                         `TeamID` INT(11) NOT NULL,
-                         `Likes` INT(11) DEFAULT '0',
-                         `Comments` TEXT,
-                         `ImageURL` VARCHAR(255) DEFAULT NULL,
+                         `WorkID` int(11) NOT NULL AUTO_INCREMENT,
+                         `WorkName` varchar(255) NOT NULL,
+                         `CompetitionID` int(11) NOT NULL,
+                         `TeamID` int(11) NOT NULL,
+                         `Likes` int(11) DEFAULT '0',
+                         `Comments` text,
+                         `ImageURL` varchar(255) DEFAULT NULL,
                          PRIMARY KEY (`WorkID`),
                          KEY `CompetitionID` (`CompetitionID`),
                          KEY `TeamID` (`TeamID`),
                          CONSTRAINT `works_ibfk_1` FOREIGN KEY (`CompetitionID`) REFERENCES `competitions` (`CompetitionID`),
                          CONSTRAINT `works_ibfk_2` FOREIGN KEY (`TeamID`) REFERENCES `teams` (`TeamID`)
-) ENGINE=INNODB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-
+-- ----------------------------
+-- Records of works
+-- ----------------------------

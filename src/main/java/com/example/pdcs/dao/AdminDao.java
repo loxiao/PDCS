@@ -20,5 +20,16 @@ public class AdminDao {
             return adminList;
         }
     }
+    public Admin getadmin(String Number,String pwd){
+        Admin admin=null;
+        try {
+            String sql="SELECT *FROM admin where AdminNumber=?and AdminPsd=?;";
+            admin=template.queryForObject(sql,new BeanPropertyRowMapper<>(Admin.class),Number,pwd);
+        } catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            return admin;
+        }
+    }
 
 }

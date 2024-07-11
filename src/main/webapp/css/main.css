@@ -1,0 +1,72 @@
+
+body {
+    background-color: #f9f9f9;
+}
+
+li {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.flex {
+    display: flex;
+}
+
+header {
+    background-color: #3f51b5;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+}
+
+.logo {
+    width: 100px;
+    height: 100px;
+    /*background-image: url('path/to/your/logo.png');*/
+    background-size: cover;
+    background-position: center;
+}
+
+.nav-list {
+    padding-right: 120px;
+}
+
+.nav-list li {
+    margin-right: 2rem;
+    font-size: 20px;
+}
+
+.nav-list a {
+    color: white;
+}
+
+footer {
+    text-align: center;
+    padding: 1rem 0;
+    margin-top: 2rem;
+    color: grey;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background-color: #cdcdcd;
+}
+
+.name {
+    margin-top: 2rem;
+    font-weight: bold;
+}
+
+.member {
+    padding: 0;
+    justify-content: center;
+}
+
+.member li {
+    margin: 0 0.5rem;
+}
