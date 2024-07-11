@@ -10,6 +10,7 @@ import java.util.List;
 
 public class JudgesDao {
     private JdbcTemplate template = new JdbcTemplate(JDBCUtils.getDataSource());
+    // 获取所有评委信息
     public List<Judges> getjuages(){
         List<Judges> judgesList=null;
         try{
@@ -21,6 +22,7 @@ public class JudgesDao {
             return judgesList;
         }
     }
+    // 根据编号和密码获取评委信息
     public Judges getbyidandpwd(String Number,String pwd){
         Judges judges=null;
         try {
@@ -32,7 +34,4 @@ public class JudgesDao {
             return judges;
         }
     }
-
-
-
 }

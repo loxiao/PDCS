@@ -1,4 +1,6 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<c:set var="ctx" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,22 +18,24 @@
             <!--注册表单-->
             <div class="panel_content">
                 <h1 class="panel_title"> 注册 </h1>
-                <form class="form">
+                <form class="form" action="${ctx}/RegServlet" method="post">
                     <label class="form_label" for="username">用户名</label>
                     <input class="form_input" type="text" id="username" name="username">
                     <label class="form_label" for="password">密码</label>
                     <input class="form_input " type="password" id="password" name="password">
                     <label class="form_label" for="email">邮箱</label>
                     <input class="form_input" type="text" id="email" name="email">
+                    <label class="form_label" for="address">地址</label>
+                    <input class="form_input" type="text" id="address" name="address">
                     <div class="msg">${msg}</div>
-                    <button class="form_btn" type="button" value="Submit">注册</button>
+                    <input class="form_btn" type="submit" value="注册">
                     <button class="form_toggle js-formToggle" type="button">Or, 登录</button>
                 </form>
             </div>
             <!--登录表单-->
             <div class="panel_content panel_content-overlay js-panel_content ">
                 <h1 class="panel_title"> 登录 </h1>
-                <form class="form">
+                <form class="form" action="${ctx}/LoginServlet" method="post">
                     <label class="form_label" for="emailIn">邮箱</label>
                     <input class="form_input" type="text" id="emailIn" name="email">
                     <label class="form_label" for="passwordIn">密码</label>
@@ -52,7 +56,7 @@
                             <label class="form_role-label" for="admin">管理员</label>
                         </div>
                     </div>
-                    <button class="form_btn" type="button" value="Submit">登录</button>
+                    <input class="form_btn" type="submit" value="登录">
                     <br>
                     <div class="msg">${msg}</div>
                     <button class="form_toggle js-formToggle" type="button">Or, 注册</button>
