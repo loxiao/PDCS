@@ -9,6 +9,7 @@ import java.util.List;
 
 public class AdminDao {
     private JdbcTemplate template = new JdbcTemplate(JDBCUtils.getDataSource());
+    // 获取所有管理员信息
     public List<Admin> getadminlist(){
         List<Admin> adminList=null;
         try {
@@ -20,6 +21,7 @@ public class AdminDao {
             return adminList;
         }
     }
+    // 根据编号和密码获取管理员信息
     public Admin getadmin(String Number,String pwd){
         Admin admin=null;
         try {

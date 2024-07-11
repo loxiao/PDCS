@@ -23,7 +23,7 @@ public class RegServlet extends HttpServlet {
                 response.sendRedirect("login.jsp");
             } else {
                 // 注册失败
-                request.setAttribute("msg", "注册失败，可能是因为编号已存在");
+                request.setAttribute("msg", "注册失败，可能是因为邮箱已存在");
                 request.getRequestDispatcher("register.jsp").forward(request, response);
             }
         } catch (Exception e) {
