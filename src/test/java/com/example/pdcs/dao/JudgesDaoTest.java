@@ -16,7 +16,7 @@ JudgesDao judgesDao;
         judgesDao=new JudgesDao();
     }
     @Test
-    void getadminlist() {
+    void getjudges() {
         List<Judges> judgesList=judgesDao.getjuages();
         assertEquals(false,judgesList.isEmpty());
         for(Judges judges:judgesList){
@@ -24,7 +24,7 @@ JudgesDao judgesDao;
         }
     }
     @Test
-    void  getadmin(){
+    void  getbyidandpwd(){
        Judges judges=judgesDao.getbyidandpwd("1224.com","1234");
         assertEquals("Jhon",judges.getJudgesName());
     }

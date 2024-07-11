@@ -12,7 +12,8 @@ File Encoding         : 65001
 
 Date: 2024-07-11 09:08:13
 */
-
+CREATE DATABASE PDCS;
+USE PDCS;
 SET FOREIGN_KEY_CHECKS=0;
 
 -- ----------------------------
