@@ -12,9 +12,9 @@ File Encoding         : 65001
 
 Date: 2024-07-11 09:49:18
 */
-
-SET
-FOREIGN_KEY_CHECKS=0;
+CREATE DATABASE PDCS;
+USE PDCS;
+SET FOREIGN_KEY_CHECKS=0;
 
 -- ----------------------------
 -- Table structure for admin
