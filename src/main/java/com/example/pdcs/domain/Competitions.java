@@ -9,7 +9,16 @@ public class Competitions {
     private Date RegistrationDeadline;
     private int CompetitionTypeID;
     private String CompetitionTypeName;
+    private String CompetitionDescription;
     public Competitions(){}
+
+    public String getCompetitionDescription() {
+        return CompetitionDescription;
+    }
+
+    public void setCompetitionDescription(String competitionDescription) {
+        CompetitionDescription = competitionDescription;
+    }
 
     public int getCompetitionID() {
         return CompetitionID;

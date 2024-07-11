@@ -8,7 +8,16 @@ public class Works {
     private int Likes;
     private String Comments;
     private String ImageURL;
+    private int Score;
     public Works(){}
+
+    public int getScore() {
+        return Score;
+    }
+
+    public void setScore(int score) {
+        Score = score;
+    }
 
     public int getWorkID() {
         return WorkID;

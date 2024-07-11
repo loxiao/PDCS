@@ -7,7 +7,16 @@ public class Teams {
     private int Member1ID;
     private int Member2ID;
     private int Member3ID;
+    private int CompetitionID;
     public Teams(){}
+
+    public int getCompetitionID() {
+        return CompetitionID;
+    }
+
+    public void setCompetitionID(int competitionID) {
+        CompetitionID = competitionID;
+    }
 
     public int getTeamID() {
         return TeamID;
