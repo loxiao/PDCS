@@ -30,8 +30,8 @@
     <ul class="nav-list flex">
         <li><a href="">首页</a></li>
         <li><a href="">登录/注册</a></li>
-        <li><a href="">赛事介绍 </a></li>
-        <li><a href="">赛事新闻 </a></li>
+        <li><a href="">消息 </a></li>
+        <li><a href="">个人中心 </a></li>
         <li><a href="">学生作品 </a></li>
     </ul>
 </header>

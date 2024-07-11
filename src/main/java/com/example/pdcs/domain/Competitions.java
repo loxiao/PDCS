@@ -10,7 +10,25 @@ public class Competitions {
     private int CompetitionTypeID;
     private String CompetitionTypeName;
     private String CompetitionDescription;
+    private int MaxParticipants;
+    private String Theme;
     public Competitions(){}
+
+    public String getTheme() {
+        return Theme;
+    }
+
+    public void setTheme(String theme) {
+        Theme = theme;
+    }
+
+    public int getMaxParticipants() {
+        return MaxParticipants;
+    }
+
+    public void setMaxParticipants(int maxParticipants) {
+        MaxParticipants = maxParticipants;
+    }
 
     public String getCompetitionDescription() {
         return CompetitionDescription;
