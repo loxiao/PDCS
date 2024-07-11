@@ -15,8 +15,8 @@
             font-family: Arial, sans-serif; /* 使用Arial字体 */
             font-size: 36px; /* 主标题字号 */
             font-weight: bold; /* 加粗 */
-            color: white;
-            text-align: left; /* 居中对齐 */
+            color: white;/* 白色 */
+            text-align: left; /* 靠左对齐 */
             margin-bottom: 20px; /* 底部留白 */
         }
     </style>
