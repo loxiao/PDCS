@@ -27,19 +27,27 @@ public class LoginServlet extends HttpServlet {
             Participant participant = participantDao.getbynumberandpwd(email, password);
             Admin admin = adminDao.getadmin(email, password);
             Judges judges = judgesDao.getbyidandpwd(email, password);
+            if(role == null){
+                // 登录失败
+                request.setAttribute("msg", "登录失败，未选择身份");
+                request.getRequestDispatcher("login.jsp").forward(request, response);
+            }
             // 登录成功，根据角色重定向到相应页面
             HttpSession session = request.getSession();
             session.setAttribute("role", role);
 
             if (participant != null && "participant".equals(role)) {
                 session.setAttribute("participant", participant);
-                response.sendRedirect("participantPage.jsp");
+                session.setAttribute("name",participant.getParticipant_name());
+                response.sendRedirect("index.jsp");
             } else if (judges != null && "judge".equals(role)) {
                 session.setAttribute("judges", judges);
-                response.sendRedirect("judgePage.jsp");
+                session.setAttribute("name",judges.getJudgesName());
+                response.sendRedirect("index.jsp");
             } else if (admin != null && "admin".equals(role)) {
                 session.setAttribute("admin", admin);
-                response.sendRedirect("adminPage.jsp");
+                session.setAttribute("name",admin.getAdminName());
+                response.sendRedirect("index.jsp");
             } else {
                 // 登录失败
                 request.setAttribute("msg", "登录失败，用户名或密码错误");

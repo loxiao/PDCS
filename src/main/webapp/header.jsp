@@ -1,11 +1,6 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: syrup
-  Date: 2024/7/10
-  Time: 15:03
-  To change this template use File | Settings | File Templates.
---%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<c:set var="ctx" value="${pageContext.request.contextPath}" />
 <html>
 <head>
     <title>大学生海报设计竞赛系统</title>
@@ -30,7 +25,13 @@
     <h1 class="title">大学生海报设计竞赛系统</h1>
     <ul class="nav-list flex">
         <li><a href="">首页</a></li>
-        <li><a href="">登录/注册</a></li>
+        <c:if test="${empty name}">
+            <li><a href="${ctx}/login.jsp">登录/注册</a></li>
+        </c:if>
+        <c:if test="${!empty name}">
+            <li><a href="">欢迎：<b>${name}</b></a></li>
+        </c:if>
+
         <li><a href="">消息 </a></li>
         <li><a href="">个人中心 </a></li>
         <li><a href="">学生作品 </a></li>
