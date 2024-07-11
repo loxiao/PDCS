@@ -276,3 +276,21 @@ html {
     outline: none;
     border-bottom: 1px solid #0f95b0;
 }
+/* 为角色选择组添加样式 */
+.form_role-group {
+    display: flex; /* 使用弹性布局使元素横向排列 */
+    flex-wrap: nowrap; /* 防止在小屏幕下换行 */
+    align-items: center; /* 垂直居中对齐 */
+}
+
+/* 为每个角色选项添加样式 */
+.form_role-option {
+    margin-right: 20px; /* 添加右侧边距以分隔选项 */
+    display: flex;
+    align-items: center;
+}
+
+/* 样式化单选按钮和其对应的标签 */
+.form_role-input + .form_role-label {
+    margin-left: 5px; /* 在单选按钮和文本之间添加间距 */
+}
