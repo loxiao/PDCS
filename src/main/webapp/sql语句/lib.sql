@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50717
 File Encoding         : 65001
 
-Date: 2024-07-10 15:59:24
+Date: 2024-07-11 09:08:13
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -120,11 +120,15 @@ CREATE TABLE `participant` (
                                `participant_address` varchar(255) NOT NULL,
                                `enter` int(11) DEFAULT NULL,
                                PRIMARY KEY (`participant_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of participant
 -- ----------------------------
+INSERT INTO `participant` VALUES ('1', 'Jim', '3415.com', '1234', '二仙桥', '0');
+INSERT INTO `participant` VALUES ('2', 'Kiko', '2456.com', '1111', '成华大道', '0');
+INSERT INTO `participant` VALUES ('4', '朱杨华', '1267.com', '7890', '绍兴', '0');
+INSERT INTO `participant` VALUES ('5', 'Lili', '9868.com', '6521', '天海市', '0');
 
 -- ----------------------------
 -- Table structure for teams
@@ -137,6 +141,7 @@ CREATE TABLE `teams` (
                          `Member1ID` int(11) DEFAULT NULL,
                          `Member2ID` int(11) DEFAULT NULL,
                          `Member3ID` int(11) DEFAULT NULL,
+                         `CompetitionID` int(11) DEFAULT NULL,
                          PRIMARY KEY (`TeamID`),
                          KEY `CaptainID` (`CaptainID`),
                          KEY `Member1ID` (`Member1ID`),
@@ -164,6 +169,7 @@ CREATE TABLE `works` (
                          `Likes` int(11) DEFAULT '0',
                          `Comments` text,
                          `ImageURL` varchar(255) DEFAULT NULL,
+                         `Score` int(11) DEFAULT NULL,
                          PRIMARY KEY (`WorkID`),
                          KEY `CompetitionID` (`CompetitionID`),
                          KEY `TeamID` (`TeamID`),
