@@ -294,3 +294,8 @@ html {
 .form_role-input + .form_role-label {
     margin-left: 5px; /* 在单选按钮和文本之间添加间距 */
 }
+/* 使文本居中并对文本应用红色显示 */
+.msg {
+    text-align: center;
+    color: red;
+}
