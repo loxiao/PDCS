@@ -1,0 +1,52 @@
+.container, .navbar-static-top .container, .navbar-fixed-top .container, .navbar-fixed-bottom .container {
+    width: 940px;
+}
+.container {
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 15px;
+    padding-left: 15px
+}
+div {
+    display: block;
+}
+
+
+.newslistbox {
+    height: 330px;
+    width: 48%;
+    background-color: white;
+    margin-bottom: 10px;
+    padding: 10px 5px 0px 5px;
+    box-shadow: 0 0 5px #e0ded7;
+}
+.newslistbox div {
+    border: 1px solid white;
+    border-bottom: 1px solid #e5e5e5;
+    margin-bottom: 10px;
+}
+a {
+    color: #0088cc;
+    text-decoration: none;
+}
+
+.aColor {
+    color: #424242;
+}
+ul li {
+    margin-bottom: 5px;
+    position: relative;
+}
+ul li {
+    list-style-type: none;
+}
+li {
+    line-height: 20px;
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+ul li span {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
