@@ -5,16 +5,12 @@
   Time: 15:03
   To change this template use File | Settings | File Templates.
 --%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<c:set var="ctx" value="${pageContext.request.contextPath}" />
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
     <title>大学生海报设计竞赛系统</title>
     <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/login.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <style>
         .title {
             font-family: Arial, sans-serif; /* 使用Arial字体 */
@@ -29,7 +25,7 @@
 <body>
 <header>
     <div class="logo">
-        <img src="image/logo.jpg" width="100" height="100">
+        <img src="image/logo.jpg" width="100" height="100" class="mb-2">
     </div>
     <h1 class="title">大学生海报设计竞赛系统</h1>
     <ul class="nav-list flex">
@@ -40,3 +36,5 @@
         <li><a href="">学生作品 </a></li>
     </ul>
 </header>
+</body>
+</html>
