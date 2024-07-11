@@ -93,6 +93,9 @@ CREATE TABLE `competitiontypes`
     `TypeName`          VARCHAR(255) NOT NULL,
     PRIMARY KEY (`CompetitionTypeID`)
 ) ENGINE=INNODB DEFAULT CHARSET=utf8;
+INSERT INTO `competitiontypes` (`CompetitionTypeID`, `TypeName`) VALUES (1, '公益类');
+INSERT INTO `competitiontypes` (`CompetitionTypeID`, `TypeName`) VALUES (2, '国防类');
+INSERT INTO `competitiontypes` (`CompetitionTypeID`, `TypeName`) VALUES (3, '商业类');
 
 -- ----------------------------
 -- Records of competitiontypes
