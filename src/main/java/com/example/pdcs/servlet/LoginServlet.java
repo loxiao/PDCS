@@ -50,7 +50,7 @@ public class LoginServlet extends HttpServlet {
                 response.sendRedirect("index.jsp");
             } else {
                 // 登录失败
-                request.setAttribute("msg", "登录失败，用户名或密码错误");
+                request.setAttribute("msg", "登录失败，用户名或密码错误或身份选择错误");
                 request.getRequestDispatcher("login.jsp").forward(request, response);
             }
         } catch (Exception e) {
