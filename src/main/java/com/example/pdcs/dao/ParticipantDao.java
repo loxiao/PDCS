@@ -9,6 +9,7 @@ import java.util.List;
 
 public class ParticipantDao {
     private JdbcTemplate template = new JdbcTemplate(JDBCUtils.getDataSource());
+
     // 根据参与者编号和密码获取参与者信息
     public Participant getbynumberandpwd(String Number,String pwd){
         Participant participant=null;
@@ -21,6 +22,7 @@ public class ParticipantDao {
             return participant;
         }
     }
+
     // 添加新参与者
     public boolean addParticipant(String name,String Number,String pwd,String address){
         int affectrows=0;
