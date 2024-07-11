@@ -9,12 +9,12 @@ public class CompetitionsDao {
 
     private JdbcTemplate template = new JdbcTemplate(JDBCUtils.getDataSource());
     //赛事添加
-    public boolean add(String CompetitionName, Date CompetitionDate, Date RegistrationDeadline, int CompetitionTypeID,String CompetitionTypeName){
+    public boolean add(String CompetitionName, Date CompetitionDate, Date RegistrationDeadline, int CompetitionTypeID,String CompetitionTypeName,String CompetitionDescription,int MaxParticipants,String Theme){
         int affectRows = 0;
         try {
-            String sql = "insert into Competitions(CompetitionName, CompetitionDate, RegistrationDeadline, CompetitionTypeID, CompetitionTypeName) values(?,?,?,?,?)";
+            String sql = "insert into Competitions(CompetitionName, CompetitionDate, RegistrationDeadline, CompetitionTypeID, CompetitionTypeName,CompetitionDescription, MaxParticipants,Theme) values(?,?,?,?,?,?,?,?)";
             //2.调用update方法，写入数据库
-            affectRows = template.update(sql,CompetitionName, CompetitionDate, RegistrationDeadline, CompetitionTypeID, CompetitionTypeName);
+            affectRows = template.update(sql,CompetitionName, CompetitionDate, RegistrationDeadline, CompetitionTypeID, CompetitionTypeName,CompetitionDescription, MaxParticipants,Theme);
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
