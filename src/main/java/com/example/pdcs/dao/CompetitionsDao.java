@@ -13,8 +13,8 @@ import java.util.List;
 public class CompetitionsDao {
 
     private JdbcTemplate template = new JdbcTemplate(JDBCUtils.getDataSource());
-    //赛事添加
-    public String add(String CompetitionName, Date CompetitionDate, Date RegistrationDeadline, int CompetitionTypeID,String CompetitionTypeName,String CompetitionDescription,int MaxParticipants,String Theme){
+
+    public String add(String CompetitionName, Date CompetitionDate, Date RegistrationDeadline, int CompetitionTypeID,String CompetitionTypeName,String CompetitionDescription,int MaxParticipants,String Theme){ //赛事添加
         try {
             String sql = "insert into Competitions(CompetitionName, CompetitionDate, RegistrationDeadline, CompetitionTypeID, CompetitionTypeName,CompetitionDescription, MaxParticipants,Theme) values(?,?,?,?,?,?,?,?)";
             //2.调用update方法，写入数据库
@@ -26,6 +26,7 @@ public class CompetitionsDao {
             return "发布成功";
         }
     }
+
     public List<Competitions> getCompetitionList(){//获取所有的竞赛信息
         List<Competitions> competitionsArrayList=null;
         try {
@@ -38,6 +39,7 @@ public class CompetitionsDao {
         }
 
     }
+
     public List<Competitions> getoldcompetition(){//获取已经结束的竞赛作为新闻
         List<Competitions>competitionsList=null;
         try {
@@ -49,6 +51,7 @@ public class CompetitionsDao {
             return competitionsList;
         }
     }
+
     public List<Competitions> getnewcompetitions(){//获取截至报名前的竞赛作为新闻
         List<Competitions> competitionsList=null;
         try {

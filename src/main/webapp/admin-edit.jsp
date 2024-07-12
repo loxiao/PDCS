@@ -16,7 +16,7 @@
       </div>
       <div class="card-body">
         <div class="form-qroup col-12">
-          <form action="" method="post">
+          <form action="CompetitionsServlet" method="post">
             <input type="hidden" name="id" value="">
             赛事名称: <input type="text" name="name" required class="form-control"><br>
             赛事描述: <textarea class="form-control" name="description"></textarea><br>
