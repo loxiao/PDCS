@@ -18,22 +18,22 @@
 </div>
 <main style="width:1280px;margin: 0 auto; ">
     <div class="card-box flex cc">
-        <div class="card">
-            <div class="card-header flex spc">
+        <div class="cards">
+            <div class="cards-header flex spc">
                 <div class="title" style="font-size: 30px;">大赛通知</div>
                 <div class="more"><a href="">查看更多 >></a></div>
             </div>
-            <div class="card-content">
+            <div class="cards-content">
                 <li><a href="">1</a></li>
                 <li><a href="">1</a></li>
             </div>
         </div>
-        <div class="card">
-            <div class="card-header flex spc">
+        <div class="cards">
+            <div class="cards-header flex spc">
                 <div class="title" style="font-size: 30px;">最新获奖</div>
                 <div class="more"><a href="">查看更多 >></a></div>
             </div>
-            <div class="card-content">
+            <div class="cards-content">
                 <li><a href="">1</a></li>
                 <li><a href="">1</a></li>
             </div>

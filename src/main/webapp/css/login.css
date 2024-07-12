@@ -1,6 +1,5 @@
 body,
 html {
-
     font-family: Ariel, sans-serif;
     width: 100%;
     height: 100%;
@@ -10,19 +9,16 @@ html {
 }
 
 .page {
-
     display: flex;
     flex-flow: row;
     flex-wrap: nowrap;
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 100%;
+    margin-top: 100px;
 }
 
 .panel {
-
-
     display: inline-block;
     position: relative;
 }
@@ -238,12 +234,11 @@ html {
 }
 
 .form_btn {
-
     margin-top: 1.2em;
     margin-bottom: 2em;
     display: block;
     width: 100%;
-    background-color: #0f95b0;
+    background-color:#5466cc;
     color: white;
     border: none;
     padding: .6em;
@@ -267,14 +262,13 @@ html {
 }
 
 .form_toggle:hover {
-
-    border-bottom: 1px solid #0f95b0;
+    border-bottom: 1px solid #5e72e0;
 }
 
 .form_toggle:focus {
 
     outline: none;
-    border-bottom: 1px solid #0f95b0;
+    border-bottom: 1px solid #5e72e0;
 }
 /* 为角色选择组添加样式 */
 .form_role-group {
