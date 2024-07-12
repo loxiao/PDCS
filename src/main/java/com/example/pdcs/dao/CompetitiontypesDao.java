@@ -25,13 +25,16 @@ public class CompetitiontypesDao {
     //提供类别的名称选出相应类别的id
     public int getId(String competitionTypeName) {
         int competitionTypeId = 0;
+        Competitiontypes competitiontypes=null;
         try {
-            String sql = "SELECT TypeId FROM competitiontypes WHERE TypeName = ?";
-            competitionTypeId = template.queryForObject(sql, new Object[]{competitionTypeName}, Integer.class);
+            String sql = "SELECT*FROM competitiontypes WHERE TypeName=?";
+            competitiontypes=template.queryForObject(sql,new BeanPropertyRowMapper<>(Competitiontypes.class),competitionTypeName);
         } catch (Exception e) {
             e.printStackTrace();
             // 可能需要处理异常情况，比如当查询结果为空时
         }
-        return competitionTypeId;
+        finally {
+            return competitiontypes.getCompetitionTypeID();
+        }
     }
 }

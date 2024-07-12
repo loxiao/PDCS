@@ -51,4 +51,11 @@ class CompetitionsDaoTest {
             System.out.println(competitions.getRegistrationDeadline()+" "+competitions.getCompetitionName()+" "+competitions.getCompetitionDescription());
         }
     }
+    @Test
+    void getbyid(){
+        Competitions competitions=competitionsDao.getbyid(1);
+        assertEquals(false,competitions==null);
+        System.out.println(competitions.getCompetitionName());
+    }
+
 }

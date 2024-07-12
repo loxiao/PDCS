@@ -7,14 +7,12 @@
             <p class="mb-1">热门赛事</p>
             <div class="tooltip"></div>
         </a>
-        <a href="#" class="list-group-item list-group-item-action">
-            <p class="mb-1">赛事1</p>
-            <div class="tooltip"></div>
-        </a>
-        <a href="#" class="list-group-item list-group-item-action">
-            <p class="mb-1">赛事2</p>
-            <div class="tooltip"></div>
-        </a>
+        <c:forEach var="" items="">
+            <a href="#" class="list-group-item list-group-item-action">
+                <p class="mb-1">赛事1</p>
+                <div class="tooltip"></div>
+            </a>
+        </c:forEach>
     </div>
 
     <div class="card text-center">

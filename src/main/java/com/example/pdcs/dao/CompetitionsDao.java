@@ -13,15 +13,21 @@ public class CompetitionsDao {
     private JdbcTemplate template = new JdbcTemplate(JDBCUtils.getDataSource());
     //赛事添加
     public String add(String CompetitionName, Date CompetitionDate, Date RegistrationDeadline, int CompetitionTypeID,String CompetitionTypeName,String CompetitionDescription,int MaxParticipants,String Theme){ //赛事添加
+        int affectrow=0;
         try {
             String sql = "insert into Competitions (CompetitionName, CompetitionDate, RegistrationDeadline, CompetitionTypeID, CompetitionTypeName,CompetitionDescription, MaxParticipants,Theme) values(?,?,?,?,?,?,?,?)";
             //2.调用update方法，写入数据库
-            template.update(sql,CompetitionName, CompetitionDate, RegistrationDeadline, CompetitionTypeID, CompetitionTypeName,CompetitionDescription, MaxParticipants,Theme);
+            affectrow=template.update(sql,CompetitionName, CompetitionDate, RegistrationDeadline, CompetitionTypeID, CompetitionTypeName,CompetitionDescription, MaxParticipants,Theme);
         } catch (Exception e) {
             e.printStackTrace();
             return "发布失败，请管理员检查内容是否正确";
         } finally {
-            return "发布成功";
+            if(affectrow>0){
+                return "发布成功";
+            }
+            else{
+                return "发布失败，请管理员检查内容是否正确";
+            }
         }
     }
     public List<Competitions> getCompetitionList(){//获取所有的竞赛信息
@@ -76,6 +82,17 @@ public class CompetitionsDao {
             competitionsList=template.query(sql,new BeanPropertyRowMapper<>(Competitions.class));
         }finally {
             return competitionsList;
+        }
+    }
+    public Competitions getbyid(int id){
+        Competitions competitions=null;
+        try {
+            String sql="SELECT*FROM competitions WHERE CompetitionID=?";
+            competitions=template.queryForObject(sql,new BeanPropertyRowMapper<>(Competitions.class),id);
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            return competitions;
         }
     }
 
