@@ -14,16 +14,16 @@ public class CompetitionsDao {
 
     private JdbcTemplate template = new JdbcTemplate(JDBCUtils.getDataSource());
     //赛事添加
-    public boolean add(String CompetitionName, Date CompetitionDate, Date RegistrationDeadline, int CompetitionTypeID,String CompetitionTypeName,String CompetitionDescription,int MaxParticipants,String Theme){
-        int affectRows = 0;
+    public String add(String CompetitionName, Date CompetitionDate, Date RegistrationDeadline, int CompetitionTypeID,String CompetitionTypeName,String CompetitionDescription,int MaxParticipants,String Theme){
         try {
             String sql = "insert into Competitions(CompetitionName, CompetitionDate, RegistrationDeadline, CompetitionTypeID, CompetitionTypeName,CompetitionDescription, MaxParticipants,Theme) values(?,?,?,?,?,?,?,?)";
             //2.调用update方法，写入数据库
-            affectRows = template.update(sql,CompetitionName, CompetitionDate, RegistrationDeadline, CompetitionTypeID, CompetitionTypeName,CompetitionDescription, MaxParticipants,Theme);
+            template.update(sql,CompetitionName, CompetitionDate, RegistrationDeadline, CompetitionTypeID, CompetitionTypeName,CompetitionDescription, MaxParticipants,Theme);
         } catch (Exception e) {
             e.printStackTrace();
+            return "发布失败，请管理员检查内容是否正确";
         } finally {
-            return affectRows > 0;
+            return "发布成功";
         }
     }
     public List<Competitions> getCompetitionList(){//获取所有的竞赛信息
