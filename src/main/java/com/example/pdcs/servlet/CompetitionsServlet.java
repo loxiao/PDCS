@@ -32,21 +32,21 @@ public class CompetitionsServlet extends HttpServlet {
             competitionDate = dateFormat.parse(competitionDateString);
             registrationDeadLine = dateFormat.parse(registrationDeadlineString);
         } catch (ParseException e) {
-            // 处理解析异常，可能是输入的日期格式不正确
             e.printStackTrace();
-            // 如果解析失败，你可以选择返回错误信息，终止程序执行，或者采取其他措施
-            // 这里简单起见，我们只是打印堆栈跟踪
         }
 
-        if (competitionDate != null && registrationDeadLine != null) {
-            // 开始业务逻辑
+// 将java.util.Date转换为java.sql.Date
+        java.sql.Date sqlCompetitionDate = new java.sql.Date(competitionDate.getTime());
+        java.sql.Date sqlRegistrationDeadLine = new java.sql.Date(registrationDeadLine.getTime());
+
+        if (sqlCompetitionDate != null && sqlRegistrationDeadLine != null) {
             CompetitionsDao competitionsDao = new CompetitionsDao();
             CompetitiontypesDao competitiontypesDao = new CompetitiontypesDao();
             int competitionTypeId = competitiontypesDao.getId(competitionTypeName);
-            String msg = competitionsDao.add(competitionName, competitionDate, registrationDeadLine, competitionTypeId, competitionTypeName, competitionDescription, maxParticipants, theme);
+            String msg = competitionsDao.add(competitionName, sqlCompetitionDate, sqlRegistrationDeadLine, competitionTypeId, competitionTypeName, competitionDescription, maxParticipants, theme);
 
-            request.getSession().setAttribute("msg",msg);
-                request.getRequestDispatcher("/admin-edit.jsp").forward(request,response);
+            request.getSession().setAttribute("msg", msg);
+            request.getRequestDispatcher("/admin-edit.jsp").forward(request, response);
         }
     }
 

@@ -14,29 +14,30 @@
     top: -30px;
 }
 
-.card {
+.cards {
     width: 720px;
     margin: 0 20px;
+    border-radius: 15px 15px 0 0;
     background-color: #ffffff;
 }
 
-.card-header {
+.cards-header {
     border-radius: 15px 15px 0 0;
     padding: 18px 15px;
     background-color: #5466cc;
     color: #fff;
 }
 
-.card-content {
+.cards-content {
     padding: 0 15px;
     font-size: 20px;
 }
 
-.card-header .more a {
+.cards-header .more a {
     color: #fff;
 }
 
-.card-content li {
+.cards-content li {
     margin: 20px 0;
 }
 
