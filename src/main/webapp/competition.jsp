@@ -24,7 +24,8 @@
         <div class="card-body">
             <h5 class="card-title">赛事标题</h5>
             <p class="card-text">赛事主体通知内容</p>
-            <a href="#" class="btn btn-primary">立即报名</a>
+            <a href="#" class="btn btn-primary">创建团队报名</a>
+            <a href="#" class="btn btn-primary">加入团队报名</a>
         </div>
         <div class="card-footer text-muted">
             2 days ago
