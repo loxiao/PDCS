@@ -1,0 +1,26 @@
+.Works {
+    display: block; /* 默认为块级元素 */
+    margin-left: auto; /* 左边距自动 */
+    margin-right: auto; /* 右边距自动 */
+    height: 1280px;
+    width: 960px;
+    background-color: white;
+}
+.HeadTitle {
+    padding-left: 70px;
+    padding-top: 30px;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+table, th, td {
+    border: 1px solid black;
+}
+th, td {
+    padding: 8px;
+    text-align: left;
+}
+th {
+    background-color: #f2f2f2;
+}

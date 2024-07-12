@@ -25,7 +25,7 @@
             </div>
             <div class="card-content">
                 <c:forEach items="${newcompetitions}" var="competitions">
-                    <li><a href="">${competitions.getCompetitionName()}开始报名</a></li>
+                    <li><a href="${ctx}/NewsLIstServlet?id=${competitions.getCompetitionID()}">${competitions.getCompetitionName()}开始报名</a></li>
                 </c:forEach>
             </div>
         </div>

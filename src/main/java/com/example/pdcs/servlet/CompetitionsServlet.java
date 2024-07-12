@@ -16,14 +16,15 @@ public class CompetitionsServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //从admin-edit.jsp页面中获取数据
-        String competitionName= request.getParameter("name");
+        request.setCharacterEncoding("utf-8");
         String competitionDescription=request.getParameter("description");
         String competitionTypeName=request.getParameter("type");
         int maxParticipants=Integer.parseInt(request.getParameter("maxNumber"));
         String theme=request.getParameter("theme");
-        String competitionDateString = request.getParameter("startDate");
-        String registrationDeadlineString = request.getParameter("endDate");
+        String competitionDateString = request.getParameter("endDate");
+        String registrationDeadlineString = request.getParameter("startDate");
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        String competitionName= request.getParameter("competitionname");
 
         Date competitionDate = null;
         Date registrationDeadLine = null;
@@ -52,6 +53,6 @@ public class CompetitionsServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    this.doGet(request,response);
+    doGet(request,response);
     }
 }
