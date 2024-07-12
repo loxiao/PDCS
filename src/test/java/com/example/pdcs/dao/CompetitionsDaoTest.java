@@ -17,6 +17,7 @@ class CompetitionsDaoTest {
     void add() throws ParseException {
         Date utilStartDate = sdf.parse("2024/07/11");
         Date utilEndDate = sdf.parse("2024/08/11");
+
         // 转换为java.sql.Date
         java.sql.Date sqlStartDate = new java.sql.Date(utilStartDate.getTime());
         java.sql.Date sqlEndDate = new java.sql.Date(utilEndDate.getTime());
@@ -30,6 +31,24 @@ class CompetitionsDaoTest {
         assertEquals(false,competitions.isEmpty());
         for(Competitions competitions1:competitions){
             System.out.println(competitions1.getCompetitionName());
+        }
+    }
+    @Test
+    void getold(){
+        List<Competitions> competitionsList=null;
+        competitionsList=competitionsDao.getoldcompetition();
+        assertEquals(false,competitionsList.isEmpty());
+        for (Competitions competitions:competitionsList){
+            System.out.println(competitions.getCompetitionDate()+" "+competitions.getCompetitionName());
+        }
+    }
+    @Test
+    void getnew(){
+        List<Competitions> competitionsList=null;
+        competitionsList=competitionsDao.getnewcompetitions();
+        assertEquals(false,competitionsList.isEmpty());
+        for(Competitions competitions:competitionsList){
+            System.out.println(competitions.getRegistrationDeadline()+" "+competitions.getCompetitionName()+" "+competitions.getCompetitionDescription());
         }
     }
 }
