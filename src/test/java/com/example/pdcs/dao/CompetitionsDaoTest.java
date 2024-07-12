@@ -17,7 +17,6 @@ class CompetitionsDaoTest {
     void add() throws ParseException {
         Date utilStartDate = sdf.parse("2024/07/11");
         Date utilEndDate = sdf.parse("2024/08/11");
-
         // 转换为java.sql.Date
         java.sql.Date sqlStartDate = new java.sql.Date(utilStartDate.getTime());
         java.sql.Date sqlEndDate = new java.sql.Date(utilEndDate.getTime());

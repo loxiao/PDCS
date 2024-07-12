@@ -1,0 +1,6 @@
+footer {
+    position: fixed;
+    bottom: 0;
+    background-color: #f8f9fa; /* 根据需要调整背景颜色 */
+    text-align: center;
+}
