@@ -17,9 +17,9 @@
       <div class="card-body">
         <div class="form-qroup col-12">
           <form action="CompetitionsServlet" method="post">
-            公益类: <input type="radio" name="type"  class="form-control" value="公益类" style="margin-right: 30px">
-            国防类: <input type="radio" name="type"  class="form-control" value="国防类" style="margin-right: 30px">
-            商业类: <input type="radio" name="type"  class="form-control" value="商业类" >
+            公益类: <input type="radio" name="type"  value="公益类" style="margin-right: 30px">
+            国防类: <input type="radio" name="type"  value="国防类" style="margin-right: 30px">
+            商业类: <input type="radio" name="type"  value="商业类" ><br>
             赛事名称: <input type="text" name="name" required class="form-control"><br>
             赛事主题: <textarea class="form-control" name="theme"></textarea><br>
             赛事描述: <textarea class="form-control" name="description"></textarea><br>
