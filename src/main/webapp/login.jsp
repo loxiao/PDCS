@@ -55,7 +55,7 @@
             </div>
         </div>
         <div class="panel_back js-imageAnimate">
-            <img class="panel_img" src="1.jpg" style="width: 235px;height: 457px" />
+            <img class="panel_img" src="img/logo.jpg" style="width: 235px;height: 457px" />
         </div>
     </div>
 </div>

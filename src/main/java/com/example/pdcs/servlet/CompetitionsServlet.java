@@ -21,8 +21,8 @@ public class CompetitionsServlet extends HttpServlet {
         String competitionTypeName=request.getParameter("type");
         int maxParticipants=Integer.parseInt(request.getParameter("maxNumber"));
         String theme=request.getParameter("theme");
-        String competitionDateString = request.getParameter("startDate");
-        String registrationDeadlineString = request.getParameter("endDate");
+        String competitionDateString = request.getParameter("endDate");
+        String registrationDeadlineString = request.getParameter("startDate");
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         String competitionName= request.getParameter("competitionname");
 
