@@ -1,18 +1,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <c:set var="ctx" value="${pageContext.request.contextPath}" />
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <title>Login</title>
-    <link rel="stylesheet" href="css/login.css">
-</head>
-
-<body>
+<%@include file="header.jsp"%>
+<link rel="stylesheet" href="css/login.css">
 <div class="page">
-
     <div class="panel">
         <div class="panel_visible">
             <!--注册表单-->
@@ -67,9 +58,5 @@
             <img class="panel_img" src="1.jpg" style="width: 235px;height: 457px" />
         </div>
     </div>
-
 </div>
 <script src="js/main.js"></script>
-</body>
-
-</html>
