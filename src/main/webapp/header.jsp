@@ -30,6 +30,7 @@
         </c:if>
         <c:if test="${!empty name}">
             <li><a href="">欢迎：<b>${name}</b></a></li>
+            <li><a href="${ctx}/LogoutServlet">注销</a></li>
         </c:if>
 
         <li><a href="">消息 </a></li>
