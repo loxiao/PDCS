@@ -1,7 +1,7 @@
---创建数据库
+-- 创建数据库
 CREATE DATABASE PDCS charset = utf8;
 USE PDCS;
---创建管理员表
+-- 创建管理员表
 CREATE TABLE admin(
     AdminID INT(11) NOT NULL AUTO_INCREMENT,
     AdminName VARCHAR(255) NOT NULL,
@@ -10,20 +10,26 @@ CREATE TABLE admin(
     PRIMARY KEY (AdminID),
     UNIQUE KEY AdminNumber (AdminNumber)
 ) ENGINE=INNODB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
---创建奖状表
+-- 创建奖状表
 CREATE TABLE awards(
     AwardID INT(11) NOT NULL AUTO_INCREMENT,
     WorkID INT(11) NOT NULL,
     AwardName VARCHAR(255) NOT NULL,
     CompetitionID INT(11) NOT NULL,
-    Winner1ID INT(11) NOT NULL,
-    Winner2ID INT(11) NOT NULL,
-    Winner3ID INT(11) NOT NULL,
-    Winner4ID INT(11) NOT NULL,
+    Winner1ID INT(11) DEFAULT NULL,
+    Winner2ID INT(11) DEFAULT NULL,
+    Winner3ID INT(11) DEFAULT NULL,
+    Winner4ID INT(11) DEFAULT NULL,
     AwardImageURL varchar(255) DEFAULT NULL,
     PRIMARY KEY (AwardID)
 ) ENGINE=INNODB DEFAULT CHARSET=utf8;
---创建竞赛表
+-- 创建竞赛类型表
+CREATE TABLE competitiontypes(
+    CompetitionTypeID INT(11) NOT NULL AUTO_INCREMENT,
+    TypeName VARCHAR(255) NOT NULL,
+    PRIMARY KEY (CompetitionTypeID)
+) ENGINE=INNODB DEFAULT CHARSET=utf8;
+-- 创建竞赛表
 CREATE TABLE competitions(
     CompetitionID INT(11) NOT NULL AUTO_INCREMENT,
     CompetitionName VARCHAR(255) NOT NULL,
@@ -36,15 +42,9 @@ CREATE TABLE competitions(
     Theme VARCHAR(255) DEFAULT NULL,
     PRIMARY KEY (CompetitionID),
     KEY fk_competition_type (CompetitionTypeID),
-    CONSTRAINT fk_competition_type FOREIGN KEY (CompetitionTypeID) REFERENCES competitiontypes (CompetitionTypeID)
+    CONSTRAINT fk_competition_type FOREIGN KEY (CompetitionTypeID) 	REFERENCES competitiontypes (CompetitionTypeID)
 ) ENGINE=INNODB DEFAULT CHARSET=utf8;
---创建竞赛类型表
-CREATE TABLE competitiontypes(
-    CompetitionTypeID INT(11) NOT NULL AUTO_INCREMENT,
-    TypeName VARCHAR(255) NOT NULL,
-    PRIMARY KEY (CompetitionTypeID)
-) ENGINE=INNODB DEFAULT CHARSET=utf8;
---创建评委表
+-- 创建评委表
 CREATE TABLE judges(
     JudgeID INT(11) NOT NULL AUTO_INCREMENT,
     JudgesName VARCHAR(255) NOT NULL,
@@ -53,7 +53,7 @@ CREATE TABLE judges(
     PRIMARY KEY (JudgeID),
     UNIQUE KEY JudgesNumber (JudgesNumber)
 ) ENGINE=INNODB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
---创建参赛人员表
+-- 创建参赛人员表
 CREATE TABLE participant(
     participant_id INT(11) NOT NULL AUTO_INCREMENT,
     participant_name VARCHAR(255) NOT NULL,
@@ -63,7 +63,7 @@ CREATE TABLE participant(
     enter INT(11) DEFAULT NULL,
     PRIMARY KEY (participant_id)
 ) ENGINE=INNODB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
---创建队伍表
+-- 创建队伍表
 CREATE TABLE teams(
     TeamID INT(11) NOT NULL AUTO_INCREMENT,
     TeamName VARCHAR(255) NOT NULL,
@@ -82,13 +82,13 @@ CREATE TABLE teams(
     CONSTRAINT teams_ibfk_3 FOREIGN KEY (Member2ID) REFERENCES participant (participant_id),
     CONSTRAINT teams_ibfk_4 FOREIGN KEY (Member3ID) REFERENCES participant (participant_id)
 ) ENGINE=INNODB DEFAULT CHARSET=utf8;
---创建作品表
+-- 创建作品表
 CREATE TABLE works(
     WorkID INT(11) NOT NULL AUTO_INCREMENT,
     WorkName VARCHAR(255) NOT NULL,
     CompetitionID INT(11) NOT NULL,
     TeamID INT(11) NOT NULL,
-    Likes INT(11) DEFAULT '' 0 '',
+    Likes INT(11) DEFAULT '0',
     Comments TEXT,
     ImageURL VARCHAR(255) DEFAULT NULL,
     Score INT(11) DEFAULT NULL,

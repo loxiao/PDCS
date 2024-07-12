@@ -1,15 +1,15 @@
 USE PDCS;
---插入管理员数据
+-- 插入管理员数据
 INSERT INTO admin VALUES ('1', 'Alice', 'admin@1234.com', '1234');
 INSERT INTO admin VALUES ('2', 'Bob', 'admin@1213.com', '1211');
---插入竞赛类型数据
+-- 插入竞赛类型数据
 INSERT INTO competitiontypes (CompetitionTypeID, TypeName) VALUES (1, '公益类');
 INSERT INTO competitiontypes (CompetitionTypeID, TypeName) VALUES (2, '国防类');
 INSERT INTO competitiontypes (CompetitionTypeID, TypeName) VALUES (3, '商业类');
---插入评委数据
+-- 插入评委数据
 INSERT INTO judges VALUES ('1 ', 'Jhon','1224.com','1234');
 INSERT INTO judges VALUES ('2 ', 'Mike','1432.com','9879');
---插入参与人员数据
+-- 插入参与人员数据
 INSERT INTO `participant` VALUES ('1', 'Jim', '3415.com', '1234', '二仙桥', '0');
 INSERT INTO `participant` VALUES ('2', 'Kiko', '2456.com', '1111', '成华大道', '0');
 INSERT INTO `participant` VALUES ('4', '朱杨华', '1267.com', '7890', '绍兴', '0');
@@ -29,7 +29,7 @@ INSERT INTO `participant` VALUES ('25', '孙十二', '2222.com', '1234', '重庆
 INSERT INTO `participant` VALUES ('26', '李白', '1999.com', '9999', '大唐', '0');
 INSERT INTO `participant` VALUES ('27', '张三', 'lisi@qq.com', '123', 'aaaa', '0');
 INSERT INTO `participant` VALUES ('28', '白起', '1666.com', '9999', 'aaaa', '0');
---插入奖状数据
+-- 插入奖状数据
 INSERT INTO `awards` VALUES ('1', '1', '一等奖', '1', '1', '2', '4', '5', '1.png');
 INSERT INTO `awards` VALUES ('2', '2', '一等奖', '5', '4', '9', '15', '16', '4.png');
 INSERT INTO `awards` VALUES ('3', '3', '一等奖', '4', '5', '17', '18', '19', '3.png');
@@ -39,7 +39,7 @@ INSERT INTO `awards` VALUES ('6', '6', '一等奖', '10', '1', '4', '5', null, '
 INSERT INTO `awards` VALUES ('7', '7', '一等奖', '13', '15', '9', '2', null, '8.png');
 INSERT INTO `awards` VALUES ('8', '8', '一等奖', '19', '19', '18', '17', null, '9.png');
 INSERT INTO `awards` VALUES ('9', '9', '一等奖', '2', '1', '2', '4', '5', '2.png');
---插入竞赛数据
+-- 插入竞赛数据
 INSERT INTO `competitions` VALUES ('1', '2022年第7届大学生海洋公益海报竞赛', '2022-10-09', '2022-07-10', '1', '公益类', '2022年第7届大学生海洋公益海报竞赛是一项旨在提升公众海洋保护意识的年度盛事。本次竞赛鼓励学生们运用创意设计，展现海洋生态的多样性与脆弱性，倡导可持续发展的理念。参赛者将通过海报这一直观媒介，传达保护海洋环境的紧迫性和重要性。我们诚邀全国在校大学生积极参与，用艺术的力量为海洋发声，共同守护我们的蓝色星球。', '4', '海洋');
 INSERT INTO `competitions` VALUES ('2', '2024年第15届大学生建军节海报', '2024-01-02', '2023-12-01', '2', '国防类', '2024年第15届大学生建军节海报竞赛涌现出众多创意与情感并重的作品。这些海报不仅以其鲜明的色彩和独特的设计吸引了观众的目光，更深刻地传达了对军人精神的敬意和对和平的珍视。学生们的创作充分展现了他们对历史的理解、对英雄的崇敬以及对未来的憧憬。每一幅海报都是对建军节深刻的思考和美好愿景的展现，它们让我们铭记过去，珍惜和平，激励我们共同为一个更加繁荣和谐的社会贡献力量。', '4', '建军');
 INSERT INTO `competitions` VALUES ('3', '2021年第30届大学生泡芙宣传竞赛', '2024-09-10', '2024-07-06', '3', '商业类', '2021年第30届大学生泡芙宣传竞赛是一场集创意与美食于一体的盛会。本次竞赛旨在激发学生们的创新思维和艺术设计能力，通过海报的形式展现泡芙的诱人魅力和文化内涵。我们鼓励参赛者以独特的视角和创新的手法，捕捉泡芙的美味瞬间，传达甜品带来的幸福感。竞赛不仅为学生们提供了展示才华的平台，也为推广美食文化、提升设计水平搭建了桥梁。让我们一同期待这场视觉与味觉的双重盛宴。', '4', '泡芙');
@@ -63,7 +63,7 @@ INSERT INTO `competitions` VALUES ('20', '2024年第14届夏季大学生编程�
 INSERT INTO `competitions` VALUES ('21', '2024年第17届夏季大学生编程马拉松海报大赛', '2024-08-31', '2024-07-30', '1', '公益类', '海报映照智慧，编码点燃激情。第17届夏季大学生编程马拉松海报大赛以创意为笔，以技术为墨，邀请学生们设计出能够代表编程精神的海报。我们期待作品捕捉编程马拉松的紧张与兴奋，展现参赛者们的专注与热情，传递科技改变世界的力量。', '4', '编程马拉松');
 INSERT INTO `competitions` VALUES ('22', '2024年第18届大学生夏季电影海报大赛', '2024-08-17', '2024-07-27', '2', '国防类', '银幕之下，海报之上。第18届大学生夏季电影海报大赛是一场视觉与故事的交融。我们鼓励学生们以电影为灵感，设计出能够讲述故事、传达情感的海报。这不仅是对电影艺术的致敬，更是一次创意与设计技巧的展示，一次视觉叙事的探索。', '4', '电影节');
 INSERT INTO `competitions` VALUES ('23', '2024年第19届大学生夏季摄影海报大赛', '2024-07-18', '2024-04-18', '1', '公益类', '镜头捕捉瞬间，海报讲述故事。第19届大学生夏季摄影海报大赛邀请摄影爱好者们通过镜头探索世界，用海报展示瞬间之美。我们期待作品展现摄影的独特视角，讲述触动人心的故事，传递摄影艺术的魅力与情感深度。', '4', '摄影');
---插入队伍数据
+-- 插入队伍数据
 INSERT INTO `teams` VALUES ('10', '海洋卫士', '1', '2', '4', '5', '1');
 INSERT INTO `teams` VALUES ('11', '历史传承者', '4', '9', '15', '16', '5');
 INSERT INTO `teams` VALUES ('12', '科技探索者', '5', '17', '18', '19', '4');
@@ -73,7 +73,7 @@ INSERT INTO `teams` VALUES ('15', '编程挑战者', '1', '4', '5', null, '10');
 INSERT INTO `teams` VALUES ('16', '国防创新者', '15', '9', '2', null, '13');
 INSERT INTO `teams` VALUES ('17', '艺术春天', '19', '18', '17', null, '19');
 INSERT INTO `teams` VALUES ('18', '建军强国', '1', '2', '4', '5', '2');
---插入作品数据
+-- 插入作品数据
 INSERT INTO `works` VALUES ('1', '海洋生态海报', '1', '10', '0', null, null, '95');
 INSERT INTO `works` VALUES ('2', '历史传承海报', '5', '11', '0', null, null, '95');
 INSERT INTO `works` VALUES ('3', '科技创新海报', '4', '12', '0', null, null, '95');
