@@ -44,7 +44,7 @@ public class RegServlet extends HttpServlet {
                 request.getSession().setAttribute("participant",participant);
                 String username=participant.getParticipant_name();
                 request.getSession().setAttribute("name",username);
-                response.sendRedirect(request.getContextPath()+"/index.jsp");
+                request.getRequestDispatcher("IndexServlet").forward(request,response);
             }
         }
 

@@ -5,7 +5,7 @@ import java.util.Date;
 public class Competitions {
     private int CompetitionID;
     private String CompetitionName;
-    private Date CompetitonDate;
+    private Date CompetitionDate;
     private Date RegistrationDeadline;
     private int CompetitionTypeID;
     private String CompetitionTypeName;
@@ -54,12 +54,12 @@ public class Competitions {
         CompetitionName = competitionName;
     }
 
-    public Date getCompetitonDate() {
-        return CompetitonDate;
+    public Date getCompetitionDate() {
+        return CompetitionDate;
     }
 
-    public void setCompetitonDate(Date competitonDate) {
-        CompetitonDate = competitonDate;
+    public void setCompetitionDate(Date competitionDate) {
+        CompetitionDate = competitionDate;
     }
 
     public Date getRegistrationDeadline() {
