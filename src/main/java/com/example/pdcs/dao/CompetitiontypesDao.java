@@ -10,6 +10,7 @@ import java.util.List;
 
 public class CompetitiontypesDao {
     private JdbcTemplate template = new JdbcTemplate(JDBCUtils.getDataSource());
+    //获取所有赛事类别
     public List<Competitiontypes> getList(){
         List<Competitiontypes> competitiontypesList=null;
         try {
@@ -20,5 +21,17 @@ public class CompetitiontypesDao {
         }finally {
             return competitiontypesList;
         }
+    }
+    //提供类别的名称选出相应类别的id
+    public int getId(String competitionTypeName) {
+        int competitionTypeId = 0;
+        try {
+            String sql = "SELECT TypeId FROM competitiontypes WHERE TypeName = ?";
+            competitionTypeId = template.queryForObject(sql, new Object[]{competitionTypeName}, Integer.class);
+        } catch (Exception e) {
+            e.printStackTrace();
+            // 可能需要处理异常情况，比如当查询结果为空时
+        }
+        return competitionTypeId;
     }
 }
