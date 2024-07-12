@@ -24,7 +24,6 @@ public class CompetitiontypesDao {
     }
     //提供类别的名称选出相应类别的id
     public int getId(String competitionTypeName) {
-        int competitionTypeId = 0;
         Competitiontypes competitiontypes=null;
         try {
             String sql = "SELECT*FROM competitiontypes WHERE TypeName=?";
