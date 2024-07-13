@@ -24,8 +24,8 @@
             赛事主题: <textarea class="form-control" name="theme"></textarea><br>
             赛事描述: <textarea class="form-control" name="description"></textarea><br>
             <div class="row" style="justify-content:space-evenly">
-              <div>开始日期: <input class="form-control" type="date" name="startDate"></div>
-              <div>结束日期: <input class="form-control" type="date" name="endDate" ></div>
+              <div>比赛截止日期: <input class="form-control" type="date" name="startDate"></div>
+              <div>评分截止日期: <input class="form-control" type="date" name="endDate" ></div>
             </div>
             最大参数人数： <input type="number" name="maxNumber" required class="form-control" min=0 style="margin: 20px 0"><br>
             <div style="text-align: right"><input type="submit" class="btn btn-primary offset-1" value="添加赛事"></div>

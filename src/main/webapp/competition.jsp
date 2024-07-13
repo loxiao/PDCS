@@ -7,9 +7,9 @@
             <p class="mb-1">热门赛事</p>
             <div class="tooltip"></div>
         </a>
-        <c:forEach var="" items="">
-            <a href="#" class="list-group-item list-group-item-action">
-                <p class="mb-1">赛事1</p>
+        <c:forEach items="${newcompetitions}" var="competitions">
+            <a href="${ctx}/NewsLIstServlet?id=${competitions.getCompetitionID()}" class="list-group-item list-group-item-action">
+                <p class="mb-1">>${competitions.getCompetitionName()}开始报名</p>
                 <div class="tooltip"></div>
             </a>
         </c:forEach>
@@ -20,8 +20,8 @@
             赛事通知
         </div>
         <div class="card-body">
-            <h5 class="card-title">赛事标题</h5>
-            <p class="card-text">赛事主体通知内容</p>
+            <h5 class="card-title">${competitions.getCompetitionName()}</h5>
+            <p class="card-text">${competitions.getCompetitionDescription()}报名截止日期和作品提交截止日期：${competitions.getRegistrationDeadline()}</p>
             <a href="#" class="btn btn-primary">创建团队报名</a>
             <a href="#" class="btn btn-primary">加入团队报名</a>
         </div>

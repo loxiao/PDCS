@@ -13,6 +13,12 @@ public class LogoutServlet extends HttpServlet {
         if(request.getSession().getAttribute("participant") != null){
             request.getSession().invalidate();
         }
+        if(request.getSession().getAttribute("admin") != null){
+            request.getSession().invalidate();
+        }
+        if(request.getSession().getAttribute("judges") != null){
+            request.getSession().invalidate();
+        }
         //2.重定向首页
         response.sendRedirect(request.getContextPath() + "/IndexServlet");
     }
