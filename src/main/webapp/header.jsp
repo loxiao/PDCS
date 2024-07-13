@@ -24,7 +24,7 @@
     </div>
     <h1 class="title">大学生海报设计竞赛系统</h1>
     <ul class="nav-list flex">
-        <li><a href="${ctx}/index.jsp">首页</a></li>
+        <li><a href="${ctx}/IndexServlet">首页</a></li>
         <c:if test="${empty name}">
             <li><a href="${ctx}/login.jsp">登录/注册</a></li>
         </c:if>

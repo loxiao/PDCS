@@ -16,6 +16,9 @@ public class NewsLIstServlet extends HttpServlet {
         CompetitionsDao competitionsDao=new CompetitionsDao();
         Competitions competitions=competitionsDao.getbyid(id);
         request.getSession().setAttribute("competitions",competitions);
+        /**/
+        request.getSession().setAttribute("msg","热门赛事");
+
         response.sendRedirect(request.getContextPath()+"/competition.jsp");
     }
 

@@ -12,6 +12,7 @@
 .card-box {
     position: relative;
     top: -30px;
+    align-items: flex-start;
 }
 
 .cards {
@@ -187,7 +188,10 @@ a.card:hover .circle:after {
 a.card:hover p {
     color: var(--text-color-hover);
 }
-
+a.card:hover p span {
+    font-size: 32px;
+    color: #fff;
+}
 a.card:active {
     transform: scale(1) translateZ(0);
     box-shadow: 0 15px 24px rgba(0, 0, 0, 0.11),
@@ -199,6 +203,7 @@ a.card p {
     color: #4c5656;
     margin-top: 100px;
     font-size: 25px;
+    text-align: center;
     z-index: 1000;
     transition: color 0.3s ease-out;
 }
