@@ -17,7 +17,7 @@
         <p>获奖情况:<span>${work.getWorkID()}</span></p>
         <p>点赞数:<span>${work.getLikes()}</span></p>
         <p>评论:<span>${work.getComments()}</span></p>
-        <p class="img">作品展示:<img src="${work.getImageURL()}"></p>
+        <p class="img">作品展示:<img src="postimg/${work.getImageURL()}"></p>
     </div>
     <div class="score">
         <a>打分</a>

@@ -20,7 +20,7 @@ class WorksDaoTest {
         List<Works> worksDaoList=worksDao.getWorks();
         assertEquals(false,worksDaoList.isEmpty());
         for(Works works:worksDaoList){
-            System.out.println(works.getWorkName()+" "+works.getTeamID()+" "+ works.getCompetitionID());
+            System.out.println(works.getWorkID()+" "+works.getWorkName()+" "+works.getTeamID()+" "+ works.getCompetitionID()+" "+works.getImageURL());
         }
     }
 }
