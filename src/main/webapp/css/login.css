@@ -24,9 +24,7 @@ html {
 }
 
 .panel_visible {
-
     position: relative;
-
     overflow: hidden;
     width: 390px;
 }
@@ -37,74 +35,15 @@ html {
     margin-bottom: 1.2em;
 }
 
-
-
 .panel_content {
-
     padding: 20px;
     background-color: white;
     z-index: 10;
     position: relative;
 }
 
-.panel_content-overlay {
-
-    position: absolute;
-    top: 0;
-    left: 100%;
-    height: 100%;
-}
-
-.panel_content.animate {
-
-
-    animation: movePanel 2s forwards;
-}
-
-@keyframes movePanel {
-
-
-    0%,
-    30% {
-
-        transform: translateX(0%);
-
-    }
-
-    35%,
-    100% {
-
-        transform: translateX(-100%);
-
-    }
-
-}
-
-.panel_content.animateOut {
-
-
-    animation: movePanelOut 2s forwards;
-}
-
-@keyframes movePanelOut {
-
-    0%,
-    30% {
-
-        transform: translateX(-100%);
-
-    }
-
-    35%,
-    100% {
-
-        transform: translateX(0%);
-
-    }
-}
 
 .panel_back {
-
     position: absolute;
     z-index: 0;
     top: 50%;
@@ -114,88 +53,69 @@ html {
 }
 
 .panel_back.animate {
-
-
     animation: move 2s forwards;
 }
 
 @keyframes move {
-
     0% {
-
         transform: translate(70%, -50%);
         z-index: 0;
     }
 
     15% {
-
         transform: translate(140%, -50%);
         z-index: 10;
     }
 
     75% {
-
         transform: translate(-120%, -50%);
         z-index: 10;
     }
 
     100% {
-
         transform: translate(-50%, -50%);
         z-index: 0;
     }
 }
 
 .panel_back.animateOut {
-
     transform: translate(-50%, -50%);
     animation: moveOut 2s forwards;
 }
 
 @keyframes moveOut {
-
     0% {
-
         transform: translate(-50%, -50%);
         z-index: 0;
     }
 
     15% {
-
         transform: translate(-120%, -50%);
         z-index: 10;
     }
 
     75% {
-
         transform: translate(140%, -50%);
         z-index: 10;
     }
 
     100% {
-
         transform: translate(70%, -50%);
         z-index: 0;
     }
-
-
-
 }
 
 .panel_img {
-
     width: 100%;
     display: block;
 }
 
 /* Form */
 .form {
-
     box-sizing: border-box;
 }
 
 .form_label {
-
     display: block;
     color: #3D3D3D;
     font-weight: 600;
@@ -203,7 +123,6 @@ html {
 }
 
 .form_input {
-
     border-radius: 3px;
     background-color: #f2f2f2;
     box-shadow: 0px 2px 2px #D6D6D6;
@@ -216,21 +135,8 @@ html {
 }
 
 .form_input:focus {
-
     box-shadow: none;
     outline-color: #0f95b0;
-}
-
-.form_input::after {
-
-    /* TODO: make this after portion work */
-    content: "👁️";
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 50px;
-    width: 50px;
-    background-color: red;
 }
 
 .form_btn {
@@ -250,7 +156,6 @@ html {
 }
 
 .form_toggle {
-
     background-color: transparent;
     border: none;
     padding: 0;
@@ -266,7 +171,6 @@ html {
 }
 
 .form_toggle:focus {
-
     outline: none;
     border-bottom: 1px solid #5e72e0;
 }
@@ -292,4 +196,9 @@ html {
 .msg {
     text-align: center;
     color: red;
+}
+
+/* 用于隐藏表单的样式 */
+.hidden {
+    display: none;
 }
