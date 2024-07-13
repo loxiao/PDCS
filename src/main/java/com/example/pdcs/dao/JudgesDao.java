@@ -34,4 +34,15 @@ public class JudgesDao {
             return judges;
         }
     }
+    // 更新作品分数的方法
+    public int updateScore(int workId, int score) {
+        int rowsAffected = 0;
+        try {
+            String sql = "UPDATE works SET Score = ? WHERE WorkID = ?";
+            rowsAffected = template.update(sql, score, workId);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return rowsAffected;
+    }
 }

@@ -18,9 +18,9 @@
             <tbody>
             <c:forEach items="${worksList}" var="work">
                 <tr>
-                    <td>${work.WorkName}</td>
-                    <td>${work.TeamID}</td>
-                    <td>${work.CompetitionID}</td>
+                    <td>${work.getWorkName()}</td>
+                    <td>${work.getTeamID()}</td>
+                    <td>${work.getCompetitionID()}</td>
                 </tr>
             </c:forEach>
             </tbody>
