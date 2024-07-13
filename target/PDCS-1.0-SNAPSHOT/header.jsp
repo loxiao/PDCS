@@ -35,7 +35,7 @@
 
         <li><a href="">消息 </a></li>
         <li><a href="">个人中心 </a></li>
-        <li><a href="">学生作品 </a></li>
+        <li><a href="WorksServlet">学生作品 </a></li>
     </ul>
 </header>
 </body>

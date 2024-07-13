@@ -14,11 +14,17 @@ public class WorksServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         WorksDao worksDao = new WorksDao();
-        List<Works> worksList = worksDao.getWorks();
-        System.out.println(worksList); // 打印 worksList 内容进行调试
-        HttpSession session = request.getSession();
-        session.setAttribute("worksList", worksList);
-        request.getRequestDispatcher("work.jsp").forward(request, response);
+        String workIdParam = request.getParameter("workId");
+        if (workIdParam != null) {
+            int workId = Integer.parseInt(workIdParam);
+            Works work = worksDao.getWorkById(workId);
+            request.setAttribute("work", work);
+            request.getRequestDispatcher("workDetails.jsp").forward(request, response);
+        } else {
+            List<Works> worksList = worksDao.getWorks();
+            request.getSession().setAttribute("worksList", worksList);
+            request.getRequestDispatcher("work.jsp").forward(request, response);
+        }
     }
 
     @Override

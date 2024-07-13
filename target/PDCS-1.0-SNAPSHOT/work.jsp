@@ -13,14 +13,16 @@
                 <th>作品名称</th>
                 <th>队名</th>
                 <th>类型</th>
+                <th>奖状</th>
             </tr>
             </thead>
             <tbody>
             <c:forEach items="${worksList}" var="work">
                 <tr>
-                    <td>${work.getWorkName()}</td>
+                    <td><a href="WorkDetailsServlet?workId=${work.getWorkID()}">${work.getWorkName()}</a></td>
                     <td>${work.getTeamID()}</td>
                     <td>${work.getCompetitionID()}</td>
+                    <td>${work.getWorkID()}</td>
                 </tr>
             </c:forEach>
             </tbody>

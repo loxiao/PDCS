@@ -22,4 +22,14 @@ public class WorksDao {
             return worksList;
         }
     }
+    public Works getWorkById(int workId) {
+        Works work = null;
+        try {
+            String sql = "SELECT * FROM works WHERE WorkID = ?";
+            work = template.queryForObject(sql, new BeanPropertyRowMapper<>(Works.class), workId);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return work;
+    }
 }
