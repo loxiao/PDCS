@@ -246,12 +246,12 @@ CREATE TABLE `works` (
 -- ----------------------------
 -- Records of works
 -- ----------------------------
-INSERT INTO `works` VALUES ('1', '海洋生态海报', '1', '10', '0', null, null, '95');
-INSERT INTO `works` VALUES ('2', '历史传承海报', '5', '11', '0', null, null, '95');
-INSERT INTO `works` VALUES ('3', '科技创新海报', '4', '12', '0', null, null, '95');
-INSERT INTO `works` VALUES ('4', '环保行动海报', '6', '13', '0', null, null, '95');
-INSERT INTO `works` VALUES ('5', '关爱成长海报', '7', '14', '0', null, null, '95');
-INSERT INTO `works` VALUES ('6', '编程艺术海报', '10', '15', '0', null, null, '95');
-INSERT INTO `works` VALUES ('7', '国防教育海报', '13', '16', '0', null, null, '95');
-INSERT INTO `works` VALUES ('8', '艺术春天海报', '19', '17', '0', null, null, '95');
-INSERT INTO `works` VALUES ('9', '建军节庆祝海报', '2', '18', '0', null, null, '95');
+INSERT INTO `works` VALUES ('1', '海洋生态海报', '1', '10', '0', null, 'a.jpg', '95');
+INSERT INTO `works` VALUES ('2', '历史传承海报', '5', '11', '0', null, 'b.jpg', '95');
+INSERT INTO `works` VALUES ('3', '科技创新海报', '4', '12', '0', null, 'c.jpg', '95');
+INSERT INTO `works` VALUES ('4', '环保行动海报', '6', '13', '0', null, 'd.jpg', '95');
+INSERT INTO `works` VALUES ('5', '关爱成长海报', '7', '14', '0', null, 'e.jpg', '95');
+INSERT INTO `works` VALUES ('6', '编程艺术海报', '10', '15', '0', null, 'f.jpg', '95');
+INSERT INTO `works` VALUES ('7', '国防教育海报', '13', '16', '0', null, 'h.jpg', '95');
+INSERT INTO `works` VALUES ('8', '艺术春天海报', '19', '17', '0', null, 'j.jpg', '95');
+INSERT INTO `works` VALUES ('9', '建军节庆祝海报', '2', '18', '0', null, 'k.jpg', '95');
