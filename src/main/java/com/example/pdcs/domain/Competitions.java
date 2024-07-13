@@ -12,7 +12,16 @@ public class Competitions {
     private String CompetitionDescription;
     private int MaxParticipants;
     private String Theme;
+    private Date PublishDate;
     public Competitions(){}
+
+    public Date getPublishDate() {
+        return PublishDate;
+    }
+
+    public void setPublishDate(Date publishDate) {
+        PublishDate = publishDate;
+    }
 
     public String getTheme() {
         return Theme;

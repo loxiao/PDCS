@@ -45,26 +45,7 @@ public class CompetitionsDao {
     public List<Competitions> getoldcompetition(){//获取已经结束并且完成颁奖的竞赛作为新闻
         List<Competitions>competitionsList=null;
         try {
-            String sql="SELECT \n" +
-                    "    c.CompetitionID,\n" +
-                    "    c.CompetitionName,\n" +
-                    "    c.CompetitionDate,\n" +
-                    "    c.RegistrationDeadline,\n" +
-                    "    c.CompetitionTypeID,\n" +
-                    "    c.CompetitionTypeName,\n" +
-                    "    c.CompetitionDescription,\n" +
-                    "    c.MaxParticipants,\n" +
-                    "    c.Theme\n" +
-                    "FROM \n" +
-                    "    competitions c\n" +
-                    "WHERE \n" +
-                    "    c.CompetitionDate <= CURDATE()\n" +
-                    "    AND EXISTS (\n" +
-                    "        SELECT 1\n" +
-                    "        FROM awards a\n" +
-                    "        WHERE a.CompetitionID = c.CompetitionID\n" +
-                    "    )\n" +
-                    "ORDER BY c.CompetitionDate DESC;";
+            String sql="SELECT * FROM competitions WHERE CompetitionDate <= NOW() AND EXISTS(SELECT 1 FROM awards a WHERE a.CompetitionID = CompetitionID) ORDER BY RegistrationDeadline ASC;";
             competitionsList=template.query(sql,new BeanPropertyRowMapper<>(Competitions.class));
         }catch (Exception e){
             e.printStackTrace();

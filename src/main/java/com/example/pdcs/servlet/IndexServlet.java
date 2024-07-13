@@ -1,7 +1,9 @@
 package com.example.pdcs.servlet;
 
 import com.example.pdcs.dao.CompetitionsDao;
+import com.example.pdcs.dao.CompetitiontypesDao;
 import com.example.pdcs.domain.Competitions;
+import com.example.pdcs.domain.Competitiontypes;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -15,6 +17,7 @@ public class IndexServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         CompetitionsDao competitionsDao=new CompetitionsDao();//获取最新竞赛dao
+        request.getSession().setAttribute("msg","");
         List<Competitions> competitions=competitionsDao.getnewcompetitions();//获取还未结束报名的
         if(competitions.size()>10){//那前10个
             List<Competitions> newcompetitions=new ArrayList<>();
@@ -47,6 +50,12 @@ public class IndexServlet extends HttpServlet {
         else{
             request.getSession().setAttribute("oldcompetitions",competitions);
         }
+
+        /*竞赛类别*/
+        CompetitiontypesDao competitiontypesDao=new CompetitiontypesDao();
+        List<Competitiontypes> competitiontypesList=competitiontypesDao.getList();
+        request.getSession().setAttribute("competitiontypesList",competitiontypesList);
+
         response.sendRedirect(request.getContextPath()+"/index.jsp");
     }
 

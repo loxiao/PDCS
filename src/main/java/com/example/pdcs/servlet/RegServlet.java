@@ -44,6 +44,7 @@ public class RegServlet extends HttpServlet {
                 request.getSession().setAttribute("participant",participant);
                 String username=participant.getParticipant_name();
                 request.getSession().setAttribute("name",username);
+                request.getSession().setAttribute("cnt",1);
                 request.getRequestDispatcher("IndexServlet").forward(request,response);
             }
         }
