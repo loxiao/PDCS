@@ -17,6 +17,7 @@ public class IndexServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         CompetitionsDao competitionsDao=new CompetitionsDao();//获取最新竞赛dao
+        request.getSession().setAttribute("msg","");
         List<Competitions> competitions=competitionsDao.getnewcompetitions();//获取还未结束报名的
         if(competitions.size()>10){//那前10个
             List<Competitions> newcompetitions=new ArrayList<>();

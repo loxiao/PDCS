@@ -4,7 +4,7 @@
 <div class="container">
     <div class="list-group">
         <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
-            <p class="mb-1">${msg}</p>
+            <p class="mb-1">${asg}</p>
             <div class="tooltip"></div>
         </a>
         <c:forEach items="${newcompetitions}" var="competitions">
@@ -22,11 +22,11 @@
         <div class="card-body">
             <h5 class="card-title">${competitions.getCompetitionName()}</h5>
             <p class="card-text">${competitions.getCompetitionDescription()}报名截止日期和作品提交截止日期：${competitions.getRegistrationDeadline()}</p>
-            <a href="#" class="btn btn-primary">创建团队报名</a>
+            <a href="${ctx}/JudgmentServlet?id=${competitions.getCompetitionID()}" class="btn btn-primary">创建团队报名</a>
             <a href="#" class="btn btn-primary">加入团队报名</a>
         </div>
         <div class="card-footer text-muted">
-            2 days ago
+            <p class="mb-1">${msg}</p>
         </div>
     </div>
 </div>
