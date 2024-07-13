@@ -76,5 +76,15 @@ public class CompetitionsDao {
             return competitions;
         }
     }
+    public List<Competitions> getByTypeId(int typeId) {
+        List competitionsList = null;
 
+        try {
+            String sql = "SELECT * FROM competitions WHERE CompetitionTypeID=? and RegistrationDeadline > NOW() ORDER BY RegistrationDeadline ASC;";
+            competitionsList = this.template.query(sql, new BeanPropertyRowMapper(Competitions.class), new Object[]{typeId});
+            return competitionsList;
+        } finally {
+            ;
+        }
+    }
 }

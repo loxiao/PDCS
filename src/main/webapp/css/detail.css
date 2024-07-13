@@ -6,6 +6,12 @@
     gap: 30px;
     margin-top: 20px;
 }
+.card-body {
+    padding: 20px 40px;
+}
+.card-text{
+    text-indent: 2em;
+}
 .card-header{
     font-size: 30px;
     font-weight: bolder;
