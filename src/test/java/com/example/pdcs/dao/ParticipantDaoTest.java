@@ -63,4 +63,10 @@ class ParticipantDaoTest {
         assertNotNull(participants);
         assertFalse(participants.isEmpty());
     }
+    @Test
+    void getbyparticipantid(){
+        Participant participant=participantDao.getbyParticipant(1);
+        assertEquals("Jim",participant.getParticipant_name());
+        System.out.println(participant.getParticipant_name());
+    }
 }

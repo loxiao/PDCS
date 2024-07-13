@@ -65,13 +65,13 @@
                 <h5>报名/作品提交日期:</h5>
                 <p class="card-text">${competitions.getRegistrationDeadline()}</p>
                 <div class="flex justify-content-around">
-                    <a href="#" class="btn btn-primary">创建团队报名</a>
+                    <a href="${ctx}/JudgmentServlet?id=${competitions.getCompetitionID()}" class="btn btn-primary">创建团队报名</a>
                     <a href="#" class="btn btn-primary">加入团队报名</a>
                 </div>
 
             </div>
             <div class="card-footer text-muted">
-                2 days ago
+                <p class="mb-1" style="color: red">${msg}</p>
             </div>
         </div>
     </c:if>

@@ -6,6 +6,7 @@ public class Participant {
     private String participant_number;
     private String participant_psd;
     private String participant_address;
+    private int enter;
     public Participant(){}
 
     public int getParticipant_id() {
@@ -46,5 +47,13 @@ public class Participant {
 
     public void setParticipant_address(String participant_address) {
         this.participant_address = participant_address;
+    }
+
+    public int getEnter() {
+        return enter;
+    }
+
+    public void setEnter(int enter) {
+        this.enter = enter;
     }
 }
