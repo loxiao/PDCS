@@ -20,7 +20,7 @@
         <p class="img">作品展示:<img src="${work.getImageURL()}"></p>
     </div>
     <div class="score">
-        <a>打分</a>
+        <a href="MarkServlet?workId=${work.getWorkID()}">打分</a>
     </div>
 </div>
 <%@include file="footer.jsp"%>
