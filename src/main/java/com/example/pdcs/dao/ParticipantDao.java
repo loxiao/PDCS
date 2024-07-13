@@ -65,6 +65,26 @@ public class ParticipantDao {
     // 获取所有参与者信息
     public List<Participant> getAllParticipants() {
         String sql = "SELECT * FROM participant";
-        return template.query(sql, new BeanPropertyRowMapper<>(Participant.class));
+        List<Participant> participants=null;
+        try {
+            participants=template.query(sql,new BeanPropertyRowMapper<>(Participant.class));
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            return template.query(sql, new BeanPropertyRowMapper<>(Participant.class));
+        }
+
+    }
+    //根据id获取该参赛者信息
+    public Participant getbyParticipant(int pid){
+        Participant participant=null;
+        String sql="SELECT*from participant WHERE participant_id=?";
+        try {
+            participant=template.queryForObject(sql,new BeanPropertyRowMapper<>(Participant.class),pid);
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            return participant;
+        }
     }
 }

@@ -14,7 +14,7 @@ public class WorksDao {
     public List<Works> getWorks(){
         List<Works> worksList=null;
         try{
-            String sql="SELECT * FROM works;";
+            String sql="SELECT *FROM works WHERE EXISTS(SELECT 1 FROM awards a WHERE a.WorkID = WorkID)";
             worksList=template.query(sql,new BeanPropertyRowMapper<>(Works.class));
         }catch (Exception e){
             e.printStackTrace();

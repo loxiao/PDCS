@@ -6,25 +6,8 @@
 <div class="page">
     <div class="panel">
         <div class="panel_visible">
-            <!--注册表单-->
-            <div class="panel_content">
-                <h1 class="panel_title"> 注册 </h1>
-                <form class="form" action="${ctx}/RegServlet" method="post">
-                    <label class="form_label" for="username">用户名</label>
-                    <input class="form_input" type="text" id="username" name="username">
-                    <label class="form_label" for="password">密码</label>
-                    <input class="form_input " type="password" id="password" name="password">
-                    <label class="form_label" for="email">邮箱</label>
-                    <input class="form_input" type="text" id="email" name="email">
-                    <label class="form_label" for="address">地址</label>
-                    <input class="form_input" type="text" id="address" name="address">
-                    <div class="msg">${msg}</div>
-                    <input class="form_btn" type="submit" value="注册">
-                    <button class="form_toggle js-formToggle" type="button">Or, 登录</button>
-                </form>
-            </div>
             <!--登录表单-->
-            <div class="panel_content panel_content-overlay js-panel_content ">
+            <div class="panel_content">
                 <h1 class="panel_title"> 登录 </h1>
                 <form class="form" action="${ctx}/LoginServlet" method="post">
                     <label class="form_label" for="emailIn">邮箱</label>
@@ -51,6 +34,23 @@
                     <br>
                     <div class="msg">${msg}</div>
                     <button class="form_toggle js-formToggle" type="button">Or, 注册</button>
+                </form>
+            </div>
+            <!--注册表单-->
+            <div class="panel_content hidden">
+                <h1 class="panel_title"> 注册 </h1>
+                <form class="form" action="${ctx}/RegServlet" method="post">
+                    <label class="form_label" for="username">用户名</label>
+                    <input class="form_input" type="text" id="username" name="username">
+                    <label class="form_label" for="password">密码</label>
+                    <input class="form_input " type="password" id="password" name="password">
+                    <label class="form_label" for="email">邮箱</label>
+                    <input class="form_input" type="text" id="email" name="email">
+                    <label class="form_label" for="address">地址</label>
+                    <input class="form_input" type="text" id="address" name="address">
+                    <div class="msg">${msg}</div>
+                    <input class="form_btn" type="submit" value="注册">
+                    <button class="form_toggle js-formToggle" type="button">Or, 登录</button>
                 </form>
             </div>
         </div>
