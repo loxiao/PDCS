@@ -2,6 +2,7 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@include file="header.jsp"%>
+<link rel="stylesheet" href="css/workDetail.css">
 <div class="WorkDetails">
     <div class="head">
         <h2>${work.getWorkName()}</h2>
@@ -14,9 +15,9 @@
         <p>队员:<span>${work.getTeamID()}</span></p>
         <p>竞赛类型:<span>${work.getCompetitionID()}</span></p>
         <p>获奖情况:<span>${work.getWorkID()}</span></p>
-        <p>作品展示:<img src="${work.getImageURL()}"></p>
         <p>点赞数:<span>${work.getLikes()}</span></p>
         <p>评论:<span>${work.getComments()}</span></p>
+        <p class="img">作品展示:<img src="${work.getImageURL()}"></p>
     </div>
     <div class="score">
         <a>打分</a>
