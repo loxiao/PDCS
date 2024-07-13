@@ -21,7 +21,7 @@
         <div class="cards">
             <div class="cards-header flex spc">
                 <div class="title" style="font-size: 30px;">大赛通知</div>
-                <div class="more"><a href="">查看更多 >></a></div>
+                <div class="more"><a href="${ctx}/NewsLIstServlet">查看更多 >></a></div>
             </div>
             <div class="cards-content">
                 <c:forEach items="${newcompetitions}" var="competitions">
@@ -44,7 +44,7 @@
     <div class="nav-title">本届赛事</div>
     <div class="gaid-card">
         <c:forEach items="${competitiontypesList}" var="competitiontype">
-            <a href="#" class="card education">
+            <a href="${ctx}/NewsLIstServlet?typeId=${competitiontype.getCompetitionTypeID()}&typeName= ${competitiontype.getTypeName()}" class="card education">
                 <div class="overlay"></div>
                 <div class="circle">
                 </div>

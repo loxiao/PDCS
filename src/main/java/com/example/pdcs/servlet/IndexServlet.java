@@ -19,7 +19,7 @@ public class IndexServlet extends HttpServlet {
         CompetitionsDao competitionsDao=new CompetitionsDao();//获取最新竞赛dao
         request.getSession().setAttribute("msg","");
         List<Competitions> competitions=competitionsDao.getnewcompetitions();//获取还未结束报名的
-        if(competitions.size()>10){//那前10个
+        if(competitions != null && competitions.size()>10){//那前10个
             List<Competitions> newcompetitions=new ArrayList<>();
             int i=0;
             for(Competitions competitions1:competitions){
@@ -35,7 +35,7 @@ public class IndexServlet extends HttpServlet {
             request.getSession().setAttribute("newcompetitions",competitions);
         }
         competitions=competitionsDao.getoldcompetition();//获取结束竞赛已颁奖的竞赛
-        if(competitions.size()>10){//那前10个
+        if(competitions != null && competitions.size()>10){//那前10个
             List<Competitions> oldcompetitions=new ArrayList<>();
             int i=0;
             for(Competitions competitions1:competitions){
