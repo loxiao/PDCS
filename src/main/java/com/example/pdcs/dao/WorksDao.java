@@ -32,4 +32,15 @@ public class WorksDao {
         }
         return work;
     }
+    public List<Works> getBycompetitionidandaward(int cid){//根据竞赛id获取获奖作品
+        List<Works> worksList=null;
+        try{
+            String sql="SELECT *FROM works WHERE CompetitionID=? and EXISTS(SELECT 1 FROM awards a WHERE a.WorkID = WorkID)";
+            worksList=template.query(sql,new BeanPropertyRowMapper<>(Works.class),cid);
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            return worksList;
+        }
+    }
 }

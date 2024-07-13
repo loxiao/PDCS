@@ -36,7 +36,7 @@
             </div>
             <div class="cards-content">
                 <c:forEach items="${oldcompetitions}" var="competitions">
-                    <li><a href="">${competitions.getCompetitionName()}获奖结果</a></li>
+                    <li><a href="${ctx}/AwardServlet?id=${competitions.getCompetitionID()}">${competitions.getCompetitionName()}获奖结果</a></li>
                 </c:forEach>
             </div>
         </div>

@@ -9,6 +9,7 @@ import java.io.IOException;
 public class LogoutServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.getSession().setAttribute("msg","");
         //1.清除用户Session内容
         if(request.getSession().getAttribute("participant") != null){
             request.getSession().invalidate();

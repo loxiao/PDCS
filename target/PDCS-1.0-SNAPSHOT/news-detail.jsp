@@ -14,14 +14,12 @@
             <p class="mb-1">最近新闻</p>
             <div class="tooltip"></div>
         </a>
-        <a href="#" class="list-group-item list-group-item-action">
-            <p class="mb-1">赛事1</p>
-            <div class="tooltip"></div>
-        </a>
-        <a href="#" class="list-group-item list-group-item-action">
-            <p class="mb-1">赛事2</p>
-            <div class="tooltip"></div>
-        </a>
+        <c:forEach items="${oldcompetitions}" var="competitions">
+            <a href="${ctx}/AwardServlet?id=${competitions.getCompetitionID()}" class="list-group-item list-group-item-action">
+                <p class="mb-1">${competitions.getCompetitionName()}+颁奖结构</p>
+                <div class="tooltip"></div>
+            </a>
+        </c:forEach>
     </div>
 
     <div class="card ">
@@ -29,16 +27,22 @@
             竞赛新闻
         </div>
         <div class="card-body">
-            <h3 class="card-title text-center">xxxx年XXX赛获奖名单</h3>
-            <h6 class="card-time text-center">赛事名称  2024-07-11</h6>
+            <h3 class="card-title text-center">${competitions.getCompetitionName()}获奖名单</h3>
+            <h6 class="card-time text-center">赛事时间  ${competitions.getCompetitionDate()}</h6>
             <p class="card-text">
-                绍兴文理学院大学生海报设计竞赛于2024年7月8日晚成功落下帷幕，x队荣获一等奖，xx队荣获二等奖，xx队荣获三等奖。
+                ${competitions.getCompetitionName()}于${competitions.getCompetitionDate()}成功落下帷幕。
             </p>
             <p>获奖名单如下：</p>
             <ul>
-                <li>一等奖: </li>
-                <li>二等奖: </li>
-                <li>三等奖: </li>
+                <c:if test="${!empty first}">
+                    <li>一等奖: ${first}</li>
+                </c:if>
+                <c:if test="${!empty second}">
+                    <li>一等奖: ${second}</li>
+                </c:if>
+                <c:if test="${!empty third}">
+                    <li>一等奖: ${third}</li>
+                </c:if>
             </ul>
         </div>
         <div class="card-footer text-muted">

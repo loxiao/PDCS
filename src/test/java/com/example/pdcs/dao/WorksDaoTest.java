@@ -17,9 +17,17 @@ class WorksDaoTest {
     }
     @Test
     void getWorks() {
-        List<Works> worksDaoList=worksDao.getWorks();
-        assertEquals(false,worksDaoList.isEmpty());
-        for(Works works:worksDaoList){
+        List<Works> worksList=worksDao.getWorks();
+        assertEquals(false,worksList.isEmpty());
+        for(Works works:worksList){
+            System.out.println(works.getWorkID()+" "+works.getWorkName()+" "+works.getTeamID()+" "+ works.getCompetitionID()+" "+works.getImageURL());
+        }
+    }
+    @Test
+    void etBycompetitionidandaward(){
+        List<Works> worksList=worksDao.getBycompetitionidandaward(1);
+        assertEquals(false,worksList.isEmpty());
+        for(Works works:worksList){
             System.out.println(works.getWorkID()+" "+works.getWorkName()+" "+works.getTeamID()+" "+ works.getCompetitionID()+" "+works.getImageURL());
         }
     }
