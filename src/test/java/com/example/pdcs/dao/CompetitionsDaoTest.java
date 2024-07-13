@@ -48,7 +48,7 @@ class CompetitionsDaoTest {
         competitionsList=competitionsDao.getnewcompetitions();
         assertEquals(false,competitionsList.isEmpty());
         for(Competitions competitions:competitionsList){
-            System.out.println(competitions.getRegistrationDeadline()+" "+competitions.getCompetitionName()+" "+competitions.getCompetitionDescription());
+            System.out.println(competitions.getPublishDate()+" "+competitions.getRegistrationDeadline()+" "+competitions.getCompetitionName()+" "+competitions.getCompetitionDescription());
         }
     }
     @Test

@@ -55,6 +55,7 @@ public class CompetitionsDao {
                     "    c.CompetitionDescription,\n" +
                     "    c.MaxParticipants,\n" +
                     "    c.Theme\n" +
+                    "    c.PublishDate"+
                     "FROM \n" +
                     "    competitions c\n" +
                     "WHERE \n" +
