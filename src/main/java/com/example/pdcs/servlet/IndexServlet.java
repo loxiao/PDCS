@@ -1,7 +1,9 @@
 package com.example.pdcs.servlet;
 
 import com.example.pdcs.dao.CompetitionsDao;
+import com.example.pdcs.dao.CompetitiontypesDao;
 import com.example.pdcs.domain.Competitions;
+import com.example.pdcs.domain.Competitiontypes;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -47,6 +49,12 @@ public class IndexServlet extends HttpServlet {
         else{
             request.getSession().setAttribute("oldcompetitions",competitions);
         }
+
+        /*竞赛类别*/
+        CompetitiontypesDao competitiontypesDao=new CompetitiontypesDao();
+        List<Competitiontypes> competitiontypesList=competitiontypesDao.getList();
+        request.getSession().setAttribute("competitiontypesList",competitiontypesList);
+
         response.sendRedirect(request.getContextPath()+"/index.jsp");
     }
 

@@ -4,7 +4,7 @@
 <div class="container">
     <div class="list-group">
         <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
-            <p class="mb-1">热门赛事</p>
+            <p class="mb-1">${msg}</p>
             <div class="tooltip"></div>
         </a>
         <c:forEach items="${newcompetitions}" var="competitions">
@@ -17,7 +17,7 @@
 
     <div class="card text-center">
         <div class="card-header">
-            赛事通知
+            ${competitions.getCompetitionTypeName()} / 赛事通知
         </div>
         <div class="card-body">
             <h5 class="card-title">${competitions.getCompetitionName()}</h5>
