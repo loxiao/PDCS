@@ -32,7 +32,7 @@
                 <li><a href="${ctx}/ParticipantServlet">个人中心 </a></li>
             </c:when>
             <c:when test="${!empty admin}">
-                <li><a href="">欢迎：<b>${admin.AdminName}</b></a></li>
+                <li><a href="">欢迎：<b>${admin.adminName}</b></a></li>
                 <li><a href="${ctx}/LogoutServlet">注销</a></li>
                 <li><a href="${ctx}/AdminServlet">管理员中心</a></li>
             </c:when>
