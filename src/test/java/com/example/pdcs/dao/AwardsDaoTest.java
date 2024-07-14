@@ -30,4 +30,12 @@ class AwardsDaoTest {
             System.out.println(awards.getAwardName()+" "+awards.getWinner1ID()+" "+awards.getWinner2ID()+" "+awards.getWinner3ID()+" "+awards.getWinner4ID());
         }
     }
+    @Test
+    void getBypid() {
+        List<Awards> awards=awardsDao.getByparticipantnid(1);
+        assertEquals(false,awards.isEmpty());
+        for(Awards awards1:awards){
+            System.out.println(awards1.getAwardName());
+        }
+    }
 }

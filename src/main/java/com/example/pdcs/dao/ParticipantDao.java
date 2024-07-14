@@ -40,8 +40,8 @@ public class ParticipantDao {
     public boolean updateParticipant(Participant participant) {
         int affectrows=0;
         try{
-            String sql = "UPDATE participant SET participant_name=?, participant_number=?, participant_psd=?, participant_address=? WHERE participant_id=?";
-            affectrows = template.update(sql, participant.getParticipant_name(), participant.getParticipant_number(), participant.getParticipant_psd(), participant.getParticipant_address(), participant.getParticipant_id());
+            String sql = "UPDATE participant SET participant_name=?, participant_number=?, participant_address=? WHERE participant_id=?";
+            affectrows = template.update(sql, participant.getParticipant_name(), participant.getParticipant_number(), participant.getParticipant_address(), participant.getParticipant_id());
         }catch (Exception e){
             e.printStackTrace();
         }finally {
