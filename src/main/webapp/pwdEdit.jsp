@@ -1,12 +1,13 @@
 <%@ page contentType="text/html; charset=UTF-8" language="java" %>
 <%@include file="participant-head.jsp"%>
-<form action="PwdEditServlet" method="post">
-    <%@include file="participant-sider.jsp"%>
-    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+<%@include file="participant-sider.jsp"%>
+<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+    <form id="PwdForm" action="PwdEditServlet" method="post">
         <div class="container">
+            <input type="hidden" id="participant_psd" value="${participant.participant_psd}" />
             <h3 style="margin-left: -1.5%; margin-top: -4px;">密码修改</h3>
             <ul>
-                <li>密码长度:8 - 16</li>
+                <li>密码长度:4 - 20</li>
                 <li>密码必须包含数字,字母和字符（例如@ # *）</li>
                 <li>参考密码  123223@usx  213122#usx  3213@USX</li>
             </ul>
@@ -32,8 +33,54 @@
                 </div>
             </div>
         </div>
-        <%@ include file="footer.jsp"%>
+    </form>
+    <div class="text-center">
+        <span class="text-danger">${msg1}</span>
     </div>
-</form>
+    <%@ include file="footer.jsp"%>
+</div>
 </body>
 </html>
+<script>
+    $(function () {
+        $("#PwdForm").validate({
+            rules: {
+                oldPwd: {
+                    required: true,
+                    equalTo: "#participant_psd"
+                },
+                newPwd: {
+                    required: true,
+                    minlength: 4, // 新密码最小长度
+                    maxlength: 20, // 新密码最大长度
+                    regex: "^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[!@#$%^&*()_+\\-={}|;':\",.<>/?]).{4,20}$",// 正则表达式验证密码复杂度
+                    notEqualTo: function (element) {
+                        var currentPwd = $(element).closest('form').find('input[name="oldPwd"]').val();
+                        return currentPwd;
+                    }
+                },
+                reNewPwd: {
+                    required: true,
+                    equalTo: "#newPwd" // 确认新密码需要与新密码相同
+                }
+            },
+            messages: {
+                oldPwd: {
+                    required: "请输入原密码",
+                    equalTo: "原密码不匹配，请重新输入"
+                },
+                newPwd: {
+                    required: "请输入新密码",
+                    minlength: "密码长度至少为4个字符",
+                    maxlength: "密码长度不能超过20个字符",
+                    regex: "密码必须包含数字、字母和特殊字符",
+                    notEqualTo: "新密码不能与原密码相同"
+                },
+                reNewPwd: {
+                    required: "请再次输入新密码",
+                    equalTo: "两次输入的新密码不匹配，请重新输入"
+                }
+            }
+        })
+    })
+</script>

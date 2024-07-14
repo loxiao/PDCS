@@ -73,6 +73,10 @@ hr {
     position: relative;
     margin-bottom: 15px;
 }
+.form-group {
+    display: flex;
+    align-items: center;
+}
 i{
     padding-right: 10px;
     position: relative;
@@ -194,12 +198,17 @@ button, html input[type=button], input[type=reset], input[type=submit] {
 }
 
 label.error {
-    float: none;
-    margin-left: 22%;
-    margin-top: 10px;
-    margin-bottom: -15px;
-    font-size: 13px;
-    font-weight: 500;
-    font-family: Arial;
+    float: left;
     color: red;
+    font-weight: 400;
+    padding: 6px 0 6px 7px;
+    display: inline-block;
+}
+
+.form-group label {
+    flex: 0 0 auto; /* 不允许标签占据额外空间 */
+    margin-right: 10px; /* 在标签和输入框之间添加一些间隔 */
+}
+.form-group input {
+    flex: 1 1 auto; /* 输入框占据剩余空间 */
 }

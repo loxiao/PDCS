@@ -87,4 +87,17 @@ public class ParticipantDao {
             return participant;
         }
     }
+
+    //更新密码
+    public boolean updatePwd(Participant participant) {
+        int affectrows=0;
+        try{
+            String sql = "UPDATE participant SET participant_psd=? WHERE participant_id=?";
+            affectrows = template.update(sql, participant.getParticipant_psd(), participant.getParticipant_id());
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            return affectrows>0;
+        }
+    }
 }
