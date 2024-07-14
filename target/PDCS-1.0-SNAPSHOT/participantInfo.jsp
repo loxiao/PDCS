@@ -11,17 +11,17 @@
                 <div class="registerBox">
                     <div class="form-group">
                         <label style="font-size: 15px; margin-left: 13%; margin-top: 5px">姓名</label>
-                        <input name="Name" type="text" id="Name" class="form-control" placeholder="姓名" style="width: 400px; float: right; margin-right: 15%;" value="${participant.getParticipant_name()}">
+                        <input name="Name" type="text" id="Name" class="form-control" placeholder="姓名" style="width: 400px; float: right; margin-right: 15%;" value="${participant.participant_name}">
                     </div>
                     <br>
                     <div class="form-group">
                         <label style="font-size: 15px; margin-left: 13%; margin-top: 5px">邮箱</label>
-                        <input name="Email" type="text" id="Email" class="form-control" placeholder="邮箱" style="width: 400px; float: right; margin-right: 15%" value="${participant.getParticipant_number()}">
+                        <input name="Email" type="text" id="Email" class="form-control" placeholder="邮箱" style="width: 400px; float: right; margin-right: 15%" value="${participant.participant_number}">
                     </div>
                     <br>
                     <div class="form-group">
                         <label style="font-size: 15px; margin-left: 13%; margin-top: 5px">地址</label>
-                        <input name="Address" type="text" id="Address" class="form-control" placeholder="地址" style="width: 400px; float: right; margin-right: 15%" value="${participant.getParticipant_address()}">
+                        <input name="Address" type="text" id="Address" class="form-control" placeholder="地址" style="width: 400px; float: right; margin-right: 15%" value="${participant.participant_address}">
                     </div>
                     <div class="clearfix"></div>
                     <div style="width: 90px; margin: auto;">
@@ -35,4 +35,3 @@
 </form>
 </body>
 </html>
-

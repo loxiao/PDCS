@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: syrup
-  Date: 2024/7/11
-  Time: 14:31
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@include file="admin-head.jsp"%>
 <div class="row container">
@@ -15,7 +8,7 @@
         <h6>发布赛事</h6>
       </div>
       <div class="card-body">
-        <div class="form-qroup col-12">
+        <div class="form-group col-12">
           <form action="CompetitionsServlet" method="post">
             公益类: <input type="radio" name="type"  value="公益类" style="margin-right: 30px">
             国防类: <input type="radio" name="type"  value="国防类" style="margin-right: 30px">
@@ -31,7 +24,6 @@
             <div style="text-align: right"><input type="submit" class="btn btn-primary offset-1" value="添加赛事"></div>
           </form>
         </div>
-
       </div>
       <div class="card-footer text-center">
         <span class="text-danger">${msg}</span>

@@ -25,16 +25,27 @@
     <h1 class="title">大学生海报设计竞赛系统</h1>
     <ul class="nav-list flex">
         <li><a href="${ctx}/IndexServlet">首页</a></li>
-        <c:if test="${empty participant}">
-            <li><a href="${ctx}/login.jsp">登录/注册</a></li>
-        </c:if>
-        <c:if test="${!empty participant}">
-            <li><a href="">欢迎：<b>${participant.participant_name}</b></a></li>
-            <li><a href="${ctx}/LogoutServlet">注销</a></li>
-        </c:if>
-
+        <c:choose>
+            <c:when test="${!empty participant}">
+                <li><a href="">欢迎：<b>${participant.participant_name}</b></a></li>
+                <li><a href="${ctx}/LogoutServlet">注销</a></li>
+                <li><a href="${ctx}/ParticipantServlet">个人中心 </a></li>
+            </c:when>
+            <c:when test="${!empty admin}">
+                <li><a href="">欢迎：<b>${admin.adminName}</b></a></li>
+                <li><a href="${ctx}/LogoutServlet">注销</a></li>
+                <li><a href="${ctx}/AdminServlet">管理员中心</a></li>
+            </c:when>
+            <c:when test="${!empty judges}">
+                <li><a href="">欢迎：<b>${judges.judgesName}</b></a></li>
+                <li><a href="${ctx}/LogoutServlet">注销</a></li>
+                <li><a href="${ctx}/JudgesServlet">评委中心</a></li>
+            </c:when>
+            <c:otherwise>
+                <li><a href="${ctx}/login.jsp">登录/注册</a></li>
+            </c:otherwise>
+        </c:choose>
         <li><a href="">消息 </a></li>
-        <li><a href="${ctx}/ParticipantServlet?view=participantInfo">个人中心 </a></li>
         <li><a href="WorksServlet">学生作品 </a></li>
     </ul>
 </header>
