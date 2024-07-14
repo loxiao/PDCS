@@ -69,8 +69,19 @@ body {
     position: absolute;
     top: 300px;
     left: 800px;
+    overflow: hidden; /* 隐藏超出框的部分 */
+    width: 300px;
+    height: 300px;
 }
-
+.WorkDetails .detail .img img {
+    width: 100%; /* 图片宽度设置为100% */
+    height: 100%; /* 图片高度设置为100% */
+    object-fit: cover; /* 图片按比例填充框 */
+    position: absolute; /* 绝对定位 */
+    top: 50%; /* 垂直居中 */
+    left: 50%; /* 水平居中 */
+    transform: translate(-50%, -50%); /* 居中对齐 */
+}
 .WorkDetails .score {
     text-align: center;
     margin-top: 20px;
