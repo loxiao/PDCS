@@ -30,4 +30,15 @@ public class TeamDao {
             return affectrow>0;
         }
     }
+    public Teams getbyteamid(int tid){
+        Teams teams=null;
+        try {
+            String sql="SELECT*FROM teams WHERE TeamID=?";
+            teams=template.queryForObject(sql,new BeanPropertyRowMapper<>(Teams.class),tid);
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            return teams;
+        }
+    }
 }

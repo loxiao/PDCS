@@ -38,4 +38,10 @@ class AwardsDaoTest {
             System.out.println(awards1.getAwardName());
         }
     }
+    @Test
+    void geybyworkid(){
+        Awards awards=awardsDao.getbyworkid(2);
+        assertEquals(false,awards==null);
+        System.out.println(awards.getAwardName());
+    }
 }

@@ -46,7 +46,7 @@
             </c:otherwise>
         </c:choose>
         <li><a href="">消息 </a></li>
-        <li><a href="WorksServlet">学生作品 </a></li>
+        <li><a href="WorksServlet?id=0">学生作品 </a></li>
     </ul>
 </header>
 </body>

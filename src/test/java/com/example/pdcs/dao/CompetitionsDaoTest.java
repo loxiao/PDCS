@@ -1,5 +1,6 @@
 package com.example.pdcs.dao;
 
+import com.example.pdcs.domain.Awards;
 import com.example.pdcs.domain.Competitions;
 import org.junit.jupiter.api.Test;
 
