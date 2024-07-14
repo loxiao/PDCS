@@ -9,7 +9,7 @@
                 <ul style="padding-left: 10px; padding-right: 10px;">
                     <li>
                         <c:forEach items="${oldcompetitions}" var="competitions">
-                            <a href="#" class="competitions">
+                            <a href="${ctx}/WorksServlet?id=${competitions.getCompetitionID()}" class="competitions">
                                 <p class="mb-1">${competitions.getCompetitionName()}</p>
                             </a>
                         </c:forEach>
@@ -19,7 +19,12 @@
         </div>
         <div class="WorksList">
             <div class="HeadTitle">
-                <h3><span>大学生海报设计竞赛</span></h3>
+                <c:if test="${empty cname}">
+                    <h3><span>大学生海报设计竞赛</span></h3>
+                </c:if>
+                <c:if test="${!empty cname}">
+                    <h3><span>${cname}</span></h3>
+                </c:if>
             </div>
             <table>
                 <thead>
