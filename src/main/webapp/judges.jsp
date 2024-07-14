@@ -20,7 +20,7 @@
                 <td><a href="MarkServlet?workId=${work.getWorkID()}">${work.getWorkName()}</a></td>
                 <td>${work.getTeamID()}</td>
                 <td>${work.getCompetitionID()}</td>
-                <td>${work.getWorkID()}</td>
+                <td>${work.getScore()}</td>
             </tr>
         </c:forEach>
         </tbody>

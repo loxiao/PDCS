@@ -31,14 +31,14 @@
                 </tr>
                 </thead>
                 <tbody>
-                <c:forEach items="${worksList}" var="work">
+               <c:forEach var="combine" items="${combinedList}">
                     <tr>
-                        <td><a href="WorkDetailsServlet?workId=${work.getWorkID()}">${work.getWorkName()}</a></td>
-                        <td>${work.getTeamID()}</td>
-                        <td>${work.getCompetitionID()}</td>
-                        <td>${work.getWorkID()}</td>
+                        <td><a href="WorkDetailsServlet?workId=${combine[4]}">${combine[0]}</a></td>
+                        <td>${combine[1]}</td>
+                        <td>${combine[2]}</td>
+                        <td>${combine[3]}</td>
                     </tr>
-                </c:forEach>
+               </c:forEach>
                 </tbody>
             </table>
         </div>

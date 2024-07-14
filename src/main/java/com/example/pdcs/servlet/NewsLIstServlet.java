@@ -24,7 +24,6 @@ public class NewsLIstServlet extends HttpServlet {
         if (competitionId == null) {
             //点击赛事类别进入
             if (competitionTypeId != null) {
-                tsg = competitionTypeName;
                 amg = competitionTypeName;
                 List<Competitions> competitions = competitionsDao.getByTypeId(Integer.parseInt(competitionTypeId));
                 if (competitions != null && competitions.size() > 10) {
@@ -35,10 +34,13 @@ public class NewsLIstServlet extends HttpServlet {
                 }
             } else {
                 //点击赛more进入
-                tsg = "12类";
+                tsg = "more";
+                List<Competitions> competitions = competitionsDao.getCompetitionList();
+                request.getSession().setAttribute("newcompetitionAll", competitions);
             }
         } else {
             //点击进入具体的赛事
+            tsg = "one";
             Competitions competition = competitionsDao.getbyid(Integer.parseInt(competitionId));
             request.getSession().setAttribute("competitions", competition);
         }
