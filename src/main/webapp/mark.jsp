@@ -1,7 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <link rel="stylesheet" href="css/mark.css">
 <%@include file="header.jsp"%>
-<form action="${ctx}/SuccessfullyMarkServlet" method="post">
+<form action="${ctx}/JudgesServlet" method="post" id="markForm">
     <div class="judges">
         <div class="WorkDetails">
             <div class="head">
@@ -43,6 +43,22 @@
     document.getElementById('message').addEventListener('blur', function() {
         if (this.value === '') {
             this.value = '在这里输入你的留言...'; // 如果用户没有输入任何内容，重新显示提示文字
+        }
+    });
+
+    document.getElementById('markForm').addEventListener('submit', function(event) {
+        const score = document.getElementById('score').value.trim();
+        const message = document.getElementById('message').value.trim();
+
+        if (score === '' && (message === '' || message === '在这里输入你的留言...')) {
+            alert('请填写分数和评论。');
+            event.preventDefault(); // 阻止表单提交
+        } else if (score === '') {
+            alert('请打分。');
+            event.preventDefault(); // 阻止表单提交
+        } else if (message === '' || message === '在这里输入你的留言...') {
+            alert('请评论。');
+            event.preventDefault(); // 阻止表单提交
         }
     });
 </script>

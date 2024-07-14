@@ -16,9 +16,7 @@ body {
     max-width: 800px;
     margin: 50px auto;
     padding: 20px;
-
 }
-
 .WorkDetails .head {
     display: flex;
     justify-content: space-between;
@@ -27,26 +25,21 @@ body {
     padding-bottom: 10px;
     margin-bottom: 20px;
 }
-
 .WorkDetails .head h2 {
     margin: 0;
     color: #333;
 }
-
 .WorkDetails .head a {
     color: #007bff;
     text-decoration: none;
     font-size: 14px;
 }
-
 .WorkDetails .head a:hover {
     text-decoration: underline;
 }
-
 .WorkDetails .detail {
     margin-bottom: 20px;
 }
-
 .WorkDetails .detail h5 {
     margin: 0 0 10px;
     color: #333;
@@ -54,17 +47,14 @@ body {
     border-bottom: 2px solid #eee;
     padding-bottom: 5px;
 }
-
 .WorkDetails .detail p {
     margin: 10px 0;
     color: #555;
 }
-
 .WorkDetails .detail p span {
     color: #333;
     font-weight: bold;
 }
-
 .WorkDetails .detail .img {
     max-width: 100%;
     height: auto;
@@ -90,7 +80,6 @@ body {
 .WorkDetails .score {
     margin-top: 20px;
 }
-
 .score_label {
     top: 10px;
     left: 10px;
@@ -132,7 +121,6 @@ body {
 #message:focus::placeholder {
     color: transparent; /* 当获得焦点时，提示文字颜色变为透明 */
 }
-
 .judges_btn {
     display: block; /* 默认为块级元素 */
     margin-left: auto; /* 左边距自动 */
@@ -151,17 +139,14 @@ body {
     left: 0px;
     transition: background-color 0.3s ease; /* 过渡效果 */
 }
-
 /* 鼠标悬停时的样式 */
 .judges_btn:hover {
     background-color: #0056b3; /* 悬停时的背景颜色 */
 }
-
 /* 鼠标按下时的样式 */
 .judges_btn:active {
     background-color: #004085; /* 按下时的背景颜色 */
 }
-
 /* 鼠标悬停时的阴影效果 */
 .judges_btn:focus {
     box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.5); /* 焦点时的阴影 */
