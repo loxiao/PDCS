@@ -1,20 +1,22 @@
 package com.example.pdcs.servlet;
 
+import com.example.pdcs.dao.WorksDao;
+import com.example.pdcs.domain.Works;
+
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
+import java.util.List;
 
 @WebServlet(name = "JudgesServlet", value = "/JudgesServlet")
 public class JudgesServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String score = request.getParameter("score");
-        String message = request.getParameter("message");
-        HttpSession session = request.getSession();
-        session.setAttribute("score",score);
-        session.setAttribute("message",message);
-        request.getRequestDispatcher("/work.jsp").forward(request,response);
+        WorksDao worksDao = new WorksDao();
+        List<Works> worksList = worksDao.getWorks();
+        request.getSession().setAttribute("worksList",worksList);
+        request.getRequestDispatcher("judges.jsp").forward(request, response);
     }
 
     @Override

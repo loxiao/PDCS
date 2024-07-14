@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@include file="header.jsp"%>
 <link rel="stylesheet" href="css/work.css">
-    <div class="Works">
+<div class="Works">
         <div class="MatchBaseList">
             <div class="MatchTitle">
                 <h3><span>竞赛列表</span></h3>
@@ -42,6 +42,5 @@
                 </tbody>
             </table>
         </div>
-    </div>
 </div>
 <%@include file="footer.jsp"%>

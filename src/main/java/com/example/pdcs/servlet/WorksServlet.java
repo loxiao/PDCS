@@ -14,12 +14,9 @@ public class WorksServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         WorksDao worksDao = new WorksDao();
-            List<Works> worksList = worksDao.getWorks();
-            request.getSession().setAttribute("worksList",worksList);
-//            for(Works works:worksList){
-//
-//            }
-            request.getRequestDispatcher("work.jsp").forward(request, response);
+        List<Works> worksList = worksDao.getWorks();
+        request.getSession().setAttribute("worksList",worksList);
+        request.getRequestDispatcher("work.jsp").forward(request, response);
     }
 
     @Override

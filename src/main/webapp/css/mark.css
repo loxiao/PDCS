@@ -4,14 +4,19 @@ body {
     margin: 0;
     padding: 0;
 }
-
-.WorkDetails {
+.judges {
     max-width: 800px;
     margin: 50px auto;
     padding: 20px;
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
+}
+.WorkDetails {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+
 }
 
 .WorkDetails .head {
@@ -67,11 +72,11 @@ body {
     padding: 5px;
     border-radius: 5px;
     position: absolute;
-    top: 300px;
+    top: 370px;
     left: 800px;
     overflow: hidden; /* 隐藏超出框的部分 */
-    width: 100px;
-    height: 100px;
+    width: 300px;
+    height: 300px;
 }
 .WorkDetails .detail .img img {
     width: 100%; /* 图片宽度设置为100% */
@@ -99,4 +104,75 @@ body {
 
 .WorkDetails .score a:hover {
     background-color: #0056b3;
+}
+
+.score {
+    display: block; /* 默认为块级元素 */
+    margin-left: auto; /* 左边距自动 */
+    margin-right: auto; /* 右边距自动 */
+    width: 500px;
+    height: 50px;
+}
+.score_label {
+    top: 100px;
+    left: 100px;
+    width: 100px;
+    height: 50px;
+}
+.score_input {
+    top: 100px;
+    left: 200px;
+    width: 50px;
+    height: 20px;
+}
+.comments {
+    display: block; /* 默认为块级元素 */
+    margin-left: auto; /* 左边距自动 */
+    margin-right: auto; /* 右边距自动 */
+    width: 500px;
+    height: 50px;
+}
+.message {
+    width: 400px;
+    height: 150px;
+    position: relative;
+    top: 0;
+    left: 0;
+}
+.comments_label {
+    display: block;
+    vertical-align: top; /* 添加此行 */
+}
+.judges_btn {
+    display: block; /* 默认为块级元素 */
+    margin-left: auto; /* 左边距自动 */
+    margin-right: auto; /* 右边距自动 */
+    padding: 10px 20px; /* 内边距 */
+    font-size: 16px; /* 字体大小 */
+    color: white; /* 文本颜色 */
+    background-color: #007bff; /* 背景颜色 */
+    border: none; /* 无边框 */
+    border-radius: 50%; /* 边框圆角设置为50% */
+    cursor: pointer; /* 鼠标指针样式 */
+    width: 80px; /* 宽度 */
+    height: 80px; /* 高度 */
+    position: relative;
+    top: -40px;
+    left: 150px;
+    transition: background-color 0.3s ease; /* 过渡效果 */
+}
+
+/* 鼠标悬停时的样式 */
+.judges_btn:hover {
+    background-color: #0056b3; /* 悬停时的背景颜色 */
+}
+
+/* 鼠标按下时的样式 */
+.judges_btn:active {
+    background-color: #004085; /* 按下时的背景颜色 */
+}
+
+/* 鼠标悬停时的阴影效果 */
+.judges_btn:focus {
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.5); /* 焦点时的阴影 */
 }
