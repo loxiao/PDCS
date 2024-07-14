@@ -4,7 +4,7 @@ public class Awards {
     private int AwardID;
     private int WorkID;
     private String AwardName;
-    private int CompetitonID;
+    private int CompetitionID;
     private String AwardImageURL;
     private Integer Winner1ID;
     private Integer Winner2ID;
@@ -76,11 +76,11 @@ public class Awards {
         AwardName = awardName;
     }
 
-    public int getCompetitonID() {
-        return CompetitonID;
+    public int getCompetitionID() {
+        return this.CompetitionID;
     }
 
-    public void setCompetitonID(int competitonID) {
-        CompetitonID = competitonID;
+    public void setCompetitionID(int competitionID) {
+        this.CompetitionID = competitionID;
     }
 }

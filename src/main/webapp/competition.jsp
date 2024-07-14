@@ -16,7 +16,7 @@
     </div>
 
     <%--    //某类型竞赛简介--%>
-    <c:if test="${!empty tsg}">
+    <c:if test="${empty tsg}">
         <div class="card">
             <div class="card-body">
                 <h1 class="card-title text-center">${tsg}竞赛简介</h1>
@@ -47,8 +47,37 @@
             </div>
         </div>
     </c:if>
-    <%--    //竞赛--%>
-    <c:if test="${empty tsg}">
+    <c:if test="${!empty tsg and tsg == 'more'}">
+        <div class="card">
+            <div class="card-header" style="padding: 20px;">
+                竞赛
+            </div>
+            <div class="card-body">
+                <ul>
+                    <c:forEach items="${newcompetitionAll}" var="competitions">
+                        <li>
+                            <a href="${ctx}/NewsLIstServlet?id=${competitions.getCompetitionID()}" class="list-group-item list-group-item-action">
+                                <p class="mb-1">${competitions.getCompetitionName()}</p>
+                                <div class="tooltip"></div>
+                            </a>
+                        </li>
+                    </c:forEach>
+                </ul>
+            </div>
+            <ul class="pagination">
+                <li><a href="#">&laquo;</a></li>
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li><a href="#">&raquo;</a></li>
+            </ul>
+        </div>
+
+    </c:if>
+    <%--    竞赛--%>
+    <c:if test="${!empty tsg and tsg == 'one'}">
         <div class="card">
             <div class="card-header">
                 赛事通知
@@ -63,7 +92,7 @@
                     参赛小组成员需要在绍大竞赛网 注册，组长负责参赛报名。
                 </p>
                 <h5>报名/作品提交日期:</h5>
-                <p class="card-text">${competitions.getRegistrationDeadline()}</p>
+                <p class="card-text">${competitions.getPublishDate()} -- ${competitions.getCompetitionDate()}</p>
                 <div class="flex justify-content-around">
                     <a href="${ctx}/JudgmentServlet?id=${competitions.getCompetitionID()}" class="btn btn-primary">创建团队报名</a>
                     <a href="#" class="btn btn-primary">加入团队报名</a>

@@ -32,7 +32,7 @@
         <div class="cards">
             <div class="cards-header flex spc">
                 <div class="title" style="font-size: 30px;">最新获奖</div>
-                <div class="more"><a href="">查看更多 >></a></div>
+                <div class="more"><a href="${ctx}/AwardServlet">查看更多 >></a></div>
             </div>
             <div class="cards-content">
                 <c:forEach items="${oldcompetitions}" var="competitions">
