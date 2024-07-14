@@ -40,6 +40,7 @@ CREATE TABLE competitions(
     CompetitionDescription TEXT NOT NULL,
     MaxParticipants INT(11) DEFAULT NULL,
     Theme VARCHAR(255) DEFAULT NULL,
+    PublishDate date DEFAULT NULL,
     PRIMARY KEY (CompetitionID),
     KEY fk_competition_type (CompetitionTypeID),
     CONSTRAINT fk_competition_type FOREIGN KEY (CompetitionTypeID) 	REFERENCES competitiontypes (CompetitionTypeID)
