@@ -29,9 +29,26 @@ public class WorksServlet extends HttpServlet {
            TeamDao teamDao=new TeamDao();
            AwardsDao awardsDao=new AwardsDao();
            List<List<String>> combinedList = new ArrayList<>();
-           int i=0;
+           request.getSession().setAttribute("cname","");
            for(Works works:worksList){
                Competitions competitions=competitionsDao.getbyid(works.getCompetitionID());
+               Teams teams=teamDao.getbyteamid(works.getTeamID());
+               Awards awards=awardsDao.getbyworkid(works.getWorkID());
+               combinedList.add(Arrays.asList(works.getWorkName(),teams.getTeamName(),competitions.getCompetitionTypeName(),awards.getAwardName(),String.valueOf(works.getWorkID())));
+           }
+           request.getSession().setAttribute("combinedList",combinedList);
+           response.sendRedirect(request.getContextPath()+"/work.jsp");
+       }
+       else {
+           WorksDao worksDao=new WorksDao();
+           List<Works> worksList=worksDao.getBycompetitionidandaward(cid);
+           CompetitionsDao competitionsDao=new CompetitionsDao();
+           TeamDao teamDao=new TeamDao();
+           AwardsDao awardsDao=new AwardsDao();
+           List<List<String>> combinedList = new ArrayList<>();
+           Competitions competitions=competitionsDao.getbyid(cid);
+           request.getSession().setAttribute("cname",competitions.getCompetitionName());
+           for(Works works:worksList){
                Teams teams=teamDao.getbyteamid(works.getTeamID());
                Awards awards=awardsDao.getbyworkid(works.getWorkID());
                combinedList.add(Arrays.asList(works.getWorkName(),teams.getTeamName(),competitions.getCompetitionTypeName(),awards.getAwardName(),String.valueOf(works.getWorkID())));
