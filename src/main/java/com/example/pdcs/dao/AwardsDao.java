@@ -31,4 +31,15 @@ public class AwardsDao {
             return awards;
         }
     }
+    public List<Awards> getByparticipantnid(int pid){
+        List<Awards> awards=null;
+        try {
+            String sql="SELECT*FROM awards WHERE Winner1ID=? or Winner2ID=? or Winner3ID=? OR Winner4ID=?";
+            awards=template.query(sql,new BeanPropertyRowMapper<>(Awards.class),pid,pid,pid,pid);
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            return awards;
+        }
+    }
 }

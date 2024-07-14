@@ -161,7 +161,7 @@ CREATE TABLE `participant` (
                                `participant_address` varchar(255) NOT NULL,
                                `enter` int(11) DEFAULT NULL,
                                PRIMARY KEY (`participant_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of participant
@@ -186,6 +186,26 @@ INSERT INTO `participant` VALUES ('26', '李白', '1999.com', '9999', '大唐', 
 INSERT INTO `participant` VALUES ('27', '张三', 'lisi@qq.com', '123', 'aaaa', '0');
 INSERT INTO `participant` VALUES ('28', '白起', '1666.com', '9999', 'aaaa', '0');
 INSERT INTO `participant` VALUES ('30', '狗蛋', '7776.com', '1111', '重庆', '0');
+INSERT INTO `participant` VALUES ('31', '陈晨', 'chenchen@example.com', 'chenchen123', '南京市长江路123号', '0');
+INSERT INTO `participant` VALUES ('32', '李雷', 'lilei@example.com', 'lilei123', '北京市朝阳区望京SOHO', '0');
+INSERT INTO `participant` VALUES ('33', '王芳', 'wangfang@example.com', 'wangfang123', '上海市浦东新区世纪大道', '0');
+INSERT INTO `participant` VALUES ('34', '赵磊', 'zhaolei@example.com', 'zhaolei123', '广州市天河区天河路', '0');
+INSERT INTO `participant` VALUES ('35', '马云', 'mayun@example.com', 'mayun123', '杭州市西湖区文三路', '0');
+INSERT INTO `participant` VALUES ('36', '钱伟', 'qianwei@example.com', 'qianwei123', '成都市高新区天府软件园', '0');
+INSERT INTO `participant` VALUES ('37', '孙悦', 'sunyue@example.com', 'sunyue123', '西安市雁塔区科技二路', '0');
+INSERT INTO `participant` VALUES ('38', '周杰', 'zhoujie@example.com', 'zhoujie123', '武汉市洪山区珞喻路', '0');
+INSERT INTO `participant` VALUES ('39', '吴兰', 'wulan@example.com', 'wulan123', '重庆市渝北区金开大道', '0');
+INSERT INTO `participant` VALUES ('40', '郑和', 'zhenghe@example.com', 'zhenghe123', '苏州市工业园区星湖街', '0');
+INSERT INTO `participant` VALUES ('41', '郭靖', 'guojing@example.com', 'guojing123', '桃花岛桃花村', '0');
+INSERT INTO `participant` VALUES ('42', '黄蓉', 'huangrong@example.com', 'huangrong123', '襄阳城', '0');
+INSERT INTO `participant` VALUES ('43', '杨过', 'yangguo@example.com', 'yangguo123', '终南山活死人墓', '0');
+INSERT INTO `participant` VALUES ('44', '小龙女', 'xiaolongnv@example.com', 'xiaolongnv123', '绝情谷底', '0');
+INSERT INTO `participant` VALUES ('45', '张无忌', 'zhangwuji@example.com', 'zhangwuji123', '明教光明顶', '0');
+INSERT INTO `participant` VALUES ('46', '赵敏', 'zhaomin@example.com', 'zhaomin123', '大都', '0');
+INSERT INTO `participant` VALUES ('47', '令狐冲', 'linghuchong@example.com', 'linghuchong123', '华山派', '0');
+INSERT INTO `participant` VALUES ('48', '任盈盈', 'renyingying@example.com', 'renyingying123', '黑木崖', '0');
+INSERT INTO `participant` VALUES ('49', '萧峰', 'xiaofeng@example.com', 'xiaofeng123', '丐帮总舵', '0');
+INSERT INTO `participant` VALUES ('50', '段誉', 'duanyu@example.com', 'duanyu123', '大理国', '0');
 
 -- ----------------------------
 -- Table structure for teams
@@ -208,7 +228,7 @@ CREATE TABLE `teams` (
                          CONSTRAINT `teams_ibfk_2` FOREIGN KEY (`Member1ID`) REFERENCES `participant` (`participant_id`),
                          CONSTRAINT `teams_ibfk_3` FOREIGN KEY (`Member2ID`) REFERENCES `participant` (`participant_id`),
                          CONSTRAINT `teams_ibfk_4` FOREIGN KEY (`Member3ID`) REFERENCES `participant` (`participant_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=101 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of teams
@@ -222,6 +242,13 @@ INSERT INTO `teams` VALUES ('15', '编程挑战者', '1', '4', '5', null, '10');
 INSERT INTO `teams` VALUES ('16', '国防创新者', '15', '9', '2', null, '13');
 INSERT INTO `teams` VALUES ('17', '艺术春天', '19', '18', '17', null, '19');
 INSERT INTO `teams` VALUES ('18', '建军强国', '1', '2', '4', '5', '2');
+INSERT INTO `teams` VALUES ('94', '军歌嘹亮队', '15', '16', '17', '18', '1');
+INSERT INTO `teams` VALUES ('95', '国防精英队', '19', '20', '21', '22', '2');
+INSERT INTO `teams` VALUES ('96', '品牌设计队', '23', '24', '25', '26', '8');
+INSERT INTO `teams` VALUES ('97', '电商领航队', '27', '28', '39', '30', '9');
+INSERT INTO `teams` VALUES ('98', '编程精英队', '31', '32', '33', '34', '10');
+INSERT INTO `teams` VALUES ('99', '建筑美学队', '35', '36', '37', '38', '11');
+INSERT INTO `teams` VALUES ('100', '摄影艺术队', '39', '40', '41', '42', '23');
 
 -- ----------------------------
 -- Table structure for works
@@ -246,12 +273,12 @@ CREATE TABLE `works` (
 -- ----------------------------
 -- Records of works
 -- ----------------------------
-INSERT INTO `works` VALUES ('1', '海洋生态海报', '1', '10', '0', null, 'a.jpg', '95');
-INSERT INTO `works` VALUES ('2', '历史传承海报', '5', '11', '0', null, 'b.jpg', '95');
-INSERT INTO `works` VALUES ('3', '科技创新海报', '4', '12', '0', null, 'c.jpg', '95');
-INSERT INTO `works` VALUES ('4', '环保行动海报', '6', '13', '0', null, 'd.jpg', '95');
-INSERT INTO `works` VALUES ('5', '关爱成长海报', '7', '14', '0', null, 'e.jpg', '95');
-INSERT INTO `works` VALUES ('6', '编程艺术海报', '10', '15', '0', null, 'f.jpg', '95');
-INSERT INTO `works` VALUES ('7', '国防教育海报', '13', '16', '0', null, 'h.jpg', '95');
-INSERT INTO `works` VALUES ('8', '艺术春天海报', '19', '17', '0', null, 'j.jpg', '95');
-INSERT INTO `works` VALUES ('9', '建军节庆祝海报', '2', '18', '0', null, 'k.jpg', '95');
+INSERT INTO `works` VALUES ('1', '海洋生态海报', '1', '10', '0', '精美的设计，很好地传达了海洋生态的重要性。', 'a.jpg', '95');
+INSERT INTO `works` VALUES ('2', '历史传承海报', '5', '11', '0', '创意独特，历史传承的主题表现得淋漓尽致。', 'b.jpg', '95');
+INSERT INTO `works` VALUES ('3', '科技创新海报', '4', '12', '0', '创新与科技的结合，展现了未来的趋势。', 'c.jpg', '95');
+INSERT INTO `works` VALUES ('4', '环保行动海报', '6', '13', '0', '海报设计引人深思，对环保的呼吁非常有力。', 'd.jpg', '95');
+INSERT INTO `works` VALUES ('5', '关爱成长海报', '7', '14', '0', '作品温馨感人，关爱成长的主题触动人心。', 'e.jpg', '95');
+INSERT INTO `works` VALUES ('6', '编程艺术海报', '10', '15', '0', '编程与艺术的完美结合，展现了技术的另一面。', 'f.jpg', '95');
+INSERT INTO `works` VALUES ('7', '国防教育海报', '13', '16', '0', '国防教育意义深远，设计鼓舞人心。', 'g.jpg', '95');
+INSERT INTO `works` VALUES ('8', '艺术春天海报', '19', '17', '0', '艺术与春天的结合，充满了生机与活力。', 'h.jpg', '95');
+INSERT INTO `works` VALUES ('9', '建军节庆祝海报', '2', '18', '0', '建军节庆祝海报，展现了军人的庄严与荣誉。', 'i.jpg', '95');
