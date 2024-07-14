@@ -6,26 +6,6 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<style>
-    ul{
-        padding: 10px;
-    }
-    .card li{
-        padding:7px;
-        border-bottom:1px dashed #b9bbbe;
-    }
-    .card li a{
-        width: 90%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-    .time {
-        width: 135px;
-        white-space: nowrap;
-        overflow: hidden;
-    }
-</style>
 <%@ include file="header.jsp"%>
 <link rel="stylesheet" href="css/detail.css">
 <div class="container">
@@ -36,7 +16,7 @@
         </a>
         <c:forEach items="${oldcompetitions}" var="competitions">
             <a href="${ctx}/AwardServlet?id=${competitions.getCompetitionID()}" class="list-group-item list-group-item-action">
-                <p class="mb-1">${competitions.getCompetitionName()}+颁奖结构</p>
+                <p class="mb-1">${competitions.getCompetitionName()}颁奖结构</p>
                 <div class="tooltip"></div>
             </a>
         </c:forEach>
@@ -49,11 +29,11 @@
                 竞赛新闻
             </div>
             <div class="card-body">
-                <ul>
+                <ul class="more">
                     <c:forEach items="${newcompetitionAll}" var="competitions">
                         <li>
-                            <a href="#" class="list-group-item list-group-item-action">
-                                <p class="mb-1">${competitions.getCompetitionName()}</p>
+                            <a href="${ctx}/AwardServlet?id=${competitions.getCompetitionID()}" class="list-group-item list-group-item-action">
+                                <p class="mb-1">${competitions.getCompetitionName()}获奖名单</p>
                                 <div class="time">${competitions.getCompetitionDate()}</div>
                             </a>
                         </li>

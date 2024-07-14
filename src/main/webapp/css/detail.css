@@ -49,3 +49,21 @@
     text-align: center;
     padding: 10px 0;
 }
+.more{
+    padding: 10px;
+}
+.more li{
+    padding:7px;
+    border-bottom:1px dashed #b9bbbe;
+}
+.more li a{
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.more .time {
+    width: 135px;
+    white-space: nowrap;
+    overflow: hidden;
+}

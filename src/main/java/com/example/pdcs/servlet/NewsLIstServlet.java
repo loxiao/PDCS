@@ -26,17 +26,16 @@ public class NewsLIstServlet extends HttpServlet {
             if (competitionTypeId != null) {
                 amg = competitionTypeName;
                 List<Competitions> competitions = competitionsDao.getByTypeId(Integer.parseInt(competitionTypeId));
-                if (competitions != null && competitions.size() > 10) {
-                    List<Competitions> newCompetitions = (List)competitions.stream().limit(10L).collect(Collectors.toList());
-                    request.getSession().setAttribute("newcompetitions", newCompetitions);
-                } else {
-                    request.getSession().setAttribute("newcompetitions", competitions);
-                }
+                List<Competitions> newCompetitions = competitions.size() > 10 ?
+                        competitions.stream().limit(10L).collect(Collectors.toList()) :
+                        competitions;
+                request.getSession().setAttribute("newcompetitions", newCompetitions);
             } else {
                 //点击赛more进入
                 tsg = "more";
                 List<Competitions> competitions = competitionsDao.getCompetitionList();
-                request.getSession().setAttribute("newcompetitionAll", competitions);
+                List<Competitions> newCompetitions = (List)competitions.stream().limit(10L).collect(Collectors.toList());
+                request.getSession().setAttribute("newcompetitionAll",newCompetitions);
             }
         } else {
             //点击进入具体的赛事

@@ -1,6 +1,8 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ include file="header.jsp"%>
 <link rel="stylesheet" href="css/detail.css">
+<script src="js/jquery-3.6.0.min.js" ></script>
+<script src="js/pagination.js" defer></script>
 <div class="container">
     <div class="list-group">
         <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
@@ -8,7 +10,7 @@
             <div class="tooltip"></div>
         </a>
         <c:forEach items="${newcompetitions}" var="competitions">
-            <a href="${ctx}/NewsLIstServlet?id=${competitions.getCompetitionID()}" class="list-group-item list-group-item-action">
+            <a href="${ctx}/NewsLIstServlet?id=${competitions.getCompetitionID()}" class="list-group-item list-group-item-action" >
                 <p class="mb-1">>${competitions.getCompetitionName()}</p>
                 <div class="tooltip"></div>
             </a>
@@ -43,7 +45,6 @@
                     4．所有作品须为我校大学生的原创作品，参赛者对参赛作品拥有充分、完全、排他的知识产权，不侵犯任何他人的任何知识产权、名誉权、隐私权、肖像权等。
                     若有知识产权、名誉权、隐私权、肖像权纠纷或争议，其法律责任由投稿者自行负责
                 </p>
-
             </div>
         </div>
     </c:if>
@@ -53,7 +54,7 @@
                 竞赛
             </div>
             <div class="card-body">
-                <ul>
+                <ul class="more">
                     <c:forEach items="${newcompetitionAll}" var="competitions">
                         <li>
                             <a href="${ctx}/NewsLIstServlet?id=${competitions.getCompetitionID()}" class="list-group-item list-group-item-action">
@@ -64,15 +65,23 @@
                     </c:forEach>
                 </ul>
             </div>
-            <ul class="pagination">
-                <li><a href="#">&laquo;</a></li>
-                <li><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
-                <li><a href="#">&raquo;</a></li>
-            </ul>
+            <nav aria-label="Page navigation example" style="margin: 0 auto;">
+                <ul class="pagination">
+                    <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    <li class="page-item"><a href="PaginationServlet?page=1" class="page-link">1</a></li>
+                    <li class="page-item"><a href="PaginationServlet?page=2" class="page-link">2</a></li>
+                    <li class="page-item"><a href="PaginationServlet?page=3" class="page-link">3</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
         </div>
 
     </c:if>
@@ -99,9 +108,7 @@
                 </div>
 
             </div>
-            <div class="card-footer text-muted">
-                <p class="mb-1" style="color: red">${msg}</p>
-            </div>
+            <p class="mb-1 text-center" style="color: red">${msg}</p>
         </div>
     </c:if>
 

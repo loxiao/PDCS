@@ -20,7 +20,7 @@
     <div class="card-box flex cc">
         <div class="cards">
             <div class="cards-header flex spc">
-                <div class="title" style="font-size: 30px;">大赛通知</div>
+                <div class="title" style="font-size: 30px;margin: 0">大赛通知</div>
                 <div class="more"><a href="${ctx}/NewsLIstServlet">查看更多 >></a></div>
             </div>
             <div class="cards-content">
@@ -31,7 +31,7 @@
         </div>
         <div class="cards">
             <div class="cards-header flex spc">
-                <div class="title" style="font-size: 30px;">最新获奖</div>
+                <div class="title" style="font-size: 30px;margin: 0">最新获奖</div>
                 <div class="more"><a href="${ctx}/AwardServlet">查看更多 >></a></div>
             </div>
             <div class="cards-content">

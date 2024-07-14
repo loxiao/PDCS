@@ -24,13 +24,13 @@
 
 .cards-header {
     border-radius: 15px 15px 0 0;
-    padding: 18px 15px;
+    padding: 25px 15px;
     background-color: #5466cc;
     color: #fff;
 }
 
 .cards-content {
-    padding: 0 15px;
+    padding: 2px 25px;
     font-size: 20px;
 }
 
@@ -41,7 +41,9 @@
 .cards-content li {
     margin: 20px 0;
 }
-
+.cards-content li a{
+    color:rgb(0 67 165)
+}
 .nav-title {
     margin: 70px;
     text-align: center;
@@ -152,6 +154,7 @@
 a.card {
     width: 270px;
     height: 420px;
+    margin: auto;
     background: #fff;
     border-radius: 10px;
     overflow: hidden;
