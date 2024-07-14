@@ -21,19 +21,19 @@
             ${competitions.getCompetitionName()} / 创建队伍
         </div>
         <div class="card-body">
-            <form action="" method="" class="form-group">
+            <form action="${ctx}/JudgmentServlet" method="post" class="form-group"> <%-- 修改 action 和 method 属性 --%>
+                <input type="hidden" name="id" value="${competitions.getCompetitionID()}"> <%-- 传递比赛 ID --%>
                 <p>队长名字:</p>
-                <input type="text" class="form-control" id="teamName" name="teamName" required class="form-control">
+                <input type="text" class="form-control" id="captainName" name="captainName" required>
                 <p>队伍名字:</p>
-                <input type="text" class="form-control" id="captainName" name="captainName" class="form-control">
-                <input type="submit" class="btn btn-primary" value="创建团队"></input>
+                <input type="text" class="form-control" id="teamName" name="teamName" required>
+                <input type="submit" class="btn btn-primary" value="创建团队">
             </form>
         </div>
         <div class="card-footer text-muted">
-            <p class="mb-1">${msg}</p>
+            <p class="mb-1">${msg}</p> <%-- 显示服务器返回的信息 --%>
         </div>
     </div>
 </div>
 
 <%@ include file="footer.jsp"%>
-
