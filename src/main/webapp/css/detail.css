@@ -1,5 +1,6 @@
 .container {
     max-width: 1380px;
+    min-height: 630px;
     display: flex;
     justify-content: center;
     align-items: flex-start;
