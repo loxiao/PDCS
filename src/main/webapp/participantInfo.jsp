@@ -9,18 +9,22 @@
                 <p style="margin-left:-30%">学生信息正确完整，才能报名参赛，邮箱必填</p>
                 <hr style="width:973px;margin-left:-30%">
                 <div class="registerBox">
-                    <input name="Id" type="hidden" id="Id" value="${participant.participant_id}">
-                    <div class="form-group">
+                    <div class="form-group col-6">
+                        <label style="font-size: 15px; margin-left: 13%; margin-top: 5px">个人ID</label>
+                        <input name="Id" type="text" id="Id" class="form-control" value="${participant.participant_id}" readonly>
+                    </div>
+                    <br>
+                    <div class="form-group col-6">
                         <label style="font-size: 15px; margin-left: 13%; margin-top: 5px">姓名</label>
                         <input name="Name" type="text" id="Name" class="form-control" placeholder="姓名" style="width: 400px; float: right; margin-right: 15%;" value="${participant.participant_name}">
                     </div>
                     <br>
-                    <div class="form-group">
+                    <div class="form-group col-6">
                         <label style="font-size: 15px; margin-left: 13%; margin-top: 5px">邮箱</label>
                         <input name="Email" type="email" id="Email" class="form-control" placeholder="邮箱" style="width: 400px; float: right; margin-right: 15%" value="${participant.participant_number}">
                     </div>
                     <br>
-                    <div class="form-group">
+                    <div class="form-group col-6">
                         <label style="font-size: 15px; margin-left: 13%; margin-top: 5px">地址</label>
                         <input name="Address" type="text" id="Address" class="form-control" placeholder="地址" style="width: 400px; float: right; margin-right: 15%" value="${participant.participant_address}">
                     </div>

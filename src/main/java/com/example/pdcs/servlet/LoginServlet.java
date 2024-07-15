@@ -43,11 +43,11 @@ public class LoginServlet extends HttpServlet {
             if (participant != null && "participant".equals(role)) {
                 session.setAttribute("participant", participant);
                 session.setAttribute("name", participant.getParticipant_name());
-                response.sendRedirect(request.getContextPath() + "/index.jsp");
+               request.getRequestDispatcher("IndexServlet").forward(request,response);
             } else if (admin != null && "admin".equals(role)) {
                 session.setAttribute("admin", admin);
                 session.setAttribute("name", admin.getAdminName());
-                response.sendRedirect(request.getContextPath() + "/AdminServlet");
+                request.getRequestDispatcher("IndexServlet").forward(request,response);
             } else if (judges != null && "judge".equals(role)) {
                 session.setAttribute("judges", judges);
                 session.setAttribute("name", judges.getJudgesName());

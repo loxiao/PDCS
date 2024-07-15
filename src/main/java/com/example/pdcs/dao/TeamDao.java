@@ -5,6 +5,8 @@ import com.example.pdcs.util.JDBCUtils;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 
+import java.util.List;
+
 public class TeamDao {
     private JdbcTemplate template = new JdbcTemplate(JDBCUtils.getDataSource());
     public Teams getbycompetitionidandpeopleid(int pid,int cid){
@@ -35,6 +37,38 @@ public class TeamDao {
         try {
             String sql="SELECT*FROM teams WHERE TeamID=?";
             teams=template.queryForObject(sql,new BeanPropertyRowMapper<>(Teams.class),tid);
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            return teams;
+        }
+    }
+    public List<Teams> getbyCompetitionID(int cid,int maxpoeple){
+        List<Teams> teams=null;
+        try {
+            String sql="SELECT *FROM teams WHERE CompetitionID=? and\n" +
+                    "    (\n" +
+                    "        CASE\n" +
+                    "            WHEN CaptainID IS NOT NULL THEN 1\n" +
+                    "            ELSE 0\n" +
+                    "        END\n" +
+                    "        +\n" +
+                    "        CASE\n" +
+                    "            WHEN Member1ID IS NOT NULL THEN 1\n" +
+                    "            ELSE 0\n" +
+                    "        END\n" +
+                    "        +\n" +
+                    "        CASE\n" +
+                    "            WHEN Member2ID IS NOT NULL THEN 1\n" +
+                    "            ELSE 0\n" +
+                    "        END\n" +
+                    "        +\n" +
+                    "        CASE\n" +
+                    "            WHEN Member3ID IS NOT NULL THEN 1\n" +
+                    "            ELSE 0\n" +
+                    "        END\n" +
+                    "    ) < ?;";
+            teams=template.query(sql,new BeanPropertyRowMapper<>(Teams.class),cid,maxpoeple);
         }catch (Exception e){
             e.printStackTrace();
         }finally {
