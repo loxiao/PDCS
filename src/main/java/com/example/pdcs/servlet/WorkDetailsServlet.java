@@ -31,13 +31,13 @@ public class WorkDetailsServlet extends HttpServlet {
         String captainname=participant.getParticipant_name();
         String membername="";
         if(teams.getMember1ID()!=null){
-            membername=participantDao.getbyParticipant(teams.getMember1ID()).getParticipant_name()+" ";
+            membername=membername+participantDao.getbyParticipant(teams.getMember1ID()).getParticipant_name()+" ";
         }
         if(teams.getMember2ID()!=null){
-            membername=participantDao.getbyParticipant(teams.getMember2ID()).getParticipant_name()+" ";
+            membername=membername+participantDao.getbyParticipant(teams.getMember2ID()).getParticipant_name()+" ";
         }
         if(teams.getMember3ID()!=null){
-            membername=participantDao.getbyParticipant(teams.getMember3ID()).getParticipant_name()+" ";
+            membername=membername+participantDao.getbyParticipant(teams.getMember3ID()).getParticipant_name()+" ";
         }
         request.getSession().setAttribute("work",work);
         request.getSession().setAttribute("teams",teams);
