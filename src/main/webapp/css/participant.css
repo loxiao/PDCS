@@ -92,23 +92,23 @@ i{
 .menu-item a{
     padding: 10px;
     margin-bottom: 10px;
-    color: #aeb2b7;
+    color: white;
     text-decoration: none;
 }
 .menu-item{
     padding: 5px;
     margin-bottom: 5px;
-    color: #aeb2b7;
+    color: white;
     display: flex; /* 使用flex布局 */
 }
 .menu-item.active {
-    background-color: #424242;
+    background-color: #80bdff;
 }
 .menu-item.active a{
     color: #d84c31;
 }
 .menu-item:hover {
-    background-color: #424242;
+    background-color: #80bdff;
 }
 .menu-item:hover a{
     color: #d84c31;
