@@ -1,12 +1,10 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ include file="header.jsp"%>
 <link rel="stylesheet" href="css/detail.css">
-<script src="js/jquery-3.6.0.min.js" ></script>
-<script src="js/pagination.js" defer></script>
 <div class="container">
     <div class="list-group">
         <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
-            <p class="mb-1">${asg}</p>
+            <p class="mb-1">${asg==null?"热门赛事":asg}</p>
             <div class="tooltip"></div>
         </a>
         <c:forEach items="${newcompetitions}" var="competitions">
@@ -72,9 +70,9 @@
                             <span aria-hidden="true">&laquo;</span>
                         </a>
                     </li>
-                    <li class="page-item"><a href="PaginationServlet?page=1" class="page-link">1</a></li>
-                    <li class="page-item"><a href="PaginationServlet?page=2" class="page-link">2</a></li>
-                    <li class="page-item"><a href="PaginationServlet?page=3" class="page-link">3</a></li>
+                    <c:forEach items="${pageCount}" var="page">
+                        <li class="page-item"><a href="PaginationServlet?more=competition&page=${page}" class="page-link">${page}</a></li>
+                    </c:forEach>
                     <li class="page-item">
                         <a class="page-link" href="#" aria-label="Next">
                             <span aria-hidden="true">&raquo;</span>
@@ -111,7 +109,6 @@
             <p class="mb-1 text-center" style="color: red">${msg}</p>
         </div>
     </c:if>
-
 </div>
 </div>
 

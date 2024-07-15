@@ -23,20 +23,12 @@ public class NewsLIstServlet extends HttpServlet {
         String amg = "热门赛事";
         if (competitionId == null) {
             //点击赛事类别进入
-            if (competitionTypeId != null) {
-                amg = competitionTypeName;
-                List<Competitions> competitions = competitionsDao.getByTypeId(Integer.parseInt(competitionTypeId));
-                List<Competitions> newCompetitions = competitions.size() > 10 ?
-                        competitions.stream().limit(10L).collect(Collectors.toList()) :
-                        competitions;
-                request.getSession().setAttribute("newcompetitions", newCompetitions);
-            } else {
-                //点击赛more进入
-                tsg = "more";
-                List<Competitions> competitions = competitionsDao.getCompetitionList();
-                List<Competitions> newCompetitions = (List)competitions.stream().limit(10L).collect(Collectors.toList());
-                request.getSession().setAttribute("newcompetitionAll",newCompetitions);
-            }
+            amg = competitionTypeName;
+            List<Competitions> competitions = competitionsDao.getByTypeId(Integer.parseInt(competitionTypeId));
+            List<Competitions> newCompetitions = competitions.size() > 10 ?
+                    competitions.stream().limit(10L).collect(Collectors.toList()) :
+                    competitions;
+            request.getSession().setAttribute("newcompetitions", newCompetitions);
         } else {
             //点击进入具体的赛事
             tsg = "one";
