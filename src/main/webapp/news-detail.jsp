@@ -40,6 +40,23 @@
                     </c:forEach>
                 </ul>
             </div>
+            <nav aria-label="Page navigation example" style="margin: 0 auto;">
+                <ul class="pagination">
+                    <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    <c:forEach items="${pageCount}" var="page">
+                        <li class="page-item"><a href="PaginationServlet?more=competition&page=${page}" class="page-link">${page}</a></li>
+                    </c:forEach>
+                    <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
         </div>
     </c:if>
     <%--新闻--%>

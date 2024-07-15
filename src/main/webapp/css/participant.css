@@ -4,7 +4,7 @@ body {
 }
 
 #header {
-    background-color: #393939;
+    background-color: #3f51b5;
     padding: 10px;
     text-align: right;
     display: inline-block;
@@ -17,9 +17,9 @@ body {
 
 h5{
     display: inline-block;
-    color: #9d9d9d;
+    color: white;
     float: left;
-    padding: 10px;
+    padding: 15px;
 }
 #userInfo {
     padding: 10px;
@@ -27,7 +27,7 @@ h5{
 }
 
 #userInfo a{
-    color: #9d9d9d;
+    color: white;
     position: relative;
     display: inline-block;
     padding: 10px 15px;
@@ -58,7 +58,7 @@ form {
     padding: 5px 20px 20px;
     overflow-x: hidden;
     overflow-y: auto;
-    background-color: #393939;
+    background-color: #3f51b5;
     border-right: 1px solid #eee;
     width: 15%;
 }
@@ -160,6 +160,13 @@ li {
     margin-left: 16%;
 }
 .main {
+    margin-top: 20px;
+}
+.main1 {
+    padding: 20px;
+    margin-left: 16%;
+    padding-right: 40px;
+    padding-left: 40px;
     margin-top: 120px;
 }
 button, html input[type=button], input[type=reset], input[type=submit] {
