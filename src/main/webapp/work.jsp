@@ -6,11 +6,11 @@
         <div class="MatchBaseList">
             <div class="MatchTitle">
                 <h3><span>竞赛列表</span></h3>
-                <ul style="padding-left: 10px; padding-right: 10px;">
+                <ul style="padding-left: 0px; padding-right: 10px;">
                     <li>
                         <c:forEach items="${oldcompetitions}" var="competitions">
                             <a href="${ctx}/WorksServlet?id=${competitions.getCompetitionID()}" class="competitions">
-                                <p class="mb-1">${competitions.getCompetitionName()}</p>
+                                <p class="mb-1 ellipsis">${competitions.getCompetitionName()}</p>
                             </a>
                         </c:forEach>
                     </li>

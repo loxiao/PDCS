@@ -2,9 +2,8 @@
     display: block; /* 默认为块级元素 */
     margin-left: auto; /* 左边距自动 */
     margin-right: auto; /* 右边距自动 */
-    height: 1280px;
+    height: 420px;
     width: 1110px;
-    background-color: white;
 }
 .MatchBaseList {
     border: 1px solid #d1d1d1;
@@ -17,8 +16,8 @@
     position: relative;
 }
 .MatchTitle {
-    padding-left: 70px;
-    padding-top: 50px;
+    padding-left: 30px;
+    padding-top: 30px;
 }
 .WorksList {
     border: 1px solid #d1d1d1;
@@ -30,8 +29,8 @@
     box-shadow: 0 0 5px #e0ded7;
 }
 .HeadTitle {
-    padding-left: 70px;
-    padding-top: 30px;
+    padding-left: 2px;
+    padding-top: 12px;
 }
 table {
     width: 100%;
@@ -46,4 +45,11 @@ th, td {
 }
 th {
     background-color: #f2f2f2;
+}
+
+.ellipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 200px;
 }
