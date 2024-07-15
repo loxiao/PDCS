@@ -83,7 +83,7 @@ CREATE TABLE `competitions` (
                                 PRIMARY KEY (`CompetitionID`),
                                 KEY `fk_competition_type` (`CompetitionTypeID`),
                                 CONSTRAINT `fk_competition_type` FOREIGN KEY (`CompetitionTypeID`) REFERENCES `competitiontypes` (`CompetitionTypeID`)
-) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=60 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of competitions
@@ -111,38 +111,36 @@ INSERT INTO `competitions` VALUES ('20', '2024年第14届夏季大学生编程�
 INSERT INTO `competitions` VALUES ('21', '2024年第17届夏季大学生编程马拉松海报大赛', '2024-08-31', '2024-07-30', '1', '公益类', '海报映照智慧，编码点燃激情。第17届夏季大学生编程马拉松海报大赛以创意为笔，以技术为墨，邀请学生们设计出能够代表编程精神的海报。我们期待作品捕捉编程马拉松的紧张与兴奋，展现参赛者们的专注与热情，传递科技改变世界的力量。', '4', '编程马拉松', '2022-06-01');
 INSERT INTO `competitions` VALUES ('22', '2024年第18届大学生夏季电影海报大赛', '2024-08-17', '2024-07-27', '2', '国防类', '银幕之下，海报之上。第18届大学生夏季电影海报大赛是一场视觉与故事的交融。我们鼓励学生们以电影为灵感，设计出能够讲述故事、传达情感的海报。这不仅是对电影艺术的致敬，更是一次创意与设计技巧的展示，一次视觉叙事的探索。', '4', '电影节', '2022-06-01');
 INSERT INTO `competitions` VALUES ('23', '2024年第19届大学生夏季摄影海报大赛', '2024-07-18', '2024-04-18', '1', '公益类', '镜头捕捉瞬间，海报讲述故事。第19届大学生夏季摄影海报大赛邀请摄影爱好者们通过镜头探索世界，用海报展示瞬间之美。我们期待作品展现摄影的独特视角，讲述触动人心的故事，传递摄影艺术的魅力与情感深度。', '4', '摄影', '2022-06-01');
-INSERT INTO `competitions` VALUES ('34', '海报比赛', '2024-07-11', '2024-08-11', '1', '公益类', '该比赛……', '1', '为了……', '2024-07-13');
-
-
-INSERT INTO `competitions` VALUES('32', '国防战略创新大赛', '2024-05-15', '2024-04-30', '2', '国防类', '探索国防战略新思维，推动国防科技创新。', '100', '战略创新', '2024-03-15');
-INSERT INTO `competitions` VALUES('33', '国防装备设计挑战赛', '2024-06-20', '2024-05-31', '2', '国防类', '激发设计灵感，打造未来国防装备。', '80', '装备设计', '2024-04-15');
-INSERT INTO `competitions` VALUES('31', '边防安全技能比武', '2024-07-10', '2024-06-20', '2', '国防类', '提升边防官兵安全技能，保障国家安全。', '50', '安全技能', '2024-05-15');
-INSERT INTO `competitions` VALUES('35', '国防教育知识竞赛', '2024-08-15', '2024-07-31', '2', '国防类', '普及国防知识，增强全民国防意识。', '200', '国防教育', '2024-06-15');
-INSERT INTO `competitions` VALUES('36', '国防科技论文大赛', '2024-09-20', '2024-08-31', '2', '国防类', '鼓励科研创新，推动国防科技领域发展。', '150', '科技论文', '2024-07-15');
-INSERT INTO `competitions` VALUES('37', '国防信息安全攻防演练', '2024-10-15', '2024-09-30', '2', '国防类', '检验信息安全防护能力，提升国防信息安全水平。', '75', '信息安全', '2024-08-15');
-INSERT INTO `competitions` VALUES('38', '国防装备维修技能大赛', '2024-11-10', '2024-10-31', '2', '国防类', '提升装备维修技能，保障装备完好率。', '60', '装备维修', '2024-09-15');
-INSERT INTO `competitions` VALUES('39', '国防战略规划研讨会', '2024-12-15', '2024-11-30', '2', '国防类', '深入研讨国防战略规划，为国防建设提供指导。', '50', '战略规划', '2024-10-15');
-INSERT INTO `competitions` VALUES('30', '国防应急演练大赛', '2024-01-10', '2024-12-31', '2', '国防类', '检验应急响应能力，提升国防应急管理水平。', '120', '应急演练', '2024-11-15');
-INSERT INTO `competitions` VALUES('41', '环保海报设计大赛', '2024-03-15', '2024-02-10', '1', '公益类', '设计环保主题海报，提升公众环保意识。', '50', '绿色地球', '2024-01-15');
-INSERT INTO `competitions` VALUES('42', '公益微电影创作比赛', '2024-04-20', '2024-03-31', '1', '公益类', '用微电影讲述公益故事，传递正能量。', '30', '爱的传递', '2024-02-15');
-INSERT INTO `competitions` VALUES('43', '公益广告设计竞赛', '2024-05-15', '2024-04-30', '1', '公益类', '创作公益广告，呼吁社会关注弱势群体。', '75', '关爱行动', '2024-03-15');
-INSERT INTO `competitions` VALUES('44', '环保科技创新大赛', '2024-06-20', '2024-05-31', '1', '公益类', '推动环保科技创新，解决环境问题。', '100', '绿色科技', '2024-04-15');
-INSERT INTO `competitions` VALUES('45', '公益摄影展', '2024-07-15', '2024-06-30', '1', '公益类', '用镜头捕捉公益瞬间，展现人间温情。', '80', '温暖瞬间', '2024-05-15');
-INSERT INTO `competitions` VALUES('46', '青少年公益创意大赛', '2024-08-20', '2024-07-31', '1', '公益类', '激发青少年创意，为公益事业贡献力量。', '60', '创意无限', '2024-06-15');
-INSERT INTO `competitions` VALUES('47', '公益项目策划竞赛', '2024-09-15', '2024-08-31', '1', '公益类', '策划公益项目，推动社会进步。', '40', '公益前行', '2024-07-15');
-INSERT INTO `competitions` VALUES('48', '公益志愿服务表彰大会', '2024-10-15', '2024-09-30', '1', '公益类', '表彰优秀公益志愿者，弘扬志愿精神。', '120', '志愿之光', '2024-08-15');
-INSERT INTO `competitions` VALUES('49', '公益教育论坛', '2024-11-15', '2024-10-31', '1', '公益类', '探讨公益教育理念，促进教育公平。', '90', '教育公益', '2024-09-15');
-INSERT INTO `competitions` VALUES('40', '全球公益项目合作洽谈会', '2024-12-15', '2024-11-30', '1', '公益类', '促进全球公益项目合作，共同应对挑战。', '200', '携手公益', '2024-10-15');
-INSERT INTO `competitions` VALUES('51', '全国商业策划大赛', '2024-01-10', '2022-12-01', '3', '商业类', '制定商业策略，挑战市场巅峰。', '100', '商业智慧', '2022-11-01');
-INSERT INTO `competitions` VALUES('52', '创新商业模式挑战赛', '2024-02-15', '2024-01-15', '3', '商业类', '探索创新商业模式，引领行业变革。', '75', '模式创新', '2022-12-15');
-INSERT INTO `competitions` VALUES('53', '创业项目路演大赛', '2024-03-20', '2024-02-28', '3', '商业类', '展示创业项目，吸引投资与合作。', '50', '创业舞台', '2024-01-20');
-INSERT INTO `competitions` VALUES('54', '品牌营销创意大赛', '2024-04-15', '2024-03-31', '3', '商业类', '策划品牌营销方案，提升品牌影响力。', '80', '品牌力量', '2024-02-25');
-INSERT INTO `competitions` VALUES('55', '电子商务创新竞赛', '2024-05-10', '2024-04-30', '3', '商业类', '推动电子商务创新，引领消费新潮流。', '120', '电商未来', '2024-03-25');
-INSERT INTO `competitions` VALUES('56', '金融科技应用大赛', '2024-06-15', '2024-05-31', '3', '商业类', '探索金融科技应用，促进金融服务创新。', '90', '金融科技', '2024-04-25');
-INSERT INTO `competitions` VALUES('57', '供应链管理挑战赛', '2024-07-10', '2024-06-30', '3', '商业类', '优化供应链管理，提升企业竞争力。', '60', '供应链优化', '2024-05-25');
-INSERT INTO `competitions` VALUES('58', '新零售创新大赛', '2024-08-15', '2024-07-31', '3', '商业类', '探索新零售模式，重塑零售新生态。', '150', '新零售时代', '2024-06-25');
-INSERT INTO `competitions` VALUES('59', '商业数据分析竞赛', '2024-09-10', '2024-08-31', '3', '商业类', '运用数据分析技术，挖掘商业价值。', '40', '数据洞察', '2024-07-25');
-INSERT INTO `competitions` VALUES('50', '全球商业领袖峰会', '2024-10-15', '2024-09-30', '3', '商业类', '汇聚全球商业精英，共谋商业发展大计。', '200', '商业巅峰', '2024-08-25');
+INSERT INTO `competitions` VALUES ('30', '国防应急演练大赛', '2024-01-10', '2023-12-31', '2', '国防类', '检验应急响应能力，提升国防应急管理水平。', '4', '应急演练', '2024-11-15');
+INSERT INTO `competitions` VALUES ('31', '边防安全技能比武', '2024-07-10', '2024-06-20', '2', '国防类', '提升边防官兵安全技能，保障国家安全。', '4', '安全技能', '2024-05-15');
+INSERT INTO `competitions` VALUES ('32', '国防战略创新大赛', '2024-05-15', '2024-04-30', '2', '国防类', '探索国防战略新思维，推动国防科技创新。', '4', '战略创新', '2024-03-15');
+INSERT INTO `competitions` VALUES ('33', '国防装备设计挑战赛', '2024-06-20', '2024-05-31', '2', '国防类', '激发设计灵感，打造未来国防装备。', '4', '装备设计', '2024-04-15');
+INSERT INTO `competitions` VALUES ('34', '海报比赛', '2024-07-11', '2024-08-11', '1', '公益类', '该比赛……', '4', '为了……', '2024-07-13');
+INSERT INTO `competitions` VALUES ('35', '国防教育知识竞赛', '2024-08-15', '2024-07-31', '2', '国防类', '普及国防知识，增强全民国防意识。', '4', '国防教育', '2024-06-15');
+INSERT INTO `competitions` VALUES ('36', '国防科技论文大赛', '2024-09-20', '2024-08-31', '2', '国防类', '鼓励科研创新，推动国防科技领域发展。', '4', '科技论文', '2024-07-15');
+INSERT INTO `competitions` VALUES ('37', '国防信息安全攻防演练', '2024-10-15', '2024-09-30', '2', '国防类', '检验信息安全防护能力，提升国防信息安全水平。', '4', '信息安全', '2024-08-15');
+INSERT INTO `competitions` VALUES ('38', '国防装备维修技能大赛', '2024-11-10', '2024-10-31', '2', '国防类', '提升装备维修技能，保障装备完好率。', '4', '装备维修', '2024-09-15');
+INSERT INTO `competitions` VALUES ('39', '国防战略规划研讨会', '2024-12-15', '2024-11-30', '2', '国防类', '深入研讨国防战略规划，为国防建设提供指导。', '4', '战略规划', '2024-10-15');
+INSERT INTO `competitions` VALUES ('40', '全球公益项目合作洽谈会', '2024-12-15', '2024-11-30', '1', '公益类', '促进全球公益项目合作，共同应对挑战。', '4', '携手公益', '2024-10-15');
+INSERT INTO `competitions` VALUES ('41', '环保海报设计大赛', '2024-03-15', '2024-02-10', '1', '公益类', '设计环保主题海报，提升公众环保意识。', '4', '绿色地球', '2024-01-15');
+INSERT INTO `competitions` VALUES ('42', '公益微电影创作比赛', '2024-04-20', '2024-03-31', '1', '公益类', '用微电影讲述公益故事，传递正能量。', '4', '爱的传递', '2024-02-15');
+INSERT INTO `competitions` VALUES ('43', '公益广告设计竞赛', '2024-05-15', '2024-04-30', '1', '公益类', '创作公益广告，呼吁社会关注弱势群体。', '4', '关爱行动', '2024-03-15');
+INSERT INTO `competitions` VALUES ('44', '环保科技创新大赛', '2024-06-20', '2024-05-31', '1', '公益类', '推动环保科技创新，解决环境问题。', '4', '绿色科技', '2024-04-15');
+INSERT INTO `competitions` VALUES ('45', '公益摄影展', '2024-07-15', '2024-06-30', '1', '公益类', '用镜头捕捉公益瞬间，展现人间温情。', '4', '温暖瞬间', '2024-05-15');
+INSERT INTO `competitions` VALUES ('46', '青少年公益创意大赛', '2024-08-20', '2024-07-31', '1', '公益类', '激发青少年创意，为公益事业贡献力量。', '4', '创意无限', '2024-06-15');
+INSERT INTO `competitions` VALUES ('47', '公益项目策划竞赛', '2024-09-15', '2024-08-31', '1', '公益类', '策划公益项目，推动社会进步。', '4', '公益前行', '2024-07-15');
+INSERT INTO `competitions` VALUES ('48', '公益志愿服务表彰大会', '2024-10-15', '2024-09-30', '1', '公益类', '表彰优秀公益志愿者，弘扬志愿精神。', '4', '志愿之光', '2024-08-15');
+INSERT INTO `competitions` VALUES ('49', '公益教育论坛', '2024-11-15', '2024-10-31', '1', '公益类', '探讨公益教育理念，促进教育公平。', '4', '教育公益', '2024-09-15');
+INSERT INTO `competitions` VALUES ('50', '全球商业领袖峰会', '2024-10-15', '2024-09-30', '3', '商业类', '汇聚全球商业精英，共谋商业发展大计。', '4', '商业巅峰', '2024-08-25');
+INSERT INTO `competitions` VALUES ('51', '全国商业策划大赛', '2024-01-10', '2022-12-01', '3', '商业类', '制定商业策略，挑战市场巅峰。', '4', '商业智慧', '2022-11-01');
+INSERT INTO `competitions` VALUES ('52', '创新商业模式挑战赛', '2024-02-15', '2024-01-15', '3', '商业类', '探索创新商业模式，引领行业变革。', '4', '模式创新', '2022-12-15');
+INSERT INTO `competitions` VALUES ('53', '创业项目路演大赛', '2024-03-20', '2024-02-28', '3', '商业类', '展示创业项目，吸引投资与合作。', '4', '创业舞台', '2024-01-20');
+INSERT INTO `competitions` VALUES ('54', '品牌营销创意大赛', '2024-04-15', '2024-03-31', '3', '商业类', '策划品牌营销方案，提升品牌影响力。', '4', '品牌力量', '2024-02-25');
+INSERT INTO `competitions` VALUES ('55', '电子商务创新竞赛', '2024-05-10', '2024-04-30', '3', '商业类', '推动电子商务创新，引领消费新潮流。', '4', '电商未来', '2024-03-25');
+INSERT INTO `competitions` VALUES ('56', '金融科技应用大赛', '2024-06-15', '2024-05-31', '3', '商业类', '探索金融科技应用，促进金融服务创新。', '4', '金融科技', '2024-04-25');
+INSERT INTO `competitions` VALUES ('57', '供应链管理挑战赛', '2024-07-10', '2024-06-30', '3', '商业类', '优化供应链管理，提升企业竞争力。', '4', '供应链优化', '2024-05-25');
+INSERT INTO `competitions` VALUES ('58', '新零售创新大赛', '2024-08-15', '2024-07-31', '3', '商业类', '探索新零售模式，重塑零售新生态。', '4', '新零售时代', '2024-06-25');
+INSERT INTO `competitions` VALUES ('59', '商业数据分析竞赛', '2024-09-10', '2024-08-31', '3', '商业类', '运用数据分析技术，挖掘商业价值。', '4', '数据洞察', '2024-07-25');
 
 -- ----------------------------
 -- Table structure for competitiontypes
@@ -199,9 +197,18 @@ CREATE TABLE `participant` (
 -- ----------------------------
 INSERT INTO `participant` VALUES ('1', 'Jim', '3415.com', '1234', '二仙桥', '0');
 INSERT INTO `participant` VALUES ('2', 'Kiko', '2456.com', '1111', '成华大道', '0');
+INSERT INTO `participant` VALUES ('3', '张三', 'zhangsan3@example.com', 'zhangsan123', '北京市朝阳区三里屯', '0');
 INSERT INTO `participant` VALUES ('4', '朱杨华', '1267.com', '7890', '绍兴', '0');
 INSERT INTO `participant` VALUES ('5', 'Lili', '9868.com', '6521', '天海市', '0');
+INSERT INTO `participant` VALUES ('6', '李四', 'lisi36@example.com', 'lisi123', '上海市浦东新区张江高科技园区', '0');
+INSERT INTO `participant` VALUES ('7', '王五', 'wangwu37@example.com', 'wangwu123', '广州市天河区体育西路', '0');
+INSERT INTO `participant` VALUES ('8', '赵六', 'zhaoliu49@example.com', 'zhaoliu123', '深圳市南山区粤海街道', '0');
 INSERT INTO `participant` VALUES ('9', 'hlj', '1457.com', '1111', '楼外楼', '0');
+INSERT INTO `participant` VALUES ('10', '李雷', 'lilei10@example.com', 'psd1234', '中国四川成都高新区', '0');
+INSERT INTO `participant` VALUES ('11', '王芳', 'wangfang11@example.com', 'psd1234', '中国上海浦东新区', '0');
+INSERT INTO `participant` VALUES ('12', '陈浩', 'chenhao12@example.com', 'psd1234', '中国广东深圳南山区', '0');
+INSERT INTO `participant` VALUES ('13', '刘娟', 'liujuan13@example.com', 'psd1234', '中国浙江杭州西湖区', '0');
+INSERT INTO `participant` VALUES ('14', '赵强', 'zqiang14@example.com', 'psd1234', '中国江苏苏州工业园区', '0');
 INSERT INTO `participant` VALUES ('15', '刘德华', '7777.com', '1111', '香港', '0');
 INSERT INTO `participant` VALUES ('16', '张三', '7891.com', '1234', '北京', '0');
 INSERT INTO `participant` VALUES ('17', '李四', '1234.com', '1234', '上海', '0');
@@ -216,6 +223,7 @@ INSERT INTO `participant` VALUES ('25', '孙十二', '2222.com', '1234', '重庆
 INSERT INTO `participant` VALUES ('26', '李白', '1999.com', '9999', '大唐', '0');
 INSERT INTO `participant` VALUES ('27', '张三', 'lisi@qq.com', '123', 'aaaa', '0');
 INSERT INTO `participant` VALUES ('28', '白起', '1666.com', '9999', 'aaaa', '0');
+INSERT INTO `participant` VALUES ('29', '马云', 'mayun29@example.com', 'psd1234', '中国浙江杭州余杭区', '0');
 INSERT INTO `participant` VALUES ('30', '狗蛋', '7776.com', '1111', '重庆', '0');
 INSERT INTO `participant` VALUES ('31', '陈晨', 'chenchen@example.com', 'chenchen123', '南京市长江路123号', '0');
 INSERT INTO `participant` VALUES ('32', '李雷', 'lilei@example.com', 'lilei123', '北京市朝阳区望京SOHO', '0');
@@ -239,6 +247,29 @@ INSERT INTO `participant` VALUES ('49', '萧峰', 'xiaofeng@example.com', 'xiaof
 INSERT INTO `participant` VALUES ('50', '段誉', 'duanyu@example.com', 'duanyu123', '大理国', '0');
 
 -- ----------------------------
+-- Table structure for participant_messages
+-- ----------------------------
+DROP TABLE IF EXISTS `participant_messages`;
+CREATE TABLE `participant_messages` (
+                                        `message_id` int(11) NOT NULL AUTO_INCREMENT,
+                                        `participant_id` int(11) NOT NULL,
+                                        `team_id` int(11) NOT NULL,
+                                        `judgment` int(11) NOT NULL,
+                                        `participant_name` varchar(255) NOT NULL,
+                                        `team_name` varchar(255) NOT NULL,
+                                        `recipient_id` int(11) NOT NULL,
+                                        PRIMARY KEY (`message_id`),
+                                        KEY `participant_id` (`participant_id`),
+                                        KEY `team_id` (`team_id`),
+                                        CONSTRAINT `participant_messages_ibfk_1` FOREIGN KEY (`participant_id`) REFERENCES `participant` (`participant_id`),
+                                        CONSTRAINT `participant_messages_ibfk_2` FOREIGN KEY (`team_id`) REFERENCES `teams` (`TeamID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of participant_messages
+-- ----------------------------
+
+-- ----------------------------
 -- Table structure for teams
 -- ----------------------------
 DROP TABLE IF EXISTS `teams`;
@@ -259,7 +290,7 @@ CREATE TABLE `teams` (
                          CONSTRAINT `teams_ibfk_2` FOREIGN KEY (`Member1ID`) REFERENCES `participant` (`participant_id`),
                          CONSTRAINT `teams_ibfk_3` FOREIGN KEY (`Member2ID`) REFERENCES `participant` (`participant_id`),
                          CONSTRAINT `teams_ibfk_4` FOREIGN KEY (`Member3ID`) REFERENCES `participant` (`participant_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=101 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=123 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of teams
@@ -273,13 +304,24 @@ INSERT INTO `teams` VALUES ('15', '编程挑战者', '1', '4', '5', null, '10');
 INSERT INTO `teams` VALUES ('16', '国防创新者', '15', '9', '2', null, '13');
 INSERT INTO `teams` VALUES ('17', '艺术春天', '19', '18', '17', null, '19');
 INSERT INTO `teams` VALUES ('18', '建军强国', '1', '2', '4', '5', '2');
-INSERT INTO `teams` VALUES ('94', '军歌嘹亮队', '15', '16', '17', '18', '1');
+INSERT INTO `teams` VALUES ('19', '军歌嘹亮队', '15', '16', '17', '18', '1');
 INSERT INTO `teams` VALUES ('95', '国防精英队', '19', '20', '21', '22', '2');
 INSERT INTO `teams` VALUES ('96', '品牌设计队', '23', '24', '25', '26', '8');
 INSERT INTO `teams` VALUES ('97', '电商领航队', '27', '28', '39', '30', '9');
 INSERT INTO `teams` VALUES ('98', '编程精英队', '31', '32', '33', '34', '10');
 INSERT INTO `teams` VALUES ('99', '建筑美学队', '35', '36', '37', '38', '11');
 INSERT INTO `teams` VALUES ('100', '摄影艺术队', '39', '40', '41', '42', '23');
+INSERT INTO `teams` VALUES ('102', '强国在心中队', '1', null, null, null, '12');
+INSERT INTO `teams` VALUES ('113', '军歌海报先锋队', '20', '21', '22', null, '12');
+INSERT INTO `teams` VALUES ('114', '军歌创意设计队', '23', '24', '25', null, '12');
+INSERT INTO `teams` VALUES ('115', '军歌主题艺术队', '26', '27', '28', null, '12');
+INSERT INTO `teams` VALUES ('116', '军歌历史传承队', '29', '30', '31', null, '12');
+INSERT INTO `teams` VALUES ('117', '军歌文化宣传队', '32', '33', '34', null, '12');
+INSERT INTO `teams` VALUES ('118', '军歌精神弘扬队', '35', '36', '37', null, '12');
+INSERT INTO `teams` VALUES ('119', '军歌风格演绎队', '38', '39', '40', null, '12');
+INSERT INTO `teams` VALUES ('120', '军歌情感表达队', '41', '42', '43', null, '12');
+INSERT INTO `teams` VALUES ('121', '军歌英雄赞颂队', '44', '45', '46', null, '12');
+INSERT INTO `teams` VALUES ('122', '军歌时代印记队', '47', '48', '49', null, '12');
 
 -- ----------------------------
 -- Table structure for works
