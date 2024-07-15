@@ -1,7 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ include file="header.jsp"%>
 <link rel="stylesheet" href="css/detail.css">
-<link rel="stylesheet" href="css/createTeam.css">
+<link rel="stylesheet" href="css/team.css">
 <div class="container">
     <div class="list-group">
         <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
