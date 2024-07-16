@@ -102,7 +102,7 @@
                 <p class="card-text">${competitions.getPublishDate()} -- ${competitions.getCompetitionDate()}</p>
                 <div class="flex justify-content-around">
                     <a href="${ctx}/JudgmentServlet?id=${competitions.getCompetitionID()}" class="btn btn-primary">创建团队报名</a>
-                    <a href="${ctx}/" class="btn btn-primary">加入团队报名</a>
+                    <a href="${ctx}/JoinServlet?id=${competitions.getCompetitionID()}" class="btn btn-primary">加入团队报名</a>
                 </div>
 
             </div>

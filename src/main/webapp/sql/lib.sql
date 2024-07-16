@@ -247,6 +247,29 @@ INSERT INTO `participant` VALUES ('49', '萧峰', 'xiaofeng@example.com', 'xiaof
 INSERT INTO `participant` VALUES ('50', '段誉', 'duanyu@example.com', 'duanyu123', '大理国', '0');
 
 -- ----------------------------
+-- Table structure for participant_messages
+-- ----------------------------
+DROP TABLE IF EXISTS `participant_messages`;
+CREATE TABLE `participant_messages` (
+                                        `message_id` int(11) NOT NULL AUTO_INCREMENT,
+                                        `participant_id` int(11) NOT NULL,
+                                        `team_id` int(11) NOT NULL,
+                                        `judgment` int(11) NOT NULL,
+                                        `participant_name` varchar(255) NOT NULL,
+                                        `team_name` varchar(255) NOT NULL,
+                                        `recipient_id` int(11) NOT NULL,
+                                        PRIMARY KEY (`message_id`),
+                                        KEY `participant_id` (`participant_id`),
+                                        KEY `team_id` (`team_id`),
+                                        CONSTRAINT `participant_messages_ibfk_1` FOREIGN KEY (`participant_id`) REFERENCES `participant` (`participant_id`),
+                                        CONSTRAINT `participant_messages_ibfk_2` FOREIGN KEY (`team_id`) REFERENCES `teams` (`TeamID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of participant_messages
+-- ----------------------------
+
+-- ----------------------------
 -- Table structure for teams
 -- ----------------------------
 DROP TABLE IF EXISTS `teams`;
