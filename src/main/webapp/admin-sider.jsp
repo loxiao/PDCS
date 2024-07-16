@@ -11,6 +11,6 @@
         <li class="list-group-item"><a href="">发布赛事</a></li>
         <li class="list-group-item"><a href="">发布新闻</a></li>
         <li class="list-group-item"><a href="">设置获奖</a></li>
-        <li class="list-group-item"><a href="">数据统计</a></li>
+        <li class="list-group-item"><a href="${pageContext.request.contextPath}/admin-stats.jsp">数据统计</a></li>
     </ul>
 </div>
