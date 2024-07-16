@@ -75,4 +75,14 @@ public class TeamDao {
             return teams;
         }
     }
+    public boolean addfirstParticipant(int pid,int tid){
+        int affectrow=0;
+        try {
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            return affectrow>0;
+        }
+    }
 }

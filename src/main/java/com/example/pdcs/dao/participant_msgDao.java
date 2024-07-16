@@ -20,4 +20,15 @@ public class participant_msgDao {
             return participant_messagesList;
         }
     }
+    public Boolean addmsg(int pid,int tid,int j,String pname,String tname,int rid){
+        int affectrow=0;
+        try {
+            String sql="INSERT into participant_messages(participant_id,team_id,judgment,participant_name,team_name,recipient_id) VALUES(?,?,?,?,?,?)";
+            affectrow=template.update(sql,pid,tid,j,pname,tname,rid);
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            return affectrow>0;
+        }
+    }
 }
