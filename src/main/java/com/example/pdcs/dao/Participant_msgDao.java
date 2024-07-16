@@ -1,5 +1,6 @@
 package com.example.pdcs.dao;
 
+import com.example.pdcs.domain.Participant;
 import com.example.pdcs.domain.Participant_messages;
 import com.example.pdcs.util.JDBCUtils;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
@@ -43,4 +44,27 @@ public class Participant_msgDao {
             return participant_messages;
         }
     }
+    public boolean deletebymsgid(int mid){
+        int affectrow=0;
+        try {
+            String sql="DELETE FROM participant_messages WHERE message_id=?";
+            affectrow=template.update(sql,mid);
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            return affectrow>0;
+        }
+    }
+    public Participant_messages getbymsgid(int mid){
+        Participant_messages messages=null;
+        try {
+            String sql="SELECT*FROM participant_messages WHERE message_id=?";
+            messages=template.queryForObject(sql,new BeanPropertyRowMapper<>(Participant_messages.class),mid);
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            return messages;
+        }
+    }
+
 }

@@ -20,6 +20,17 @@ public class TeamDao {
             return teams;
         }
     }
+    public Teams getbyteamidandpeopleid(int pid,int tid){
+        Teams teams=null;
+        try {
+            String sql="SELECT *FROM teams WHERE (CaptainID = ?  OR Member1ID = ? OR Member2ID = ? OR Member3ID = ? )AND TeamID = ?;";
+            teams=template.queryForObject(sql,new BeanPropertyRowMapper<>(Teams.class),pid,pid,pid,pid,tid);
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            return teams;
+        }
+    }
     public boolean addteams(int pid,int cid,String teamname){
         int affectrow=0;
         try {
@@ -75,23 +86,13 @@ public class TeamDao {
             return teams;
         }
     }
-    public boolean addfirstParticipant(int pid,int tid){
-        int affectrow=0;
-        try {
 
-        }catch (Exception e){
-            e.printStackTrace();
-        }finally {
-            return affectrow>0;
-        }
-    }
-
-    public List<Teams> getByCaptainID(int id){
-        List<Teams> teams=null;
+    public Teams getByCaptainID(int id,int cid){
+        Teams teams=null;
         try {
             String sql="SELECT t.*  \n" +
                     "FROM teams t  \n" +
-                    "WHERE t.CaptainID = ?  \n" +
+                    "WHERE t.CaptainID = ?  and t.CompetitionID=?\n" +
                     "  AND (  \n" +
                     "    (SELECT c.MaxParticipants FROM competitions c WHERE c.CompetitionID = t.CompetitionID) - 1 >  \n" +
                     "    (  \n" +
@@ -100,11 +101,44 @@ public class TeamDao {
                     "      CASE WHEN t.Member3ID IS NOT NULL THEN 1 ELSE 0 END  \n" +
                     "    )  \n" +
                     "  );";
-            teams=template.query(sql,new BeanPropertyRowMapper<>(Teams.class),id);
+            teams=template.queryForObject(sql,new BeanPropertyRowMapper<>(Teams.class),id,cid);
         }catch (Exception e){
             e.printStackTrace();
         }finally {
             return  teams;
+        }
+    }
+    public boolean addmember1(int tid,int pid){
+        int affectrow=0;
+        try {
+            String sql="UPDATE teams SET Member1ID = ? WHERE TeamID = ?;";
+            affectrow=template.update(sql,pid,tid);
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            return affectrow>0;
+        }
+    }
+    public boolean addmember2(int tid,int pid){
+        int affectrow=0;
+        try {
+            String sql="UPDATE teams SET Member2ID = ? WHERE TeamID = ?;";
+            affectrow=template.update(sql,pid,tid);
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            return affectrow>0;
+        }
+    }
+    public boolean addmember3(int tid,int pid){
+        int affectrow=0;
+        try {
+            String sql="UPDATE teams SET Member3ID = ? WHERE TeamID = ?;";
+            affectrow=template.update(sql,pid,tid);
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            return affectrow>0;
         }
     }
 }

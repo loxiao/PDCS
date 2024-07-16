@@ -37,7 +37,7 @@
                                     <p class="message-haeder">申请消息 <span class="no-read">重要</span> </p>
                                     <p class="message-content"><span>${participant_messages.getParticipant_name()}</span>申请加入你<span>${participant_messages.getTeam_name()}</span>的团队成员<span>(队伍id${participant_messages.getTeam_id()})</span></p>
                                     <div class="flex justify-content-around">
-                                        <a href="#" class="btn btn-primary">同意</a>
+                                        <a href="${ctx}/GetinServlet?mid=${participant_messages.getMessage_id()}" class="btn btn-primary">同意</a>
                                         <a href="#" class="btn btn-primary">拒绝</a>
                                     </div>
                                 </div>
@@ -45,15 +45,18 @@
                         </c:if>
                     </c:forEach>
                 </c:if>
-                <li class="message-item">
-                    <div>
-                        <p class="message-haeder">邀请消息 <span class="no-read">重要</span> </p>
-                        <p class="message-content">有赛事作品需要您的评分<span>(已评分)</span></p>
-                        <p class="time">系统 - 2023-04-01 12:00:00</p>
-                        <a href="#" class="btn btn-primary">去评分</a>
-                    </div>
-                </li>
+                <c:if test="${!empty judge}">
+                    <li class="message-item">
+                        <div>
+                            <p class="message-haeder">邀请消息 <span class="no-read">重要</span> </p>
+                            <p class="message-content">有赛事作品需要您的评分<span>(已评分)</span></p>
+                            <p class="time">系统 - 2023-04-01 12:00:00</p>
+                            <a href="#" class="btn btn-primary">去评分</a>
+                        </div>
+                    </li>
+                </c:if>
             </ul>
+            <div class="msg">${msg}</div>
         </div>
     </div>
 </div>
