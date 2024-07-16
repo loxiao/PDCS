@@ -20,7 +20,7 @@ public class MyTeamServlet extends HttpServlet {
         TeamDao teamDao = new TeamDao();
         List<Teams> teams = teamDao.getByPID(pid);
         request.setAttribute("teams",teams);
-        request.getRequestDispatcher("myCompetition.jsp").forward(request,response);
+        request.getRequestDispatcher("myCompetitions.jsp").forward(request,response);
     }
 
     @Override
