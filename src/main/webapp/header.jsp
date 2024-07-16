@@ -42,7 +42,7 @@
                 <li><a href="">欢迎：<b>${judges.judgesName}</b></a></li>
                 <li><a href="${ctx}/LogoutServlet">注销</a></li>
                 <li><a href="${ctx}/JudgesServlet">评委中心</a></li>
-                <li><a href="">消息 </a></li>
+                <li><a href="${ctx}/message.jsp">消息 </a></li>
             </c:when>
             <c:otherwise>
                 <li><a href="${ctx}/login.jsp">登录/注册</a></li>
