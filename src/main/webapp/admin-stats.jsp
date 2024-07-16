@@ -178,7 +178,7 @@
 
     chart.setOption({
       title: {
-        text: '热门竞赛 (Top 5)'
+        text: '热门竞赛'
       },
       tooltip: {},
       xAxis: {
@@ -208,6 +208,7 @@
       title: {
         text: '参赛人数趋势 (近一个月)'
       },
+      tooltip: {},
       xAxis: {
         type: 'category',
         data: dates // 使用排序后的日期数组
