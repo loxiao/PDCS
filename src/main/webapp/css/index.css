@@ -16,7 +16,7 @@
 }
 
 .cards {
-    width: 720px;
+    width: 520px;
     margin: 0 20px;
     border-radius: 15px 15px 0 0;
     background-color: #ffffff;
@@ -31,7 +31,7 @@
 
 .cards-content {
     padding: 2px 25px;
-    font-size: 20px;
+    font-size: 16px;
 }
 
 .cards-header .more a {
@@ -39,7 +39,7 @@
 }
 
 .cards-content li {
-    margin: 20px 0;
+    margin: 10px 0;
 }
 .cards-content li a{
     color:rgb(0 67 165)
@@ -210,7 +210,7 @@ span {
 
 a.card {
     width: 270px;
-    height: 420px;
+    height:  370px;
     margin: auto;
     background: #fff;
     border-radius: 10px;

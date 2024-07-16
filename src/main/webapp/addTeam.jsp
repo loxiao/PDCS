@@ -1,3 +1,4 @@
+<%@ page import="com.example.pdcs.dao.ParticipantDao" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ include file="header.jsp"%>
 <link rel="stylesheet" href="css/detail.css">
@@ -25,7 +26,7 @@
                 <table class="table panel-body">
                     <thead>
                     <tr>
-                        <th>队长id</th>
+                        <th>队长名称</th>
                         <th>团队名称</th>
                         <th>团队id</th>
                         <th>操作</th>
@@ -34,7 +35,7 @@
                     <tbody>
                     <c:forEach items="${teamsList}" var="teams">
                         <tr>
-                            <th>${teams.getCaptainID()}</th>
+                            <th> ${teams.getCaptainID()}</th>
                             <th>${teams.getTeamName()}</th>
                             <th>${teams.getTeamID()}</th>
                             <th><a href="${ctx}/JointoServlet?id=${teams.getTeamID()}">加入团队</a> </th>
