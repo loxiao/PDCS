@@ -20,10 +20,9 @@ public class NewsLIstServlet extends HttpServlet {
         String competitionTypeName = request.getParameter("typeName");
         CompetitionsDao competitionsDao = new CompetitionsDao();
         String tsg = "";
-        String amg = "热门赛事";
         if (competitionId == null) {
             //点击赛事类别进入
-            amg = competitionTypeName;
+            request.getSession().setAttribute("asg", competitionTypeName);
             List<Competitions> competitions = competitionsDao.getByTypeId(Integer.parseInt(competitionTypeId));
             List<Competitions> newCompetitions = competitions.size() > 10 ?
                     competitions.stream().limit(10L).collect(Collectors.toList()) :
@@ -36,7 +35,6 @@ public class NewsLIstServlet extends HttpServlet {
             request.getSession().setAttribute("competitions", competition);
         }
 
-        request.getSession().setAttribute("asg", amg);
         request.getSession().setAttribute("tsg", tsg);
 
         response.sendRedirect(request.getContextPath()+"/competition.jsp");

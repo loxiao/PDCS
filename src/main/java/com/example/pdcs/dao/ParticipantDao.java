@@ -22,7 +22,17 @@ public class ParticipantDao {
             return participant;
         }
     }
-
+    public int getbyNumber(String Number){
+        int id=0;
+        try{
+            String sql="SELECT*FROM participant WHERE participant_number=?";
+            id=template.queryForObject(sql,Integer.class,Number);
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            return id;
+        }
+    }
     // 添加新参与者
     public boolean addParticipant(String name,String Number,String pwd,String address){
         int affectrows=0;

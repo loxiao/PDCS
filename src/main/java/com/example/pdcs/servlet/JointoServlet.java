@@ -4,7 +4,7 @@ import com.example.pdcs.dao.TeamDao;
 import com.example.pdcs.domain.Participant;
 import com.example.pdcs.domain.Participant_messages;
 import com.example.pdcs.domain.Teams;
-import com.example.pdcs.dao.participant_msgDao;
+import com.example.pdcs.dao.Participant_msgDao;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -19,7 +19,7 @@ public class JointoServlet extends HttpServlet {
         Participant participant=(Participant) request.getSession().getAttribute("participant");
         TeamDao teamDao=new TeamDao();
         Teams teams=teamDao.getbyteamid(tid);
-        participant_msgDao participant_msgDao=new participant_msgDao();
+        Participant_msgDao participant_msgDao=new Participant_msgDao();
        Participant_messages participant_messages=participant_msgDao.getjudgment(participant.getParticipant_id(),teams.getCaptainID(),teams.getTeamID());
        if(participant_messages==null){
            if(participant_msgDao.addmsg(participant.getParticipant_id(),tid,0,participant.getParticipant_name(),teams.getTeamName(),teams.getCaptainID())){
