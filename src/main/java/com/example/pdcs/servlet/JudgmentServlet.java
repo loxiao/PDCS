@@ -42,13 +42,12 @@ public class JudgmentServlet extends HttpServlet {
             return;
         }
 
-        String captainName = request.getParameter("captainName");
         String teamName = request.getParameter("teamName");
         int cid = Integer.parseInt(request.getParameter("id"));
 
-        if (captainName.isEmpty() || teamName.isEmpty()) {
-            // 处理错误：队长姓名或队伍名称为空
-            request.getSession().setAttribute("msg", "队长名字和队伍名字不能为空！");
+        if (teamName.isEmpty()) {
+            // 处理错误：队伍名称为空
+            request.getSession().setAttribute("msg", "队伍名字不能为空！");
             response.sendRedirect(request.getContextPath() + "/CreateTeam.jsp?id=" + cid);
             return;
         }
@@ -58,9 +57,11 @@ public class JudgmentServlet extends HttpServlet {
 
         if (success) {
             request.getSession().setAttribute("msg", "创建成功");
+            response.sendRedirect(request.getContextPath() + "/InvitemeberServlet");
+
         } else {
             request.getSession().setAttribute("msg", "创建失败，请重试");
+            response.sendRedirect(request.getContextPath() + "/competition.jsp");
         }
-        response.sendRedirect(request.getContextPath() + "/competition.jsp");
     }
 }

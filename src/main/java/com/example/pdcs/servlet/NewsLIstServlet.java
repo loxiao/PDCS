@@ -24,8 +24,8 @@ public class NewsLIstServlet extends HttpServlet {
             //点击赛事类别进入
             request.getSession().setAttribute("asg", competitionTypeName);
             List<Competitions> competitions = competitionsDao.getByTypeId(Integer.parseInt(competitionTypeId));
-            List<Competitions> newCompetitions = competitions.size() > 10 ?
-                    competitions.stream().limit(10L).collect(Collectors.toList()) :
+            List<Competitions> newCompetitions = competitions.size() > 15 ?
+                    competitions.stream().limit(15L).collect(Collectors.toList()) :
                     competitions;
             request.getSession().setAttribute("newcompetitions", newCompetitions);
         } else {

@@ -7,15 +7,31 @@
     gap: 30px;
     margin-top: 20px;
 }
+.card {
+    width: 1200px;
+}
 .card-body {
     padding: 20px 40px;
+}
+.card-body h3.card-title text-center{
+    padding: 18px 0;
+    font-size: 2rem;
+    font-weight: bolder;
+}
+.card-body h5{
+    font-size: 1.5rem;
+    font-weight: 600;
 }
 .card-text{
     text-indent: 2em;
 }
+.btn-box{
+    margin: 15px 0;
+}
 .card-header{
     font-size: 30px;
     font-weight: bolder;
+    color: #7abaff;
 }
 .list-group-item {
     width: 300px;
@@ -27,9 +43,8 @@
     text-overflow: ellipsis;
     width: 100%;
 }
-.card {
-    width: 1200px;
-}
+
+
 .tooltip {
     display: none;
     position: absolute;
