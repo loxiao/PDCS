@@ -22,6 +22,7 @@ public class ParticipantDao {
             return participant;
         }
     }
+    //返回参与者编号
     public Integer getbyNumber(String Number){
         Integer id = null; 
         try {
@@ -31,6 +32,18 @@ public class ParticipantDao {
             e.printStackTrace();
         }finally {
             return id;
+        }
+    }
+    //返回参与者名称
+    public String getbyId(int id){
+        String name= null;
+        try {
+            String sql = "SELECT participant_name FROM participant WHERE participant_id = ?"; // 假设您要查询的是id字段
+            name = template.queryForObject(sql, String.class, id); // 假设participant表中有一个id字段
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            return  name;
         }
     }
     // 添加新参与者
