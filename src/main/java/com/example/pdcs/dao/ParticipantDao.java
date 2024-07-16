@@ -22,7 +22,17 @@ public class ParticipantDao {
             return participant;
         }
     }
-
+    public Integer getbyNumber(String Number){
+        Integer id = null;
+        try {
+            String sql = "SELECT participant_id FROM participant WHERE participant_number = ?"; // 假设您要查询的是id字段
+            id = template.queryForObject(sql, Integer.class, Number); // 假设participant表中有一个id字段
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            return id;
+        }
+    }
     // 添加新参与者
     public boolean addParticipant(String name,String Number,String pwd,String address){
         int affectrows=0;

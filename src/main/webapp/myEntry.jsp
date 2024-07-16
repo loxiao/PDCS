@@ -12,16 +12,17 @@
                         <div class="input-group-btn">
                             <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">选择竞赛类别<span class="caret"></span></button>
                             <ul class="dropdown-menu" role="menu">
-
+                                <c:forEach items="${Types}" var="Type">
+                                    <li>
+                                        <a href="${ctx}/CompetitionsListServlet?TypeId=${Type.getCompetitionTypeID()}">${Type.getTypeName()}</a>
+                                    </li>
+                                </c:forEach>
                             </ul>
                         </div>
-                        <!-- /btn-group -->
-                        <input name="ctl00$ContentPlaceHolder1$tbMatchBase" type="text" id="ctl00_ContentPlaceHolder1_tbMatchBase" class="form-control">
-                        <input name="ctl00$ContentPlaceHolder1$hdnMatchBase" type="hidden" id="ctl00_ContentPlaceHolder1_hdnMatchBase" class="form-control">
+                        <input name="Search" type="text" id="Search" class="form-control">
+                        <input name="SearchId" type="hidden" id="SearchId" class="form-control">
                     </div>
-                    <!-- /input-group -->
                 </div>
-                <!-- /.col-lg-4 -->
                 <div class="col-lg-4">
                 </div>
             </div>
@@ -40,34 +41,42 @@
                         <c:forEach items="${competitionsList}" var="competitions" varStatus="status">
                             <tr>
                                 <td class="text-center">${competitions.getCompetitionTypeName()}</td>
-                                <td class="text-center"><a href="workDetails.jsp?Id=${competitions.getCompetitionID()}" target="_blank">${competitions.getCompetitionName()}</a></td>
+                                <td class="text-center">${competitions.getCompetitionName()}</td>
                                 <td class="text-center match-date">${competitions.getCompetitionDate()}</td>
                                 <td class="text-center apply-date">${competitions.getRegistrationDeadline()}</td>
                                 <td class="text-center">${competitions.getMaxParticipants()}</td>
                                 <td class="text-center">
-                                    <button type="button" class="btn btn-default">详情</button>
-                                    <button type="button" class="btn btn-default btn-apply">报名</button>
+                                    <button type="button" class="btn btn-default btn-apply"><a href="${ctx}/NewsLIstServlet?id=${competitions.getCompetitionID()}">报名</a></button>
                                 </td>
                             </tr>
                         </c:forEach>
                         </tbody>
                     </table>
-                    <div class="paged">
-                        <nav>
-                            <ul class="pagination text-center">
-                                <c:forEach begin="1" end="5" var="page">
-                                    <c:if test="${page == currentPage}">
-                                        <li class="active"><a href="javascript:void(0);">${page}</a></li>
-                                    </c:if>
-                                    <c:if test="${page != currentPage}">
-                                        <li><a href="javascript:__doPostBack('ctl00$ContentPlaceHolder1$myPager','${page}')">${page}</a></li>
-                                    </c:if>
-                                </c:forEach>
-                            </ul>
-                        </nav>
-                    </div>
                 </div>
+                <%@ include file="footer.jsp"%>
             </div>
         </div>
+
     </div>
 </div>
+<script>
+    $(document).ready(function() {
+        // 绑定点击事件到下拉菜单的按钮
+        $('.dropdown-toggle').on('click', function() {
+            // 显示下拉菜单
+            $('.dropdown-menu').toggle();
+        });
+
+        // 绑定点击事件到下拉菜单的每个链接
+        $('.dropdown-menu a.dropdown-item').on('click', function() {
+            // 获取选中项的文本
+            var selectedText = $(this).text();
+            // 显示选中项的文本，例如在控制台中
+            console.log('Selected: ' + selectedText);
+            // 或者可以将文本显示在页面的某个元素中
+            // $('#someElementId').text(selectedText);
+            // 关闭下拉菜单
+            $('.dropdown-toggle').dropdown('toggle');
+        });
+    });
+</script>

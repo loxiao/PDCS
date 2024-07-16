@@ -85,4 +85,26 @@ public class TeamDao {
             return affectrow>0;
         }
     }
+
+    public List<Teams> getByCaptainID(int id){
+        List<Teams> teams=null;
+        try {
+            String sql="SELECT t.*  \n" +
+                    "FROM teams t  \n" +
+                    "WHERE t.CaptainID = ?  \n" +
+                    "  AND (  \n" +
+                    "    (SELECT c.MaxParticipants FROM competitions c WHERE c.CompetitionID = t.CompetitionID) - 1 >  \n" +
+                    "    (  \n" +
+                    "      CASE WHEN t.Member1ID IS NOT NULL THEN 1 ELSE 0 END +  \n" +
+                    "      CASE WHEN t.Member2ID IS NOT NULL THEN 1 ELSE 0 END +  \n" +
+                    "      CASE WHEN t.Member3ID IS NOT NULL THEN 1 ELSE 0 END  \n" +
+                    "    )  \n" +
+                    "  );";
+            teams=template.query(sql,new BeanPropertyRowMapper<>(Teams.class),id);
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            return  teams;
+        }
+    }
 }

@@ -12,25 +12,27 @@
 <div class="container" >
     <div class="card" style="box-shadow: 0 0 5px #e0ded7;">
         <div class="card-header" style="padding: 20px;">
-            您创建的队伍
+            您创建的队伍(未满员)
         </div>
         <div class="card-body">
             <ul class="message-list">
-                <li class="message-item">
-                    <p class="message-haeder"><span>xxx队</span></p>
-                    <div class="flex justify-content-around"  style="width: 50%">
-                        <input type="text"  class="form-control" placeholder="请输入参赛者的账号" style="width: 60%">
-                        <a href="#" class="btn btn-primary">邀请</a>
-                    </div>
-                </li>
-                <li class="message-item">
-                    <p class="message-haeder"><span>xxx队</span></p>
-                    <div class="flex justify-content-around"  style="width: 50%">
-                        <input type="text"  class="form-control" placeholder="请输入参赛者的账号" style="width: 60%">
-                        <a href="#" class="btn btn-primary">邀请</a>
-                    </div>
-                </li>
+                <c:forEach items="${emptyTeams}" var="teams">
+                    <li class="message-item">
+                        <form action="MessageServlet" method="post">
+                            <input type="hidden" name="teamID" value="${teams.getTeamID()}">
+                            <input type="hidden" name="teamName" value="${teams.getTeamName()}">
+                            <p class="message-haeder">队伍名 —— <span>${teams.getTeamName()}</span></p>
+                            <div class="flex justify-content-around"  style="width: 50%">
+                                <input type="text" name="member" class="form-control" placeholder="请输入参赛者的账号" style="width: 60%">
+                                <input type="submit" class="btn btn-primary" value="邀请">
+                            </div>
+                        </form>
+                    </li>
+                </c:forEach>
+
+
             </ul>
+            <div class="msg">${jsg}</div>
         </div>
     </div>
 </div>
