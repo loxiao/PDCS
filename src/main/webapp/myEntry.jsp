@@ -19,8 +19,10 @@
                                 </c:forEach>
                             </ul>
                         </div>
-                        <input name="Search" type="text" id="Search" class="form-control">
-                        <input name="SearchId" type="hidden" id="SearchId" class="form-control">
+                        <form class="form-inline my-2 my-lg-0" action="${ctx}/SearchServlet" method="post">
+                            <input name="Search" type="text" id="Search" class="form-control" placeholder="输入竞赛关键字">
+                            <button class="btn btn-outline-primary my-2 my-sm-0 " type="submit">查询</button>
+                        </form>
                     </div>
                 </div>
                 <div class="col-lg-4">
@@ -79,4 +81,5 @@
             $('.dropdown-toggle').dropdown('toggle');
         });
     });
+
 </script>
