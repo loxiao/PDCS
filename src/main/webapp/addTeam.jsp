@@ -37,7 +37,7 @@
                             <th>${teams.getCaptainID()}</th>
                             <th>${teams.getTeamName()}</th>
                             <th>${teams.getTeamID()}</th>
-                            <th><a href="${ctx}/">加入团队</a> </th>
+                            <th><a href="${ctx}/JointoServlet?id=${teams.getTeamID()}">加入团队</a> </th>
                         </tr>
                     </c:forEach>
                     </tbody>

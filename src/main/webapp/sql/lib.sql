@@ -263,11 +263,15 @@ CREATE TABLE `participant_messages` (
                                         KEY `team_id` (`team_id`),
                                         CONSTRAINT `participant_messages_ibfk_1` FOREIGN KEY (`participant_id`) REFERENCES `participant` (`participant_id`),
                                         CONSTRAINT `participant_messages_ibfk_2` FOREIGN KEY (`team_id`) REFERENCES `teams` (`TeamID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of participant_messages
 -- ----------------------------
+INSERT INTO `participant_messages` VALUES ('1', '5', '113', '0', 'Lili', '军歌海报先锋队', '20');
+INSERT INTO `participant_messages` VALUES ('2', '6', '102', '0', '李四', '强国在心中队', '1');
+INSERT INTO `participant_messages` VALUES ('3', '4', '102', '0', '朱杨华', '强国在心中队', '1');
+INSERT INTO `participant_messages` VALUES ('4', '4', '116', '0', '朱杨华', '军歌历史传承队', '29');
 
 -- ----------------------------
 -- Table structure for teams
