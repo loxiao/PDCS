@@ -18,7 +18,7 @@
                     <div class="form_role-group">
                         <label class="form_label">身份</label>
                         <div class="form_role-option">
-                            <input class="form_role-input" type="radio" id="participant" name="role" value="participant">
+                            <input class="form_role-input" type="radio" id="participant" name="role" value="participant" checked>
                             <label class="form_role-label" for="participant">参赛人员</label>
                         </div>
                         <div class="form_role-option">

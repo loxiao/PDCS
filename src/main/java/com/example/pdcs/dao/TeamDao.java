@@ -107,4 +107,17 @@ public class TeamDao {
             return  teams;
         }
     }
+
+    public List<Teams> getByPID(int pid){
+        List<Teams> teams=null;
+        try {
+            String sql = "SELECT * FROM teams WHERE CaptainID = ? OR Member1ID = ? OR Member2ID = ? OR Member3ID = ?;";
+            teams = template.query(sql, new BeanPropertyRowMapper<>(Teams.class), pid,pid,pid,pid);
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            return teams;
+        }
+    }
+
 }
