@@ -83,3 +83,23 @@ body {
     transform: translate(-50%, -50%); /* 居中对齐 */
 }
 
+
+.like-button-container {
+    position: absolute;
+    top: 500px;
+    right: 1150px;
+}
+.gray-heart {
+    color: gray;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+.red-heart {
+    color: red;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+}
