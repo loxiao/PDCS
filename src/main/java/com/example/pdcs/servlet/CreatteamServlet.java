@@ -17,12 +17,13 @@ public class CreatteamServlet extends HttpServlet {
         String tname=request.getParameter("teamName");
         if(tname.isEmpty()){
             request.getSession().setAttribute("msg","创建失败，队伍名称为必填项！");
+            response.sendRedirect(request.getContextPath()+"/competition.jsp");
         }
        else {
             Participant participant=(Participant) request.getSession().getAttribute("participant");
             TeamDao teamDao=new TeamDao();
             if(teamDao.addteams(participant.getParticipant_id(),cid,tname)){
-             response.sendRedirect(request.getContextPath()+"/competition.jsp");
+                response.sendRedirect(request.getContextPath()+"/team-invite.jsp");
             }
         }
     }
