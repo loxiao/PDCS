@@ -7,7 +7,7 @@
 --%>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <link rel="stylesheet" href="css/bootstrap-4.6.1.min.css">
-<link rel="stylesheet" href="css/site.css">
+<%--<link rel="stylesheet" href="css/site.css">--%>
 <link rel="stylesheet" href="css/font-awesome-3.2.1.min.css">
 <link rel="stylesheet" href="css/main.css">
 <div class="d-flex flex-column flex-md-row align-items-center p-3px-mdmb-3 bg-white border-bottom shadow-sm">
