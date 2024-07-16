@@ -46,7 +46,7 @@
                                 <td class="text-center apply-date">${competitions.getRegistrationDeadline()}</td>
                                 <td class="text-center">${competitions.getMaxParticipants()}</td>
                                 <td class="text-center">
-                                    <button type="button" class="btn btn-default btn-apply"><a href="${ctx}/NewsLIstServlet?id=${competitions.getCompetitionID()}" target="_blank">报名</a></button>
+                                    <button type="button" class="btn btn-default btn-apply"><a href="${ctx}/NewsLIstServlet?id=${competitions.getCompetitionID()}">报名</a></button>
                                 </td>
                             </tr>
                         </c:forEach>
