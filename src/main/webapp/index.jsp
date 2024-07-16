@@ -1,21 +1,41 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <link rel="stylesheet" href="css/index.css">
 <%@include file="header.jsp"%>
-<div class="carousel">
-    <div class="carousel-slides">
-        <div class="carousel-slide active">
-            <img src="" alt="Image 1">
+
+<div class="carousel_map">
+    <div class="slide">
+        <!--小圆点-->
+        <input type="radio" name="pic" id="pic1" checked />
+        <input type="radio" name="pic" id="pic2" />
+        <input type="radio" name="pic" id="pic3" />
+
+        <div class="labels">
+            <label for="pic1"></label>
+            <label for="pic2"></label>
+            <label for="pic3"></label>
         </div>
-        <div class="carousel-slide">
-            <img src="" alt="Image 2">
-        </div>
-        <div class="carousel-slide">
-            <img src="" alt="Image 3">
-        </div>
+
+        <!--需要轮播的图片-->
+        <ul class="list">
+            <li class="item">
+                <a href="###">
+                    <img src="postimg/国际大学生创新大赛.jpg" alt="国际大学生创新大赛" style="height: 100%; width: 100%;" />
+                </a>
+            </li>
+            <li class="item">
+                <a href="###">
+                    <img src="postimg/集成电路创新创业大赛.png" alt="通信技术大赛" style="height: 100%; width: 100%;" />
+                </a>
+            </li>
+            <li class="item">
+                <a href="###">
+                    <img src="postimg/通信技术大赛.png" alt="集成电路创新创业大赛" style="height: 100%; width: 100%;" />
+                </a>
+            </li>
+        </ul>
     </div>
-    <a class="prev" onclick="moveSlide(-1)">&#10094;</a>
-    <a class="next" onclick="moveSlide(1)">&#10095;</a>
 </div>
+
 <main style="width:1280px;margin: 0 auto; ">
     <div class="card-box flex cc">
         <div class="cards">

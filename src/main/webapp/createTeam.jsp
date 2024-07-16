@@ -23,8 +23,7 @@
         <div class="card-body">
             <form action="${ctx}/JudgmentServlet" method="post" class="form-group"> <%-- 修改 action 和 method 属性 --%>
                 <input type="hidden" name="id" value="${competitions.getCompetitionID()}"> <%-- 传递比赛 ID --%>
-                <p>队长名字:</p>
-                <input type="text" class="form-control" id="captainName" name="captainName" required>
+                <p>队长名字:${participant.getParticipant_name()}</p>
                 <p>队伍名字:</p>
                 <input type="text" class="form-control" id="teamName" name="teamName" required>
                 <input type="submit" class="btn btn-primary" value="创建团队">

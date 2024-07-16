@@ -7,7 +7,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 
 import java.util.List;
 
-public class participant_msgDao {
+public class Participant_msgDao {
     private JdbcTemplate template = new JdbcTemplate(JDBCUtils.getDataSource());
     public List<Participant_messages> getBtrecipient_id(int rid){
         List<Participant_messages> participant_messagesList=null;
@@ -29,6 +29,18 @@ public class participant_msgDao {
             e.printStackTrace();
         }finally {
             return affectrow>0;
+        }
+    }
+    public Participant_messages getjudgment(int pid,int rid,int tid){
+        Participant_messages participant_messages=null;
+        try {
+            String sql="SELECT*from participant_messages WHERE participant_id=? AND team_id=? AND recipient_id=?;";
+            participant_messages=template.queryForObject(sql,new BeanPropertyRowMapper<>(Participant_messages.class),pid,tid,rid);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            return participant_messages;
         }
     }
 }

@@ -105,4 +105,32 @@ public class CompetitionsDao {
             ;
         }
     }
+    //获取截至报名前的竞赛并根据typeId筛选
+    public List<Competitions> getCompetitionsByTypeOrAll(int typeId) {
+        List<Competitions> competitionsList = null;
+
+        try {
+            String sql = "SELECT * FROM competitions WHERE RegistrationDeadline > NOW()";
+            if (typeId != 0) {
+                sql += " AND CompetitionTypeID = ?";
+            }
+            sql += " ORDER BY RegistrationDeadline ASC";
+            competitionsList = this.template.query(sql, new BeanPropertyRowMapper<>(Competitions.class), (Object[]) (typeId != 0 ? new Object[]{typeId} : new Object[0]));
+        } finally {
+            // 无需在这里返回值，因为返回值应该在try块中处理
+        }
+
+        return competitionsList;
+    }
+
+    public List<Competitions> searchCompetitionsByName(String searchKeyword) {
+        List<Competitions> competitionsList = null;
+        try {
+            String sql = "SELECT * FROM competitions WHERE CompetitionName LIKE ? AND RegistrationDeadline > NOW();";
+            competitionsList = this.template.query(sql, new BeanPropertyRowMapper<>(Competitions.class), "%" + searchKeyword + "%");
+        } finally {
+            // 清理资源的代码（如果有的话）
+        }
+        return competitionsList;
+    }
 }

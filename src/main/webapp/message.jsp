@@ -17,28 +17,34 @@
         </div>
         <div class="card-body">
             <ul class="message-list">
-                <li class="message-item">
-                    <div>
-                        <p class="message-haeder">邀请消息 <span class="no-read">重要</span> </p>
-                        <p class="message-content"><span>xxx队</span>负责人邀请您成为该竞赛的团队成员<span>(已接受邀请)</span></p>
-                        <p class="time">系统 - 2023-04-01 12:00:00</p>
-                        <div class="flex justify-content-around">
-                            <a href="#" class="btn btn-primary">同意</a>
-                            <a href="#" class="btn btn-primary">拒绝</a>
-                        </div>
-                    </div>
-                </li>
-                <li class="message-item">
-                    <div>
-                        <p class="message-haeder">申请消息 <span class="no-read">重要</span> </p>
-                        <p class="message-content"><span>xxx</span>申请加入你<span>xxx队</span>的团队成员<span>(已接受)</span></p>
-                        <p class="time">系统 - 2023-04-01 12:00:00</p>
-                        <div class="flex justify-content-around">
-                            <a href="#" class="btn btn-primary">同意</a>
-                            <a href="#" class="btn btn-primary">拒绝</a>
-                        </div>
-                    </div>
-                </li>
+                <c:if test="${!empty participant}">
+                    <c:forEach items="${participant_messagesList}" var="participant_messages">
+                        <c:if test="${participant_messages.getJudgment()==1}">
+                            <li class="message-item">
+                                <div>
+                                    <p class="message-haeder">邀请消息 <span class="no-read">重要</span> </p>
+                                    <p class="message-content"><span>${participant_messages.getParticipant_name()}</span>负责人邀请您成为该团队的竞赛成员<span>(队伍id${participant_messages.getTeam_id()})</span></p>
+                                    <div class="flex justify-content-around">
+                                        <a href="#" class="btn btn-primary">同意</a>
+                                        <a href="#" class="btn btn-primary">拒绝</a>
+                                    </div>
+                                </div>
+                            </li>
+                        </c:if>
+                        <c:if test="${participant_messages.getJudgment()==0}">
+                            <li class="message-item">
+                                <div>
+                                    <p class="message-haeder">申请消息 <span class="no-read">重要</span> </p>
+                                    <p class="message-content"><span>${participant_messages.getParticipant_name()}</span>申请加入你<span>${participant_messages.getTeam_name()}</span>的团队成员<span>(队伍id${participant_messages.getTeam_id()})</span></p>
+                                    <div class="flex justify-content-around">
+                                        <a href="#" class="btn btn-primary">同意</a>
+                                        <a href="#" class="btn btn-primary">拒绝</a>
+                                    </div>
+                                </div>
+                            </li>
+                        </c:if>
+                    </c:forEach>
+                </c:if>
                 <li class="message-item">
                     <div>
                         <p class="message-haeder">邀请消息 <span class="no-read">重要</span> </p>
