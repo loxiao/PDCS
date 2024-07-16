@@ -151,6 +151,12 @@
     justify-content: center;
 }
 
+span {
+    position: relative;
+    top: -30px; /* 向上移动5px，可以根据需要调整这个值 */
+}
+
+
 a.card {
     width: 270px;
     height: 420px;
