@@ -22,11 +22,11 @@ public class ParticipantDao {
             return participant;
         }
     }
-    public int getbyNumber(String Number){
-        int id=0;
-        try{
-            String sql="SELECT*FROM participant WHERE participant_number=?";
-            id=template.queryForObject(sql,Integer.class,Number);
+    public Integer getbyNumber(String Number){
+        Integer id = null;
+        try {
+            String sql = "SELECT participant_id FROM participant WHERE participant_number = ?"; // 假设您要查询的是id字段
+            id = template.queryForObject(sql, Integer.class, Number); // 假设participant表中有一个id字段
         }catch (Exception e){
             e.printStackTrace();
         }finally {
