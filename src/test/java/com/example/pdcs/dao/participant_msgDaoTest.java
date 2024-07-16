@@ -4,16 +4,16 @@ import com.example.pdcs.domain.Participant;
 import com.example.pdcs.domain.Participant_messages;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
+import com.example.pdcs.dao.Participant_msgDao;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class participant_msgDaoTest {
-    participant_msgDao participant_msgDao;
+    Participant_msgDao participant_msgDao;
     @BeforeEach
     void init(){
-        participant_msgDao=new participant_msgDao();
+        participant_msgDao=new Participant_msgDao();
     }
 
     @Test
