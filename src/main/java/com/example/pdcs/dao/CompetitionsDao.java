@@ -122,4 +122,15 @@ public class CompetitionsDao {
 
         return competitionsList;
     }
+
+    public List<Competitions> searchCompetitionsByName(String searchKeyword) {
+        List<Competitions> competitionsList = null;
+        try {
+            String sql = "SELECT * FROM competitions WHERE CompetitionName LIKE ? AND RegistrationDeadline > NOW();";
+            competitionsList = this.template.query(sql, new BeanPropertyRowMapper<>(Competitions.class), "%" + searchKeyword + "%");
+        } finally {
+            // 清理资源的代码（如果有的话）
+        }
+        return competitionsList;
+    }
 }
