@@ -50,7 +50,7 @@
                         <p class="message-haeder">邀请消息 <span class="no-read">重要</span> </p>
                         <p class="message-content">有赛事作品需要您的评分<span>(已评分)</span></p>
                         <p class="time">系统 - 2023-04-01 12:00:00</p>
-                        <a href="#" class="btn btn-primary">去评分</a>
+                        <a href="${ctx}/JudgesServlet" class="btn btn-primary">去评分</a>
                     </div>
                 </li>
             </ul>

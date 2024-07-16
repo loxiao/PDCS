@@ -51,7 +51,7 @@ public class LoginServlet extends HttpServlet {
             } else if (judges != null && "judge".equals(role)) {
                 session.setAttribute("judges", judges);
                 session.setAttribute("name", judges.getJudgesName());
-                response.sendRedirect(request.getContextPath() + "/JudgesServlet");
+                request.getRequestDispatcher("IndexServlet").forward(request,response);
             } else {
                 // 登录失败
                 request.setAttribute("msg", "登录失败，用户名或密码错误或身份选择错误");

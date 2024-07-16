@@ -33,7 +33,7 @@ public class CompetitionsDao {
     public List<Competitions> getCompetitionList(){//获取所有的竞赛信息
         List<Competitions> competitionsArrayList=null;
         try {
-            String sql = "SELECT * FROM Competitions";
+            String sql = "SELECT * FROM Competitions  WHERE RegistrationDeadline > NOW() ORDER BY PublishDate DESC";
             competitionsArrayList=template.query(sql, new BeanPropertyRowMapper<>(Competitions.class));
         }catch (Exception e){
             e.printStackTrace();
@@ -42,7 +42,8 @@ public class CompetitionsDao {
         }
 
     }
-    public List<Competitions> getoldcompetition(){//获取已经结束并且完成颁奖的竞赛作为新闻
+    //获取已经结束并且完成颁奖的竞赛作为新闻
+    public List<Competitions> getoldcompetition(){
         List<Competitions>competitionsList=null;
         try {
             String sql="SELECT \n" +
@@ -71,7 +72,8 @@ public class CompetitionsDao {
             return competitionsList;
         }
     }
-    public List<Competitions> getnewcompetitions(){//获取截至报名前的竞赛作为新闻
+    //获取截至评分后的竞赛作为新闻
+    public List<Competitions> getnewcompetitions(){
         List<Competitions> competitionsList=null;
         try {
             String sql="SELECT *\n" +
@@ -86,7 +88,7 @@ public class CompetitionsDao {
     public Competitions getbyid(int id){
         Competitions competitions=null;
         try {
-            String sql="SELECT*FROM competitions WHERE CompetitionID=?";
+            String sql="SELECT * FROM competitions WHERE CompetitionID=?";
             competitions=template.queryForObject(sql,new BeanPropertyRowMapper<>(Competitions.class),id);
         }catch (Exception e){
             e.printStackTrace();
@@ -110,7 +112,7 @@ public class CompetitionsDao {
         List<Competitions> competitionsList = null;
 
         try {
-            String sql = "SELECT * FROM competitions WHERE RegistrationDeadline > NOW()";
+            String sql = "SELECT * FROM competitions WHERE RegistrationDeadline > NOW() ORDER BY RegistrationDeadline DESC";
             if (typeId != 0) {
                 sql += " AND CompetitionTypeID = ?";
             }
@@ -126,7 +128,7 @@ public class CompetitionsDao {
     public List<Competitions> searchCompetitionsByName(String searchKeyword) {
         List<Competitions> competitionsList = null;
         try {
-            String sql = "SELECT * FROM competitions WHERE CompetitionName LIKE ? AND RegistrationDeadline > NOW();";
+            String sql = "SELECT * FROM competitions WHERE CompetitionName LIKE ? AND RegistrationDeadline > NOW() ORDER BY RegistrationDeadline DESC";
             competitionsList = this.template.query(sql, new BeanPropertyRowMapper<>(Competitions.class), "%" + searchKeyword + "%");
         } finally {
             // 清理资源的代码（如果有的话）
