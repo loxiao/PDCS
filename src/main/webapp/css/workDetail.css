@@ -6,7 +6,8 @@ body {
 }
 
 .WorkDetails {
-    max-width: 800px;
+    width: 800px;
+    height: 400px;
     margin: 65px auto;
     padding: 20px;
     background-color: #fff;
@@ -67,7 +68,7 @@ body {
     padding: 5px;
     border-radius: 5px;
     position: absolute;
-    top: 300px;
+    top: 320px;
     left: 900px;
     overflow: hidden; /* 隐藏超出框的部分 */
     width: 250px;
@@ -86,8 +87,8 @@ body {
 
 .like-button-container {
     position: absolute;
-    top: 500px;
-    right: 1150px;
+    top: 520px;
+    right: 1100px;
 }
 .gray-heart {
     color: gray;

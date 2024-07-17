@@ -42,10 +42,10 @@ public class LoginServlet extends HttpServlet {
             session.setAttribute("role", role);
 
             //是否有消息未读
-            Participant_msgDao participant_msgDao = new Participant_msgDao();
-            if (participant_msgDao.getBtrecipient_id(participant.getParticipant_id()).size() != 0){
-                session.setAttribute("messages", "您有未读消息");
-            }
+//            Participant_msgDao participant_msgDao = new Participant_msgDao();
+//            if (participant_msgDao.getBtrecipient_id(participant.getParticipant_id()).size() != 0){
+//                session.setAttribute("messages", "您有未读消息");
+//            }
 
             if (participant != null && "participant".equals(role)) {
                 session.setAttribute("participant", participant);
