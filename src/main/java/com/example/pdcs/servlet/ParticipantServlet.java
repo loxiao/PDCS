@@ -24,13 +24,13 @@ public class ParticipantServlet extends HttpServlet {
                         response.sendRedirect(request.getContextPath() + "/CompetitionsListServlet");
                         break;
                     case "myCompetition":
-                        response.sendRedirect(request.getContextPath() + "/MyTeamsServlet");
+                        response.sendRedirect(request.getContextPath() + "/myCompetition.jsp");
                         break;
                     case "myAwards":
                         response.sendRedirect(request.getContextPath() + "/myAwards.jsp");
                         break;
                     case "competitionList":
-                        response.sendRedirect(request.getContextPath() + "/competitionList.jsp");
+                        response.sendRedirect(request.getContextPath() + "/AllCompetitionListServlet");
                         break;
                     case "pwdEdit":
                         response.sendRedirect(request.getContextPath() + "/pwdEdit.jsp");

@@ -107,16 +107,36 @@ public class CompetitionsDao {
             ;
         }
     }
+    //获取所有竞赛并根据typeId筛选
+    public List<Competitions> getAllCompetitionsByTypeOrAll(int typeId) {
+        List<Competitions> competitionsList = null;
+
+        try {
+            if (typeId != 0) {
+                String sql = "SELECT * FROM competitions WHERE CompetitionTypeID = ? ORDER BY RegistrationDeadline DESC;";
+                competitionsList = this.template.query(sql, new BeanPropertyRowMapper<>(Competitions.class), (Object[]) (typeId != 0 ? new Object[]{typeId} : new Object[0]));
+            }else{
+                String sql = "SELECT * FROM Competitions ORDER BY RegistrationDeadline DESC;";
+                competitionsList=template.query(sql, new BeanPropertyRowMapper<>(Competitions.class));
+            }} finally {
+            // 无需在这里返回值，因为返回值应该在try块中处理
+        }
+
+        return competitionsList;
+    }
     //获取截至报名前的竞赛并根据typeId筛选
     public List<Competitions> getCompetitionsByTypeOrAll(int typeId) {
         List<Competitions> competitionsList = null;
 
         try {
-            String sql = "SELECT * FROM competitions WHERE RegistrationDeadline > NOW() ORDER BY RegistrationDeadline DESC";
+
             if (typeId != 0) {
-                sql += " AND CompetitionTypeID = ?";
+                String sql = "SELECT * FROM competitions WHERE RegistrationDeadline > NOW() AND CompetitionTypeID = ? ORDER BY RegistrationDeadline DESC;";
+                competitionsList = this.template.query(sql, new BeanPropertyRowMapper<>(Competitions.class), (Object[]) (typeId != 0 ? new Object[]{typeId} : new Object[0]));
+            }else{
+                String sql = "SELECT * FROM Competitions WHERE RegistrationDeadline > NOW() ORDER BY RegistrationDeadline DESC;";
+                competitionsList=template.query(sql, new BeanPropertyRowMapper<>(Competitions.class));
             }
-            competitionsList = this.template.query(sql, new BeanPropertyRowMapper<>(Competitions.class), (Object[]) (typeId != 0 ? new Object[]{typeId} : new Object[0]));
         } finally {
             // 无需在这里返回值，因为返回值应该在try块中处理
         }
