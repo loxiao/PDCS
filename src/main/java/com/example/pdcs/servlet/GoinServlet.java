@@ -59,21 +59,21 @@ public class GoinServlet extends HttpServlet {
                 }
                 else{
                     if(mx==1){
-                        if(teamDao.addmember1(tid,participant.getParticipant_id())){
+                        if(teamDao.addmember1(tid,participant_messages.getParticipant_id())){
                             request.getSession().setAttribute("msg","加入成功！");
                             participant_msgDao.deletebymsgid(mid);
                             request.getRequestDispatcher("PmsgServlet").forward(request,response);
                         }
                     }
                     else if(mx==2){
-                        if(teamDao.addmember2(tid,participant.getParticipant_id())){
+                        if(teamDao.addmember2(tid,participant_messages.getParticipant_id())){
                             request.getSession().setAttribute("msg","加入成功！");
                             participant_msgDao.deletebymsgid(mid);
                             request.getRequestDispatcher("PmsgServlet").forward(request,response);
                         }
                     }
                     else if(mx==3){
-                        if(teamDao.addmember3(tid,participant.getParticipant_id())){
+                        if(teamDao.addmember3(tid,participant_messages.getParticipant_id())){
                             request.getSession().setAttribute("msg","加入成功！");
                             participant_msgDao.deletebymsgid(mid);
                             request.getRequestDispatcher("PmsgServlet").forward(request,response);
