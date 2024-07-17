@@ -26,7 +26,7 @@ public class MessageServlet extends HttpServlet {
         ParticipantDao participantDao=new ParticipantDao();
         int memberId=participantDao.getbyNumber(member);
         Participant_msgDao msgDao=new Participant_msgDao();
-        if(msgDao.addmsg(participant.getParticipant_id(),teamID,0,participant.getParticipant_name(),teamName,memberId)){
+        if(msgDao.addmsg(participant.getParticipant_id(),teamID,1,participant.getParticipant_name(),teamName,memberId)){
             request.getSession().setAttribute("jsg","邀请成功");
         }else{
             request.getSession().setAttribute("jsg","邀请失败");

@@ -25,7 +25,7 @@ public class CompetitionsListServlet extends HttpServlet {
             List<Competitions> competitionsList = competitionsDao.getCompetitionsByTypeOrAll(id);
             request.getSession().setAttribute("competitionsList",competitionsList);
         }else {
-            List<Competitions> competitionsList = competitionsDao.getCompetitionsByTypeOrAll(0);
+            List<Competitions> competitionsList = competitionsDao.getCompetitionList();
             request.getSession().setAttribute("competitionsList",competitionsList);
         }
         List<Competitiontypes> competitiontypes = competitiontypesDao.getList();
