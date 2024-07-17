@@ -1,0 +1,67 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+}
+
+.WorkDetails {
+    max-width: 800px;
+    margin: 65px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.WorkDetails .head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.WorkDetails .head h2 {
+    margin: 0;
+    color: #333;
+}
+
+.WorkDetails .head a {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.WorkDetails .head a:hover {
+    text-decoration: underline;
+}
+
+.WorkDetails .detail {
+    margin-bottom: 20px;
+}
+
+.WorkDetails .detail .upload h4 {
+    margin: 0 0 10px;
+    color: #333;
+    font-size: 23px;
+    border-top: 2px solid #eee;
+    padding-top: 10px;
+}
+
+.WorkDetails .detail p {
+    margin: 10px 0;
+    color: #555;
+}
+
+.WorkDetails .detail p span {
+    color: #333;
+    font-weight: bold;
+}
+
+.WorkDetails .detail .upload .upload-btn {
+    position: absolute;
+    left: 1190px;
+}
+
