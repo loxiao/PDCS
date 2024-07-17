@@ -70,4 +70,9 @@ void init(){
             System.out.println(teams1.getTeamName());
         }
     }
+    @Test
+    void removemember(){
+    boolean result=teamDao.addmember2(10,null);
+    assertEquals(true,result);
+    }
 }

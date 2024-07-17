@@ -108,7 +108,7 @@ public class TeamDao {
             return  teams;
         }
     }
-    public boolean addmember1(int tid,int pid){
+    public boolean addmember1(int tid,Integer pid){
         int affectrow=0;
         try {
             String sql="UPDATE teams SET Member1ID = ? WHERE TeamID = ?;";
@@ -119,7 +119,7 @@ public class TeamDao {
             return affectrow>0;
         }
     }
-    public boolean addmember2(int tid,int pid){
+    public boolean addmember2(int tid,Integer pid){
         int affectrow=0;
         try {
             String sql="UPDATE teams SET Member2ID = ? WHERE TeamID = ?;";
@@ -130,7 +130,7 @@ public class TeamDao {
             return affectrow>0;
         }
     }
-    public boolean addmember3(int tid,int pid){
+    public boolean addmember3(int tid,Integer pid){
         int affectrow=0;
         try {
             String sql="UPDATE teams SET Member3ID = ? WHERE TeamID = ?;";

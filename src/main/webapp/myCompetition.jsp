@@ -25,7 +25,7 @@
                                 <td class="text-center apply-date">${list[2]}</td>
                                 <td class="text-center match-date">${list[3]}</td>
                                 <td class="text-center">
-                                    <button type="button" class="btn btn-default btn-apply"><a href="${ctx}/">移除</a></button>
+                                    <button type="button" class="btn btn-default btn-apply"><a href="${ctx}/RemoveMemberServlet?action=showDetails&tid=${list[4]}&pid=${list[5]}">移除</a></button>
                                 </td>
                             </tr>
                         </c:forEach>
@@ -49,7 +49,7 @@
                                 <td class="text-center">${member[1]}</td>
                                 <td class="text-center apply-date">${member[2]}</td>
                                 <td class="text-center">
-                                    <button type="button" class="btn btn-default btn-apply"><a href="${ctx}/">退出</a></button>
+                                    <button type="button" class="btn btn-default btn-apply"><a href="${ctx}/RemoveServlet?tid=${member[3]}">退出</a></button>
                                 </td>
                             </tr>
                         </c:forEach>
