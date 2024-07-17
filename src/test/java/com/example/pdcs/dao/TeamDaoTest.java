@@ -36,4 +36,19 @@ void init(){
         }
     }
 
+    @Test
+    void getbyCaptainID() {
+        List<Teams> teams=teamDao.getbyCaptainID(1);
+        for(Teams teams1:teams){
+            System.out.println(teams1.getTeamName());
+        }
+    }
+
+    @Test
+    void getbyParticipantID() {
+        List<Teams> teams=teamDao.getbyParticipantID(2);
+        for(Teams teams1:teams){
+            System.out.println(teams1.getTeamName());
+        }
+    }
 }

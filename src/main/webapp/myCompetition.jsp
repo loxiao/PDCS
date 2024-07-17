@@ -1,91 +1,76 @@
 <%@ page contentType="text/html; charset=UTF-8" language="java" %>
-<%@include file="participant-head.jsp"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ include file="participant-head.jsp"%>
 <div class="container-fluid">
     <div class="row">
-        <%@include file="participant-sider.jsp"%>
+        <%@ include file="participant-sider.jsp"%>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main1">
             <div>
                 <div id="tabdata">
                     <h3>我的队伍</h3>
                     <hr>
-                    <table class="table table-striped table-bordered ">
-                        <tbody>
-                        <tr>
-                            <th class="text-center">竞赛类别</th>
-                            <th class="text-center">竞赛名称</th>
-                            <th class="text-center">团队名称</th>
-                            <th class="text-center">队员</th>
-                            <th class="text-center">团队管理</th>
-                        </tr>
-                        <%--                        <c:forEach items="${}" var="">--%>
-                        <tr>
-                            <td class="text-center">公益类</td>
-                            <td class="text-center">2024年第11届国防科技创新海报大赛</td>
-                            <td class="text-center apply-date">编程挑战者</td>
-                            <td class="text-center match-date">刘德华</td>
-                            <td class="text-center">
-                                <button type="button" class="btn btn-default btn-apply"><a href="${ctx}/">移除</a></button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="text-center">公益类</td>
-                            <td class="text-center">2024年第11届国防科技创新海报大赛</td>
-                            <td class="text-center apply-date">编程挑战者</td>
-                            <td class="text-center match-date">hlj</td>
-                            <td class="text-center">
-                                <button type="button" class="btn btn-default btn-apply"><a href="${ctx}/">移除</a></button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="text-center">公益类</td>
-                            <td class="text-center">2024年第11届国防科技创新海报大赛</td>
-                            <td class="text-center apply-date">编程挑战者</td>
-                            <td class="text-center match-date">Lili</td>
-                            <td class="text-center">
-                                <button type="button" class="btn btn-default btn-apply"><a href="${ctx}/">移除</a></button>
-                            </td>
-                        </tr>
-                        <%--                        </c:forEach>--%>
-                        </tbody>
-                    </table>
+                    <c:if test="${!empty myTeams}">
+                        <table class="table table-striped table-bordered ">
+                            <tbody>
+                            <tr>
+                                <th class="text-center">竞赛类别</th>
+                                <th class="text-center">竞赛名称</th>
+                                <th class="text-center">团队名称</th>
+                                <th class="text-center">队员</th>
+                                <th class="text-center">团队管理</th>
+                            </tr>
+                            <c:forEach items="${myTeams}" var="team">
+                                <tr>
+                                    <td class="text-center"></td>
+                                    <td class="text-center"></td>
+                                    <td class="text-center">${team.getTeamName()}</td>
+                                    <td class="text-center"></td>
+                                    <td class="text-center">
+                                        <button type="button" class="btn btn-default btn-apply"><a href="">移除</a></button>
+                                    </td>
+                                </tr>
+                            </c:forEach>
+                            </tbody>
+                        </table>
+                    </c:if>
+                    <c:if test="${empty myTeams}">
+                        <div class="alert alert-danger" role="alert">
+                            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                            <span class="sr-only">Error:</span>
+                            您还没有创建任何队伍
+                        </div>
+                    </c:if>
                     <h3>我加入的队伍</h3>
                     <hr>
-                    <table class="table table-striped table-bordered ">
-                        <tbody>
-                        <tr>
-                            <th class="text-center">竞赛类别</th>
-                            <th class="text-center">竞赛名称</th>
-                            <th class="text-center">团队名称</th>
-                            <th class="text-center">操作</th>
-                        </tr>
-                        <%--                        <c:forEach items="${}" var="">--%>
-                        <tr>
-                            <td class="text-center">公益类</td>
-                            <td class="text-center">2024年第14届关爱留守儿童公益广告海报大赛</td>
-                            <td class="text-center apply-date">编程挑战者</td>
-                            <td class="text-center">
-                                <button type="button" class="btn btn-default btn-apply"><a href="${ctx}/">退出</a></button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="text-center">国防类</td>
-                            <td class="text-center">2024年第6届军事历史知识海报竞赛</td>
-                            <td class="text-center apply-date">国防创新者</td>
-                            <td class="text-center">
-                                <button type="button" class="btn btn-default btn-apply"><a href="${ctx}/">移除</a></button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="text-center">商业类</td>
-                            <td class="text-center">2024年第1届绿色地球环保海报设计海报大赛</td>
-                            <td class="text-center apply-date">艺术春天</td>
-                            <td class="text-center">
-                                <button type="button" class="btn btn-default btn-apply"><a href="${ctx}/">移除</a></button>
-                            </td>
-                        </tr>
-                        <%--                        </c:forEach>--%>
-                        </tbody>
-                    </table>
+                    <c:if test="${!empty joinedTeams}">
+                        <table class="table table-striped table-bordered ">
+                            <tbody>
+                            <tr>
+                                <th class="text-center">竞赛类别</th>
+                                <th class="text-center">竞赛名称</th>
+                                <th class="text-center">团队名称</th>
+                                <th class="text-center">操作</th>
+                            </tr>
+                            <c:forEach items="${joinedTeams}" var="team">
+                                <tr>
+                                    <td class="text-center"></td>
+                                    <td class="text-center"></td>
+                                    <td class="text-center">${team.getTeamName()}</td>
+                                    <td class="text-center">
+                                        <button type="button" class="btn btn-default btn-apply"><a href="">退出</a></button>
+                                    </td>
+                                </tr>
+                            </c:forEach>
+                            </tbody>
+                        </table>
+                    </c:if>
+                    <c:if test="${empty joinedTeams}">
+                        <div class="alert alert-danger" role="alert">
+                            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                            <span class="sr-only">Error:</span>
+                            您还没有加入任何队伍
+                        </div>
+                    </c:if>
                 </div>
                 <%@ include file="footer.jsp"%>
             </div>
