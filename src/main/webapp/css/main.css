@@ -46,10 +46,13 @@ header {
 }
 /*尾部*/
 footer {
+    position: fixed;
     text-align: center;
     padding: 1rem 0;
     margin-top: 2rem;
     color: grey;
+    width: 100%;
+    bottom: 0px;
 }
 
 hr {

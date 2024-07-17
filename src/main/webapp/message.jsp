@@ -23,9 +23,9 @@
                             <li class="message-item">
                                 <div>
                                     <p class="message-haeder">邀请消息 <span class="no-read">重要</span> </p>
-                                    <p class="message-content"><span>${participant_messages.getParticipant_name()}</span>负责人邀请您成为该团队的竞赛成员<span>(队伍id${participant_messages.getTeam_id()})</span></p>
+                                    <p class="message-content"><span>${participant_messages.getParticipant_name()}</span>负责人邀请您成为${participant_messages.getTeam_name()}的竞赛成员<span>(队伍id${participant_messages.getTeam_id()})</span></p>
                                     <div class="flex justify-content-around">
-                                        <a href="#" class="btn btn-primary">同意</a>
+                                        <a href="${ctx}/GetinServlet?mid=${participant_messages.getMessage_id()}" class="btn btn-primary">同意</a>
                                         <a href="#" class="btn btn-primary">拒绝</a>
                                     </div>
                                 </div>
@@ -37,7 +37,7 @@
                                     <p class="message-haeder">申请消息 <span class="no-read">重要</span> </p>
                                     <p class="message-content"><span>${participant_messages.getParticipant_name()}</span>申请加入你<span>${participant_messages.getTeam_name()}</span>的团队成员<span>(队伍id${participant_messages.getTeam_id()})</span></p>
                                     <div class="flex justify-content-around">
-                                        <a href="${ctx}/GetinServlet?mid=${participant_messages.getMessage_id()}" class="btn btn-primary">同意</a>
+                                        <a href="${ctx}/GoinServlet?mid=${participant_messages.getMessage_id()}" class="btn btn-primary">同意</a>
                                         <a href="#" class="btn btn-primary">拒绝</a>
                                     </div>
                                 </div>

@@ -1,8 +1,9 @@
 .Works {
     display: block; /* 默认为块级元素 */
-    margin:100px auto;
-    min-height: 630px;
-    width: 1160px;
+    margin-left: auto; /* 左边距自动 */
+    margin-right: auto; /* 右边距自动 */
+    height: 650px;
+    width: 1110px;
 }
 .MatchBaseList {
     border: 1px solid #d1d1d1;
@@ -51,4 +52,15 @@ th {
     overflow: hidden;
     text-overflow: ellipsis;
     max-width: 200px;
+}
+.upload {
+    padding: 8px;
+    text-align: left;
+}
+.upload .upload-file {
+    padding: 8px;
+}
+.upload .upload-btn {
+    color: #3f51b5;
+    padding: 8px;
 }

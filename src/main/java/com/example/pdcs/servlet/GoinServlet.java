@@ -14,8 +14,8 @@ import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "GetinServlet", value = "/GetinServlet")
-public class GetinServlet extends HttpServlet {
+@WebServlet(name = "GoinServlet", value = "/GoinServlet")
+public class GoinServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int mid=Integer.parseInt(request.getParameter("mid"));
@@ -27,16 +27,16 @@ public class GetinServlet extends HttpServlet {
         Participant participant=(Participant) request.getSession().getAttribute("participant");
         CompetitionsDao competitionsDao=new CompetitionsDao();
         Competitions competitions=competitionsDao.getbyid(teams.getCompetitionID());
-           int mx=1;
-           if(teams.getMember1ID()!=null){
-               mx++;
-           }
-           if(teams.getMember2ID()!=null){
-               mx++;
-           }
-           if(teams.getMember3ID()!=null){
-               mx++;
-           }
+        int mx=1;
+        if(teams.getMember1ID()!=null){
+            mx++;
+        }
+        if(teams.getMember2ID()!=null){
+            mx++;
+        }
+        if(teams.getMember3ID()!=null){
+            mx++;
+        }
         if(mx>=competitions.getMaxParticipants()){
             request.getSession().setAttribute("msg","加入失败，队伍已满员！");
             List<Participant_messages> participant_messagesList=(List<Participant_messages>) request.getSession().getAttribute("participant_messagesList");
@@ -47,13 +47,13 @@ public class GetinServlet extends HttpServlet {
         }
         else if(mx<competitions.getMaxParticipants()){
             competitions=competitionsDao.getbyid(teams.getCompetitionID());
-            if(teamDao.getbycompetitionidandpeopleid(participant.getParticipant_id(),competitions.getCompetitionID())!=null){
-                request.getSession().setAttribute("msg","加入失败，已有参赛队伍");
+            if(teamDao.getbycompetitionidandpeopleid(participant_messages.getParticipant_id(),competitions.getCompetitionID())!=null){
+                request.getSession().setAttribute("msg","加入失败，该队员已有参赛队伍");
                 participant_msgDao.deletebymsgid(mid);
                 request.getRequestDispatcher("PmsgServlet").forward(request,response);
             }else {
-                if(teamDao.getbyteamidandpeopleid(participant.getParticipant_id(),tid)!=null){
-                    request.getSession().setAttribute("msg","加入失败，已加入该队伍！");
+                if(teamDao.getbyteamidandpeopleid(participant_messages.getParticipant_id(),tid)!=null){
+                    request.getSession().setAttribute("msg","加入失败，该队员已加入你的队伍！");
                     participant_msgDao.deletebymsgid(mid);
                     request.getRequestDispatcher("PmsgServlet").forward(request,response);
                 }
@@ -86,6 +86,6 @@ public class GetinServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        doGet(request,response);
+
     }
 }

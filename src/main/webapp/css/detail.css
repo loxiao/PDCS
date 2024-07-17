@@ -78,6 +78,9 @@
     justify-content: space-between;
     align-items: center;
 }
+.more li a:hover{
+    color: #02539f;
+}
 .more .time {
     width: 135px;
     white-space: nowrap;
