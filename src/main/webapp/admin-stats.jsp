@@ -20,10 +20,6 @@
     .chart-container.active {
       display: block;
     }
-
-    .tab-content {
-      padding-top: 100px;
-    }
   </style>
 </head>
 <body>
@@ -51,21 +47,28 @@
   <div class="tab-content" id="statsTabsContent">
     <div class="tab-pane fade show active chart-container" id="competitionStats" role="tabpanel"
          aria-labelledby="competitionStatsTab">
+      <div class="btn-group mb-3" role="group" aria-label="Chart type">
+        <button type="button" class="btn btn-secondary active" data-chart-type="bar">柱状图</button>
+        <button type="button" class="btn btn-secondary" data-chart-type="pie">饼图</button>
+      </div>
       <div id="competitionStatsChart" style="width: 100%; height: 100%;"></div>
     </div>
     <div class="tab-pane fade chart-container" id="topCompetitions" role="tabpanel"
          aria-labelledby="topCompetitionsTab">
+      <div class="btn-group mb-3" role="group" aria-label="Chart type">
+        <button type="button" class="btn btn-secondary active" data-chart-type="bar">柱状图</button>
+        <button type="button" class="btn btn-secondary" data-chart-type="pie">饼图</button>
+      </div>
       <div id="topCompetitionsChart" style="width: 100%; height: 100%;"></div>
     </div>
-    <li class="nav-item">
-      <div class="tab-pane fade chart-container" id="participantTrend" role="tabpanel"
-           aria-labelledby="participantTrendTab">
-        <div id="participantTrendChart" style="width: 100%; height: 100%;"></div>
-      </div>
-      <div class="tab-pane fade chart-container" id="workSubmission" role="tabpanel"
-           aria-labelledby="workSubmissionTab">
-        <div id="workSubmissionChart" style="width: 100%; height: 100%;"></div>
-      </div>
+    <div class="tab-pane fade chart-container" id="participantTrend" role="tabpanel"
+         aria-labelledby="participantTrendTab">
+      <div id="participantTrendChart" style="width: 100%; height: 100%;"></div>
+    </div>
+    <div class="tab-pane fade chart-container" id="workSubmission" role="tabpanel"
+         aria-labelledby="workSubmissionTab">
+      <div id="workSubmissionChart" style="width: 100%; height: 100%;"></div>
+    </div>
   </div>
 </div>
 <%@ include file="footer.jsp"%>
@@ -99,6 +102,21 @@
         loadWorkSubmissionStats();
       }
     });
+
+    // 按钮点击事件处理
+    $('.btn-group button').click(function() {
+      $(this).addClass('active').siblings().removeClass('active'); // 更新按钮组选中状态
+
+      // 获取当前激活的标签页 ID
+      const activeTabId = $('#statsTabs .nav-link.active').attr('href');
+
+      // 根据当前激活的标签页重新渲染图表
+      if (activeTabId === '#competitionStats') {
+        loadCompetitionStats();
+      } else if (activeTabId === '#topCompetitions') {
+        loadTopCompetitionsStats();
+      }
+    });
   });
 
   function loadCompetitionStats() {
@@ -129,7 +147,7 @@
     $.ajax({
       url: '${pageContext.request.contextPath}/CompetitionStatsServlet',
       type: 'GET',
-      data: {chartType: 'participantTrend', timeRange: 'month'}, // 可以通过下拉菜单或按钮切换 month/year
+      data: {chartType: 'participantTrend', timeRange: 'month'},
       dataType: 'json',
       success: function (data) {
         renderParticipantTrendChart(data);
@@ -151,48 +169,80 @@
 
   function renderCompetitionStatsChart(data) {
     const chart = echarts.init(document.getElementById('competitionStatsChart'));
+    const chartType = $('#competitionStats .btn-group .active').data('chart-type');
     const categories = Object.keys(data.competitionStats);
     const counts = Object.values(data.competitionStats);
 
-    chart.setOption({
+    let option = {
       title: {
         text: '各比赛种类参赛队伍数量统计'
       },
       tooltip: {},
-      xAxis: {
+    };
+
+    if (chartType === 'bar') {
+      option.xAxis = {
         type: 'category',
         data: categories
-      },
-      yAxis: {
+      };
+      option.yAxis = {
         type: 'value'
-      },
-      series: [{
+      };
+      option.series = [{
         data: counts,
         type: 'bar'
-      }]
-    });
+      }];
+    } else if (chartType === 'pie') {
+      option.series = [{
+        name: '参赛队伍数量',
+        type: 'pie',
+        radius: '50%',
+        data: categories.map((category, index) => ({
+          value: counts[index],
+          name: category
+        }))
+      }];
+    }
+
+    chart.setOption(option);
   }
 
   function renderTopCompetitionsChart(data) {
     const chart = echarts.init(document.getElementById('topCompetitionsChart'));
+    const chartType = $('#topCompetitions .btn-group .active').data('chart-type');
 
-    chart.setOption({
+    let option = {
       title: {
         text: '热门竞赛'
       },
       tooltip: {},
-      xAxis: {
+    };
+
+    if (chartType === 'bar') {
+      option.xAxis = {
         type: 'category',
         data: data.topCompetitionNames
-      },
-      yAxis: {
+      };
+      option.yAxis = {
         type: 'value'
-      },
-      series: [{
+      };
+      option.series = [{
         data: data.topCompetitionCounts,
         type: 'bar'
-      }]
-    });
+      }];
+    } else if (chartType === 'pie') {
+      option.series = [{
+        name: '参赛队伍数量',
+        type: 'pie',
+        radius: '50%',
+        data: data.topCompetitionNames.map((name, index) => ({
+          value: data.topCompetitionCounts[index],
+          name: name
+        }))
+      }];
+    }
+
+    chart.setOption(option);
   }
 
   function renderParticipantTrendChart(data) {
@@ -208,14 +258,14 @@
       title: {
         text: '参赛人数趋势 (近一个月)'
       },
-      tooltip: {},
       xAxis: {
         type: 'category',
-        data: dates // 使用排序后的日期数组
+        data: dates
       },
       yAxis: {
         type: 'value'
       },
+      tooltip: {},
       series: [{
         data: counts,
         type: 'line'
