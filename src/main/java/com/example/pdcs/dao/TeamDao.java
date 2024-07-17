@@ -164,4 +164,26 @@ public class TeamDao {
             return teams;
         }
     }
+    public Teams getcaptianteam(int cid,int pid){
+        Teams teams=null;
+        try {
+            String sql="SELECT*from teams WHERE CaptainID=? and CompetitionID=?";
+            teams=template.queryForObject(sql,new BeanPropertyRowMapper<>(Teams.class),pid,cid);
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            return teams;
+        }
+    }
+    public Teams getmemberteam(int pid,int cid){
+        Teams teams=null;
+        try {
+            String sql="SELECT *FROM teams WHERE ( Member1ID = ? OR Member2ID = ? OR Member3ID = ? )AND CompetitionID = ?;";
+            teams=template.queryForObject(sql,new BeanPropertyRowMapper<>(Teams.class),pid,pid,pid,cid);
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            return teams;
+        }
+    }
 }
