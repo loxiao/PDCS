@@ -141,4 +141,27 @@ public class TeamDao {
             return affectrow>0;
         }
     }
+
+    public List<Teams> getbyCaptainID(int cid){
+        List<Teams> teams=null;
+        try {
+            String sql="SELECT * FROM teams WHERE CaptainID = ?;";
+            teams=template.query(sql,new BeanPropertyRowMapper<>(Teams.class),cid);
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            return teams;
+        }
+    }
+    public List<Teams> getbyParticipantID(int pid){
+        List<Teams> teams=null;
+        try {
+            String sql="SELECT * FROM teams WHERE Member1ID = ? or Member2ID = ? or Member3ID = ?;";
+            teams=template.query(sql,new BeanPropertyRowMapper<>(Teams.class),pid,pid,pid);
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            return teams;
+        }
+    }
 }
