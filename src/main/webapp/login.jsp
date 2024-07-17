@@ -30,6 +30,13 @@
                             <label class="form_role-label" for="admin">管理员</label>
                         </div>
                     </div>
+                    <div>
+                        <label>验证码:</label>
+                        <input type="text" name="captcha" placeholder="请输入验证码" style="width: 130px;">
+<%--                        <input type="text" name="captcha" placeholder="请输入验证码">--%>
+                        <img src="CaptchaServlet" alt="验证码" id="captchaImage">
+                        <a href="#" onclick="refreshCaptcha()">换一张</a>
+                    </div>
                     <input class="form_btn" type="submit" value="登录">
                     <br>
                     <div class="msg">${msg}</div>
@@ -60,3 +67,8 @@
     </div>
 </div>
 <script src="js/main.js"></script>
+<script>
+    function refreshCaptcha() {
+        document.getElementById('captchaImage').src = 'CaptchaServlet?' + new Date().getTime(); // 添加时间戳以避免缓存
+    }
+</script>
