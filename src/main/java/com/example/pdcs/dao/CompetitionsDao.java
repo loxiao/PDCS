@@ -116,7 +116,6 @@ public class CompetitionsDao {
             if (typeId != 0) {
                 sql += " AND CompetitionTypeID = ?";
             }
-            sql += " ORDER BY RegistrationDeadline ASC";
             competitionsList = this.template.query(sql, new BeanPropertyRowMapper<>(Competitions.class), (Object[]) (typeId != 0 ? new Object[]{typeId} : new Object[0]));
         } finally {
             // 无需在这里返回值，因为返回值应该在try块中处理
@@ -128,7 +127,7 @@ public class CompetitionsDao {
     public List<Competitions> searchCompetitionsByName(String searchKeyword) {
         List<Competitions> competitionsList = null;
         try {
-            String sql = "SELECT * FROM competitions WHERE CompetitionName LIKE ? AND RegistrationDeadline > NOW() ORDER BY RegistrationDeadline DESC";
+            String sql = "SELECT * FROM competitions WHERE CompetitionName LIKE ? AND RegistrationDeadline > NOW()";
             competitionsList = this.template.query(sql, new BeanPropertyRowMapper<>(Competitions.class), "%" + searchKeyword + "%");
         } finally {
             // 清理资源的代码（如果有的话）
