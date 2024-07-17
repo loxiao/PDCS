@@ -44,6 +44,10 @@
 .cards-content li a{
     color:rgb(0 67 165)
 }
+.cards a:hover{
+    color: rgb(35, 139, 224)
+}
+
 .nav-title {
     margin: 70px;
     text-align: center;

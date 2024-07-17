@@ -3,6 +3,7 @@ package com.example.pdcs.servlet;
 import com.example.pdcs.dao.AdminDao;
 import com.example.pdcs.dao.JudgesDao;
 import com.example.pdcs.dao.ParticipantDao;
+import com.example.pdcs.dao.Participant_msgDao;
 import com.example.pdcs.domain.Admin;
 import com.example.pdcs.domain.Judges;
 import com.example.pdcs.domain.Participant;
@@ -39,6 +40,12 @@ public class LoginServlet extends HttpServlet {
             // 登录成功，根据角色重定向到相应页面
             HttpSession session = request.getSession();
             session.setAttribute("role", role);
+
+            //是否有消息未读
+            Participant_msgDao participant_msgDao = new Participant_msgDao();
+            if (participant_msgDao.getBtrecipient_id(participant.getParticipant_id()).size() != 0){
+                session.setAttribute("messages", "您有未读消息");
+            }
 
             if (participant != null && "participant".equals(role)) {
                 session.setAttribute("participant", participant);

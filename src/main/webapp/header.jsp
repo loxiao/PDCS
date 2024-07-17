@@ -15,6 +15,15 @@
             text-align: left; /* 靠左对齐 */
             margin-bottom: 20px; /* 底部留白 */
         }
+        .message{
+            width: 7px;
+            height: 7px;
+            border-radius: 5px;
+            background-color: #dc3545;
+            position: relative;
+            top: -25px;
+            right: -45px;
+        }
     </style>
 </head>
 <body>
@@ -28,21 +37,25 @@
         <c:choose>
             <c:when test="${!empty participant}">
                 <li><a href="">欢迎：<b>${participant.participant_name}</b></a></li>
-                <li><a href="${ctx}/LogoutServlet">注销</a></li>
+                <li><a href="${ctx}/LogoutServlet">退出</a></li>
                 <li><a href="${ctx}/ParticipantServlet">个人中心 </a></li>
-                <li><a href="${ctx}/PmsgServlet">消息 </a></li>
+                <li><a href="${ctx}/PmsgServlet">消息 </a>
+                    <c:if test="${messages != null}"><p class="message"></p></c:if>
+                    </li>
             </c:when>
             <c:when test="${!empty admin}">
                 <li><a href="">欢迎：<b>${admin.adminName}</b></a></li>
-                <li><a href="${ctx}/LogoutServlet">注销</a></li>
+                <li><a href="${ctx}/LogoutServlet">退出</a></li>
                 <li><a href="${ctx}/AdminServlet">管理员中心</a></li>
-                <li><a href="">消息 </a></li>
+                <li><a href="">消息 </a> <c:if test="${messages != null}"><p class="message"></p></c:if></li>
             </c:when>
             <c:when test="${!empty judges}">
                 <li><a href="">欢迎：<b>${judges.judgesName}</b></a></li>
-                <li><a href="${ctx}/LogoutServlet">注销</a></li>
+                <li><a href="${ctx}/LogoutServlet">退出</a></li>
                 <li><a href="${ctx}/JudgesServlet">评委中心</a></li>
-                <li><a href="${ctx}/message.jsp">消息 </a></li>
+                <li><a href="${ctx}/message.jsp">
+                    <c:if test="${messages != null}"><p class="message"></p></c:if>
+                    </a></li>
             </c:when>
             <c:otherwise>
                 <li><a href="${ctx}/login.jsp">登录/注册</a></li>
