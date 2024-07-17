@@ -29,12 +29,17 @@ public class MyTeamServlet extends HttpServlet {
         List<Competitions> competitionsList=competitionsDao.getnewcompetitions();
         Participant participant=(Participant) request.getSession().getAttribute("participant");
         List<Teams> captianteams=new ArrayList<>();
+        List<Teams> memberteamList=new ArrayList<>();
         TeamDao teamDao=new TeamDao();
         for(Competitions competitions:competitionsList){
             if(teamDao.getcaptianteam(competitions.getCompetitionID(),participant.getParticipant_id())!=null){
                 captianteams.add(teamDao.getcaptianteam(competitions.getCompetitionID(),participant.getParticipant_id()));
             }
+            if(teamDao.getmemberteam(participant.getParticipant_id(),competitions.getCompetitionID())!=null){
+                memberteamList.add(teamDao.getmemberteam(participant.getParticipant_id(),competitions.getCompetitionID()));
+            }
         }
+        List<List<String>> memberList=new ArrayList<>();
         request.getSession().setAttribute("captianteams",captianteams);
         List<List<String>> nameandidlist=new ArrayList<>();
         for(Teams teams:captianteams){
@@ -45,17 +50,22 @@ public class MyTeamServlet extends HttpServlet {
                 nameandidlist.add(Arrays.asList(competitions.getCompetitionTypeName(),competitions.getCompetitionName(),teams.getTeamName(),participant1.getParticipant_name(),String.valueOf(teams.getTeamID()),String.valueOf(teams.getMember1ID())));
             }
             if(teams.getMember2ID()!=null){
-                Participant participant1=participantDao.getbyParticipant(teams.getMember1ID());
+                Participant participant1=participantDao.getbyParticipant(teams.getMember2ID());
                 Competitions competitions=competitionsDao.getbyid(teams.getCompetitionID());
                 nameandidlist.add(Arrays.asList(competitions.getCompetitionTypeName(),competitions.getCompetitionName(),teams.getTeamName(),participant1.getParticipant_name(),String.valueOf(teams.getTeamID()),String.valueOf(teams.getMember2ID())));
             }
             if(teams.getMember3ID()!=null){
-                Participant participant1=participantDao.getbyParticipant(teams.getMember1ID());
+                Participant participant1=participantDao.getbyParticipant(teams.getMember3ID());
                 Competitions competitions=competitionsDao.getbyid(teams.getCompetitionID());
                 nameandidlist.add(Arrays.asList(competitions.getCompetitionTypeName(),competitions.getCompetitionName(),teams.getTeamName(),participant1.getParticipant_name(),String.valueOf(teams.getTeamID()),String.valueOf(teams.getMember3ID())));
             }
         }
         request.getSession().setAttribute("nameandidlist",nameandidlist);
+        for(Teams teams:memberteamList){
+            Competitions competitions=competitionsDao.getbyid(teams.getCompetitionID());
+            memberList.add(Arrays.asList(competitions.getCompetitionTypeName(),competitions.getCompetitionName(),teams.getTeamName(),String.valueOf(teams.getTeamID())));
+        }
+        request.getSession().setAttribute("memberList",memberList);
         response.sendRedirect(request.getContextPath()+"/myCompetition.jsp");
     }
 
