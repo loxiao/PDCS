@@ -432,7 +432,8 @@ CREATE TABLE `works` (
                          CONSTRAINT `works_ibfk_1` FOREIGN KEY (`CompetitionID`) REFERENCES `competitions` (`CompetitionID`),
                          CONSTRAINT `works_ibfk_2` FOREIGN KEY (`TeamID`) REFERENCES `teams` (`TeamID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=61 DEFAULT CHARSET=utf8;
-
+alter table works
+    add WorkDetail text null;
 -- ----------------------------
 -- Records of works
 -- ----------------------------
