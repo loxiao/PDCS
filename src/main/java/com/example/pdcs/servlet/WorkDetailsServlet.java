@@ -1,13 +1,7 @@
 package com.example.pdcs.servlet;
 
-import com.example.pdcs.dao.CompetitionsDao;
-import com.example.pdcs.dao.ParticipantDao;
-import com.example.pdcs.dao.TeamDao;
-import com.example.pdcs.dao.WorksDao;
-import com.example.pdcs.domain.Competitions;
-import com.example.pdcs.domain.Participant;
-import com.example.pdcs.domain.Teams;
-import com.example.pdcs.domain.Works;
+import com.example.pdcs.dao.*;
+import com.example.pdcs.domain.*;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -20,6 +14,8 @@ public class WorkDetailsServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String workId = request.getParameter("workId");
         WorksDao worksDao = new WorksDao();
+        AwardsDao awardsDao=new AwardsDao();
+        Awards awards=awardsDao.getbyworkid(Integer.parseInt(workId));
         Works work = worksDao.getWorkById(Integer.parseInt(workId));
         request.setAttribute("work",work);
         CompetitionsDao competitionsDao=new CompetitionsDao();
@@ -39,6 +35,7 @@ public class WorkDetailsServlet extends HttpServlet {
         if(teams.getMember3ID()!=null){
             membername=membername+participantDao.getbyParticipant(teams.getMember3ID()).getParticipant_name()+" ";
         }
+        request.getSession().setAttribute("awards",awards);
         request.getSession().setAttribute("work",work);
         request.getSession().setAttribute("teams",teams);
         request.getSession().setAttribute("membername",membername);

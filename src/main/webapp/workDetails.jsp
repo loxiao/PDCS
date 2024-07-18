@@ -14,7 +14,7 @@
         <p>队长:<span>${captainname}</span></p>
         <p>队员:<span>${membername}</span></p>
         <p>竞赛类型:<span>${competitions.getCompetitionTypeName()}</span></p>
-        <p>获奖情况:<span>${work.getWorkName()}</span></p>
+        <p>获奖情况:<span>${awards.getAwardName()}</span></p>
         <p>评论:<span>${work.getComments()}</span></p>
         <p class="img">作品展示:<img src="postimg/${work.getImageURL()}"></p>
         <div class="like-button-container">

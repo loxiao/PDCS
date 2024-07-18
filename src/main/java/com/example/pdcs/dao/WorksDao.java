@@ -14,7 +14,7 @@ public class WorksDao {
     public List<Works> getWorks(){
         List<Works> worksList=null;
         try{
-            String sql="SELECT *FROM works WHERE EXISTS(SELECT 1 FROM awards a WHERE a.WorkID = WorkID)";
+            String sql="SELECT *FROM works w WHERE EXISTS(SELECT 1 FROM awards a WHERE a.WorkID = w.WorkID)";
             worksList=template.query(sql,new BeanPropertyRowMapper<>(Works.class));
         }catch (Exception e){
             e.printStackTrace();
@@ -43,4 +43,16 @@ public class WorksDao {
             return worksList;
         }
     }
+    public Works getbyteamid(int tid){
+        Works works=null;
+        try {
+            String sql="SELECT*from works WHERE TeamID=?";
+            works=template.queryForObject(sql,new BeanPropertyRowMapper<>(Works.class),tid);
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            return works;
+        }
+    }
+
 }
