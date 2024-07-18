@@ -11,6 +11,10 @@ import java.util.List;
 public class WorksDao {
     private JdbcTemplate template = new JdbcTemplate(JDBCUtils.getDataSource());
     // 获取所有作品信息
+    public boolean addworks(int competitionId,String title,int tid,String path){
+        String sql="INSERT INTO works(WorkName,CompetitionID,TeamID,ImageURL) VALUES(?,?,?,?)";
+        return template.update(sql,title,competitionId,tid,path)>0;
+    }
     public List<Works> getWorks(){
         List<Works> worksList=null;
         try{
