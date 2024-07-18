@@ -34,7 +34,9 @@ public class WorksServlet extends HttpServlet {
                Competitions competitions=competitionsDao.getbyid(works.getCompetitionID());
                Teams teams=teamDao.getbyteamid(works.getTeamID());
                Awards awards=awardsDao.getbyworkid(works.getWorkID());
-               combinedList.add(Arrays.asList(works.getWorkName(),teams.getTeamName(),competitions.getCompetitionTypeName(),awards.getAwardName(),String.valueOf(works.getWorkID())));
+               // 检查对象是否为 null
+               String awardName = (awards != null) ? awards.getAwardName() : "未获奖"; // 如果奖项为空，则使用默认值
+               combinedList.add(Arrays.asList(works.getWorkName(),teams.getTeamName(),competitions.getCompetitionTypeName(),awardName,String.valueOf(works.getWorkID())));
            }
            request.getSession().setAttribute("combinedList",combinedList);
            response.sendRedirect(request.getContextPath()+"/work.jsp");
@@ -51,7 +53,9 @@ public class WorksServlet extends HttpServlet {
            for(Works works:worksList){
                Teams teams=teamDao.getbyteamid(works.getTeamID());
                Awards awards=awardsDao.getbyworkid(works.getWorkID());
-               combinedList.add(Arrays.asList(works.getWorkName(),teams.getTeamName(),competitions.getCompetitionTypeName(),awards.getAwardName(),String.valueOf(works.getWorkID())));
+               // 检查对象是否为 null
+               String awardName = (awards != null) ? awards.getAwardName() : "未获奖"; // 如果奖项为空，则使用默认值
+               combinedList.add(Arrays.asList(works.getWorkName(),teams.getTeamName(),competitions.getCompetitionTypeName(),awardName,String.valueOf(works.getWorkID())));
            }
            request.getSession().setAttribute("combinedList",combinedList);
            response.sendRedirect(request.getContextPath()+"/work.jsp");
