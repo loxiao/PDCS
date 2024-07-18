@@ -1,6 +1,7 @@
 <%@ page import="com.example.pdcs.domain.Works" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<script src="js/jquery-3.6.0.min.js"></script>
 <%@include file="header.jsp"%>
 <link rel="stylesheet" href="css/uploadWork.css">
 <div class="row container">
@@ -22,16 +23,41 @@
             <h2>作品提交</h2>
         </div>
         <div class="upload">
-            <form action="" method="post">
-                <input type="text" class="form-control"  id="title" name="title" placeholder="作品标题"> <br>
-                <input type="text" class="form-control"  id="team" name="team" placeholder="团队名称"><br>
-                <textarea id="content" class="form-control"  name="content" placeholder="作品内容"></textarea><br>
+            <form method="post" id="uploadForm">
                 <input type="file" class="form-control"   id="file" name="file" class="upload-file"><br>
                 <div style="text-align: center">
                     <input type="button" id="uploadBtn" value="提交作品" class="btn btn-primary offset-1" style="margin: 0">
                 </div>
             </form>
+            <form action="" method="post">
+                <input type="text" class="form-control"  id="title" name="title" placeholder="作品标题"> <br>
+                <input type="text" class="form-control"  id="team" name="team" placeholder="团队名称"><br>
+                <textarea id="content" class="form-control"  name="content" placeholder="作品内容"></textarea><br>
+                <img src="postimg/${works.getImageURL()}"id="img" height="100" width="80" alt="图片预览">
+            </form>
+            <span class="text-danger" id="msg">${msg}</span>
         </div>
     </div>
 </div>
 <%@include file="footer.jsp"%>
+<script type="text/javascript">
+    $(document).ready(function (){
+        $('#uploadBtn').click(function (){
+            let formData = new FormData($('#uploadForm')[0]);
+            $.ajax({
+                url: '${ctx}/FileUploadServlet',
+                type: 'post',
+                data: formData,
+                contentType: false,
+                processData: false,
+                success: function (returnData){
+                    $('span.text-danger').text("图片上传成功");
+                    $('#img').prop('src','${ctx}/postimg/'+returnData);
+                    $('#photo').val(returnData);
+                },error:function (returnData){
+                    $('span.text-danger').text("错误: " + returnData.responseText);
+                }
+            });
+        })
+    })
+</script>
