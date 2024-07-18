@@ -9,7 +9,7 @@
                 <div id="tabdata">
                     <h3>我的奖状</h3>
                     <hr>
-                    <c:if test="${!empty myTeams}">
+                    <c:if test="${!empty awards}">
                         <table class="table table-striped table-bordered ">
                             <tbody>
                             <tr>
@@ -17,23 +17,19 @@
                                 <th class="text-center">竞赛名称</th>
                                 <th class="text-center">团队名称</th>
                                 <th class="text-center">团队奖项</th>
-                                <th class="text-center">团队管理</th>
                             </tr>
-                            <c:forEach items="${myTeams}" var="team">
+                            <c:forEach items="${awards}" var="award">
                                 <tr>
-                                    <td class="text-center"></td>
-                                    <td class="text-center"></td>
-                                    <td class="text-center">${team.getTeamName()}</td>
-                                    <td class="text-center"></td>
-                                    <td class="text-center">
-                                        <button type="button" class="btn btn-default btn-apply"><a href="">移除</a></button>
-                                    </td>
+                                    <td class="text-center">${award[1]}</td>
+                                    <td class="text-center">${award[0]}</td>
+                                    <td class="text-center">${award[3]}</td>
+                                    <td class="text-center">${award[2]}</td>
                                 </tr>
                             </c:forEach>
                             </tbody>
                         </table>
                     </c:if>
-                    <c:if test="${empty myTeams}">
+                    <c:if test="${empty awards}">
                         <div class="alert alert-danger" role="alert">
                             <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
                             <span class="sr-only">Error:</span>

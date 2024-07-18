@@ -14,8 +14,8 @@ public class RemoveServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int tid=Integer.parseInt(request.getParameter("tid"));
-            Participant participant=(Participant) request.getSession().getAttribute("participant");
-           int pid=participant.getParticipant_id();
+        Participant participant=(Participant) request.getSession().getAttribute("participant");
+        int pid=participant.getParticipant_id();
         TeamDao teamDao=new TeamDao();
         Teams teams=teamDao.getbyteamid(tid);
         if(teams.getMember1ID()==pid){
