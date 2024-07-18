@@ -1,0 +1,61 @@
+/*奖状*/
+/* 新增字体样式 */
+.custom-font {
+    font-family: Arial, sans-serif;
+    color: #626a9a;
+    font-weight: bold;
+}
+#certificate {
+    width: 670px;
+    height: 450px;
+    background-image: url('../awards/980.png');
+    background-size: 100% 100%; /* 使背景图片完全填满容器，可能会拉伸图片 */
+    background-repeat: no-repeat; /* 防止背景图片重复 */
+    margin: 50px auto;
+    border: 1px solid #000;
+    text-align: center;
+    position: relative; /* 设置为相对定位，以便绝对定位的子元素相对于它定位 */
+    padding-top: 100px; /* 假设你的模板图片有顶部留白，可以适当调整这个值 */
+}
+/* 调整奖状内容的位置 */
+#certificate > p {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+#certificate > p:first-child {
+    top: 92px;
+    font-size: 35px;
+    width: 500px;
+    letter-spacing: 2px;
+    color: #465089;
+}
+
+#certificate > p:nth-child(2) {
+    top: 152px;
+    font-size: 18px;
+    width: 600px;
+    left: 36%;
+}
+#certificate > p:nth-child(2) span{
+    font-size: 22px;
+    color: #465089;
+}
+#certificate > p:nth-child(3) {
+    top: 190px;
+    font-size: 16px;
+    width: 500px;
+    left: 43%;
+}#certificate > p:nth-child(4) {
+     top: 229px;
+    font-size: 20px;
+}#certificate > p:nth-child(5) {
+      top: 264px;
+      font-size: 12px;
+}
+#certificate ul{
+    position: absolute;
+    left: 54%;
+    top: 340px;
+    color: #465089;
+}

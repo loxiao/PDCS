@@ -2,8 +2,10 @@ package com.example.pdcs.servlet;
 
 import com.example.pdcs.dao.CompetitionsDao;
 import com.example.pdcs.dao.CompetitiontypesDao;
+import com.example.pdcs.dao.Participant_msgDao;
 import com.example.pdcs.domain.Competitions;
 import com.example.pdcs.domain.Competitiontypes;
+import com.example.pdcs.domain.Participant;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -55,6 +57,19 @@ public class IndexServlet extends HttpServlet {
         CompetitiontypesDao competitiontypesDao=new CompetitiontypesDao();
         List<Competitiontypes> competitiontypesList=competitiontypesDao.getList();
         request.getSession().setAttribute("competitiontypesList",competitiontypesList);
+
+        /*登陆后，是否有消息未读*/
+        Participant_msgDao participant_msgDao = new Participant_msgDao();
+        Participant participant = (Participant) request.getSession().getAttribute("participant");
+        if (participant != null){
+            if (participant_msgDao.getBtrecipient_id(participant.getParticipant_id()).size() != 0){
+                request.getSession().setAttribute("messages", "您有未读消息");
+            }else {
+                request.getSession().setAttribute("messages", null);
+            }
+        }
+
+
 
         response.sendRedirect(request.getContextPath()+"/index.jsp");
     }

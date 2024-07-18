@@ -17,16 +17,19 @@
         </div>
         <div class="card-body">
             <ul class="message-list">
+
                 <c:if test="${!empty participant}">
                     <c:forEach items="${participant_messagesList}" var="participant_messages">
                         <c:if test="${participant_messages.getJudgment()==1}">
                             <li class="message-item">
                                 <div>
                                     <p class="message-haeder">邀请消息 <span class="no-read">重要</span> </p>
-                                    <p class="message-content"><span>${participant_messages.getParticipant_name()}</span>负责人邀请您成为${participant_messages.getTeam_name()}的竞赛成员<span>(队伍id${participant_messages.getTeam_id()})</span></p>
                                     <div class="flex justify-content-around">
-                                        <a href="${ctx}/GetinServlet?mid=${participant_messages.getMessage_id()}" class="btn btn-primary">同意</a>
-                                        <a href="${ctx}/RejectServlet?mid=${participant_messages.getMessage_id()}" class="btn btn-primary">拒绝</a>
+                                        <p class="message-content"><span>${participant_messages.getParticipant_name()}</span>负责人邀请您成为${participant_messages.getTeam_name()}的竞赛成员<span>(队伍id${participant_messages.getTeam_id()})</span></p>
+                                        <div class="justify-content-between">
+                                            <a href="${ctx}/GetinServlet?mid=${participant_messages.getMessage_id()}" class="btn btn-primary">同意</a>
+                                            <a href="${ctx}/RejectServlet?mid=${participant_messages.getMessage_id()}" class="btn btn-primary">拒绝</a>
+                                        </div>
                                     </div>
                                 </div>
                             </li>
@@ -35,10 +38,12 @@
                             <li class="message-item">
                                 <div>
                                     <p class="message-haeder">申请消息 <span class="no-read">重要</span> </p>
-                                    <p class="message-content"><span>${participant_messages.getParticipant_name()}</span>申请加入你<span>${participant_messages.getTeam_name()}</span>的团队成员<span>(队伍id${participant_messages.getTeam_id()})</span></p>
                                     <div class="flex justify-content-around">
-                                        <a href="${ctx}/GoinServlet?mid=${participant_messages.getMessage_id()}" class="btn btn-primary">同意</a>
-                                        <a href="${ctx}/RejectServlet?mid=${participant_messages.getMessage_id()}" class="btn btn-primary">拒绝</a>
+                                        <p class="message-content"><span>${participant_messages.getParticipant_name()}</span>申请加入你<span>${participant_messages.getTeam_name()}</span>的团队成员<span>(队伍id${participant_messages.getTeam_id()})</span></p>
+                                        <div class="justify-content-between">
+                                            <a href="${ctx}/GetinServlet?mid=${participant_messages.getMessage_id()}" class="btn btn-primary">同意</a>
+                                            <a href="${ctx}/RejectServlet?mid=${participant_messages.getMessage_id()}" class="btn btn-primary">拒绝</a>
+                                        </div>
                                     </div>
                                 </div>
                             </li>
@@ -49,13 +54,17 @@
                     <li class="message-item">
                         <div>
                             <p class="message-haeder">邀请消息 <span class="no-read">重要</span> </p>
-                            <p class="message-content">有赛事作品需要您的评分<span>(已评分)</span></p>
-                            <p class="time">系统 - 2023-04-01 12:00:00</p>
-                            <a href="#" class="btn btn-primary">去评分</a>
+                            <div class="flex justify-content-around">
+                                <p class="message-content">有赛事作品需要您的评分</p>
+                                <div class="justify-content-between">
+                                    <a href="#" class="btn btn-primary">去评分</a>
+                                </div>
+                            </div>
                         </div>
                     </li>
                 </c:if>
             </ul>
+            <c:if test="${messages == null}"><div class="msg">暂无消息</div></c:if>
             <div class="msg">${msg}</div>
         </div>
     </div>
