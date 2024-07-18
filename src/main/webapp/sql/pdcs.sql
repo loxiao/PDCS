@@ -64,6 +64,21 @@ CREATE TABLE participant(
     enter INT(11) DEFAULT NULL,
     PRIMARY KEY (participant_id)
 ) ENGINE=INNODB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+-- 创建参赛人员消息表
+CREATE TABLE participant_messages (
+    message_id int(11) NOT NULL AUTO_INCREMENT,
+    participant_id int(11) NOT NULL,
+    team_id int(11) NOT NULL,
+    judgment int(11) NOT NULL,
+    participant_name varchar(255) NOT NULL,
+    team_name varchar(255) NOT NULL,
+    recipient_id int(11) NOT NULL,
+    PRIMARY KEY (message_id),
+    KEY participant_id (participant_id),
+    KEY team_id (team_id),
+    CONSTRAINT participant_messages_ibfk_1 FOREIGN KEY (participant_id) REFERENCES participant (participant_id),
+    CONSTRAINT participant_messages_ibfk_2 FOREIGN KEY (team_id) REFERENCES teams (TeamID)
+) ENGINE=InnoDB AUTO_INCREMENT=57 DEFAULT CHARSET=utf8;
 -- 创建队伍表
 CREATE TABLE teams(
     TeamID INT(11) NOT NULL AUTO_INCREMENT,
