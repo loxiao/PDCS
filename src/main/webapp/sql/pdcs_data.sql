@@ -90,8 +90,6 @@ INSERT INTO `participant` VALUES ('77', '程昱', 'chengyu@example.com', 'chengy
 INSERT INTO `participant` VALUES ('78', '法正', 'fazheng@example.com', 'fazheng123', '蜀地', '0');
 INSERT INTO `participant` VALUES ('79', '荀攸', 'xunyou@example.com', 'xunyou123', '颍川', '0');
 INSERT INTO `participant` VALUES ('80', '张松', 'zhangsong@example.com', 'zhangsong123', '益州', '0');
--- 插入竞赛消息数据
-INSERT INTO `participant_messages` VALUES ('1', '5', '113', '0', 'Lili', '军歌海报先锋队', '20');
 -- 插入奖状数据
 INSERT INTO `awards` VALUES ('1', '1', '一等奖', '1', '1', '2', '4', '5', '1.png');
 INSERT INTO `awards` VALUES ('2', '2', '一等奖', '5', '4', '9', '15', '16', '4.png');
@@ -223,6 +221,8 @@ INSERT INTO `teams` VALUES ('170', '环保先锋队', '65', '66', '67', '68', '1
 INSERT INTO `teams` VALUES ('171', '绿色家园', '69', '70', '71', '72', '15');
 INSERT INTO `teams` VALUES ('172', '环保创新者', '73', '74', '75', '76', '15');
 INSERT INTO `teams` VALUES ('173', '城市绿意联盟', '77', '78', '79', '80', '15');
+-- 插入竞赛消息数据
+INSERT INTO `participant_messages` VALUES ('1', '5', '113', '0', 'Lili', '军歌海报先锋队', '20');
 -- 插入作品数据
 INSERT INTO `works` VALUES ('1', '海洋生态海报', '1', '10', '0', '精美的设计，很好地传达了海洋生态的重要性。', 'a.jpg', '95');
 INSERT INTO `works` VALUES ('2', '历史传承海报', '5', '11', '0', '创意独特，历史传承的主题表现得淋漓尽致。', 'b.jpg', '95');
