@@ -154,4 +154,15 @@ public class CompetitionsDao {
         }
         return competitionsList;
     }
+    public List<Competitions> getjudgecompetition(){
+        List<Competitions> competitionsList=null;
+        try {
+            String sql="SELECT*FROM competitions WHERE CURDATE() BETWEEN RegistrationDeadline AND CompetitionDate;";
+            competitionsList=template.query(sql,new BeanPropertyRowMapper<>(Competitions.class));
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            return competitionsList;
+        }
+    }
 }
