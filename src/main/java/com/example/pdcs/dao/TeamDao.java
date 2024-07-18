@@ -23,7 +23,7 @@ public class TeamDao {
     public Teams getbyteamidandpeopleid(int pid,int tid){
         Teams teams=null;
         try {
-            String sql="SELECT *FROM teams WHERE (CaptainID = ?  OR Member1ID = ? OR Member2ID = ? OR Member3ID = ? )AND TeamID = ?;";
+            String sql="SELECT * FROM teams WHERE (CaptainID = ?  OR Member1ID = ? OR Member2ID = ? OR Member3ID = ? )AND TeamID = ?;";
             teams=template.queryForObject(sql,new BeanPropertyRowMapper<>(Teams.class),pid,pid,pid,pid,tid);
         }catch (Exception e){
             e.printStackTrace();
