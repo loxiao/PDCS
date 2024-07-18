@@ -6,6 +6,11 @@
     <title>大学生海报设计竞赛系统</title>
     <link rel="stylesheet" href="css/main.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <!-- 引入 jQuery -->
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <!-- 引入 jQuery Validate 插件 -->
+    <script src="js/jquery.validate.min.js"></script>
+    <script src="js/jquery.validate.unobtrusive.min.js"></script>
     <style>
         .title {
             font-family: Arial, sans-serif; /* 使用Arial字体 */

@@ -31,4 +31,18 @@ class WorksDaoTest {
             System.out.println(works.getWorkID()+" "+works.getWorkName()+" "+works.getTeamID()+" "+ works.getCompetitionID()+" "+works.getImageURL());
         }
     }
+    @Test
+    void updateLikesSuccessfullyUpdatesLikes() {
+        // Arrange
+        int likesCount = 5;
+        int workId = 1;
+
+        // Act
+        worksDao.updateLikes(likesCount, workId);
+        List<Works> worksList=worksDao.getWorks();
+        for(Works works:worksList){
+            System.out.println(works.getWorkID()+" "+works.getWorkName()+" "+works.getTeamID()+" "+ " " + works.getLikes()+" "+works.getCompetitionID()+" "+works.getImageURL());
+        }
+
+    }
 }

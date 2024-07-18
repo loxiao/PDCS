@@ -17,39 +17,36 @@
         <p>获奖情况:<span>${awards.getAwardName()}</span></p>
         <p>评论:<span>${work.getComments()}</span></p>
         <p class="img">作品展示:<img src="postimg/${work.getImageURL()}"></p>
-        <div class="like-button-container">
-            <button id="like-button" class="gray-heart" onclick="toggleLike()">❤</button>
-            <span id="like-count">${work.getLikes()}</span>
-        </div>
+        <button type="button" id="like-button" class="gray-heart" onclick="toggleLike(${work.getWorkID()})">❤</button>
+        <span id="like-count" name="likes">${work.getLikes()}</span>
     </div>
 </div>
 <%@include file="footer.jsp"%>
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        let clickCount = 0; // 初始化点击次数计数器
-        let likeCount = parseInt(${work.getLikes()}); // 初始化点赞数
-        function toggleLike() {
-            clickCount += 1; // 点击次数加一
-            if (clickCount % 2 === 0) {
-                // 如果是偶数次点击
-                likeCount -= 1; // 点赞数减一
-            } else {
-                // 如果是奇数次点击
-                likeCount += 1; // 点赞数加一
-            }
-            document.getElementById('like-count').innerText = likeCount;
-            // 切换爱心颜色
-            var heart = document.getElementById('like-button');
-            if (heart.classList.contains('gray-heart')) {
-                heart.classList.remove('gray-heart');
-                heart.classList.add('red-heart');
-            } else {
-                heart.classList.remove('red-heart');
-                heart.classList.add('gray-heart');
-            }
+    function toggleLike(workId) {
+        var likeCount = parseInt(document.getElementById('like-count').innerText);
+        var heart = document.getElementById('like-button');
+        if (heart.classList.contains('gray-heart')) {
+            heart.classList.remove('gray-heart');
+            heart.classList.add('red-heart');
+            likeCount += 1;
+        } else {
+            heart.classList.remove('red-heart');
+            heart.classList.add('gray-heart');
+            likeCount -= 1;
         }
+        document.getElementById('like-count').innerText = likeCount;
 
-        // 绑定点击事件到按钮
-        document.getElementById('like-button').onclick = toggleLike;
-    });
+        // 发送AJAX请求
+        $.ajax({
+            type: 'POST',
+            url: 'UpdateLikesServlet', // 你的servlet URL
+            data: { Likes: likeCount, Id: workId },
+            contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+            success: function(response) {
+                // 假设服务器返回的是更新后的点赞数
+                document.getElementById('like-count').innerText = response.likesCount;
+            }
+        });
+    }
 </script>

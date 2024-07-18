@@ -55,4 +55,15 @@ public class WorksDao {
         }
     }
 
+    public Works updateLikes(int likesCount, int workId) {
+        Works works=null;
+        try {
+            String sql = "UPDATE works SET Likes = ? WHERE WorkID = ?";
+            template.update(sql, likesCount, workId);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally {
+            return works;
+        }
+    }
 }
