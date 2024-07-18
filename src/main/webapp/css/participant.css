@@ -5,7 +5,7 @@ body {
 
 #header {
     background-color: #3f51b5;
-    padding: 10px;
+    padding: 20px;
     text-align: right;
     display: inline-block;
     width: 100%;
@@ -50,7 +50,7 @@ form {
 }
 #sidebar {
     position: fixed;
-    top: 80px;
+    top: 105px;
     bottom: 0;
     left: 0;
     z-index: 1000;
@@ -60,7 +60,7 @@ form {
     overflow-y: auto;
     background-color: #3f51b5;
     border-right: 1px solid #eee;
-    width: 15%;
+    width: 12%;
 }
 hr {
     border: 0;
@@ -146,22 +146,20 @@ li {
     unicode-bidi: isolate;
 }
 .row {
-    margin-right: -15px;
-    margin-left: -15px;
+    margin:0 -15px;
 }
 
 .main {
-    padding-right: 40px;
-    padding-left: 40px;
+    padding:0 40px;
 }
 
 .main {
-    padding: 20px;
     margin-left: 16%;
 }
-.main {
-    margin-top: 20px;
+.main .section1{
+    margin-top: 155px;
 }
+
 .main1 {
     padding: 20px;
     margin-left: 16%;

@@ -19,15 +19,12 @@
     <img src="${ctx}/img/logo.jpg" alt="Logo">
     <h5 class="my-0 mr-md-auto font-weight-normal">大学生海报设计竞赛系统-个人中心</h5>
     <div id="userInfo">
-        <c:if test="${empty participant}">
-            <a href="${ctx}/login.jsp">登录/注册</a>
-        </c:if>
-        <c:if test="${!empty participant}">
-            <a href="">${participant.getParticipant_name()}</a>
-            <a href="${ctx}/LogoutServlet">注销</a>
-        </c:if>
         <a href="${ctx}/index.jsp">首页</a>
-        <a href="">帮助</a>
+        <c:if test="${!empty participant}">
+            <span>${participant.getParticipant_name()}</span>
+            <a href="${ctx}/LogoutServlet">退出</a>
+        </c:if>
+        <a href="#">帮助</a>
     </div>
 
 </div>

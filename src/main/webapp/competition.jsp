@@ -9,7 +9,7 @@
         </a>
         <c:forEach items="${newcompetitions}" var="competitions">
             <a href="${ctx}/NewsLIstServlet?id=${competitions.getCompetitionID()}" class="list-group-item list-group-item-action" >
-                <p class="mb-1">>${competitions.getCompetitionName()}</p>
+                <p class="mb-1">> ${competitions.getCompetitionName()}</p>
                 <div class="tooltip"></div>
             </a>
         </c:forEach>
@@ -18,8 +18,8 @@
     <%--    //某类型竞赛简介--%>
     <c:if test="${empty tsg}">
         <div class="card">
+            <h1 class="card-title text-center card-header">${tsg}竞赛简介</h1>
             <div class="card-body">
-                <h1 class="card-title text-center card-header">${tsg}竞赛简介</h1>
                 <h5>一、竞赛简介</h5>
                 <p class="card-text">
                     浙江省大学生${tsg}海报竞赛是由浙江省大学生科技竞赛委员会主办，浙江传媒学院承办一项大学生竞赛。

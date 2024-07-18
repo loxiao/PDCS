@@ -29,6 +29,7 @@ public class InvitemeberServlet extends HttpServlet {
                 teamsList.add(teams);
             }
         }
+
         request.getSession().setAttribute("emptyTeams",teamsList);
         response.sendRedirect("team-invite.jsp");
     }

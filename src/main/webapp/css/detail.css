@@ -11,7 +11,7 @@
     width: 1200px;
 }
 .card-body {
-    padding: 20px 40px;
+    padding:40px;
 }
 .card-body h3.card-title text-center{
     padding: 18px 0;
@@ -31,7 +31,7 @@
 .card-header{
     font-size: 30px;
     font-weight: bolder;
-    color: #7abaff;
+    color: #bfd8ef;
 }
 .list-group-item {
     width: 300px;
@@ -86,33 +86,7 @@
     white-space: nowrap;
     overflow: hidden;
 }
-
-
-/*奖状*/
-/* 新增字体样式 */
-.custom-font {
-    font-family: Arial, sans-serif;
-    color: #0c0c0c;
-    font-weight: bold;
-}
-/* 调整奖状内容的位置 */
-#certificate > p {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-}
-#certificate > p:first-child {
-    top: 150px;
-    font-size: 24px;
-    width: 400px;
+.msg{
+    text-align: center;
 }
 
-#certificate > p:nth-child(2) {
-    top: 230px;
-    font-size: 20px;
-}
-
-#certificate > p:last-child {
-    top: 270px;
-    font-size: 20px;
-}

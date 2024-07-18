@@ -6,7 +6,6 @@ body {
 }
 
 .WorkDetails {
-    max-width: 800px;
     margin: 65px auto;
     padding: 20px;
     background-color: #fff;
@@ -21,6 +20,7 @@ body {
     border-bottom: 2px solid #eee;
     padding-bottom: 10px;
     margin-bottom: 20px;
+    color: #005cbf;
 }
 
 .WorkDetails .head h2 {
@@ -46,22 +46,19 @@ body {
     margin: 0 0 10px;
     color: #333;
     font-size: 23px;
-    border-top: 2px solid #eee;
+    /*border-top: 2px solid #eee;*/
     padding-top: 10px;
 }
 
 .WorkDetails .detail p {
-    margin: 10px 0;
+    margin: 28px 0;
     color: #555;
+    text-indent: 2em;
+    letter-spacing: 2px;
 }
 
 .WorkDetails .detail p span {
     color: #333;
     font-weight: bold;
-}
-
-.WorkDetails .detail .upload .upload-btn {
-    position: absolute;
-    left: 1100px;
 }
 
