@@ -59,4 +59,16 @@
             event.preventDefault(); // 阻止表单提交
         }
     });
+
+    document.getElementById('markForm').addEventListener('submit', function(event) {
+        const score = document.getElementById('score').value.trim();
+        if (score <= 0 || score > 100){
+            alert('分数必须在0-100之间');
+            event.preventDefault();
+        }
+        else if (!/^\d+$/.test(score)) {
+            alert('分数必须是整数');
+            event.preventDefault();
+        }
+    });
 </script>
