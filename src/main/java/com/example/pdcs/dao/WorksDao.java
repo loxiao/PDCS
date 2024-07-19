@@ -81,5 +81,15 @@ public class WorksDao {
             return worksList;
         }
     }
-
+    public boolean addscoreandComment(int wid,int score,String comment){
+        int affectrow=0;
+        try {
+            String sql="UPDATE works SET Score = Score+?, Comments = ? WHERE WorkID = ?;";
+            affectrow=template.update(sql,score,comment,wid);
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            return affectrow>0;
+        }
+    }
 }

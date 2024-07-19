@@ -53,5 +53,15 @@ public class Judge_msgDao {
             return judge_message;
         }
     }
-
+    public boolean setjudge_msg(int jid,int cid){
+        int affecrrow=0;
+        try {
+            String sql="UPDATE judge_messages SET IsAwarded=1 WHERE CompetitionID=? AND JudgeID=?";
+            affecrrow=template.update(sql,cid,jid);
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            return affecrrow>0;
+        }
+    }
 }

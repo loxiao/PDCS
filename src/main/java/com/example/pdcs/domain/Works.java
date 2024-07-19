@@ -8,16 +8,6 @@ public class Works {
     private int Likes;
     private String Comments;
     private String ImageURL;
-
-    public String getWorkDetail() {
-        return WorkDetail;
-    }
-
-    public void setWorkDetail(String workDetail) {
-        WorkDetail = workDetail;
-    }
-
-    private String WorkDetail;
     private int Score;
     public Works(){}
 

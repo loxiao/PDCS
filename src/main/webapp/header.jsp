@@ -52,12 +52,10 @@
                 <li><a href="">欢迎：<b>${admin.adminName}</b></a></li>
                 <li><a href="${ctx}/LogoutServlet">退出</a></li>
                 <li><a href="${ctx}/AdminServlet">管理员中心</a></li>
-                <li><a href="">消息 </a> <c:if test="${messages != null}"><p class="message"></p></c:if></li>
             </c:when>
             <c:when test="${!empty judges}">
                 <li><a href="">欢迎：<b>${judges.judgesName}</b></a></li>
                 <li><a href="${ctx}/LogoutServlet">退出</a></li>
-                <li><a href="${ctx}/JudgesServlet">评委中心</a></li>
                 <li><a href="${ctx}/JmsgServlet">消息 </a> <c:if test="${messages != null}"><p class="message"></p></c:if></li>
                 <li><a href="${ctx}/message.jsp">
                     <c:if test="${messages != null}"><p class="message"></p></c:if>

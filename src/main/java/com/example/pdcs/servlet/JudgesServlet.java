@@ -32,6 +32,7 @@ public class JudgesServlet extends HttpServlet {
             JudgeCompetitionName=competitions.getCompetitionName();
             JudgeWorkList.add(Arrays.asList(works.getWorkName(),teams.getTeamName(),competitions.getCompetitionTypeName(),String.valueOf(works.getScore()),String.valueOf(works.getWorkID())));
         }
+        request.getSession().setAttribute("worksList",worksList);
         request.getSession().setAttribute("JudgeCompetitionName",JudgeCompetitionName);
         request.getSession().setAttribute("JudgeWorkList",JudgeWorkList);
         response.sendRedirect(request.getContextPath()+"/judges.jsp");

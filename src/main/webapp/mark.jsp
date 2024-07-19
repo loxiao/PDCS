@@ -1,7 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <link rel="stylesheet" href="css/mark.css">
 <%@include file="header.jsp"%>
-<form action="${ctx}/SuccessfullyMarkServlet" method="post" id="markForm">
+<form action="${ctx}/GetMarkServlet" method="post" id="markForm">
     <div class="WorkDetails">
         <div class="head">
             <h2>${work.getWorkName()}</h2>
@@ -26,6 +26,7 @@
                 <textarea id="message" name="message">在这里输入你的留言...</textarea>
             </div>
         </div>
+        <input type="hidden" name="workid" value="${work.getWorkID()}">
         <input class="judges_btn" type="submit" value="确认">
     </div>
 </form>

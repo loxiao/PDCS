@@ -18,17 +18,17 @@ public class JudgmentServlet extends HttpServlet {
         if (participant == null) {
             request.getSession().setAttribute("msg", "非参赛人员不得参赛！");
             response.sendRedirect(request.getContextPath() + "/competition.jsp");
-            return;
         }
-
-        int cid = Integer.parseInt(request.getParameter("id"));
-        TeamDao teamDao = new TeamDao();
-        Teams teams = teamDao.getbycompetitionidandpeopleid(participant.getParticipant_id(), cid);
-        if (teams == null) {
-            response.sendRedirect(request.getContextPath() + "/createTeam.jsp?id=" + cid);
-        } else {
-            request.getSession().setAttribute("msg", "创建失败，已有竞赛队伍");
-            response.sendRedirect(request.getContextPath() + "/competition.jsp");
+        else {
+            int cid = Integer.parseInt(request.getParameter("id"));
+            TeamDao teamDao = new TeamDao();
+            Teams teams = teamDao.getbycompetitionidandpeopleid(participant.getParticipant_id(), cid);
+            if (teams == null) {
+                response.sendRedirect(request.getContextPath() + "/createTeam.jsp?id=" + cid);
+            } else {
+                request.getSession().setAttribute("msg", "创建失败，已有竞赛队伍");
+                response.sendRedirect(request.getContextPath() + "/competition.jsp");
+            }
         }
     }
 
