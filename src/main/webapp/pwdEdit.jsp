@@ -3,7 +3,7 @@
 <%@include file="participant-sider.jsp"%>
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
     <form id="PwdForm" action="PwdEditServlet" method="post">
-        <div class="container">
+        <div class="container1">
             <input type="hidden" id="participant_psd" value="${participant.participant_psd}" />
             <h3 style="margin-left: -1.5%; margin-top: -4px;">密码修改</h3>
             <ul>
