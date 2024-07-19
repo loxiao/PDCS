@@ -33,7 +33,7 @@
                                 <td class="text-center apply-date">${competitions.getRegistrationDeadline()}</td>
                                 <td class="text-center">
                                     <button type="button" class="btn btn-default btn-apply">
-                                        <a href="${ctx}/uploadWork.jsp?competitionID=${competitions.getCompetitionID()}">提交作品</a>
+                                        <a href="${ctx}/MyTeamWorkServlet?competitionID=${competitions.getCompetitionID()}">提交作品</a>
                                     </button>
                                 </td>
                             </tr>
