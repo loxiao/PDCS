@@ -165,4 +165,20 @@ public class CompetitionsDao {
             return competitionsList;
         }
     }
+    //获取队长的赛事
+    public List<Competitions> getcaptaincompetition(int pid){
+        List<Competitions> competitionsList=null;
+        try {
+            String sql="SELECT *\n" +
+                    "FROM competitions c\n" +
+                    "INNER JOIN teams t\n" +
+                    "ON c.CompetitionID = t.CompetitionID\n" +
+                    "WHERE t.CaptainID = ?;";
+            competitionsList=template.query(sql,new BeanPropertyRowMapper<>(Competitions.class),pid);
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            return competitionsList;
+        }
+    }
 }

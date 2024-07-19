@@ -1,9 +1,14 @@
 package com.example.pdcs.servlet;
 
+import com.example.pdcs.dao.TeamDao;
+import com.example.pdcs.domain.Participant;
+import com.example.pdcs.domain.Teams;
+
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
+import java.util.List;
 
 @WebServlet(name = "ParticipantServlet", value = "/ParticipantServlet")
 public class ParticipantServlet extends HttpServlet {
@@ -11,6 +16,7 @@ public class ParticipantServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // 判断 Session 中是否存在 participant 对象
         if (request.getSession().getAttribute("participant") != null) {
+            Participant participant = (Participant) request.getSession().getAttribute("participant");
             // 获取请求参数 viewName
             String viewName = request.getParameter("view");
 
@@ -19,6 +25,8 @@ public class ParticipantServlet extends HttpServlet {
                 switch (viewName) {
                     case "participantInfo":
                         response.sendRedirect(request.getContextPath() + "/participantInfo.jsp");
+                        break;
+                    case  "teamInvite":
                         break;
                     case "myEntry":
                         response.sendRedirect(request.getContextPath() + "/CompetitionsListServlet");
@@ -29,8 +37,8 @@ public class ParticipantServlet extends HttpServlet {
                     case "myAwards":
                         response.sendRedirect(request.getContextPath() + "/MyAwardsServlet");
                         break;
-                    case "competitionList":
-                        response.sendRedirect(request.getContextPath() + "/AllCompetitionListServlet");
+                    case "workList":
+                        response.sendRedirect(request.getContextPath() + "/MyTeamWorkServlet");
                         break;
                     case "pwdEdit":
                         response.sendRedirect(request.getContextPath() + "/pwdEdit.jsp");

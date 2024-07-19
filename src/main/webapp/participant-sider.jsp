@@ -4,6 +4,9 @@
         <a href="${ctx}/ParticipantServlet?view=myCompetition"><i class="icon-heart"></i>  我的竞赛</a>
     </div>
     <div class="menu-item">
+        <a href="${ctx}/ParticipantServlet?view=teamInvite"><i class="icon-table"></i>  队员招募</a>
+    </div>
+    <div class="menu-item">
         <a href="${ctx}/ParticipantServlet?view=myEntry"><i class="icon-hand-right"></i>  我要报名</a>
     </div>
     <hr>
@@ -11,7 +14,7 @@
         <a href="${ctx}/ParticipantServlet?view=myAwards"><i class="icon-home"></i>  我的奖状</a>
     </div>
     <div class="menu-item">
-        <a href="${ctx}/ParticipantServlet?view=competitionList"><i class="icon-table"></i>  竞赛列表</a>
+        <a href="${ctx}/ParticipantServlet?view=workList"><i class="icon-table"></i>  作品提交</a>
     </div>
     <hr>
     <div class="menu-item active">
