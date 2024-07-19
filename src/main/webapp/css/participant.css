@@ -33,9 +33,13 @@ h5{
     padding: 10px 15px;
 }
 
-#userName {
-    margin-right: 10px;
+#userInfo span{
+    color: white;
+    position: relative;
+    display: inline-block;
+    padding: 10px 15px;
 }
+
 form {
     display: block;
     margin-top: 0em;
