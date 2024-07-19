@@ -154,7 +154,7 @@ public class CompetitionsDao {
         }
         return competitionsList;
     }
-    public List<Competitions> getjudgecompetition(){
+    public List<Competitions> getjudgecompetition(){//获取评委评打分的竞赛
         List<Competitions> competitionsList=null;
         try {
             String sql="SELECT*FROM competitions WHERE CURDATE() BETWEEN RegistrationDeadline AND CompetitionDate;";
@@ -181,4 +181,5 @@ public class CompetitionsDao {
             return competitionsList;
         }
     }
+
 }

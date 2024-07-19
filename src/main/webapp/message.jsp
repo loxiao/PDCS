@@ -1,12 +1,4 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: syrup
-  Date: 2024/7/13
-  Time: 15:03
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-
 <%@ include file="header.jsp"%>
 <link rel="stylesheet" href="css/detail.css">
 <link rel="stylesheet" href="css/message.css">
@@ -50,18 +42,20 @@
                         </c:if>
                     </c:forEach>
                 </c:if>
-                <c:if test="${!empty judge}">
-                    <li class="message-item">
-                        <div>
-                            <p class="message-haeder">邀请消息 <span class="no-read">重要</span> </p>
-                            <div class="flex justify-content-around">
-                                <p class="message-content">有赛事作品需要您的评分</p>
-                                <div class="justify-content-between">
-                                    <a href="#" class="btn btn-primary">去评分</a>
+                <c:if test="${!empty judges}">
+                    <c:forEach var="judge_message" items="${judge_messageList}">
+                        <li class="message-item">
+                            <div>
+                                <p class="message-haeder">邀请消息 <span class="no-read">重要</span> </p>
+                                <div class="flex justify-content-around">
+                                    <p class="message-content">${judge_message.getCompetitionName()}需要您的评分</p>
+                                    <div class="justify-content-between">
+                                        <a href="${ctx}/JudgesServlet?id=${judge_message.getCompetitionID()}" class="btn btn-primary">去评分</a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </li>
+                        </li>
+                    </c:forEach>
                 </c:if>
             </ul>
             <c:if test="${messages == null}"><div class="msg">暂无消息</div></c:if>

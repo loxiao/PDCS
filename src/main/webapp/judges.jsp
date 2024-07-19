@@ -3,7 +3,7 @@
 <%@include file="header.jsp"%>
 <div class="WorksList">
     <div class="HeadTitle">
-        <h3><span>大学生海报设计竞赛</span></h3>
+        <h3><span>${JudgeCompetitionName}</span></h3>
     </div>
     <table>
         <thead>
@@ -15,12 +15,12 @@
         </tr>
         </thead>
         <tbody>
-        <c:forEach items="${worksList}" var="work">
+        <c:forEach items="${JudgeWorkList}" var="work">
             <tr>
-                <td><a href="MarkServlet?workId=${work.getWorkID()}">${work.getWorkName()}</a></td>
-                <td>${work.getTeamID()}</td>
-                <td>${work.getCompetitionID()}</td>
-                <td>${work.getScore()}</td>
+                <td><a href="MarkServlet?workId=${work[4]}">${work[0]}</a></td>
+                <td>${work[1]}</td>
+                <td>${work[2]}</td>
+                <td>${work[3]}</td>
             </tr>
         </c:forEach>
         </tbody>
