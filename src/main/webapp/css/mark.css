@@ -32,9 +32,6 @@ body {
 .WorkDetails .head a:hover {
     text-decoration: underline;
 }
-.WorkDetails .detail {
-    margin-bottom: 20px;
-}
 .WorkDetails .detail h5 {
     margin: 0 0 10px;
     color: #333;
@@ -43,7 +40,7 @@ body {
     padding-bottom: 5px;
 }
 .WorkDetails .detail p {
-    margin: 10px 0;
+    margin: 21px 0;
     color: #555;
 }
 .WorkDetails .detail p span {
@@ -51,30 +48,17 @@ body {
     font-weight: bold;
 }
 .WorkDetails .detail .img {
-    max-width: 100%;
-    height: auto;
     border: 1px solid #ddd;
-    padding: 5px;
     border-radius: 5px;
     position: absolute;
-    top: 300px;
-    left: 800px;
-    overflow: hidden; /* 隐藏超出框的部分 */
-    width: 250px;
-    height: 250px;
+    top: 308px;
+    right: 616px;
 }
 .WorkDetails .detail .img img {
-    width: 100%; /* 图片宽度设置为100% */
-    height: 100%; /* 图片高度设置为100% */
     object-fit: cover; /* 图片按比例填充框 */
     position: absolute; /* 绝对定位 */
-    top: 50%; /* 垂直居中 */
-    left: 50%; /* 水平居中 */
-    transform: translate(-50%, -50%); /* 居中对齐 */
 }
-.WorkDetails .score {
-    margin-top: 20px;
-}
+
 .score_label {
     top: 10px;
     left: 10px;
@@ -87,9 +71,7 @@ body {
     width: 50px;
     height: 20px;
 }
-.comments {
-    margin-top: 20px;
-}
+
 .comments_container {
     display: flex;
     align-items: flex-start; /* 顶部对齐 */
@@ -117,21 +99,19 @@ body {
     color: transparent; /* 当获得焦点时，提示文字颜色变为透明 */
 }
 .judges_btn {
-    display: block; /* 默认为块级元素 */
-    margin-left: auto; /* 左边距自动 */
-    margin-right: auto; /* 右边距自动 */
-    padding: 10px 20px; /* 内边距 */
-    font-size: 16px; /* 字体大小 */
-    color: white; /* 文本颜色 */
-    background-color: #007bff; /* 背景颜色 */
-    border: none; /* 无边框 */
-    border-radius: 25%; /* 边框圆角设置为50% */
-    cursor: pointer; /* 鼠标指针样式 */
-    width: 80px; /* 宽度 */
-    height: 50px; /* 高度 */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 9px 25px;
+    font-size: 18px;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 25%;
+    cursor: pointer;
     position: relative;
-    margin-top: 10px;
-    transition: background-color 0.3s ease; /* 过渡效果 */
+    margin-top: 31px;
+    transition: background-color 0.3s ease;
 }
 /* 鼠标悬停时的样式 */
 .judges_btn:hover {

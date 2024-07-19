@@ -6,7 +6,7 @@
 <div class="container">
     <div class="list-group">
         <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
-            <p class="mb-1">${asg}</p>
+            <p class="mb-1">热门赛事</p>
             <div class="tooltip"></div>
         </a>
         <c:forEach items="${newcompetitions}" var="competitions">
