@@ -54,7 +54,7 @@ form {
 }
 #sidebar {
     position: fixed;
-    top: 105px;
+    top: 104px;
     bottom: 0;
     left: 0;
     z-index: 1000;
@@ -94,7 +94,6 @@ i{
     -moz-osx-font-smoothing: grayscale;
 }
 .menu-item a{
-    padding: 10px;
     margin-bottom: 10px;
     color: white;
     text-decoration: none;
@@ -107,6 +106,8 @@ i{
 }
 .menu-item.active {
     background-color: #80bdff;
+    border: 1px solid #80bdff;
+    border-radius: 10px;
 }
 .menu-item.active a{
     color: #d84c31;
