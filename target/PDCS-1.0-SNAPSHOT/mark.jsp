@@ -14,7 +14,7 @@
             <p>队员:<span>${work.getTeamID()}</span></p>
             <p>竞赛类型:<span>${work.getCompetitionID()}</span></p>
             <p>点赞数:<span>${work.getLikes()}</span></p>
-            <p class="img">作品展示:<img src="postimg/${work.getImageURL()}"></p>
+            <p class="img">作品展示:<img src="postimg/${work.getImageURL()}" width="200"></p>
         </div>
         <div class="score">
             <label class="score_label" for="score">请打分：</label>

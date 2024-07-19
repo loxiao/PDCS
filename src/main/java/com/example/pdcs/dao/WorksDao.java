@@ -70,4 +70,16 @@ public class WorksDao {
             return works;
         }
     }
+    public List<Works> getjudgeworkbyCompetitionID(int cid){
+        List<Works> worksList=null;
+        try {
+            String sql="SELECT*FROM works WHERE CompetitionID=?";
+            worksList=template.query(sql,new BeanPropertyRowMapper<>(Works.class),cid);
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            return worksList;
+        }
+    }
+
 }

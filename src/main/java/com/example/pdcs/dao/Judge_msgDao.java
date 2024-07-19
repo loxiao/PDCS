@@ -23,11 +23,34 @@ public class Judge_msgDao {
     public List<Judge_message> getbycompetition(int cid){
         List<Judge_message> judge_messageList=null;
         try {
-            String sql="";
+            String sql="SELECT*FROM judge_messages WHERE CompetitionID=?";
+            judge_messageList=template.query(sql,new BeanPropertyRowMapper<>(Judge_message.class),cid);
         }catch (Exception e){
             e.printStackTrace();
         }finally {
             return judge_messageList;
+        }
+    }
+    public boolean addmsg(int cid,int jid,String cname){
+        int affrow=0;
+        try {
+            String sql="INSERT INTO judge_messages (competitionID,JudgeID,IsAwarded,CompetitionName) VALUES(?,?,0,?)";
+            affrow=template.update(sql,cid,jid,cname);
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            return affrow>0;
+        }
+    }
+    public Judge_message getbyCompetitionIDandJudgeID(int cid,int jid){
+        Judge_message judge_message=null;
+        try {
+            String sql="SELECT*FROM judge_messages WHERE CompetitionID=? AND JudgeID=?";
+            judge_message=template.queryForObject(sql,new BeanPropertyRowMapper<>(Judge_message.class),cid,jid);
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            return judge_message;
         }
     }
 

@@ -5,8 +5,17 @@ public class Judge_message {
     private int CompetitionID;
     private int JudgeID;
     private int IsAwarded;
+    private String CompetitionName;
     public Judge_message(){
 
+    }
+
+    public String getCompetitionName() {
+        return CompetitionName;
+    }
+
+    public void setCompetitionName(String competitionName) {
+        CompetitionName = competitionName;
     }
 
     public int getIsAwarded() {

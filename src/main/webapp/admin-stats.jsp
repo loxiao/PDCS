@@ -28,19 +28,19 @@
   <h2>数据统计</h2>
   <ul class="nav nav-tabs" id="statsTabs" role="tablist">
     <li class="nav-item">
-      <a class="nav-link active" id="competitionStatsTab" data-toggle="tab" href="#competitionStats" role="tab"
+      <a class="nav-link active" id="competitionStatsTab" data-toggle="tab" href="competitionStats" role="tab"
          aria-controls="competitionStats" aria-selected="true">竞赛统计</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" id="topCompetitionsTab" data-toggle="tab" href="#topCompetitions" role="tab"
+      <a class="nav-link" id="topCompetitionsTab" data-toggle="tab" href="topCompetitions" role="tab"
          aria-controls="topCompetitions" aria-selected="false">热门竞赛</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" id="participantTrendTab" data-toggle="tab" href="#participantTrend" role="tab"
+      <a class="nav-link" id="participantTrendTab" data-toggle="tab" href="participantTrend" role="tab"
          aria-controls="participantTrend" aria-selected="false">参赛人数趋势</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" id="workSubmissionTab" data-toggle="tab" href="#workSubmission" role="tab"
+      <a class="nav-link" id="workSubmissionTab" data-toggle="tab" href="workSubmission" role="tab"
          aria-controls="workSubmission" aria-selected="false">作品提交情况</a>
     </li>
   </ul>
