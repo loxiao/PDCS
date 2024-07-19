@@ -20,7 +20,7 @@ doPost(request,response);
         int competitionID = Integer.parseInt(request.getParameter("competitionID"));
         int   tid = Integer.parseInt(request.getParameter("tid"));
         String   title = request.getParameter("title");
-        String   path = request.getParameter("path");//
+        String   path = request.getParameter("photo");//
         WorksDao worksDao = new WorksDao();
         worksDao.addworks(competitionID,title,tid,path);
         request.getSession().setAttribute("wsg","上传作品成功");
