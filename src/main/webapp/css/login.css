@@ -48,7 +48,7 @@ html {
     top: 50%;
     left: 0;
     width: 110%;
-    transform: translate(70%, -50%);
+    transform: translate(82%, -50%);
 }
 
 .panel_back.animate {
