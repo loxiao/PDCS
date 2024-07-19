@@ -1,7 +1,16 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@include file="header.jsp"%>
+<style>
+    .Works {
+        position: absolute;
+        left: 50%;
+        top: 75%;
+        transform: translate(-50%, -50%);
+    }
+</style>
 <link rel="stylesheet" href="css/work.css">
+<canvas id="my_canvas"></canvas>
 <div class="Works">
         <div class="MatchBaseList">
             <div class="MatchTitle">
@@ -48,4 +57,10 @@
             </table>
         </div>
 </div>
+<!-- 引入粒子插件 -->
+<script src="js/particle.min.js"></script>
+<script>
+    // 初始化粒子（画布id）
+    particle.init('my_canvas');
+</script>
 <%@include file="footer.jsp"%>

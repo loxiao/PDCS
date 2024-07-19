@@ -5,24 +5,38 @@
 <!-- 引入 jQuery -->
 <script src="js/jquery-3.6.0.min.js"></script>
 <link rel="stylesheet" href="css/workDetail.css">
+<style>
+.WorkDetails {
+position: absolute;
+left: 50%;
+top: 40%;
+transform: translate(-50%, -50%);
+}
+</style>
+<canvas id="my_canvas"></canvas>
 <div class="WorkDetails">
     <div class="head">
         <h2>${work.getWorkName()}</h2>
         <a href="WorksServlet?id=0">返回</a>
     </div>
+    <h5>作品介绍</h5>
     <div class="detail">
-        <h5>作品介绍</h5>
-        <p>队伍名:<span>${teams.getTeamName()}</span></p>
-        <p>队长:<span>${captainname}</span></p>
-        <p>队员:<span>${membername}</span></p>
-        <p>竞赛类型:<span>${competitions.getCompetitionTypeName()}</span></p>
-        <p>获奖情况:<span>${awards.getAwardName()}</span></p>
-        <p>评论:<span>${work.getComments()}</span></p>
-        <p class="img">作品展示:<img src="postimg/${work.getImageURL()}"></p>
+        <p>队伍名: <span>${teams.getTeamName()}</span></p>
+        <p>队长: <span>${captainname}</span></p>
+        <p>队员: <span>${membername}</span></p>
+        <p>竞赛类型: <span>${competitions.getCompetitionTypeName()}</span></p>
+        <p>获奖情况: <span>${awards.getAwardName()}</span></p>
+        <p>评论: <span>${work.getComments()}</span></p>
+        <img src="postimg/${work.getImageURL()}" class="img"height="300px" >
         <button type="button" id="like-button" class="gray-heart" onclick="toggleLike(${work.getWorkID()})">❤</button>
         <span id="like-count" name="likes">${work.getLikes()}</span>
     </div>
 </div>
+<script src="js/particle.min.js"></script>
+<script>
+    // 初始化粒子（画布id）
+    particle.init('my_canvas');
+</script>
 <%@include file="footer.jsp"%>
 <script>
     function toggleLike(workId) {

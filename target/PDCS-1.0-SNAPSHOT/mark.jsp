@@ -1,6 +1,15 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <link rel="stylesheet" href="css/mark.css">
 <%@include file="header.jsp"%>
+<style>
+    .WorkDetails {
+        position: absolute;
+        left: 50%;
+        top: 40%;
+        transform: translate(-50%, -50%);
+    }
+</style>
+<canvas id="my_canvas"></canvas>
 <form action="${ctx}/GetMarkServlet" method="post" id="markForm">
     <div class="WorkDetails">
         <div class="head">
@@ -9,12 +18,12 @@
         </div>
         <div class="detail">
             <h5>作品介绍</h5>
-            <p>队伍名:<span>${teams.getTeamName()}</span></p>
-            <p>队长:<span>${captainname}</span></p>
-            <p>队员:<span>${membername}</span></p>
-            <p>竞赛类型:<span>${competitions.getCompetitionTypeName()}</span></p>
-            <p>点赞数:<span>${work.getLikes()}</span></p>
-            <p class="img">作品展示:<img src="postimg/${work.getImageURL()}" ></p>
+            <p>队伍名: <span>${teams.getTeamName()}</span></p>
+            <p>队长: <span>${captainname}</span></p>
+            <p>队员: <span>${membername}</span></p>
+            <p>竞赛类型: <span>${competitions.getCompetitionTypeName()}</span></p>
+            <p>点赞数: <span>${work.getLikes()}</span></p>
+            <img src="postimg/a.jpg" height="250px" class="img">
         </div>
         <div class="score">
             <label class="score_label" for="score">请打分：</label>
@@ -31,6 +40,11 @@
     </div>
 </form>
 <%@include file="footer.jsp"%>
+<script src="js/particle.min.js"></script>
+<script>
+    // 初始化粒子（画布id）
+    particle.init('my_canvas');
+</script>
 <script>
     document.getElementById('message').addEventListener('focus', function() {
         if (this.value === '在这里输入你的留言...') {

@@ -35,7 +35,6 @@
         </ul>
     </div>
 </div>
-
 <main style="width:1280px;margin: 0 auto; ">
     <div class="card-box flex cc">
         <div class="cards">
@@ -126,6 +125,6 @@
         </div>
     </div>
 </main>
-<script src="js/index.js"></script>
+<script src="js/particle.min.js"></script>
 <%@include file="footer.jsp"%>
 </script>

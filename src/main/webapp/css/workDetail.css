@@ -4,10 +4,8 @@ body {
     margin: 0;
     padding: 0;
 }
-
 .WorkDetails {
     width: 800px;
-    height: 400px;
     margin: 65px auto;
     padding: 20px;
     background-color: #fff;
@@ -40,10 +38,10 @@ body {
 }
 
 .WorkDetails .detail {
-    margin-bottom: 20px;
+    padding: 20px 40px;
 }
 
-.WorkDetails .detail h5 {
+.WorkDetails  h5 {
     margin: 0 0 10px;
     color: #333;
     font-size: 18px;
@@ -52,7 +50,7 @@ body {
 }
 
 .WorkDetails .detail p {
-    margin: 10px 0;
+    margin: 17px 0;
     color: #555;
 }
 
@@ -63,27 +61,12 @@ body {
 
 .WorkDetails .detail .img {
     max-width: 100%;
-    height: auto;
     border: 1px solid #ddd;
-    padding: 5px;
     border-radius: 5px;
     position: absolute;
-    top: 320px;
-    left: 900px;
-    overflow: hidden; /* 隐藏超出框的部分 */
-    width: 250px;
-    height: 250px;
+    top: 30%;
+    right: 8%;
 }
-.WorkDetails .detail .img img {
-    width: 100%; /* 图片宽度设置为100% */
-    height: 100%; /* 图片高度设置为100% */
-    object-fit: cover; /* 图片按比例填充框 */
-    position: absolute; /* 绝对定位 */
-    top: 50%; /* 垂直居中 */
-    left: 50%; /* 水平居中 */
-    transform: translate(-50%, -50%); /* 居中对齐 */
-}
-
 
 .like-button-container {
     position: absolute;
