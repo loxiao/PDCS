@@ -8,7 +8,6 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <link rel="stylesheet" href="css/main.css">
 <footer>
-    <hr>
     <div class="term">
         <div class="name">Copyright © 2024 海报突击队</div>
         <ul class="member flex">

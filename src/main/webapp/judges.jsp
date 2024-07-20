@@ -1,11 +1,12 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <link rel="stylesheet" href="css/judges.css">
 <%@include file="header.jsp"%>
-<div class="WorksList">
-    <div class="HeadTitle">
+<div class="w">
+    <div class="container">
+        <div class="HeadTitle">
         <h3><span>${JudgeCompetitionName}</span></h3>
     </div>
-    <table>
+        <table>
         <thead>
         <tr>
             <th>作品名称</th>
@@ -25,5 +26,6 @@
         </c:forEach>
         </tbody>
     </table>
+    </div>
+    <%@ include file="footer.jsp"%>
 </div>
-<%@include file="footer.jsp"%>

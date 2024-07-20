@@ -3,8 +3,9 @@
 <link rel="stylesheet" href="css/detail.css">
 <link rel="stylesheet" href="css/award.css">
 <script src="js/html2canvas.min.js"></script>
-<div class="container" >
-    <div class="card" style="box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+<div class="w">
+    <div class="container">
+        <div class="card" style="box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
         <div class="card-header">奖状下载</div>
         <div class="card-body">
             <h3 class="custom-font">赛事 —— ${competitionName}</h3><br>
@@ -27,8 +28,9 @@
             </div>
         </div>
     </div>
+    </div>
+    <%@ include file="footer.jsp"%>
 </div>
-<%@ include file="footer.jsp"%>
 <script>
     /*** 将奖状保存为图片 */
     function saveAsImage() {

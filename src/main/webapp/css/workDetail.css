@@ -5,8 +5,7 @@ body {
     padding: 0;
 }
 .WorkDetails {
-    width: 800px;
-    margin: 65px auto;
+    width: 960px;
     padding: 20px;
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);

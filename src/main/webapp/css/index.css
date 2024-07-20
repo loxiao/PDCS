@@ -16,11 +16,15 @@
 }
 
 .cards {
-    width: 520px;
+    width: 420px;
     margin: 0 20px;
     border-radius: 15px;
     background-color: #ffffff;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
+
 
 .cards-header {
     border-radius: 15px 15px 0 0;
@@ -57,7 +61,7 @@
 
 .carousel_map {
     width: 1350px;
-    height: 500px;
+    height: 388px;
     margin: auto;
 }
 
@@ -156,7 +160,7 @@ input[id=pic3]:checked~.list {
 
 .carousel_map .slide .item {
     width: 1350px;
-    height: 500px;
+    height: 388px;
     float: left;
 }
 /*赛事子类卡片*/
@@ -199,6 +203,8 @@ input[id=pic3]:checked~.list {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     justify-content: center;
+    width: 1080px;
+    margin: 0 auto;
 }
 
 span {
@@ -208,7 +214,7 @@ span {
 
 
 a.card {
-    width: 270px;
+    width: 239px;
     height:  370px;
     margin: auto;
     background: #fff;
@@ -260,7 +266,7 @@ a.card:active {
 a.card p {
     font-size: 17px;
     color: #4c5656;
-    margin-top: 100px;
+    margin-top: 70px;
     font-size: 25px;
     text-align: center;
     z-index: 1000;
@@ -304,7 +310,7 @@ a.card p {
     position: absolute;
     height: 118px;
     border-radius: 50%;
-    top: 15px;
+    top: -9px;
     left: 5px;
     z-index: 0;
     transition: transform 0.3s ease-out;
@@ -320,7 +326,7 @@ a.card p {
 }
 .container .box{
     display: block;
-    width: 320px;
+    width: 232px;
     height: 325px;
     position: relative;
     /* 溢出隐藏 */

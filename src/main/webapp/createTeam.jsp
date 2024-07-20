@@ -2,7 +2,8 @@
 <%@ include file="header.jsp"%>
 <link rel="stylesheet" href="css/detail.css">
 <link rel="stylesheet" href="css/team.css">
-<div class="container">
+<div class="w">
+    <div class="container">
     <div class="list-group">
         <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
             <p class="mb-1">热门赛事</p>
@@ -33,6 +34,6 @@
             <p class="mb-1">${msg}</p> <%-- 显示服务器返回的信息 --%>
         </div>
     </div>
+    </div>
+    <%@ include file="footer.jsp"%>
 </div>
-
-<%@ include file="footer.jsp"%>

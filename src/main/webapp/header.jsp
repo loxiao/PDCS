@@ -8,11 +8,11 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <style>
         .title {
-            font-family: Arial, sans-serif; /* 使用Arial字体 */
-            font-size: 40px; /* 主标题字号 */
-            font-weight: bold; /* 加粗 */
-            color: white;/* 白色 */
-            text-align: left; /* 靠左对齐 */
+            font-family: Arial, sans-serif;
+            font-size: 30px;
+            font-weight: bold;
+            color: white;
+            margin: 0;
         }
         .message{
             width: 7px;
@@ -27,11 +27,11 @@
 </head>
 <body>
 <header>
-    <div class="logo">
-        <img src="img/logo.jpg" width="100" height="100" class="mb-2">
+    <div class="flex" style="align-items: center;padding: 11px;">
+        <img src="img/logo.jpg" width="60" height="60" class="logo">
+        <p class="title">大 学 生 海 报 设 计 竞 赛 系 统</p>
     </div>
-    <h1 class="title">大 学 生 海 报 设 计 竞 赛 系 统</h1>
-    <ul class="nav-list flex">
+    <ul class="nav-list flex" style="margin: 0">
         <li><a href="${ctx}/IndexServlet">首页</a></li>
         <c:choose>
             <c:when test="${!empty participant}">
@@ -63,5 +63,12 @@
         <li><a href="WorksServlet?id=0">学生作品 </a></li>
     </ul>
 </header>
+<canvas id="my_canvas"></canvas>
+<!-- 引入粒子插件 -->
+<script src="js/particle.min.js"></script>
+<script>
+    // 初始化粒子（画布id）
+    particle.init('my_canvas');
+</script>
 </body>
 </html>

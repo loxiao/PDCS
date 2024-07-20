@@ -101,7 +101,7 @@ public class WorksDao {
                     + "FROM works "
                     + "GROUP BY CompetitionID) AS wm "
                     + "ON w.CompetitionID = wm.CompetitionID AND w.Score = 95 "
-                    + "ORDER BY RAND() LIMIT 4";
+                    + "ORDER BY RAND() LIMIT 5";
             worksList=template.query(sql,new BeanPropertyRowMapper<>(Works.class));
         }catch (Exception e){
             e.printStackTrace();

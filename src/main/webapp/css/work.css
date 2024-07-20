@@ -1,12 +1,9 @@
 .Works {
     display: block; /* 默认为块级元素 */
-    margin:100px auto;
     min-height: 500px;
     width: 1280px;
     height: 1100px;
 }
-
-
 .MatchBaseList {
     border: 1px solid #d1d1d1;
     border-radius: 11px;
