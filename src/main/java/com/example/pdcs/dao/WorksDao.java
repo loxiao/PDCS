@@ -96,16 +96,12 @@ public class WorksDao {
     public List<Works> getExcellentWorks(){
         List<Works> worksList=null;
         try {
-            String sql="WITH ExcellentWorks AS (\n" +
-                    "    SELECT w.* FROM works w\n" +
-                    "    JOIN (\n" +
-                    "        SELECT CompetitionID, MAX(Score) AS MaxScore\n" +
-                    "        FROM works\n" +
-                    "        GROUP BY CompetitionID\n" +
-                    "    ) wm\n" +
-                    "    ON w.CompetitionID = wm.CompetitionID AND w.Score = wm.MaxScore\n" +
-                    ")\n" +
-                    "SELECT * FROM ExcellentWorks ORDER BY RAND() LIMIT 4";
+            String sql = "SELECT w.* FROM works w "
+                    + "JOIN (SELECT CompetitionID "
+                    + "FROM works "
+                    + "GROUP BY CompetitionID) AS wm "
+                    + "ON w.CompetitionID = wm.CompetitionID AND w.Score = 95 "
+                    + "ORDER BY RAND() LIMIT 4";
             worksList=template.query(sql,new BeanPropertyRowMapper<>(Works.class));
         }catch (Exception e){
             e.printStackTrace();

@@ -49,12 +49,12 @@ class WorksDaoTest {
         }
 
     }
-//    @Test
-//    void getExcellentWorks(){
-//        List<Works> worksList=worksDao.getExcellentWorks();
-//        assertEquals(false,worksList.isEmpty());
-//        for(Works works:worksList){
-//            System.out.println(works.getWorkName());
-//        }
-//    }
+    @Test
+    void getExcellentWorks(){
+        List<Works> worksList=worksDao.getExcellentWorks();
+        assertEquals(false,worksList.isEmpty());
+        for(Works works:worksList){
+            System.out.println(works.getWorkName());
+        }
+    }
 }
