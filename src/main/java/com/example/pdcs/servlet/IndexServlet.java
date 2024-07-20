@@ -3,9 +3,11 @@ package com.example.pdcs.servlet;
 import com.example.pdcs.dao.CompetitionsDao;
 import com.example.pdcs.dao.CompetitiontypesDao;
 import com.example.pdcs.dao.Participant_msgDao;
+import com.example.pdcs.dao.WorksDao;
 import com.example.pdcs.domain.Competitions;
 import com.example.pdcs.domain.Competitiontypes;
 import com.example.pdcs.domain.Participant;
+import com.example.pdcs.domain.Works;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -68,9 +70,10 @@ public class IndexServlet extends HttpServlet {
                 request.getSession().setAttribute("messages", null);
             }
         }
-
-
-
+        /*获取优秀作品*/
+        WorksDao worksDao=new WorksDao();
+        List<Works> excellentWorks=worksDao.getExcellentWorks();
+        request.getSession().setAttribute("excellentWorks",excellentWorks);
         response.sendRedirect(request.getContextPath()+"/index.jsp");
     }
 

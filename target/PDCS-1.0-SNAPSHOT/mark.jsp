@@ -1,15 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <link rel="stylesheet" href="css/mark.css">
 <%@include file="header.jsp"%>
-<style>
-    .WorkDetails {
-        position: absolute;
-        left: 50%;
-        top: 40%;
-        transform: translate(-50%, -50%);
-    }
-</style>
-<canvas id="my_canvas"></canvas>
 <form action="${ctx}/GetMarkServlet" method="post" id="markForm">
     <div class="WorkDetails">
         <div class="head">
@@ -40,11 +31,6 @@
     </div>
 </form>
 <%@include file="footer.jsp"%>
-<script src="js/particle.min.js"></script>
-<script>
-    // 初始化粒子（画布id）
-    particle.init('my_canvas');
-</script>
 <script>
     document.getElementById('message').addEventListener('focus', function() {
         if (this.value === '在这里输入你的留言...') {

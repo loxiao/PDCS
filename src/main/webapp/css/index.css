@@ -319,9 +319,10 @@ a.card p {
     align-items: center;
 }
 .container .box{
-    position: relative;
+    display: block;
     width: 320px;
     height: 325px;
+    position: relative;
     /* 溢出隐藏 */
     overflow: hidden;
     /* 动画过渡 */

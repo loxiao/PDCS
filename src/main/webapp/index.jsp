@@ -79,50 +79,20 @@
 <%--    作品展示--%>
     <div class="nav-title">优秀作品</div>
     <div class="container" style="margin: 0px auto;min-height: 290px;">
-        <div class="box">
-            <div class="img-box">
-                <img src="postimg/a.jpg" alt="">
-            </div>
-            <div class="text-box">
-                <div>
-                    <h2>海洋生态海报</h2>
-                    <p>精美的设计，很好地传达了海洋生态的重要性。</p>
+        <c:forEach items="${excellentWorks}" var="works">
+            <a href="${ctx}/WorkDetailsServlet?workId=${works.getWorkID()}" class="box">
+                <div class="img-box">
+                    <img src="postimg/${works.getImageURL()}" alt="">
                 </div>
-            </div>
-        </div>
-        <div class="box">
-            <div class="img-box">
-                <img src="postimg/b.jpg" alt="">
-            </div>
-            <div class="text-box">
-                <div>
-                    <h2>历史传承海报</h2>
-                    <p>创意独特，历史传承的主题表现得淋漓尽致。</p>
+                <div class="text-box">
+                    <div>
+                        <h2>${works.getWorkName()}</h2>
+                        <p>${works.getComments()}</p>
+                    </div>
                 </div>
-            </div>
-        </div>
-        <div class="box">
-            <div class="img-box">
-                <img src="postimg/c.jpg" alt="">
-            </div>
-            <div class="text-box">
-                <div>
-                    <h2>科技创新海报</h2>
-                    <p>创新与科技的结合，展现了未来的趋势。</p>
-                </div>
-            </div>
-        </div>
-        <div class="box">
-            <div class="img-box">
-                <img src="postimg/d.jpg" alt="">
-            </div>
-            <div class="text-box">
-                <div>
-                    <h2>环保行动海报</h2>
-                    <p>海报设计引人深思，对环保的呼吁非常有力。</p>
-                </div>
-            </div>
-        </div>
+            </a>
+        </c:forEach>
+    </div>
     </div>
 </main>
 <script src="js/particle.min.js"></script>

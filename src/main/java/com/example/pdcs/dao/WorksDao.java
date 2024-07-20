@@ -92,4 +92,25 @@ public class WorksDao {
             return affectrow>0;
         }
     }
+    /*获取优秀作品*/
+    public List<Works> getExcellentWorks(){
+        List<Works> worksList=null;
+        try {
+            String sql="WITH ExcellentWorks AS (\n" +
+                    "    SELECT w.* FROM works w\n" +
+                    "    JOIN (\n" +
+                    "        SELECT CompetitionID, MAX(Score) AS MaxScore\n" +
+                    "        FROM works\n" +
+                    "        GROUP BY CompetitionID\n" +
+                    "    ) wm\n" +
+                    "    ON w.CompetitionID = wm.CompetitionID AND w.Score = wm.MaxScore\n" +
+                    ")\n" +
+                    "SELECT * FROM ExcellentWorks ORDER BY RAND() LIMIT 4";
+            worksList=template.query(sql,new BeanPropertyRowMapper<>(Works.class));
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            return worksList;
+        }
+    }
 }
