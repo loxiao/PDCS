@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="css/message.css">
 <div class="w">
     <div class="container">
-        <div class="card" style="box-shadow: 0 0 5px #e0ded7;">
+        <div class="card" style="box-shadow: 0 0 5px #e0ded7;width: 900px">
             <div class="card-header" style="padding: 20px;">
                 消息中心
             </div>

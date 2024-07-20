@@ -48,6 +48,7 @@
                 </tbody>
             </table>
         </div>
+        <div style="clear: both;"></div>
     </div>
     <%@include file="footer.jsp"%>
 </div>
