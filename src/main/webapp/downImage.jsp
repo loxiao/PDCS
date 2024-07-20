@@ -2,7 +2,7 @@
 <%@ include file="header.jsp"%>
 <link rel="stylesheet" href="css/detail.css">
 <link rel="stylesheet" href="css/award.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.3.3/html2canvas.min.js"></script>
+<script src="js/html2canvas.min.js"></script>
 <div class="container" >
     <div class="card" style="box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
         <div class="card-header">奖状下载</div>

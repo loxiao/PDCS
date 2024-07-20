@@ -3,11 +3,11 @@
 <html>
 <head>
   <title>数据统计</title>
-  <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.2/dist/echarts.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"></script>
+  <script src="js/echarts.min.js"></script>
+  <script src="js/jquery-3.6.0.min.js"></script>
+  <link rel="stylesheet" href="css/bootstrap-4.6.1.min.css">
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
   <style>
     /* 使图表容器居中 */
     .chart-container {
