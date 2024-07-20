@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="css/index.css">
 <%@include file="header.jsp"%>
 <%--轮播--%>
-<div class="w" style="top: 12%">
+<div class="w" style="top: 11%">
     <div class="carousel_map" >
         <div class="slide">
             <!--小圆点-->

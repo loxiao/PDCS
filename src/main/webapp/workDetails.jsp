@@ -12,16 +12,18 @@
             <a href="WorksServlet?id=0">返回</a>
         </div>
         <h5>作品介绍</h5>
-        <div class="detail">
-            <p>队伍名: <span>${teams.getTeamName()}</span></p>
-            <p>队长: <span>${captainname}</span></p>
-            <p>队员: <span>${membername}</span></p>
-            <p>竞赛类型: <span>${competitions.getCompetitionTypeName()}</span></p>
-            <p>获奖情况: <span>${awards.getAwardName()}</span></p>
-            <p>评论: <span>${work.getComments()}</span></p>
-            <img src="postimg/${work.getImageURL()}" class="img"height="300px" >
-            <button type="button" id="like-button" class="gray-heart" onclick="toggleLike(${work.getWorkID()})">❤</button>
-            <span id="like-count" name="likes">${work.getLikes()}</span>
+        <div class="flex justify-content-between">
+            <div class="detail">
+                <p>队伍名: <span>${teams.getTeamName()}</span></p>
+                <p>队长: <span>${captainname}</span></p>
+                <p>队员: <span>${membername}</span></p>
+                <p>竞赛类型: <span>${competitions.getCompetitionTypeName()}</span></p>
+                <p>获奖情况: <span>${awards.getAwardName()}</span></p>
+                <p>评论: <span>${work.getComments()}</span></p>
+                <button type="button" id="like-button" class="gray-heart" onclick="toggleLike(${work.getWorkID()})">❤</button>
+                <span id="like-count" name="likes">${work.getLikes()}</span>
+            </div>
+            <img src="postimg/${work.getImageURL()}" class="img" height="300px" >
         </div>
     </div>
     <%@include file="footer.jsp"%>

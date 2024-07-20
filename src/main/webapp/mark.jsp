@@ -8,20 +8,22 @@
                 <h2>${work.getWorkName()}</h2>
                 <a href="judges.jsp">返回</a>
             </div>
-            <div class="detail">
-                <h5>作品介绍</h5>
-                <p>队伍名: <span>${teams.getTeamName()}</span></p>
-                <p>队长: <span>${captainname}</span></p>
-                <p>队员: <span>${membername}</span></p>
-                <p>竞赛类型: <span>${competitions.getCompetitionTypeName()}</span></p>
-                <p>点赞数: <span>${work.getLikes()}</span></p>
+            <h5>作品介绍</h5>
+            <div class="flex justify-content-between pad">
+                <div class="detail">
+                    <p>队伍名: <span>${teams.getTeamName()}</span></p>
+                    <p>队长: <span>${captainname}</span></p>
+                    <p>队员: <span>${membername}</span></p>
+                    <p>竞赛类型: <span>${competitions.getCompetitionTypeName()}</span></p>
+                    <p>点赞数: <span>${work.getLikes()}</span></p>
+                </div>
                 <img src="postimg/${work.getImageURL()}" height="250px" class="img">
             </div>
-            <div class="score">
+            <div class="score pad">
                 <label class="score_label" for="score">请打分：</label>
                 <input class="score_input" type="text" id="score" name="score">
             </div>
-            <div class="comments">
+            <div class="comments pad">
                 <div class="comments_container">
                     <label class="comments_label" for="message">请评论：</label>
                     <textarea id="message" name="message">在这里输入你的留言...</textarea>

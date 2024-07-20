@@ -4,6 +4,9 @@ body {
     margin: 0;
     padding: 0;
 }
+.pad{
+    padding: 0 25px
+}
 .WorkDetails {
     max-width: 800px;
     margin: 50px auto;

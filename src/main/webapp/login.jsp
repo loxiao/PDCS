@@ -34,7 +34,7 @@
                         <div class="form_role-group">
                             <label>验证码:</label>
                             <input type="text" name="captcha" placeholder="请输入验证码" style="width: 130px;">
-                            <img src="CaptchaServlet" alt="验证码" id="captchaImage">
+                            <img src="CaptchaServlet" alt="验证码" id="captchaImage" style="margin: 0 11px;">
                             <a href="#" onclick="refreshCaptcha()">换一张</a>
                         </div>
                         <input class="form_btn" type="submit" value="登录">

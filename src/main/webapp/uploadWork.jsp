@@ -5,7 +5,7 @@
 <%@include file="header.jsp"%>
 <link rel="stylesheet" href="css/uploadWork.css">
 <div class="w" >
-    <div class="row container justify-content-around" style="margin: 0 auto;">
+    <div class="row container justify-content-around" style="margin: 0 auto;min-height: 452px;">
         <div class="WorkDetails" style="width: 320px">
             <div class="head">
                 <h2>赛事介绍</h2>
@@ -29,7 +29,7 @@
                     <input type="file" class="form-control"  id="file" name="file" class="upload-file" style="width: 200px" >
                     <input type="button" id="uploadBtn" value="图片上传" class="btn btn-primary offset-1" style="width: 100px">
                 </form>
-                <br><br>
+                <br>
                 <form action="WorkUploadServletServlet" method="post">
                     <input type="hidden"  name="competitionID" value="${competitionWork.getCompetitionID()}" >
                     <input type="hidden"  name="tid" value="${team.getTeamID()}" >
