@@ -46,25 +46,7 @@ public class CompetitionsDao {
     public List<Competitions> getoldcompetition(){
         List<Competitions>competitionsList=null;
         try {
-            String sql="SELECT \n" +
-                    "    c.CompetitionID,\n" +
-                    "    c.CompetitionName,\n" +
-                    "    c.CompetitionDate,\n" +
-                    "    c.RegistrationDeadline,\n" +
-                    "    c.CompetitionTypeID,\n" +
-                    "    c.CompetitionTypeName,\n" +
-                    "    c.CompetitionDescription,\n" +
-                    "    c.MaxParticipants,\n" +
-                    "    c.Theme,\n" +
-                    "    c.PublishDate\n" +
-                    "FROM \n" +
-                    "    competitions c\n" +
-                    "INNER JOIN \n" +
-                    "    awards a \n" +
-                    "ON \n" +
-                    "    c.CompetitionID = a.CompetitionID\n" +
-                    "WHERE \n" +
-                    "    c.CompetitionDate <= CURDATE();";
+            String sql="SELECT *FROM competitions WHERE CompetitionDate < CURDATE() ORDER BY CompetitionDate DESC;";
             competitionsList=template.query(sql,new BeanPropertyRowMapper<>(Competitions.class));
         }catch (Exception e){
             e.printStackTrace();

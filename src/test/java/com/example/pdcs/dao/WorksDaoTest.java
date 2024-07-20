@@ -25,7 +25,11 @@ class WorksDaoTest {
     }
     @Test
     void etBycompetitionidandaward(){
-        List<Works> worksList=worksDao.getBycompetitionidandaward(1);
+        List<Works> worksList=worksDao.getBycompetitionidandaward(15);
+        int f= (int) ((int) worksList.size()*0.1);
+        int s= (int) ((int) worksList.size()*0.2)+f;
+        int t= (int) ((int) worksList.size()*0.3)+s;
+        System.out.println(f+" "+s+" "+t);
         assertEquals(false,worksList.isEmpty());
         for(Works works:worksList){
             System.out.println(works.getWorkID()+" "+works.getWorkName()+" "+works.getTeamID()+" "+ works.getCompetitionID()+" "+works.getImageURL());
@@ -44,5 +48,13 @@ class WorksDaoTest {
             System.out.println(works.getWorkID()+" "+works.getWorkName()+" "+works.getTeamID()+" "+ " " + works.getLikes()+" "+works.getCompetitionID()+" "+works.getImageURL());
         }
 
+    }
+    @Test
+    void getExcellentWorks(){
+        List<Works> worksList=worksDao.getExcellentWorks();
+        assertEquals(false,worksList.isEmpty());
+        for(Works works:worksList){
+            System.out.println(works.getWorkName());
+        }
     }
 }

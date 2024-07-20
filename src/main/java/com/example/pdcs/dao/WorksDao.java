@@ -73,7 +73,7 @@ public class WorksDao {
     public List<Works> getjudgeworkbyCompetitionID(int cid){
         List<Works> worksList=null;
         try {
-            String sql="SELECT*FROM works WHERE CompetitionID=?";
+            String sql="SELECT *FROM works WHERE CompetitionID=? ORDER BY Score DESC;";
             worksList=template.query(sql,new BeanPropertyRowMapper<>(Works.class),cid);
         }catch (Exception e){
             e.printStackTrace();

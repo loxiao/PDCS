@@ -1,12 +1,7 @@
 package com.example.pdcs.servlet;
 
-import com.example.pdcs.dao.AwardsDao;
-import com.example.pdcs.dao.CompetitionsDao;
-import com.example.pdcs.dao.ParticipantDao;
-import com.example.pdcs.domain.Admin;
-import com.example.pdcs.domain.Awards;
-import com.example.pdcs.domain.Competitions;
-import com.example.pdcs.domain.Participant;
+import com.example.pdcs.dao.*;
+import com.example.pdcs.domain.*;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -23,6 +18,42 @@ public class AwardServlet extends HttpServlet {
         request.setCharacterEncoding("utf-8");
         int cid=Integer.parseInt(request.getParameter("id"));
         AwardsDao awardsDao=new AwardsDao();
+        WorksDao worksDao=new WorksDao();
+        List<Works> worksList=worksDao.getjudgeworkbyCompetitionID(cid);
+        int f= (int) ((int) worksList.size()*0.1);
+        TeamDao teamDao=new TeamDao();
+        for(int i=0;i<f;i++){
+           if(i<worksList.size()){
+               if(worksList.get((i))!=null){
+                   Teams teams=teamDao.getbyteamid(worksList.get((i)).getTeamID());
+                   if(awardsDao.getbyworkid(worksList.get(i).getWorkID())==null){
+                       awardsDao.addawards(worksList.get(i).getWorkID(),"一等奖",cid,teams.getCaptainID(),teams.getMember1ID(),teams.getMember2ID(),teams.getMember3ID());
+                   }
+               }
+           }
+        }
+        int s= (int) ((int) worksList.size()*0.2)+f;
+        for(int i=f;i<s;i++){
+           if(i<worksList.size()){
+               if(worksList.get((i))!=null){
+                   Teams teams=teamDao.getbyteamid(worksList.get((i)).getTeamID());
+                   if(awardsDao.getbyworkid(worksList.get(i).getWorkID())==null){
+                       awardsDao.addawards(worksList.get(i).getWorkID(),"二等奖",cid,teams.getCaptainID(),teams.getMember1ID(),teams.getMember2ID(),teams.getMember3ID());
+                   }
+               }
+           }
+        }
+        int t= (int) ((int) worksList.size()*0.3)+s;
+        for(int i=s;i<t;i++){
+            if(i<worksList.size()){
+                if(worksList.get((i))!=null){
+                    Teams teams=teamDao.getbyteamid(worksList.get((i)).getTeamID());
+                    if(awardsDao.getbyworkid(worksList.get(i).getWorkID())==null){
+                        awardsDao.addawards(worksList.get(i).getWorkID(),"三等奖",cid,teams.getCaptainID(),teams.getMember1ID(),teams.getMember2ID(),teams.getMember3ID());
+                    }
+                }
+            }
+        }
         List<Awards> awardsList=awardsDao.getBycompetitionid(cid);
         String first="";
         String second="";

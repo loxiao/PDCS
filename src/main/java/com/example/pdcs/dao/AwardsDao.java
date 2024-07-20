@@ -53,4 +53,15 @@ public class AwardsDao {
             return awards;
         }
     }
+    public boolean addawards(int wid,String aname,int cid,Integer pid1,Integer pid2,Integer pid3,Integer pid4){
+        int affectrow=0;
+        try {
+            String sql="INSERT INTO awards (WorkId,AwardName,CompetitionID,Winner1ID,Winner2ID,Winner3ID,Winner4ID) VALUES(?,?,?,?,?,?,?)";
+            affectrow=template.update(sql,wid,aname,cid,pid1,pid2,pid3,pid4);
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            return affectrow>0;
+        }
+    }
 }
