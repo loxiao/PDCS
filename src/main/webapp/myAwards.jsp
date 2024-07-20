@@ -17,13 +17,15 @@
                                 <th class="text-center">竞赛名称</th>
                                 <th class="text-center">团队名称</th>
                                 <th class="text-center">团队奖项</th>
+                                <th class="text-center">下载奖状</th>
                             </tr>
                             <c:forEach items="${awards}" var="award">
                                 <tr>
-                                    <td class="text-center">${award[1]}</td>
-                                    <td class="text-center">${award[0]}</td>
-                                    <td class="text-center">${award[3]}</td>
-                                    <td class="text-center">${award[2]}</td>
+                                    <td class="text-center" >${award[1]}</td>
+                                    <td class="text-center" >${award[0]}</td>
+                                    <td class="text-center" >${award[3]}</td>
+                                    <td class="text-center" >${award[2]}</td>
+                                    <td class="text-center"><a href="DownImageServlet?competitionType=${award[1]}&competitionName=${award[0]}&teamName=${award[3]}&teamAward=${award[2]}">下载奖状</a></td>
                                 </tr>
                             </c:forEach>
                             </tbody>

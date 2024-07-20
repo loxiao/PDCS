@@ -7,29 +7,15 @@
     <div class="card" style="box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
         <div class="card-header">奖状下载</div>
         <div class="card-body">
-            <h3 class="custom-font">赛事 —— ${competitions.getCompetitionName()}</h3><br>
-            <h5 class="custom-font">获奖团队:海洋卫士</h5><br>
+            <h3 class="custom-font">赛事 —— ${competitionName}</h3><br>
+            <h5 class="custom-font">获奖团队:${teamName}</h5><br>
 
             <div id="certificate">
                 <p class="custom-font">—— 荣誉证书 ——</p>
-                <c:if test="${!empty first}">
-                    <p class="custom-font">将此证书颁发给 <span>${first}</span> </p>
-                    <p class="custom-font">在参加${competitions.getCompetitionName()}中: </p>
-                    <p class="custom-font">获得一等奖 </p>
+                    <p class="custom-font">将此证书颁发给 <span>${teamName}</span> </p>
+                    <p class="custom-font">在参加${competitionName}中: </p>
+                    <p class="custom-font">获得${teamAward} </p>
                     <p class="custom-font">特发此证，以资鼓励 </p>
-                </c:if>
-                <c:if test="${!empty second}">
-                    <p class="custom-font">将此证书颁发给 <span>${second}</span> </p>
-                    <p class="custom-font">在参加${competitions.getCompetitionName()}中 </p>
-                    <p class="custom-font">获得二等奖: </p>
-                    <p class="custom-font">特发此证，以资鼓励 </p>
-                </c:if>
-                <c:if test="${!empty third}">
-                    <p class="custom-font">将此证书颁发给 <span>${third}</span> </p>
-                    <p class="custom-font">在参加${competitions.getCompetitionName()}中 </p>
-                    <p class="custom-font ">获得三等奖:</p>
-                    <p class="custom-font">特发此证，以资鼓励 </p>
-                </c:if>
                 <ul>
                     <li>大学生海报设计竞赛系统</li>
                     <li>2014/7/18</li>

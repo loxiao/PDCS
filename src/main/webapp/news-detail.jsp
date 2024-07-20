@@ -83,7 +83,6 @@
                         <li>三等奖: ${third}</li>
                     </c:if>
                 </ul>
-                <a href="downImage.jsp">下载奖状</a>
             </div>
             <div class="card-footer text-muted">
                 2 days ago
