@@ -46,7 +46,7 @@ public class MarkServlet extends HttpServlet {
         request.getSession().setAttribute("membername",membername);
         request.getSession().setAttribute("captainname",captainname);
         request.getSession().setAttribute("competitions",competitions);
-        request.getRequestDispatcher("/mark.jsp").forward(request,response);
+        response.sendRedirect(request.getContextPath()+"/mark.jsp");
     }
 
     @Override

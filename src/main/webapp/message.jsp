@@ -33,7 +33,7 @@
                                     <div class="flex justify-content-around">
                                         <p class="message-content"><span>${participant_messages.getParticipant_name()}</span>申请加入你<span>${participant_messages.getTeam_name()}</span>的团队成员<span>(队伍id${participant_messages.getTeam_id()})</span></p>
                                         <div class="justify-content-between">
-                                            <a href="${ctx}/GetinServlet?mid=${participant_messages.getMessage_id()}" class="btn btn-primary">同意</a>
+                                            <a href="${ctx}/GoinServlet?mid=${participant_messages.getMessage_id()}" class="btn btn-primary">同意</a>
                                             <a href="${ctx}/RejectServlet?mid=${participant_messages.getMessage_id()}" class="btn btn-primary">拒绝</a>
                                         </div>
                                     </div>

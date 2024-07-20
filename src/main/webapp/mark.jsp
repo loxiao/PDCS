@@ -14,7 +14,7 @@
             <p>队员: <span>${membername}</span></p>
             <p>竞赛类型: <span>${competitions.getCompetitionTypeName()}</span></p>
             <p>点赞数: <span>${work.getLikes()}</span></p>
-            <img src="postimg/a.jpg" height="250px" class="img">
+            <img src="postimg/${work.getImageURL()}" height="250px" class="img">
         </div>
         <div class="score">
             <label class="score_label" for="score">请打分：</label>

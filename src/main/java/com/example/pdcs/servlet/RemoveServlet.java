@@ -15,16 +15,16 @@ public class RemoveServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int tid=Integer.parseInt(request.getParameter("tid"));
         Participant participant=(Participant) request.getSession().getAttribute("participant");
-        int pid=participant.getParticipant_id();
+        Integer pid=participant.getParticipant_id();
         TeamDao teamDao=new TeamDao();
         Teams teams=teamDao.getbyteamid(tid);
         if(teams.getMember1ID()==pid){
             teamDao.addmember1(tid,null);
         }
-        if(teams.getMember2ID()==pid){
+        else if(teams.getMember2ID()==pid){
             teamDao.addmember2(tid,null);
         }
-        if(teams.getMember3ID()==pid){
+        else if(teams.getMember3ID()==pid){
             teamDao.addmember3(tid,null);
         }
         request.getRequestDispatcher("MyTeamServlet").forward(request,response);

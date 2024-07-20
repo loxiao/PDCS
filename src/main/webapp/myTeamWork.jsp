@@ -27,7 +27,7 @@
                             <th class="text-center">截至日期</th>
                             <th class="text-center">操作</th>
                         </tr>
-                        <c:forEach items="${competitionsList}" var="competitions" varStatus="status">
+                        <c:forEach items="${competitionsList}" var="competitions">
                             <tr>
                                 <td class="text-center">${competitions.getCompetitionName()}</td>
                                 <td class="text-center apply-date">${competitions.getRegistrationDeadline()}</td>

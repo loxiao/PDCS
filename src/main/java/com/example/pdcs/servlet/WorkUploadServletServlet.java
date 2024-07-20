@@ -19,10 +19,10 @@ doPost(request,response);
         request.setCharacterEncoding("UTF-8");
         int competitionID = Integer.parseInt(request.getParameter("competitionID"));
         int   tid = Integer.parseInt(request.getParameter("tid"));
-        String   title = request.getParameter("title");
-        String   path = request.getParameter("photo");//
+        String title = request.getParameter("title");
+        String path = request.getParameter("photo");
         WorksDao worksDao = new WorksDao();
-        worksDao.addworks(competitionID,title,tid,path);
+        worksDao.addworks(competitionID,title,tid,path,0);
         request.getSession().setAttribute("wsg","上传作品成功");
         response.sendRedirect("uploadWork.jsp");
     }
