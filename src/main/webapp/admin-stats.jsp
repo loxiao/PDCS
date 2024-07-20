@@ -39,10 +39,6 @@
       <a class="nav-link" id="participantTrendTab" data-toggle="tab" href="#participantTrend" role="tab"
          aria-controls="participantTrend" aria-selected="false">参赛人数趋势</a>
     </li>
-    <li class="nav-item">
-      <a class="nav-link" id="workSubmissionTab" data-toggle="tab" href="#workSubmission" role="tab"
-         aria-controls="workSubmission" aria-selected="false">作品提交情况</a>
-    </li>
   </ul>
   <div class="tab-content" id="statsTabsContent">
     <div class="tab-pane fade show active chart-container" id="competitionStats" role="tabpanel"
@@ -64,10 +60,6 @@
     <div class="tab-pane fade chart-container" id="participantTrend" role="tabpanel"
          aria-labelledby="participantTrendTab">
       <div id="participantTrendChart" style="width: 100%; height: 100%;"></div>
-    </div>
-    <div class="tab-pane fade chart-container" id="workSubmission" role="tabpanel"
-         aria-labelledby="workSubmissionTab">
-      <div id="workSubmissionChart" style="width: 100%; height: 100%;"></div>
     </div>
   </div>
 </div>
@@ -98,8 +90,6 @@
         loadTopCompetitionsStats();
       } else if (activeTabId === '#participantTrend') {
         loadParticipantTrendStats();
-      } else if (activeTabId === '#workSubmission') {
-        loadWorkSubmissionStats();
       }
     });
 
@@ -151,18 +141,6 @@
       dataType: 'json',
       success: function (data) {
         renderParticipantTrendChart(data);
-      }
-    });
-  }
-
-  function loadWorkSubmissionStats() {
-    $.ajax({
-      url: '${pageContext.request.contextPath}/CompetitionStatsServlet',
-      type: 'GET',
-      data: {chartType: 'workSubmission'},
-      dataType: 'json',
-      success: function (data) {
-        renderWorkSubmissionChart(data);
       }
     });
   }
@@ -270,53 +248,6 @@
         data: counts,
         type: 'line'
       }]
-    });
-  }
-
-  function renderWorkSubmissionChart(data) {
-    const chart = echarts.init(document.getElementById('workSubmissionChart'));
-    const competitions = Object.keys(data.workSubmission);
-    const submittedWorks = competitions.map(comp => data.workSubmission[comp].submittedWorks);
-    const averageSubmissions = competitions.map(comp => data.workSubmission[comp].averageSubmission);
-
-    chart.setOption({
-      title: {
-        text: '作品提交情况'
-      },
-      tooltip: {},
-      legend: {
-        data: ['已提交作品', '平均提交数量']
-      },
-      xAxis: {
-        type: 'category',
-        data: competitions
-      },
-      yAxis: [
-        {
-          type: 'value',
-          name: '数量'
-        },
-        {
-          type: 'value',
-          name: '平均数量',
-          splitLine: {
-            show: false
-          }
-        }
-      ],
-      series: [
-        {
-          name: '已提交作品',
-          type: 'bar',
-          data: submittedWorks
-        },
-        {
-          name: '平均提交数量',
-          type: 'line',
-          yAxisIndex: 1,
-          data: averageSubmissions
-        }
-      ]
     });
   }
 </script>

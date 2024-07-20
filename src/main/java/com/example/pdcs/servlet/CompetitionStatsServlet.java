@@ -41,8 +41,6 @@ public class CompetitionStatsServlet extends HttpServlet {
         } else if ("participantTrend".equals(chartType)) {
             String timeRange = request.getParameter("timeRange");
             jsonData = getParticipantTrendData(timeRange);
-        } else if ("workSubmission".equals(chartType)) {
-            jsonData = getWorkSubmissionData();
         }
 
         String jsonResponse = new Gson().toJson(jsonData);
@@ -97,24 +95,6 @@ public class CompetitionStatsServlet extends HttpServlet {
 
         Map<String, Object> jsonData = new HashMap<>();
         jsonData.put("participantTrend", trendData);
-        return jsonData;
-    }
-
-    private Map<String, Object> getWorkSubmissionData() {
-        List<Competitions> competitionsList = competitionsDao.getCompetitionList();
-        Map<String, Map<String, Integer>> submissionData = new HashMap<>();
-        for (Competitions competition : competitionsList) {
-            int workCount = worksDao.getBycompetitionidandaward(competition.getCompetitionID()).size();
-            int teamCount = teamDao.getbyCompetitionID(competition.getCompetitionID(), competition.getMaxParticipants())
-                    .size();
-            Map<String, Integer> competitionData = new HashMap<>();
-            competitionData.put("submittedWorks", workCount);
-            competitionData.put("averageSubmission", teamCount > 0 ? workCount / teamCount : 0);
-            submissionData.put(competition.getCompetitionName(), competitionData);
-        }
-
-        Map<String, Object> jsonData = new HashMap<>();
-        jsonData.put("workSubmission", submissionData);
         return jsonData;
     }
 
