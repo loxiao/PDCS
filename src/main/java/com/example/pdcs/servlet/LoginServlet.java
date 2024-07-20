@@ -20,6 +20,7 @@ public class LoginServlet extends HttpServlet {
         String email = request.getParameter("email");
         String password = request.getParameter("passwordIn");
         String role = request.getParameter("role");
+        String captcha=request.getParameter("captcha");
 
         ParticipantDao participantDao = new ParticipantDao();
         AdminDao adminDao = new AdminDao();
@@ -30,6 +31,16 @@ public class LoginServlet extends HttpServlet {
             Admin admin = adminDao.getadmin(email, password);
             Judges judges = judgesDao.getbyidandpwd(email, password);
 
+            if (captcha==null){
+                request.setAttribute("msg", "请输入验证码");
+                request.getRequestDispatcher("login.jsp").forward(request, response);
+                return;
+            }
+            else if (!captcha.equals((String) request.getSession().getAttribute("captcha1"))) {
+                request.setAttribute("msg", "验证码错误");
+                request.getRequestDispatcher("login.jsp").forward(request, response);
+                return;
+            }
             if (role == null) {
                 // 登录失败
                 request.setAttribute("msg", "登录失败，未选择身份");
