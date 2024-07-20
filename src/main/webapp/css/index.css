@@ -215,10 +215,9 @@ span {
 
 a.card {
     width: 239px;
-    height:  370px;
+    height: 340px;
     margin: auto;
-    background: #fff;
-    border-radius: 10px;
+    background: #ffffffc7;
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -227,91 +226,89 @@ a.card {
     position: relative;
     box-shadow: 0 14px 26px rgba(0, 0, 0, 0.04);
     transition: all 0.3s ease-out;
-    text-decoration: none;
 }
 
 a.card:hover {
-    transform: translateY(-5px) scale(1.005) translateZ(0);
-    box-shadow: 0 24px 36px rgba(0, 0, 0, 0.11),
-    0 24px 46px rgba(170, 207, 248, 0.5);
+transform: translateY(-5px) scale(1.005) translateZ(0);
+box-shadow: 0 24px 36px rgba(0, 0, 0, 0.11),
+0 24px 46px rgba(170, 207, 248, 0.5);
 }
 
 a.card:hover .overlay {
-    background: var(--bg-color);
-    transform: scale(4) translateZ(0);
+background: var(--bg-color);
+transform: scale(4) translateZ(0);
 }
 
 a.card:hover .circle {
-    border-color: var(--bg-color-light);
-    background: var(--bg-color);
+border-color: var(--bg-color-light);
+background: var(--bg-color);
 }
 
 a.card:hover .circle:after {
-    background: var(--bg-color-light);
+background: var(--bg-color-light);
 }
 
 a.card:hover p {
-    color: var(--text-color-hover);
+color: var(--text-color-hover);
 }
 a.card:hover p span {
-    font-size: 32px;
-    color: #fff;
+font-size: 32px;
+color: #fff;
 }
 a.card:active {
-    transform: scale(1) translateZ(0);
-    box-shadow: 0 15px 24px rgba(0, 0, 0, 0.11),
-    0 15px 24px var(--box-shadow-color);
+transform: scale(1) translateZ(0);
+box-shadow: 0 15px 24px rgba(0, 0, 0, 0.11),
+0 15px 24px var(--box-shadow-color);
 }
 
 a.card p {
-    font-size: 17px;
-    color: #4c5656;
-    margin-top: 70px;
+color: #4c5656;
+    margin-top: 50px;
+    margin-bottom: 24px;
     font-size: 25px;
     text-align: center;
-    z-index: 1000;
     transition: color 0.3s ease-out;
 }
 
 .circle {
-    width: 131px;
-    height: 131px;
-    border-radius: 50%;
-    background: #fff;
-    border: 2px solid var(--bg-color);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    z-index: 1;
-    transition: all 0.3s ease-out;
+    width: 114px;
+    height: 115px;
+border-radius: 50%;
+background: #fff;
+border: 2px solid var(--bg-color);
+display: flex;
+justify-content: center;
+align-items: center;
+position: relative;
+z-index: 1;
+transition: all 0.3s ease-out;
 }
 
 .circle:after {
-    content: "";
-    width: 118px;
-    height: 118px;
-    display: block;
-    position: absolute;
-    background: var(--bg-color);
-    border-radius: 50%;
-    top: 7px;
-    left: 7px;
-    transition: opacity 0.3s ease-out;
+content: "";
+    width: 98px;
+    height: 98px;
+display: block;
+position: absolute;
+background: var(--bg-color);
+border-radius: 50%;
+top: 7px;
+left: 7px;
+transition: opacity 0.3s ease-out;
 }
 
 .circle svg {
-    z-index: 10000;
-    transform: translateZ(0);
+z-index: 10000;
+transform: translateZ(0);
 }
 
 .overlay {
-    width: 118px;
+    width: 107px;
     position: absolute;
     height: 118px;
     border-radius: 50%;
-    top: -9px;
-    left: 5px;
+    top: -30px;
+    left: 2px;
     z-index: 0;
     transition: transform 0.3s ease-out;
 }

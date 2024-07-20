@@ -31,7 +31,7 @@
                                 <label class="form_role-label" for="admin">管理员</label>
                             </div>
                         </div>
-                        <div>
+                        <div class="form_role-group">
                             <label>验证码:</label>
                             <input type="text" name="captcha" placeholder="请输入验证码" style="width: 130px;">
                             <img src="CaptchaServlet" alt="验证码" id="captchaImage">

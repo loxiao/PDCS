@@ -3,6 +3,7 @@
     min-height: 500px;
     width: 1280px;
     height: 1100px;
+    margin: 0 auto;
 }
 .MatchBaseList {
     border: 1px solid #d1d1d1;

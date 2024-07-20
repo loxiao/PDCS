@@ -1,12 +1,12 @@
-body,
-html {
-    font-family: Ariel, sans-serif;
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    display: inline-block;
-}
+/*body,*/
+/*html {*/
+/*    font-family: Ariel, sans-serif;*/
+/*    width: 100%;*/
+/*    height: 100%;*/
+/*    margin: 0;*/
+/*    padding: 0;*/
+/*    display: inline-block;*/
+/*}*/
 
 .page {
     display: flex;
@@ -35,8 +35,8 @@ html {
 }
 
 .panel_content {
-    padding: 20px;
-    background-color: white;
+    padding:10px 20px;
+    background-color: rgba(248 ,248 ,248, 0.7);
     z-index: 10;
     position: relative;
 }
@@ -46,7 +46,7 @@ html {
     position: absolute;
     z-index: 0;
     top: 50%;
-    left: 0;
+    left: 64px;
     width: 110%;
     transform: translate(82%, -50%);
 }
@@ -62,12 +62,12 @@ html {
     }
 
     15% {
-        transform: translate(140%, -50%);
+        transform: translate(90%, -50%);
         z-index: 10;
     }
 
     75% {
-        transform: translate(-120%, -50%);
+        transform: translate(-90%, -50%);
         z-index: 10;
     }
 
@@ -89,12 +89,12 @@ html {
     }
 
     15% {
-        transform: translate(-120%, -50%);
+        transform: translate(-90%, -50%);
         z-index: 10;
     }
 
     75% {
-        transform: translate(140%, -50%);
+        transform: translate(90%, -50%);
         z-index: 10;
     }
 
@@ -122,62 +122,57 @@ html {
 }
 
 .form_input {
-    border-radius: 3px;
+    border-radius: 8px;
     background-color: #f2f2f2;
     box-shadow: 0px 2px 2px #D6D6D6;
     border: none;
-    padding: 2%;
-    margin-bottom: 15px;
+    padding: 3px 11px;
+    margin-bottom: 12px;
     width: 350px;
-    box-sizing: border-box;
-    position: relative;
 }
 
 .form_input:focus {
-    box-shadow: none;
-    outline-color: #0f95b0;
+box-shadow: none;
+outline-color: #0f95b0;
 }
 
 .form_btn {
-    margin-top: 1.2em;
-    margin-bottom: 2em;
-    display: block;
-    width: 100%;
-    background-color:#5466cc;
-    color: white;
-    border: none;
-    padding: .6em;
-    text-transform: uppercase;
-    font-weight: 500;
-    font-size: 1.1em;
-    border-radius: 3px;
-    cursor: pointer;
+margin-top: 20px;
+display: block;
+width: 100%;
+background-color: #5466cc;
+color: white;
+border: none;
+padding: 4px;
+font-size: 21px;
+border-radius: 9px;
 }
 
 .form_toggle {
-    background-color: transparent;
-    border: none;
-    padding: 0;
-    margin: 0;
-    font-size: 1.1em;
-    box-sizing: border-box;
-    border-bottom: 1px solid transparent;
-    cursor: pointer;
+background-color: transparent;
+border: none;
+padding: 0;
+margin: 0;
+font-size: 1.1em;
+box-sizing: border-box;
+border-bottom: 1px solid transparent;
+cursor: pointer;
 }
 
 .form_toggle:hover {
-    border-bottom: 1px solid #5e72e0;
+border-bottom: 1px solid #5e72e0;
 }
 
 .form_toggle:focus {
-    outline: none;
-    border-bottom: 1px solid #5e72e0;
+outline: none;
+border-bottom: 1px solid #5e72e0;
 }
 /* 为角色选择组添加样式 */
 .form_role-group {
     display: flex; /* 使用弹性布局使元素横向排列 */
     flex-wrap: nowrap; /* 防止在小屏幕下换行 */
     align-items: center; /* 垂直居中对齐 */
+    margin: 5px 0;
 }
 
 /* 为每个角色选项添加样式 */
