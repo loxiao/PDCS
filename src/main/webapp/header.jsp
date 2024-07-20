@@ -9,11 +9,10 @@
     <style>
         .title {
             font-family: Arial, sans-serif; /* 使用Arial字体 */
-            font-size: 36px; /* 主标题字号 */
+            font-size: 40px; /* 主标题字号 */
             font-weight: bold; /* 加粗 */
             color: white;/* 白色 */
             text-align: left; /* 靠左对齐 */
-            margin-bottom: 20px; /* 底部留白 */
         }
         .message{
             width: 7px;
@@ -31,7 +30,7 @@
     <div class="logo">
         <img src="img/logo.jpg" width="100" height="100" class="mb-2">
     </div>
-    <h1 class="title">大学生海报设计竞赛系统</h1>
+    <h1 class="title">大 学 生 海 报 设 计 竞 赛 系 统</h1>
     <ul class="nav-list flex">
         <li><a href="${ctx}/IndexServlet">首页</a></li>
         <c:choose>
