@@ -114,3 +114,16 @@ CREATE TABLE participant_messages (
     CONSTRAINT participant_messages_ibfk_1 FOREIGN KEY (participant_id) REFERENCES participant (participant_id),
     CONSTRAINT participant_messages_ibfk_2 FOREIGN KEY (team_id) REFERENCES teams (TeamID)
 ) ENGINE=InnoDB AUTO_INCREMENT=57 DEFAULT CHARSET=utf8;
+-- 创建评委消息表
+CREATE TABLE judge_messages (
+    MessageID int(11) NOT NULL AUTO_INCREMENT,
+    CompetitionID int(11) NOT NULL,
+    JudgeID int(11) NOT NULL,
+    IsAwarded int(11) DEFAULT '0',
+    CompetitionName varchar(255) DEFAULT NULL,
+    PRIMARY KEY (MessageID),
+    KEY CompetitionID (CompetitionID),
+    KEY JudgeID (JudgeID),
+    CONSTRAINT judge_messages_ibfk_1 FOREIGN KEY (CompetitionID) REFERENCES competitions (CompetitionID),
+    CONSTRAINT judge_messages_ibfk_2 FOREIGN KEY (JudgeID) REFERENCES judges (JudgeID)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
