@@ -50,7 +50,7 @@ CREATE TABLE `awards` (
                           `Winner4ID` int(11) DEFAULT NULL,
                           `AwardImageURL` varchar(255) DEFAULT NULL,
                           PRIMARY KEY (`AwardID`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of awards
@@ -64,6 +64,24 @@ INSERT INTO `awards` VALUES ('6', '6', '一等奖', '10', '1', '4', '5', null, '
 INSERT INTO `awards` VALUES ('7', '7', '一等奖', '13', '15', '9', '2', null, '8.png');
 INSERT INTO `awards` VALUES ('8', '8', '一等奖', '19', '19', '18', '17', null, '9.png');
 INSERT INTO `awards` VALUES ('9', '9', '一等奖', '2', '1', '2', '4', '5', '2.png');
+INSERT INTO `awards` VALUES ('12', '31', '一等奖', '15', '1', '2', '3', '4', null);
+INSERT INTO `awards` VALUES ('14', '32', '一等奖', '15', '5', '6', '7', '8', null);
+INSERT INTO `awards` VALUES ('15', '33', '二等奖', '15', '9', '10', '11', '12', null);
+INSERT INTO `awards` VALUES ('16', '34', '二等奖', '15', '13', '14', '15', '16', null);
+INSERT INTO `awards` VALUES ('17', '35', '二等奖', '15', '17', '18', '19', '20', null);
+INSERT INTO `awards` VALUES ('18', '36', '二等奖', '15', '21', '22', '23', '24', null);
+INSERT INTO `awards` VALUES ('19', '37', '三等奖', '15', '25', '26', '27', '28', null);
+INSERT INTO `awards` VALUES ('20', '38', '三等奖', '15', '29', '30', '31', '32', null);
+INSERT INTO `awards` VALUES ('21', '45', '三等奖', '15', '57', '58', '59', '60', null);
+INSERT INTO `awards` VALUES ('22', '39', '三等奖', '15', '33', '34', '35', '36', null);
+INSERT INTO `awards` VALUES ('23', '43', '三等奖', '15', '49', '50', '51', '52', null);
+INSERT INTO `awards` VALUES ('24', '44', '三等奖', '15', '53', '54', '55', '56', null);
+INSERT INTO `awards` VALUES ('25', '57', '一等奖', '3', '25', '26', '27', '28', null);
+INSERT INTO `awards` VALUES ('26', '59', '二等奖', '3', '33', '34', '35', '36', null);
+INSERT INTO `awards` VALUES ('27', '56', '二等奖', '3', '21', '22', '23', '24', null);
+INSERT INTO `awards` VALUES ('28', '51', '三等奖', '3', '1', '2', '3', '4', null);
+INSERT INTO `awards` VALUES ('29', '52', '三等奖', '3', '5', '6', '7', '8', null);
+INSERT INTO `awards` VALUES ('30', '53', '三等奖', '3', '9', '10', '11', '12', null);
 
 -- ----------------------------
 -- Table structure for competitions
@@ -83,7 +101,7 @@ CREATE TABLE `competitions` (
                                 PRIMARY KEY (`CompetitionID`),
                                 KEY `fk_competition_type` (`CompetitionTypeID`),
                                 CONSTRAINT `fk_competition_type` FOREIGN KEY (`CompetitionTypeID`) REFERENCES `competitiontypes` (`CompetitionTypeID`)
-) ENGINE=InnoDB AUTO_INCREMENT=60 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=61 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of competitions
@@ -141,6 +159,7 @@ INSERT INTO `competitions` VALUES ('56', '金融科技应用大赛', '2024-06-15
 INSERT INTO `competitions` VALUES ('57', '供应链管理挑战赛', '2024-07-10', '2024-06-30', '3', '商业类', '优化供应链管理，提升企业竞争力。', '4', '供应链优化', '2024-05-25');
 INSERT INTO `competitions` VALUES ('58', '新零售创新大赛', '2024-08-15', '2024-07-31', '3', '商业类', '探索新零售模式，重塑零售新生态。', '4', '新零售时代', '2024-06-25');
 INSERT INTO `competitions` VALUES ('59', '商业数据分析竞赛', '2024-09-10', '2024-08-31', '3', '商业类', '运用数据分析技术，挖掘商业价值。', '4', '数据洞察', '2024-07-25');
+INSERT INTO `competitions` VALUES ('60', '2024年第14届全球公益海洋环保海报竞赛', '2024-08-20', '2024-09-20', '1', '公益类', '旨在提升公众对海洋环保的认识，增强海洋保护意识，促进人与自然和谐共生，同时激发创意和艺术表达，通过海报的形式传达海洋保护的重要性。', '4', '海洋环保', '2024-07-20');
 
 -- ----------------------------
 -- Table structure for competitiontypes
@@ -170,13 +189,21 @@ CREATE TABLE `judges` (
                           `JudgesPsd` varchar(255) NOT NULL,
                           PRIMARY KEY (`JudgeID`),
                           UNIQUE KEY `JudgesNumber` (`JudgesNumber`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of judges
 -- ----------------------------
 INSERT INTO `judges` VALUES ('1', 'Jhon', '1224.com', '1234');
 INSERT INTO `judges` VALUES ('2', 'Mike', '1432.com', '9879');
+INSERT INTO `judges` VALUES ('3', 'Alice', 'alice123.com', '1234');
+INSERT INTO `judges` VALUES ('4', 'Bob', 'bob123.com', '1234');
+INSERT INTO `judges` VALUES ('5', 'Charlie', 'charlie321.com', '1234');
+INSERT INTO `judges` VALUES ('6', 'David', 'david000.com', '1234');
+INSERT INTO `judges` VALUES ('7', 'Ella', 'ella888.com', '1234');
+INSERT INTO `judges` VALUES ('8', 'Frank', 'frank567.com', '1234');
+INSERT INTO `judges` VALUES ('9', 'Grace', 'grace432.com', '1234');
+INSERT INTO `judges` VALUES ('10', 'Henry', 'henry999.com', '1234');
 
 -- ----------------------------
 -- Table structure for judge_messages
@@ -187,16 +214,34 @@ CREATE TABLE `judge_messages` (
                                   `CompetitionID` int(11) NOT NULL,
                                   `JudgeID` int(11) NOT NULL,
                                   `IsAwarded` int(11) DEFAULT '0',
+                                  `CompetitionName` varchar(255) DEFAULT NULL,
                                   PRIMARY KEY (`MessageID`),
                                   KEY `CompetitionID` (`CompetitionID`),
                                   KEY `JudgeID` (`JudgeID`),
                                   CONSTRAINT `judge_messages_ibfk_1` FOREIGN KEY (`CompetitionID`) REFERENCES `competitions` (`CompetitionID`),
                                   CONSTRAINT `judge_messages_ibfk_2` FOREIGN KEY (`JudgeID`) REFERENCES `judges` (`JudgeID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of judge_messages
 -- ----------------------------
+INSERT INTO `judge_messages` VALUES ('3', '8', '1', '0', '2024年第3届国际品牌设计海报大赛');
+INSERT INTO `judge_messages` VALUES ('4', '9', '1', '0', '2024第8届年电子商务创新海报大赛');
+INSERT INTO `judge_messages` VALUES ('5', '14', '1', '0', '2024年第13届军事模拟战略海报大赛');
+INSERT INTO `judge_messages` VALUES ('6', '18', '1', '0', '2024年第1届青年创业挑战海报赛');
+INSERT INTO `judge_messages` VALUES ('7', '23', '1', '0', '2024年第19届大学生夏季摄影海报大赛');
+INSERT INTO `judge_messages` VALUES ('8', '3', '1', '1', '2021年第30届大学生泡芙宣传竞赛');
+INSERT INTO `judge_messages` VALUES ('9', '3', '2', '0', '2021年第30届大学生泡芙宣传竞赛');
+INSERT INTO `judge_messages` VALUES ('10', '8', '2', '0', '2024年第3届国际品牌设计海报大赛');
+INSERT INTO `judge_messages` VALUES ('11', '9', '2', '0', '2024第8届年电子商务创新海报大赛');
+INSERT INTO `judge_messages` VALUES ('12', '18', '2', '0', '2024年第1届青年创业挑战海报赛');
+INSERT INTO `judge_messages` VALUES ('13', '3', '3', '1', '2021年第30届大学生泡芙宣传竞赛');
+INSERT INTO `judge_messages` VALUES ('14', '8', '3', '0', '2024年第3届国际品牌设计海报大赛');
+INSERT INTO `judge_messages` VALUES ('15', '9', '3', '0', '2024第8届年电子商务创新海报大赛');
+INSERT INTO `judge_messages` VALUES ('16', '12', '3', '0', '2024年第5届大学生夏季军歌节海报大赛');
+INSERT INTO `judge_messages` VALUES ('17', '18', '3', '0', '2024年第1届青年创业挑战海报赛');
+INSERT INTO `judge_messages` VALUES ('18', '12', '10', '0', '2024年第5届大学生夏季军歌节海报大赛');
+INSERT INTO `judge_messages` VALUES ('19', '12', '2', '0', '2024年第5届大学生夏季军歌节海报大赛');
 
 -- ----------------------------
 -- Table structure for participant
@@ -313,7 +358,7 @@ CREATE TABLE `participant_messages` (
                                         KEY `team_id` (`team_id`),
                                         CONSTRAINT `participant_messages_ibfk_1` FOREIGN KEY (`participant_id`) REFERENCES `participant` (`participant_id`),
                                         CONSTRAINT `participant_messages_ibfk_2` FOREIGN KEY (`team_id`) REFERENCES `teams` (`TeamID`)
-) ENGINE=InnoDB AUTO_INCREMENT=58 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=68 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of participant_messages
@@ -346,14 +391,14 @@ CREATE TABLE `teams` (
 -- ----------------------------
 -- Records of teams
 -- ----------------------------
-INSERT INTO `teams` VALUES ('10', '海洋卫士', '1', '2', '3', '4', '1');
+INSERT INTO `teams` VALUES ('10', '海洋卫士', '1', '2', null, '4', '1');
 INSERT INTO `teams` VALUES ('11', '历史传承者', '4', '9', '15', '16', '5');
 INSERT INTO `teams` VALUES ('12', '科技探索者', '5', '17', '18', '19', '4');
 INSERT INTO `teams` VALUES ('13', '环保使者', '2', '20', '21', '22', '6');
 INSERT INTO `teams` VALUES ('14', '关爱大使', '9', '23', '24', '25', '7');
 INSERT INTO `teams` VALUES ('15', '编程挑战者', '1', '4', '5', null, '10');
 INSERT INTO `teams` VALUES ('16', '国防创新者', '15', '9', '2', null, '13');
-INSERT INTO `teams` VALUES ('17', '艺术春天', '19', '18', '17', '1', '19');
+INSERT INTO `teams` VALUES ('17', '艺术春天', '19', '18', '17', null, '19');
 INSERT INTO `teams` VALUES ('18', '建军强国', '1', '2', '4', '5', '2');
 INSERT INTO `teams` VALUES ('19', '军歌嘹亮队', '15', '16', '17', '18', '1');
 INSERT INTO `teams` VALUES ('95', '国防精英队', '19', '20', '21', '22', '2');
@@ -375,10 +420,10 @@ INSERT INTO `teams` VALUES ('121', '军歌英雄赞颂队', '44', '45', '46', nu
 INSERT INTO `teams` VALUES ('122', '军歌时代印记队', '47', '48', '49', null, '12');
 INSERT INTO `teams` VALUES ('123', '以公益拉近距离队', '4', '35', '4', null, '46');
 INSERT INTO `teams` VALUES ('124', '夏季小创作队', '1', '35', '15', '7', '22');
-INSERT INTO `teams` VALUES ('125', '零售新时代队', '1', '35', '7', null, '58');
-INSERT INTO `teams` VALUES ('126', '营销硬道理队', '1', '35', null, '19', '17');
+INSERT INTO `teams` VALUES ('125', '零售新时代队', '1', '35', '7', '45', '58');
+INSERT INTO `teams` VALUES ('126', '营销硬道理队', '1', null, null, '45', '17');
 INSERT INTO `teams` VALUES ('127', '夏季建设队', '1', null, null, null, '11');
-INSERT INTO `teams` VALUES ('129', '马拉松jim队', '1', '15', '19', null, '21');
+INSERT INTO `teams` VALUES ('129', '马拉松jim队', '1', '15', '19', '45', '21');
 INSERT INTO `teams` VALUES ('130', '王五建筑队', '7', null, null, null, '11');
 INSERT INTO `teams` VALUES ('131', '国防新力量队', '12', '29', null, null, '35');
 INSERT INTO `teams` VALUES ('143', '泡芙甜蜜使者', '1', '2', '3', '4', '3');
@@ -391,7 +436,7 @@ INSERT INTO `teams` VALUES ('149', '泡芙欢乐颂', '25', '26', '27', '28', '3
 INSERT INTO `teams` VALUES ('150', '泡芙魔法师', '29', '30', '31', '32', '3');
 INSERT INTO `teams` VALUES ('151', '泡芙梦幻岛', '33', '34', '35', '36', '3');
 INSERT INTO `teams` VALUES ('152', '泡芙品味家', '37', '38', '39', '40', '3');
-INSERT INTO `teams` VALUES ('153', '国防出力量jim队', '1', null, null, null, '39');
+INSERT INTO `teams` VALUES ('153', '国防出力量jim队', '1', '58', null, null, '39');
 INSERT INTO `teams` VALUES ('154', '绿色先锋', '1', '2', '3', '4', '15');
 INSERT INTO `teams` VALUES ('155', '环保探索者', '5', '6', '7', '8', '15');
 INSERT INTO `teams` VALUES ('156', '城市绿意', '9', '10', '11', '12', '15');
@@ -431,48 +476,49 @@ CREATE TABLE `works` (
                          KEY `TeamID` (`TeamID`),
                          CONSTRAINT `works_ibfk_1` FOREIGN KEY (`CompetitionID`) REFERENCES `competitions` (`CompetitionID`),
                          CONSTRAINT `works_ibfk_2` FOREIGN KEY (`TeamID`) REFERENCES `teams` (`TeamID`)
-) ENGINE=InnoDB AUTO_INCREMENT=61 DEFAULT CHARSET=utf8;
-alter table works
-    add WorkDetail text null;
+) ENGINE=InnoDB AUTO_INCREMENT=66 DEFAULT CHARSET=utf8;
+
 -- ----------------------------
 -- Records of works
 -- ----------------------------
-INSERT INTO `works` VALUES ('1', '海洋生态海报', '1', '10', '0', '精美的设计，很好地传达了海洋生态的重要性。', 'a.jpg', '95');
+INSERT INTO `works` VALUES ('1', '海洋生态海报', '1', '10', '5', '精美的设计，很好地传达了海洋生态的重要性。', 'a.jpg', '95');
 INSERT INTO `works` VALUES ('2', '历史传承海报', '5', '11', '0', '创意独特，历史传承的主题表现得淋漓尽致。', 'b.jpg', '95');
 INSERT INTO `works` VALUES ('3', '科技创新海报', '4', '12', '0', '创新与科技的结合，展现了未来的趋势。', 'c.jpg', '95');
-INSERT INTO `works` VALUES ('4', '环保行动海报', '6', '13', '0', '海报设计引人深思，对环保的呼吁非常有力。', 'd.jpg', '95');
+INSERT INTO `works` VALUES ('4', '环保行动海报', '6', '13', '1', '海报设计引人深思，对环保的呼吁非常有力。', 'd.jpg', '95');
 INSERT INTO `works` VALUES ('5', '关爱成长海报', '7', '14', '0', '作品温馨感人，关爱成长的主题触动人心。', 'e.jpg', '95');
 INSERT INTO `works` VALUES ('6', '编程艺术海报', '10', '15', '0', '编程与艺术的完美结合，展现了技术的另一面。', 'f.jpg', '95');
 INSERT INTO `works` VALUES ('7', '国防教育海报', '13', '16', '0', '国防教育意义深远，设计鼓舞人心。', 'g.jpg', '95');
 INSERT INTO `works` VALUES ('8', '艺术春天海报', '19', '17', '0', '艺术与春天的结合，充满了生机与活力。', 'h.jpg', '95');
 INSERT INTO `works` VALUES ('9', '建军节庆祝海报', '2', '18', '0', '建军节庆祝海报，展现了军人的庄严与荣誉。', 'i.jpg', '95');
-INSERT INTO `works` VALUES ('31', '绿色城市天际线', '15', '154', '0', '创新的城市环保海报，强调绿色生活。', '1.jpg', '0');
-INSERT INTO `works` VALUES ('32', '环保先锋城市', '15', '155', '0', '展示城市环保先锋的海报作品。', '2.jpg', '0');
-INSERT INTO `works` VALUES ('33', '城市绿意盎然', '15', '156', '0', '提倡城市绿化的创意海报。', '3.jpg', '0');
-INSERT INTO `works` VALUES ('34', '生态共融城市', '15', '157', '0', '强调生态与城市共融的海报。', '4.jpg', '0');
-INSERT INTO `works` VALUES ('35', '城市环保行动', '15', '158', '0', '鼓励城市环保行动的海报。', '5.jpg', '0');
-INSERT INTO `works` VALUES ('36', '绿色城市梦想', '15', '159', '0', '描绘绿色城市梦想的海报。', '6.jpg', '0');
-INSERT INTO `works` VALUES ('37', '环保城市愿景', '15', '160', '0', '展望环保城市未来的海报。', '7.jpg', '0');
-INSERT INTO `works` VALUES ('38', '城市绿意生活', '15', '161', '0', '展示城市绿色生活方式的海报。', '8.jpg', '0');
-INSERT INTO `works` VALUES ('39', '环保城市蓝图', '15', '162', '0', '规划环保城市发展的海报。', '9.jpg', '0');
-INSERT INTO `works` VALUES ('40', '绿色城市家园', '15', '163', '0', '体现绿色城市家园理念的海报。', '10.jpg', '0');
-INSERT INTO `works` VALUES ('41', '城市环保创新', '15', '164', '0', '展现城市环保创新技术的海报。', '11.jpg', '0');
-INSERT INTO `works` VALUES ('42', '环保城市挑战', '15', '165', '0', '面对城市环保挑战的海报。', '12.jpg', '0');
-INSERT INTO `works` VALUES ('43', '城市绿色转型', '15', '166', '0', '展示城市向绿色转型的海报。', '13.jpg', '0');
-INSERT INTO `works` VALUES ('44', '环保城市故事', '15', '167', '0', '讲述城市环保故事的海报。', '14.jpg', '0');
-INSERT INTO `works` VALUES ('45', '城市绿意盎然', '15', '168', '0', '强调城市绿化重要性的海报。', '15.jpg', '0');
-INSERT INTO `works` VALUES ('46', '环保城市使命', '15', '169', '0', '体现城市环保使命的海报。', '16.jpg', '0');
-INSERT INTO `works` VALUES ('47', '绿色城市发展', '15', '170', '0', '展示绿色城市发展理念的海报。', '17.jpg', '0');
-INSERT INTO `works` VALUES ('48', '城市环保责任', '15', '171', '0', '强调每个人在城市环保中的责任。', '18.jpg', '0');
-INSERT INTO `works` VALUES ('49', '环保城市未来', '15', '172', '0', '展望环保城市未来愿景的海报。', '19.jpg', '0');
-INSERT INTO `works` VALUES ('50', '绿色城市生活', '15', '173', '0', '体现绿色城市生活理念的海报。', '20.jpg', '0');
-INSERT INTO `works` VALUES ('51', '泡芙之美', '15', '143', '0', '展示泡芙的美味与外观。', '1.jpg', '0');
-INSERT INTO `works` VALUES ('52', '泡芙的诱惑', '15', '144', '0', '描绘泡芙的诱人之处。', '2.jpg', '0');
-INSERT INTO `works` VALUES ('53', '泡芙的魔法', '15', '145', '0', '探索泡芙背后的魔法。', '3.jpg', '0');
-INSERT INTO `works` VALUES ('54', '泡芙的盛宴', '15', '146', '0', '邀请人们享受泡芙的盛宴。', '4.jpg', '0');
-INSERT INTO `works` VALUES ('55', '泡芙的故事', '15', '147', '0', '讲述泡芙的故事。', '5.jpg', '0');
-INSERT INTO `works` VALUES ('56', '泡芙的浪漫', '15', '148', '0', '展现泡芙的浪漫气息。', '6.jpg', '0');
-INSERT INTO `works` VALUES ('57', '泡芙的幻想', '15', '149', '0', '创造一个关于泡芙的幻想世界。', '7.jpg', '0');
-INSERT INTO `works` VALUES ('58', '泡芙的旅程', '15', '150', '0', '跟随泡芙的旅程。', '8.jpg', '0');
-INSERT INTO `works` VALUES ('59', '泡芙的梦想', '15', '151', '0', '追逐泡芙的梦想。', '9.jpg', '0');
-INSERT INTO `works` VALUES ('60', '泡芙的奇迹', '15', '152', '0', '发现泡芙的奇迹。', '10.jpg', '0');
+INSERT INTO `works` VALUES ('31', '绿色城市天际线', '15', '154', '1', '创新的城市环保海报，强调绿色生活。', '1.jpg', '295');
+INSERT INTO `works` VALUES ('32', '环保先锋城市', '15', '155', '0', '展示城市环保先锋的海报作品。', '2.jpg', '294');
+INSERT INTO `works` VALUES ('33', '城市绿意盎然', '15', '156', '0', '提倡城市绿化的创意海报。', '3.jpg', '293');
+INSERT INTO `works` VALUES ('34', '生态共融城市', '15', '157', '1', '强调生态与城市共融的海报。', '4.jpg', '293');
+INSERT INTO `works` VALUES ('35', '城市环保行动', '15', '158', '0', '鼓励城市环保行动的海报。', '5.jpg', '291');
+INSERT INTO `works` VALUES ('36', '绿色城市梦想', '15', '159', '0', '描绘绿色城市梦想的海报。', '6.jpg', '290');
+INSERT INTO `works` VALUES ('37', '环保城市愿景', '15', '160', '0', '展望环保城市未来的海报。', '7.jpg', '289');
+INSERT INTO `works` VALUES ('38', '城市绿意生活', '15', '161', '0', '展示城市绿色生活方式的海报。', '8.jpg', '274');
+INSERT INTO `works` VALUES ('39', '环保城市蓝图', '15', '162', '0', '规划环保城市发展的海报。', '9.jpg', '230');
+INSERT INTO `works` VALUES ('40', '绿色城市家园', '15', '163', '0', '体现绿色城市家园理念的海报。', '10.jpg', '220');
+INSERT INTO `works` VALUES ('41', '城市环保创新', '15', '164', '0', '展现城市环保创新技术的海报。', '11.jpg', '210');
+INSERT INTO `works` VALUES ('42', '环保城市挑战', '15', '165', '0', '面对城市环保挑战的海报。', '12.jpg', '220');
+INSERT INTO `works` VALUES ('43', '城市绿色转型', '15', '166', '0', '展示城市向绿色转型的海报。', '13.jpg', '222');
+INSERT INTO `works` VALUES ('44', '环保城市故事', '15', '167', '0', '讲述城市环保故事的海报。', '14.jpg', '221');
+INSERT INTO `works` VALUES ('45', '城市绿意盎然', '15', '168', '0', '强调城市绿化重要性的海报。', '15.jpg', '235');
+INSERT INTO `works` VALUES ('46', '环保城市使命', '15', '169', '0', '体现城市环保使命的海报。', '16.jpg', '220');
+INSERT INTO `works` VALUES ('47', '绿色城市发展', '15', '170', '0', '展示绿色城市发展理念的海报。', '17.jpg', '220');
+INSERT INTO `works` VALUES ('48', '城市环保责任', '15', '171', '0', '强调每个人在城市环保中的责任。', '18.jpg', '220');
+INSERT INTO `works` VALUES ('49', '环保城市未来', '15', '172', '0', '展望环保城市未来愿景的海报。', '19.jpg', '220');
+INSERT INTO `works` VALUES ('50', '绿色城市生活', '15', '173', '0', '体现绿色城市生活理念的海报。', '20.jpg', '220');
+INSERT INTO `works` VALUES ('51', '泡芙之美', '3', '143', '0', '不错', '1.jpg', '168');
+INSERT INTO `works` VALUES ('52', '泡芙的诱惑', '3', '144', '0', '一般', '2.jpg', '156');
+INSERT INTO `works` VALUES ('53', '泡芙的魔法', '3', '145', '0', '一般', '3.jpg', '143');
+INSERT INTO `works` VALUES ('54', '泡芙的盛宴', '3', '146', '0', '不好看', '4.jpg', '100');
+INSERT INTO `works` VALUES ('55', '泡芙的故事', '3', '147', '0', '不好看', '5.jpg', '108');
+INSERT INTO `works` VALUES ('56', '泡芙的浪漫', '3', '148', '0', '不错', '6.jpg', '179');
+INSERT INTO `works` VALUES ('57', '泡芙的幻想', '3', '149', '0', '不错', '7.jpg', '195');
+INSERT INTO `works` VALUES ('58', '泡芙的旅程', '3', '150', '0', '不好看', '8.jpg', '109');
+INSERT INTO `works` VALUES ('59', '泡芙的梦想', '3', '151', '0', '不错', '9.jpg', '187');
+INSERT INTO `works` VALUES ('60', '泡芙的奇迹', '3', '152', '0', '不好看', '10.jpg', '107');
+INSERT INTO `works` VALUES ('64', '饥饿营销', '17', '126', '0', null, '66e15da5-26b2-4895-b490-9291194d2264.png', '0');
+INSERT INTO `works` VALUES ('65', '夏日小电影海报', '22', '124', '0', null, '', '0');
